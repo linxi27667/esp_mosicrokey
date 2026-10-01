@@ -1,0 +1,45 @@
+{
+  "url": "https://github.com/linxi27667/esp_mosicrokey/releases/tag/v0.1.9",
+  "prerelease": true,
+  "tag": "v0.1.9",
+  "commit": "2605a2d665dfb99f0fd1bb7a7f529c9cfd9ee233",
+  "assets": [
+    {
+      "name": "mosicrokey-v0.1.9-app.bin",
+      "bytes": 3911936,
+      "sha256": "d5d21736728c7367eadec04d994e30f9c65d4f9babef3e61b0d5c520d885a869",
+      "remote_digest_matched": true
+    },
+    {
+      "name": "mosicrokey-v0.1.9-esp32s31.bin",
+      "bytes": 16777216,
+      "sha256": "1de462ffbce70176ebe870dd5634d019ec10889d5b6c5b47631bf07f69f9f58f",
+      "remote_digest_matched": true
+    },
+    {
+      "name": "mosicrokey-v0.1.9-support.zip",
+      "bytes": 16024544,
+      "sha256": "73d92a5852ed549f1c9f43a6ff62c61ca3abce253302f4c1ce0b5af1a237851c",
+      "remote_digest_matched": true
+    },
+    {
+      "name": "mosicrokey-v0.1.9-evidence.zip",
+      "bytes": 798506,
+      "sha256": "0ac6cee254c24b161f51a6fc404eb901fa15543b13c850b440b972f7e284e0fb",
+      "remote_digest_matched": true
+    },
+    {
+      "name": "manifest.json",
+      "bytes": 2885,
+      "sha256": "50d701bab88232e49ff5301c2c730e3d265b0de16e0e069483bc5bcf08a2a7a3",
+      "remote_digest_matched": true
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "bytes": 549,
+      "sha256": "7a0ae6a977311e72b5ad55eda0da70f9d767c371cac03fe85991d85e9b27e80f",
+      "remote_digest_matched": true
+    }
+  ],
+  "passed": true
+}
