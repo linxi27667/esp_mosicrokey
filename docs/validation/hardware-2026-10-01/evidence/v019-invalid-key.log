@@ -1,0 +1,33 @@
+I (724013) mosi_agent: request=9 busy=1
+mosi: OK
+I (724037) SystemInfo: free sram: 178375 minimal sram: 60812
+I (724082) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=496
+I (724308) esp-x509-crt-bundle: Certificate validated
+I (724729) mosi_game: fps=30.3 stack=5884
+W (725874) transport_base: Poll timeout or error, errno=No more processes, fd=55, timeout_ms=100
+W (725985) transport_base: Poll timeout or error, errno=I/O error, fd=55, timeout_ms=100
+W (726096) transport_base: Poll timeout or error, errno=I/O error, fd=55, timeout_ms=100
+W (726207) transport_base: Poll timeout or error, errno=I/O error, fd=55, timeout_ms=100
+W (726318) transport_base: Poll timeout or error, errno=I/O error, fd=55, timeout_ms=100
+W (726432) transport_base: Poll timeout or error, errno=I/O error, fd=55, timeout_ms=100
+W (726543) transport_base: Poll timeout or error, errno=I/O error, fd=55, timeout_ms=100
+W (726654) transport_base: Poll timeout or error, errno=I/O error, fd=55, timeout_ms=100
+W (726836) HTTP_CLIENT: Connection timed out before data was ready!
+W (726947) HTTP_CLIENT: Connection timed out before data was ready!
+W (727058) HTTP_CLIENT: Connection timed out before data was ready!
+W (727171) HTTP_CLIENT: Connection timed out before data was ready!
+W (727282) HTTP_CLIENT: Connection timed out before data was ready!
+W (727393) HTTP_CLIENT: Connection timed out before data was ready!
+W (727506) HTTP_CLIENT: Connection timed out before data was ready!
+W (727617) HTTP_CLIENT: Connection timed out before data was ready!
+W (727728) HTTP_CLIENT: Connection timed out before data was ready!
+W (727751) HTTP_CLIENT: This request requires authentication, but does not provide header information for that
+E (727752) HTTP_CLIENT: Error response
+E (727755) claw_core_llm: chat_messages: runtime chat failed err=0xffffffff
+I (727763) mosi_agent: request=9 busy=0
+I (727764) mosi_agent: request=9 completed status=1 backend_status=1
+I (734037) SystemInfo: free sram: 177687 minimal sram: 60812
+I (734760) mosi_game: fps=30.3 stack=5884
+I (734921) HttpClient: HTTP connection closed
+I (737921) Application: Activating... 8/10
+I

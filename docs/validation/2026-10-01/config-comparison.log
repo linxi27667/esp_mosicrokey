@@ -1,0 +1,2 @@
+PASS: sdkconfig = build-repro/sdkconfig = freshly generated default configuration
+FreeRTOS tick: 1000 Hz

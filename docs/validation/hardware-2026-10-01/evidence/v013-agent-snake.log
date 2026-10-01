@@ -1,0 +1,36 @@
+I (30866) mosi_agent: request=1 busy=1
+mosi: OK
+I (31172) esp-x509-crt-bundle: Certificate validated
+I (32425) mosi_app: heap_internal=177147 min_internal=64692 psram=16573000 min_psram=16551496 stack_app=7408 stack_game=7580
+I (33201) HttpClient: HTTP connection closed
+I (34037) SystemInfo: free sram: 183503 minimal sram: 64692
+I (36201) Application: Activating... 3/10
+I (36342) esp-x509-crt-bundle: Certificate validated
+I (37309) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=1107
+I (44037) SystemInfo: free sram: 177159 minimal sram: 64692
+I (48562) HttpClient: HTTP connection closed
+I (49628) mosi_agent: request=1 busy=1
+I (49628) mosi_agent: request=1 tool=game_preview result=0
+I (49908) esp-x509-crt-bundle: Certificate validated
+I (51562) Application: Activating... 4/10
+I (51692) esp-x509-crt-bundle: Certificate validated
+I (53681) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=2118
+I (53692) mosi_agent: request=1 busy=0
+I (53692) mosi_agent: request=1 completed status=0
+I (54037) SystemInfo: free sram: 178451 minimal sram: 64692
+I (62392) mosi_app: heap_internal=178483 min_internal=64692 psram=16627496 min_psram=16474932 stack_app=7088 stack_game=7580
+I (63919) HttpClient: HTTP connection closed
+I (64037) SystemInfo: free sram: 184815 minimal sram: 64692
+I (66920) Application: Activating... 5/10
+I (67041) esp-x509-crt-bundle: Certificate validated
+I (68026) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=1105
+I (74037) SystemInfo: free sram: 178499 minimal sram: 64692
+I (84037) SystemInfo: free sram: 178499 minimal sram: 64692
+I (92392) mosi_app: heap_internal=178499 min_internal=64692 psram=16627512 min_psram=16474932 stack_app=7088 stack_game=7580
+I (94037) SystemInfo: free sram: 178499 minimal sram: 64692
+E (98028) HttpClient: Wait for HTTP headers receive timeout
+E (98028) Ota: Failed to read HTTP status: Connection timed out (timeout)
+E (98029) Dynamic Impl: mbedtls_ssl_fetch_input error=76
+E (98034) esp-tls-mbedtls: read error :-0x004C
+E (98038) EspSsl: SSL receive failed: -76
+I (98042) HttpClient: HTTP connection closed

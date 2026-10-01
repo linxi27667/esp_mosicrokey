@@ -1,0 +1,18 @@
+I (15210) mosi_agent: request=1 busy=1
+mosi: OK
+I (15514) esp-x509-crt-bundle: Certificate validated
+W (16964) HTTP_CLIENT: Connection timed out before data was ready!
+W (17075) HTTP_CLIENT: Connection timed out before data was ready!
+W (17186) HTTP_CLIENT: Connection timed out before data was ready!
+W (17297) HTTP_CLIENT: Connection timed out before data was ready!
+W (17408) HTTP_CLIENT: Connection timed out before data was ready!
+W (17520) HTTP_CLIENT: Connection timed out before data was ready!
+W (17633) HTTP_CLIENT: Connection timed out before data was ready!
+W (17744) HTTP_CLIENT: Connection timed out before data was ready!
+I (17822) HttpClient: HTTP connection closed
+I (17833) mosi_agent: request=1 busy=0
+I (17833) mosi_agent: request=1 completed status=0 backend_status=0
+I (20823) Application: Activating... 2/10
+I (20951) esp-x509-crt-bundle: Certificate validated
+I (21928) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=1104
+I (24037) SystemInfo: free sram: 179015 minimal sram: 64328

@@ -1,0 +1,45 @@
+I (295435) mosi_agent: request=5 busy=1
+mosi: OK
+I (295702) esp-x509-crt-bundle: Certificate validated
+I (297449) mosi_agent: request=5 busy=1
+mosi: OK
+I (297828) Ota: Current version: 0.1.7
+I (297969) esp-x509-crt-bundle: Certificate validated
+I (298932) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=1102
+mode=3 wifi=1 tf=0 request=5 busy=1 games=1 heap=16602259 min=16260516
+voice=检查新版本...
+notice=
+agent=正在取消
+task=mosi_ui priority=3 state=1 stack_free_min_bytes=4200 core_affinity=0
+task=mosi_console priority=1 state=0 stack_free_min_bytes=3784 core_affinity=0
+task=IDLE1 priority=0 state=1 stack_free_min_bytes=1160 core_affinity=1
+task=IDLE0 priority=0 state=1 stack_free_min_bytes=1152 core_affinity=0
+task=mosi_game priority=3 state=2 stack_free_min_bytes=5884 core_affinity=1
+task=mosi_app priority=2 state=2 stack_free_min_bytes=4608 core_affinity=0
+task=tcpip priority=18 state=2 stack_free_min_bytes=2596 core_affinity=0
+task=mosi_agent_rx priority=1 state=2 stack_free_min_bytes=5240 core_affinity=2147483647
+task=Tmr Svc priority=1 state=2 stack_free_min_bytes=1664 core_affinity=2147483647
+task=ssl_receive priority=1 state=2 stack_free_min_bytes=3172 core_affinity=2147483647
+task=activation priority=2 state=2 stack_free_min_bytes=4232 core_affinity=1
+task=claw_core_agent priority=1 state=2 stack_free_min_bytes=10488 core_affinity=0
+task=mkeys priority=3 state=2 stack_free_min_bytes=3664 core_affinity=2147483647
+task=audio_output priority=4 state=2 stack_free_min_bytes=3504 core_affinity=2147483647
+task=opus_codec priority=2 state=2 stack_free_min_bytes=23816 core_affinity=2147483647
+task=ipc1 priority=24 state=3 stack_free_min_bytes=688 core_affinity=1
+task=sys_evt priority=20 state=2 stack_free_min_bytes=1048 core_affinity=0
+task=wifi priority=23 state=2 stack_free_min_bytes=4776 core_affinity=0
+task=main priority=20 state=2 stack_free_min_bytes=6948 core_affinity=0
+task=esp_timer priority=22 state=3 stack_free_min_bytes=3472 core_affinity=0
+task=ipc0 priority=24 state=3 stack_free_min_bytes=696 core_affinity=0
+task=audio_input priority=8 state=2 stack_free_min_bytes=5736 core_affinity=0
+firmware=0.1.7 reset_reason=1 uptime_ms=298274
+I (299972) HttpClient: HTTP connection closed
+I (299976) Ota: Current is the latest version
+I (299976) Ota: Running from factory partition, skipping
+W (299977) Application: Alert [link] 激活设备: xiaozhi.me
+505699
+I (299981) Application: Activating... 1/10
+I (300119) esp-x509-crt-bundle: Certificate validated
+I (300671) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=686
+I (302900) mosi_app: heap_internal=173259 min_internal=60536 psram=16432232 min_psram=16199980 stack_app=4608 stack_game=5884
+I (304037) SystemInfo: free sram: 173055 minimal sram: 60536

@@ -1,0 +1,36 @@
+I (101369) mosi_agent: request=1 busy=1
+mosi: OK
+I (101491) mosi_agent: request=1 busy=1
+mosi: OK
+mode=0 wifi=1 tf=0 request=1 busy=1 games=0 heap=16738911 min=16626768
+voice=激活设备
+notice=已连接 Ll
+agent=正在取消
+task=mosi_ui priority=3 state=1 stack_free_min_bytes=4200 core_affinity=0
+task=mosi_console priority=1 state=0 stack_free_min_bytes=6112 core_affinity=2147483647
+task=claw_core_agent priority=1 state=1 stack_free_min_bytes=12032 core_affinity=0
+task=IDLE1 priority=0 state=1 stack_free_min_bytes=1176 core_affinity=1
+task=IDLE0 priority=0 state=1 stack_free_min_bytes=1152 core_affinity=0
+task=mosi_game priority=3 state=2 stack_free_min_bytes=7632 core_affinity=1
+task=mosi_app priority=2 state=2 stack_free_min_bytes=7304 core_affinity=2147483647
+task=tcpip priority=18 state=2 stack_free_min_bytes=2596 core_affinity=0
+task=mosi_agent_rx priority=1 state=2 stack_free_min_bytes=5560 core_affinity=2147483647
+task=Tmr Svc priority=1 state=2 stack_free_min_bytes=1712 core_affinity=2147483647
+task=ssl_receive priority=1 state=2 stack_free_min_bytes=3172 core_affinity=2147483647
+I (101674) esp-x509-crt-bundle: Certificate validated
+task=activation priority=2 state=2 stack_free_min_bytes=4232 core_affinity=0
+task=mkeys priority=3 state=2 stack_free_min_bytes=3728 core_affinity=2147483647
+task=audio_output priority=4 state=2 stack_free_min_bytes=3536 core_affinity=2147483647
+task=opus_codec priority=2 state=2 stack_free_min_bytes=23816 core_affinity=2147483647
+task=sys_evt priority=20 state=2 stack_free_min_bytes=1048 core_affinity=0
+task=ipc0 priority=24 state=3 stack_free_min_bytes=696 core_affinity=0
+task=ipc1 priority=24 state=3 stack_free_min_bytes=688 core_affinity=1
+task=main priority=20 state=2 stack_free_min_bytes=6932 core_affinity=0
+task=wifi priority=23 state=2 stack_free_min_bytes=4744 core_affinity=0
+task=esp_timer priority=22 state=3 stack_free_min_bytes=3472 core_affinity=0
+task=audio_input priority=8 state=2 stack_free_min_bytes=5736 core_affinity=0
+firmware=0.1.8 reset_reason=1 uptime_ms=100411
+E (102050) claw_core_llm: chat_messages: runtime chat failed err=0x103
+I (102051) mosi_agent: request=1 busy=0
+I (102051) mosi_agent: request=1 completed status=1 backend_status=1
+I (104037) SystemInfo: free sram: 179095 minimal sram: 64352

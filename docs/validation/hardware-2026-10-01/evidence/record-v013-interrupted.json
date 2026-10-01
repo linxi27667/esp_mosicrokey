@@ -1,0 +1,57 @@
+{
+  "version": "0.1.3",
+  "firmware_app_sha256": "e46b68635980a4f4f7997c10d8fa1aa3c6c5124c4885a399203b064abead9b50",
+  "factory_image_sha256": "0cf9766177b8bf917d28eab0f40e33b865088b2fe98a36843cc20832f5534606",
+  "elf_sha256": "a751c40de722a626f1d560b9aa28f45b850dc81dfe0fcdf7b5009355d9978928",
+  "snake": {
+    "id": "preview-snake",
+    "revision": "p1",
+    "title": "GLM SNAKE V2",
+    "temporary": true,
+    "model": "glm-4-flash-250414",
+    "source_bytes": 2006,
+    "source_sha256": "46dbe4b0e3ccbbedbdb1cba3076aad6ec3567edcb9b06e02f52702aca330dab7",
+    "host_behavior_checks": 20,
+    "source_archive_note": "Exact device export preserves UTF-8 bytes and LF; matches previously verified AI source."
+  },
+  "tests": {
+    "host_checks": 1121,
+    "ui_states": 12,
+    "device_vm_selftest": {
+      "frames": 60,
+      "loads": 100,
+      "init_us": 8411,
+      "frame_mean_us": 2386,
+      "frame_max_us": 6293,
+      "loop_guard": "PASS",
+      "heap_guard": "PASS",
+      "restricted_libs": "PASS"
+    },
+    "two_hour_soak": "NOT PASSED: serial ClearCommError access denied after 4623.23s; board later restarted; root cause unconfirmed",
+    "partial_soak": {
+      "continuous_seconds": 4623.23,
+      "game_cycles": 100,
+      "navigation_commands": 600,
+      "background_successes": 16,
+      "background_errors": 0,
+      "fps_min": 30.3,
+      "complete": false
+    }
+  },
+  "scope": "USB, temporary preview, real network/Agent; physical TFT/TF/keys/speaker and Xiaozhi voice not certified",
+  "evidence": {
+    "v013-boot.log": "02fe9ea410db1b462236e49a2e74f9d2968d71a48a3d9e4370c63930c1a52687",
+    "flash-v013.log": "7d22d8b26f2e5139f14cd803508a7049b27d04f9816d53545a7f01eb7d3c4cec",
+    "v013-agent-snake.log": "a712654914ca808900c563ad0393218e31b2b0e55f6b31366601e7e62257f45d",
+    "v013-selftest.log": "6b7e7af29fb7eae4a68cd5cfe3c4825377e2d618d55f5f190d4e40c681846fbd",
+    "v013-device-snake-p1.lua": "46dbe4b0e3ccbbedbdb1cba3076aad6ec3567edcb9b06e02f52702aca330dab7",
+    "v013-snake-behavior.log": "3fa33c0d95847ac2272e3e9b142eeb4cf404c19ece2edef854bda40e3514c14e",
+    "v013-snake.png": "7e6d6ff92843b0cca63c2f241bbd85ed54e06f4c751cac06a93abe2455860184",
+    "host-v013.log": "92e9b2c90f4bce089c4a335eb96f86b8d81d9bf5bfa0c30f9ea1226d165fecc1",
+    "build-v013.log": "a6f0f33e5da43c17ba522511d9985314d6e2166d74d710307455cf740ede3a83",
+    "package-v013.log": "d1d598a8fed683088506acc1992a6d6dc12c656da9b32d50dde15c5d1259229d",
+    "v013-serial-recovery.log": "53ea5f63f9bdb12efda516c020b791c45f0953b91b50e946b62242fc0949a724",
+    "soak-v013-interrupted-summary.json": "3376db8621c0c9e0c9b4ac69c63b18236bc3f24aeb36e3a53f7cba4645762d84",
+    "soak-v013-interrupted-analysis.json": "633ba0596225bc82d7ed6265b9e0d34ee8a7bd9dbbbf147ae078dbd1d04b9d0e"
+  }
+}

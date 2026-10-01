@@ -1,0 +1,2 @@
+# Preserve original bytes for pinned sources, patch verification and evidence hashes.
+* -text

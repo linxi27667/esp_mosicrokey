@@ -1,0 +1,20 @@
+I (714037) SystemInfo: free sram: 178827 minimal sram: 61340
+I (714060) claw_core_agent_0: LLM config updated backend=openai_compatible base_url=https://open.bigmodel.cn/api/paas/v4 model=glm-4-flash-250414 token=configured
+mosi: OK
+I (714301) mosi_agent: request=4 busy=1
+mosi: OK
+I (714587) esp-x509-crt-bundle: Certificate validated
+I (714662) mosi_game: fps=27.9 stack=5888
+W (716691) HTTP_CLIENT: This request requires authentication, but does not provide header information for that
+E (716691) HTTP_CLIENT: Error response
+E (716697) claw_core_llm: chat_messages: runtime chat failed err=0xffffffff
+I (716706) mosi_agent: request=4 busy=0
+I (716706) mosi_agent: request=4 completed status=1 backend_status=1
+I (720786) HttpClient: HTTP connection closed
+I (723559) mosi_app: heap_internal=185139 min_internal=61340 psram=16494472 min_psram=16249272 stack_app=4612 stack_game=5888
+I (723787) Application: Activating... 10/10
+I (724037) SystemInfo: free sram: 182575 minimal sram: 61340
+I (724696) esp-x509-crt-bundle: Certificate validated
+I (725918) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=2130
+I (734037) SystemInfo: free sram: 178559 minimal sram: 61340
+I (737171) HttpClient: HTTP connection closed

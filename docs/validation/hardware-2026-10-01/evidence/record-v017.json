@@ -1,0 +1,59 @@
+{
+  "version": "0.1.7",
+  "firmware_app_sha256": "679791ff8514c2387e2d80060f14272403b644b66d0bd69d0324440bf008fc36",
+  "factory_image_sha256": "c18d178ea08bd1bcbecf3213f41bb0a31b046d42b37202df24b701b7bfd37710",
+  "elf_sha256": "fa1eb19324ede725fc9cb2eaa5b2d199e7cd823013812be65674e8262537b0e5",
+  "scope": "USB RAM preview and real AI tools/API; incomplete cancellation and no two-hour run",
+  "snake": {
+    "revision": "p2",
+    "source_bytes": 2832,
+    "source_sha256": "54df1351ba60b757d340e16787566acfe7433aea7b4c83c687c612860b00b8d7",
+    "checks": 32,
+    "native_v2_request": 1,
+    "native_v3_request": 2,
+    "version_isolation": "PASS actual V2 cyan and V3 green frames"
+  },
+  "tests": {
+    "host_checks": 1130,
+    "ui_states": 13,
+    "unpublished_claim_request": 3,
+    "unpublished_claim_product_status": 1,
+    "unpublished_claim_backend_status": 0,
+    "invalid_key_request": 4,
+    "invalid_key_error": "HTTP 401",
+    "cancel_request": 5,
+    "cancel_observed_ms": 13772,
+    "recovery": "NOT PASSED: submitted while cancelled request still busy, later cancellation completed; iterate v0.1.8",
+    "two_hour_soak": "NOT RUN; cancellation boundary fix required",
+    "device_vm_selftest": {
+      "frames": 60,
+      "loads": 100,
+      "init_us": 13771,
+      "frame_mean_us": 2667,
+      "frame_max_us": 6149,
+      "guards": "PASS"
+    }
+  },
+  "evidence": {
+    "host-v017-final.log": "4f0167c4194c49335a30acde25faaf14b6929be122c01235bb7d25af02a0b921",
+    "build-v017-final.log": "88ac9a5050bb0f78693da4004b80a70779fc603e13bfe10ce53c75840d84ff7d",
+    "flash-v017-final.log": "c7c057247886d0389d5610226ee8e7df0b23da5e560c8c26a3c7ec4ad17c12ea",
+    "package-v017.log": "7074507a5e55cd20672c87f46419ca13eb2176d67b545abb6f6ee94315e24fc5",
+    "v017-publish-v2.log": "0fded0f63bb642f6c9ab9701df330f8571098b4efdc03bba33e2ae2ca1148ce2",
+    "v017-publish-v3.log": "f52ad1433496854d437c6323583d9a2ce2d5111982cfdff37171c712995a0cc1",
+    "v017-device-export.log": "8fa97990787782361bc540a4f6ae1da7b5dd9bfee9af23c959150f9ace8612c1",
+    "v017-device-v3-p2.lua": "54df1351ba60b757d340e16787566acfe7433aea7b4c83c687c612860b00b8d7",
+    "v017-device-v3-probe.log": "d6adbb084f87a25853b89c11b03e8ec97326b5b21a359cb00da5efcd5f5239ff",
+    "v017-v2-after-v3-frame.log": "231c166a18e8d69648dfe4e45c51d1d0eed1e2bde62496b0c6457e4cbeacb3f1",
+    "v017-v3-active-frame.log": "5005a54f849155378faa91b25fb703bffb12e91a2cf1eca0d5eac79e25fe343a",
+    "v017-v2-after-v3.png": "ec522780e98c3423782864b3882658c649dc104bcd843df993fa70aca1b5119a",
+    "v017-v3-active.png": "14c0923f79fe2e25b62880ef443be6f560ac57eec99c330f582f907357513e27",
+    "v017-no-publication.log": "3416e04ce681132acc485579bbfe432e782fc030babd856619bc8f53d4d09dd0",
+    "v017-selftest.log": "076b950d1015476978215267bf7745ad390d2777b3d4b7a298d04f385e47e65d",
+    "v017-invalid-key.log": "bb1c75d1617b4422d98bc87ad08e256461c93dae379076d90943efedfc96a925",
+    "v017-invalid-key-status.log": "77854ec80e4b90c1ef7d47b7626785b8611b2f741ca73420fca5491e43578103",
+    "v017-cancel.log": "d4e3a6ca08be199b7a1b970b12a904f0a95d3a06298bb44e7fcaf312c505fd08",
+    "v017-recovery.log": "be23fd4f5fcdabe47e709373c7580e2db81b2f948b056e1638f8ab831a451be0",
+    "v017-pre-soak-status.log": "ea87cd52c104d900fe8698b4093c5c32130432a9fdc24fd1b2799b4f76a012db"
+  }
+}

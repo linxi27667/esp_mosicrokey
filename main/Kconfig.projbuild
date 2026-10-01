@@ -1,0 +1,31 @@
+rsource "../third_party/xiaozhi/main/Kconfig.projbuild"
+
+menu "MosiCrokey hardware"
+config MOSI_LCD_CLK
+    int "TFT SCLK GPIO"
+    default 43
+config MOSI_LCD_MOSI
+    int "TFT MOSI GPIO"
+    default 44
+config MOSI_LCD_CS
+    int "TFT CS GPIO"
+    default 45
+config MOSI_LCD_DC
+    int "TFT DC GPIO"
+    default 46
+config MOSI_LCD_RST
+    int "TFT RESET GPIO"
+    default 47
+config MOSI_LCD_BL
+    int "Backlight control GPIO (-1: external supply)"
+    default 48
+config MOSI_LCD_X_OFFSET
+    int "TFT horizontal offset"
+    default 0
+config MOSI_LCD_Y_OFFSET
+    int "TFT vertical offset"
+    default 0
+config MOSI_LCD_INVERT
+    bool "Invert panel colors"
+    default n
+endmenu

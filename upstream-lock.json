@@ -1,0 +1,5 @@
+{
+  "xiaozhi": {"repository": "https://github.com/78/xiaozhi-esp32", "commit": "ed5cd7ba0011dc06fefd0762790857268c41b430", "license": "MIT"},
+  "esp-claw": {"repository": "https://github.com/espressif/esp-claw", "commit": "74b18700a1d6c40de472bfc71c19e49356ca1cc0", "license": "Apache-2.0"},
+  "sdk": {"version": "v6.1", "target": "esp32s31"}
+}

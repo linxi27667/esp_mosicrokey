@@ -1,0 +1,29 @@
+-- 
+-- Using lv_conf.h from the top-level project directory
+-- Enabling the building of ThorVG internal
+-- Configuring done (0.4s)
+-- Generating done (0.1s)
+-- Build files have been written to: E:/MCU/esp32/esp_mosicrokey/build-host
+[1/2] Building CXX object CMakeFiles/ui_capture.dir/E_/MCU/esp32/esp_mosicrokey/components/mosicrokey_ui/view.cc.obj
+[2/2] Linking CXX executable ui_capture.exe
+Test project E:/MCU/esp32/esp_mosicrokey/build-host
+    Start 1: game_tests
+1/4 Test #1: game_tests .......................   Passed    0.20 sec
+    Start 2: llm_retry_tests
+2/4 Test #2: llm_retry_tests ..................   Passed    0.01 sec
+    Start 3: app_tests
+3/4 Test #3: app_tests ........................   Passed    4.22 sec
+    Start 4: ui_capture
+4/4 Test #4: ui_capture .......................   Passed    0.15 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   4.60 sec
+test_read_gap_cannot_pass (__main__.HarnessTests.test_read_gap_cannot_pass) ... ok
+test_restart_preserves_new_boot_evidence (__main__.HarnessTests.test_restart_preserves_new_boot_evidence) ... ok
+test_save_failure_still_closes_and_restores (__main__.HarnessTests.test_save_failure_still_closes_and_restores) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.010s
+
+OK

@@ -1,0 +1,13 @@
+I (245808) mosi_agent: request=3 busy=1
+mosi: OK
+I (246104) esp-x509-crt-bundle: Certificate validated
+I (249777) mosi_agent: request=3 busy=0
+I (249777) mosi_agent: request=3 completed status=1 backend_status=0
+I (251821) HttpClient: HTTP connection closed
+I (253224) mosi_game: fps=30.3 stack=5884
+I (254037) SystemInfo: free sram: 184027 minimal sram: 60536
+I (254821) Application: Activating... 8/10
+I (254958) esp-x509-crt-bundle: Certificate validated
+I (255291) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=469
+I (263256) mosi_game: fps=30.3 stack=5884
+I (264037) SystemInfo: free sram: 177619 minimal sram: 60536

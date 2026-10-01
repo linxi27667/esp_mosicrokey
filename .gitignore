@@ -1,0 +1,13 @@
+/build*/
+/managed_components/
+/sdkconfig
+/sdkconfig.old
+/logs/
+/release/*
+!/release/README.md
+/.env
+/.env.*
+/.private/
+/device-config*.json
+__pycache__/
+*.pyc

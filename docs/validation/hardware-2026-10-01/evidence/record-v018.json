@@ -1,0 +1,30 @@
+{
+  "version": "0.1.8",
+  "firmware_app_sha256": "2cdde117215e64ecdb276015601765543e95d3a009c9b49e5f0195c3f5ff8a1f",
+  "factory_image_sha256": "96394cd9bdfa09a53ba0619fabbbaa263bf1469d29dd6e085ccb81250b0366f5",
+  "elf_sha256": "6ae6795845994357bd6d25743c9c9be35464f128cf3ab82ddf12fc36e8221fd0",
+  "scope": "USB real network cancellation tests; recovery failure requires iteration",
+  "tests": {
+    "host_checks": 1166,
+    "transport_checks": 36,
+    "cancel_observed_ms": [
+      560,
+      205,
+      4
+    ],
+    "recovery_request": 4,
+    "recovery_result": "FAILED HTTP request failed: ESP_ERR_HTTP_WRITE_DATA",
+    "two_hour_soak": "NOT RUN; partial async POST fix required"
+  },
+  "evidence": {
+    "host-v018-final.log": "115cee5720620a2c5a4aba8eb6a930ea89a4f0ba33860383f31008a0f54c7781",
+    "build-v018-final.log": "f1686ff1ea204333747a1d914de5fce6f69834fc4799103f460d7332c2fb6366",
+    "flash-v018-final.log": "f3ebf7ece14f7ed31defb11958093a21cbae43b8ab30019b87be991dc7007588",
+    "package-v018.log": "34211320eded93daf269b0035930ca617399cfa81ec16bcac7fe728869118bd3",
+    "v018-cancel-early.log": "9529a9491af384c2bd67f6f582c1dc13c8e99ec307ad872f62134e970b39e1e7",
+    "v018-cancel-one-second.log": "19da8726348f4033bb30798fbec95e7f37755f5c19b2b14021fb3e0bf84e308f",
+    "v018-cancel-three-seconds.log": "f689ee90ff1f5df77f1471d5456f32983723db77cf285b64ca43907af1424dfc",
+    "v018-recovery.log": "8884aca4ce9a3599d61cda01f89b4a1ca4434884cb0e80f8d9ac2a415a0db130",
+    "v018-recovery-status.log": "adbee778f98a8621f39a8945bf3e57719ae0633d0fab15ee0a126134f3561685"
+  }
+}

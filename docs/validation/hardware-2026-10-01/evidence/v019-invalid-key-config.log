@@ -1,0 +1,4 @@
+I (722380) claw_core_agent_0: LLM config updated backend=openai_compatible base_url=https://open.bigmodel.cn/api/paas/v4 model=glm-4-flash-250414 token=configured
+mosi: OK
+I (722776) mosi_app: heap_internal=184367 min_internal=60812 psram=16416540 min_psram=16260904 stack_app=4608 stack_game=5884
+I (723585) Application: Activating... 7/10

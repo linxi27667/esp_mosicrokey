@@ -1,0 +1,51 @@
+Start testing: Oct 01 04:10 中国标准时间
+----------------------------------------------------------
+1/3 Testing: game_tests
+1/3 Test: game_tests
+Command: "E:/MCU/esp32/esp_mosicrokey/build-host/game_tests.exe" "E:/MCU/esp32/esp_mosicrokey/build-host/test-card" "E:/MCU/esp32/esp_mosicrokey/examples/snake/main.lua"
+Directory: E:/MCU/esp32/esp_mosicrokey/build-host
+"game_tests" start time: Oct 01 04:10 中国标准时间
+Output:
+----------------------------------------------------------
+PASS 614 checks: focus, validation, recovery, immutable revisions, sandbox, input replay, 100 load/exit cycles
+<end of output>
+Test time =   0.49 sec
+----------------------------------------------------------
+Test Passed.
+"game_tests" end time: Oct 01 04:11 中国标准时间
+"game_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/3 Testing: app_tests
+2/3 Test: app_tests
+Command: "E:/MCU/esp32/esp_mosicrokey/build-host/app_tests.exe"
+Directory: E:/MCU/esp32/esp_mosicrokey/build-host
+"app_tests" start time: Oct 01 04:11 中国标准时间
+Output:
+----------------------------------------------------------
+PASS 421 checks: actual App actor, 100 audio focus switches, background request, remount guard, game exit race, queue saturation
+<end of output>
+Test time =   4.51 sec
+----------------------------------------------------------
+Test Passed.
+"app_tests" end time: Oct 01 04:11 中国标准时间
+"app_tests" time elapsed: 00:00:04
+----------------------------------------------------------
+
+3/3 Testing: ui_capture
+3/3 Test: ui_capture
+Command: "E:/MCU/esp32/esp_mosicrokey/build-host/ui_capture.exe" "E:/MCU/esp32/esp_mosicrokey/build-host/screenshots" "E:/MCU/esp32/esp_mosicrokey/examples/snake/main.lua"
+Directory: E:/MCU/esp32/esp_mosicrokey/build-host
+"ui_capture" start time: Oct 01 04:11 中国标准时间
+Output:
+----------------------------------------------------------
+Captured 12 shared LVGL 9.5 UI/game states, 160x128
+<end of output>
+Test time =   0.14 sec
+----------------------------------------------------------
+Test Passed.
+"ui_capture" end time: Oct 01 04:11 中国标准时间
+"ui_capture" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 01 04:11 中国标准时间

@@ -1,0 +1,198 @@
+--- a/main/application.cc
++++ b/main/application.cc
+@@ -20,6 +20,7 @@
+ #include <limits>
+ 
+ #define TAG "Application"
++extern "C" bool mosicrokey_xiaozhi_focus_allowed();
+ 
+ Application::Application() : notify_player_(audio_service_) {
+     event_group_ = xEventGroupCreate();
+@@ -490,7 +491,7 @@
+         retry_count = 0;
+         retry_delay = 10;  // Reset retry delay
+ 
+-        if (ota_->HasNewVersion()) {
++        if (!MOSICROKEY_PRODUCT && ota_->HasNewVersion()) {
+             if (UpgradeFirmware(ota_->GetFirmwareUrl(), ota_->GetFirmwareVersion())) {
+                 return;  // This line will never be reached after reboot
+             }
+@@ -614,6 +615,7 @@
+ 
+             Schedule([this, url = std::string(audio_url->valuestring),
+                       subtitles = std::move(subtitles)]() mutable {
++                if (!mosicrokey_xiaozhi_focus_allowed()) return;
+                 StartNotification(std::move(url), std::move(subtitles));
+             });
+         } else if (strcmp(type->valuestring, "tts") == 0) {
+@@ -623,11 +625,13 @@
+             }
+             if (strcmp(state->valuestring, "start") == 0) {
+                 Schedule([this]() {
++                    if (!mosicrokey_xiaozhi_focus_allowed()) return;
+                     aborted_ = false;
+                     SetDeviceState(kDeviceStateSpeaking);
+                 });
+             } else if (strcmp(state->valuestring, "stop") == 0) {
+                 Schedule([this]() {
++                    if (!mosicrokey_xiaozhi_focus_allowed()) return;
+                     if (GetDeviceState() == kDeviceStateSpeaking) {
+                         if (listening_mode_ == kListeningModeManualStop) {
+                             SetDeviceState(kDeviceStateIdle);
+@@ -771,13 +775,14 @@
+     }
+ }
+ 
+-void Application::ToggleChatState() { xEventGroupSetBits(event_group_, MAIN_EVENT_TOGGLE_CHAT); }
+-
+-void Application::StartListening() { xEventGroupSetBits(event_group_, MAIN_EVENT_START_LISTENING); }
++void Application::ToggleChatState() { if (mosicrokey_xiaozhi_focus_allowed()) xEventGroupSetBits(event_group_, MAIN_EVENT_TOGGLE_CHAT); }
++
++void Application::StartListening() { if (mosicrokey_xiaozhi_focus_allowed()) xEventGroupSetBits(event_group_, MAIN_EVENT_START_LISTENING); }
+ 
+ void Application::StopListening() { xEventGroupSetBits(event_group_, MAIN_EVENT_STOP_LISTENING); }
+ 
+ void Application::HandleToggleChatEvent() {
++    if (!mosicrokey_xiaozhi_focus_allowed()) return;
+     auto state = GetDeviceState();
+ 
+     if (state == kDeviceStateNotifying) {
+@@ -842,6 +847,7 @@
+ }
+ 
+ void Application::HandleStartListeningEvent() {
++    if (!mosicrokey_xiaozhi_focus_allowed()) return;
+     auto state = GetDeviceState();
+ 
+     if (state == kDeviceStateNotifying) {
+@@ -932,6 +938,7 @@
+ }
+ 
+ void Application::BeginWakeWordInvoke(const std::string& wake_word) {
++    if (!mosicrokey_xiaozhi_focus_allowed()) return;
+     // Must run in the main task with the device in idle state
+     audio_service_.EncodeWakeWord();
+ 
+@@ -956,6 +963,7 @@
+ }
+ 
+ void Application::ContinueWakeWordInvoke(const std::string& wake_word) {
++    if (!mosicrokey_xiaozhi_focus_allowed()) return;
+     // Check state again in case it was changed during scheduling
+     if (GetDeviceState() != kDeviceStateConnecting) {
+         return;
+@@ -1206,6 +1214,10 @@
+ }
+ 
+ bool Application::UpgradeFirmware(const std::string& url, const std::string& version) {
++#if MOSICROKEY_PRODUCT
++    ESP_LOGW(TAG, "Upstream OTA blocked for MosiCrokey firmware");
++    return false;
++#else
+     auto& board = Board::GetInstance();
+     auto display = board.GetDisplay();
+ 
+@@ -1262,9 +1274,11 @@
+         Reboot();
+         return true;
+     }
++#endif
+ }
+ 
+ void Application::WakeWordInvoke(const std::string& wake_word) {
++    if (!mosicrokey_xiaozhi_focus_allowed()) return;
+     if (!protocol_) {
+         return;
+     }
+--- a/main/application.h
++++ b/main/application.h
+@@ -107,6 +107,9 @@
+      * Sends MAIN_EVENT_STOP_LISTENING to be handled in Run()
+      */
+     void StopListening();
++
++    // MosiCrokey integration: release a conversation on the owning event loop.
++    void PauseConversation();
+ 
+     void Reboot();
+     void WakeWordInvoke(const std::string& wake_word);
+--- a/main/assets.cc
++++ b/main/assets.cc
+@@ -66,6 +66,10 @@
+ }
+ 
+ void Assets::UseBuiltInTextFontCapability() {
++#if MOSICROKEY_PRODUCT
++    // The shared MosiCrokey UI ships its complete CJK font and does not use glyph push.
++    text_font_capability_ = {};
++#else
+ #if HAVE_LVGL
+     text_font_capability_ = {
+         .glyph_push = true,
+@@ -78,6 +82,7 @@
+     // Emote does not consume pushed glyphs; advertising charset=basic makes
+     // the server embed a bitmap for every CJK character and inflates MQTT.
+     text_font_capability_ = {};
++#endif
+ #endif
+ }
+ 
+--- a/main/audio/audio_service.cc
++++ b/main/audio/audio_service.cc
+@@ -24,6 +24,7 @@
+ #endif
+ 
+ #define TAG "AudioService"
++extern "C" bool mosicrokey_xiaozhi_focus_allowed();
+ 
+ AudioService::AudioService() { event_group_ = xEventGroupCreate(); }
+ 
+@@ -348,7 +349,7 @@
+             callbacks_.on_playback_progress(task.playback_id, task.media_position_ms);
+         }
+ 
+-        codec_->OutputData(task.pcm);
++        if (mosicrokey_xiaozhi_focus_allowed()) codec_->OutputData(task.pcm);
+ 
+         /* Update the last output time */
+         last_output_time_ = std::chrono::steady_clock::now();
+@@ -607,6 +608,7 @@
+ }
+ 
+ bool AudioService::PushPacketToDecodeQueue(std::unique_ptr<AudioStreamPacket> packet, bool wait) {
++    if (!mosicrokey_xiaozhi_focus_allowed()) return false;
+     std::unique_lock<std::mutex> lock(audio_queue_mutex_);
+     const uint32_t generation = playback_generation_;
+     if (audio_decode_queue_.size() >= MAX_DECODE_PACKETS_IN_QUEUE) {
+@@ -659,6 +661,7 @@
+ }
+ 
+ void AudioService::EnableWakeWordDetection(bool enable) {
++    enable = enable && mosicrokey_xiaozhi_focus_allowed();
+     ESP_LOGD(TAG, "%s wake word detection", enable ? "Enabling" : "Disabling");
+     if (enable) {
+         if (!InitializeAudioEngine()) {
+@@ -707,6 +710,7 @@
+ }
+ 
+ void AudioService::EnableVoiceProcessing(bool enable) {
++    enable = enable && mosicrokey_xiaozhi_focus_allowed();
+     ESP_LOGD(TAG, "%s voice processing", enable ? "Enabling" : "Disabling");
+ 
+     if (enable) {
+@@ -732,6 +736,7 @@
+ }
+ 
+ void AudioService::EnableAudioTesting(bool enable) {
++    enable = enable && mosicrokey_xiaozhi_focus_allowed();
+     ESP_LOGI(TAG, "%s audio testing", enable ? "Enabling" : "Disabling");
+     if (enable) {
+         xEventGroupSetBits(event_group_, AS_EVENT_AUDIO_TESTING_RUNNING);
+@@ -762,6 +767,7 @@
+ void AudioService::SetCallbacks(AudioServiceCallbacks& callbacks) { callbacks_ = callbacks; }
+ 
+ void AudioService::PlaySound(const std::string_view& ogg) {
++    if (!mosicrokey_xiaozhi_focus_allowed()) return;
+     if (!codec_->output_enabled()) {
+         esp_timer_stop(audio_power_timer_);
+         esp_timer_start_periodic(audio_power_timer_, AUDIO_POWER_CHECK_INTERVAL_MS * 1000);

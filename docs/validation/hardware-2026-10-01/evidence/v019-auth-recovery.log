@@ -1,0 +1,31 @@
+I (742127) mosi_agent: request=10 busy=1
+mosi: OK
+I (742469) esp-x509-crt-bundle: Certificate validated
+W (743273) HTTP_CLIENT: Connection timed out before data was ready!
+W (743384) HTTP_CLIENT: Connection timed out before data was ready!
+W (743497) HTTP_CLIENT: Connection timed out before data was ready!
+W (743608) HTTP_CLIENT: Connection timed out before data was ready!
+W (743719) HTTP_CLIENT: Connection timed out before data was ready!
+W (743831) HTTP_CLIENT: Connection timed out before data was ready!
+W (743943) HTTP_CLIENT: Connection timed out before data was ready!
+I (744037) SystemInfo: free sram: 172839 minimal sram: 60288
+W (744055) HTTP_CLIENT: Connection timed out before data was ready!
+W (744166) HTTP_CLIENT: Connection timed out before data was ready!
+W (744278) HTTP_CLIENT: Connection timed out before data was ready!
+W (744390) HTTP_CLIENT: Connection timed out before data was ready!
+W (744502) HTTP_CLIENT: Connection timed out before data was ready!
+W (744613) HTTP_CLIENT: Connection timed out before data was ready!
+W (744726) HTTP_CLIENT: Connection timed out before data was ready!
+I (744792) mosi_game: fps=30.3 stack=5884
+W (744837) HTTP_CLIENT: Connection timed out before data was ready!
+W (744948) HTTP_CLIENT: Connection timed out before data was ready!
+W (745059) HTTP_CLIENT: Connection timed out before data was ready!
+I (745170) mosi_agent: request=10 busy=0
+I (745170) mosi_agent: request=10 completed status=0 backend_status=0
+I (751303) HttpClient: HTTP connection closed
+I (752860) mosi_app: heap_internal=183763 min_internal=60288 psram=16441960 min_psram=16260904 stack_app=4608 stack_game=5884
+I (754037) SystemInfo: free sram: 183763 minimal sram: 60288
+I (754303) Application: Activating... 9/10
+I (754441) esp-x509-crt-bundle: Certificate validated
+I (754825) mosi_game: fps=30.3 stack=5884
+I (755412) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=1108

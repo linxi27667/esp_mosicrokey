@@ -1,0 +1,11 @@
+mosi: Agent busy
+I (311210) HttpClient: HTTP connection closed
+E (311216) claw_core_llm: chat_messages: runtime chat failed err=0x103
+I (311221) mosi_agent: request=5 busy=0
+I (311221) mosi_agent: request=5 completed status=1 backend_status=1
+I (314037) SystemInfo: free sram: 183747 minimal sram: 60536
+I (314211) Application: Activating... 2/10
+I (314358) esp-x509-crt-bundle: Certificate validated
+I (315329) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=1117
+I (324037) SystemInfo: free sram: 177619 minimal sram: 60536
+I (325546) HttpClient: HTTP connection closed

@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-01",
+  "timezone": "Asia/Shanghai",
+  "version": "0.1.0",
+  "sdk": "6.1.0",
+  "target": "esp32s31",
+  "factory_image": "mosicrokey-v0.1.0-esp32s31.bin",
+  "factory_sha256": "446c3c8e58ad7237cf64c1121ccb1991bc134a6ffe7f8a04a2a5d301f35c0997",
+  "bytes": 16777216,
+  "app_bytes": 3898144,
+  "host": {
+    "game_checks": 614,
+    "app_checks": 421,
+    "suites_passed": 3,
+    "ui_states": 12
+  },
+  "source_files_verified": 2960,
+  "project_files_fingerprinted": 68,
+  "default_config_matches": true,
+  "serial_ports": [],
+  "hardware": "pending",
+  "real_ai": "pending",
+  "stability_2h": "pending"
+}

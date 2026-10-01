@@ -1,0 +1,63 @@
+mode=3 wifi=1 tf=0 request=6 busy=0 games=1 heap=16667851 min=16310364
+voice=激活设备
+notice=
+agent=恢复成功。
+task=mosi_console priority=1 state=0 stack_free_min_bytes=5456 core_affinity=1
+task=IDLE0 priority=0 state=1 stack_free_min_bytes=1152 core_affinity=0
+task=IDLE1 priority=0 state=1 stack_free_min_bytes=1160 core_affinity=1
+task=mosi_ui priority=3 state=2 stack_free_min_bytes=4180 core_affinity=0
+task=tcpip priority=18 state=2 stack_free_min_bytes=2600 core_affinity=0
+task=mosi_game priority=3 state=2 stack_free_min_bytes=5888 core_affinity=1
+task=mosi_agent_rx priority=1 state=2 stack_free_min_bytes=5244 core_affinity=2147483647
+task=mosi_app priority=2 state=2 stack_free_min_bytes=4612 core_affinity=0
+task=ssl_receive priority=1 state=2 stack_free_min_bytes=3172 core_affinity=2147483647
+task=Tmr Svc priority=1 state=2 stack_free_min_bytes=1696 core_affinity=2147483647
+task=activation priority=2 state=2 stack_free_min_bytes=4220 core_affinity=1
+task=mkeys priority=3 state=2 stack_free_min_bytes=3668 core_affinity=2147483647
+task=audio_input priority=8 state=2 stack_free_min_bytes=5740 core_affinity=0
+task=ipc0 priority=24 state=3 stack_free_min_bytes=696 core_affinity=0
+task=ipc1 priority=24 state=3 stack_free_min_bytes=688 core_affinity=1
+task=sys_evt priority=20 state=2 stack_free_min_bytes=1052 core_affinity=0
+task=claw_core_agent priority=1 state=2 stack_free_min_bytes=10488 core_affinity=0
+task=main priority=20 state=2 stack_free_min_bytes=6980 core_affinity=0
+task=wifi priority=23 state=2 stack_free_min_bytes=4764 core_affinity=0
+task=esp_timer priority=22 state=3 stack_free_min_bytes=3472 core_affinity=0
+task=audio_output priority=4 state=2 stack_free_min_bytes=3508 core_affinity=2147483647
+task=opus_codec priority=2 state=2 stack_free_min_bytes=23820 core_affinity=2147483647
+firmware=0.1.5 reset_reason=1 uptime_ms=850471
+mosi: OK
+game_selftest: frames=60 loads=100 init_us=6320 frame_mean_us=1880 frame_max_us=2512 loop_guard=PASS heap_guard=PASS restricted_libs=PASS storage=NOT_TESTED display=NOT_TESTED
+mosi: OK
+I (853775) mosi_audio: focus=0 state=9 wake=0 processing=0 playback_idle=1 input_enabled=0 output_enabled=0 input_frames=0 output_frames=0 input_peak=0
+I (854037) SystemInfo: free sram: 178627 minimal sram: 61092
+mode=3 wifi=1 tf=0 request=6 busy=0 games=1 heap=16667847 min=16254464
+voice=激活设备
+notice=
+agent=恢复成功。
+task=mosi_console priority=1 state=0 stack_free_min_bytes=3776 core_affinity=1
+task=IDLE0 priority=0 state=1 stack_free_min_bytes=1152 core_affinity=0
+task=IDLE1 priority=0 state=1 stack_free_min_bytes=1160 core_affinity=1
+task=mosi_ui priority=3 state=2 stack_free_min_bytes=4180 core_affinity=0
+task=mkeys priority=3 state=2 stack_free_min_bytes=3668 core_affinity=2147483647
+task=mosi_app priority=2 state=2 stack_free_min_bytes=4612 core_affinity=0
+task=tcpip priority=18 state=2 stack_free_min_bytes=2600 core_affinity=0
+task=ssl_receive priority=1 state=2 stack_free_min_bytes=3172 core_affinity=2147483647
+task=mosi_agent_rx priority=1 state=2 stack_free_min_bytes=5244 core_affinity=2147483647
+task=Tmr Svc priority=1 state=2 stack_free_min_bytes=1696 core_affinity=2147483647
+task=activation priority=2 state=2 stack_free_min_bytes=4220 core_affinity=1
+task=mosi_game priority=3 state=2 stack_free_min_bytes=5888 core_affinity=1
+task=ipc0 priority=24 state=3 stack_free_min_bytes=696 core_affinity=0
+task=ipc1 priority=24 state=3 stack_free_min_bytes=688 core_affinity=1
+task=sys_evt priority=20 state=2 stack_free_min_bytes=1052 core_affinity=0
+task=claw_core_agent priority=1 state=2 stack_free_min_bytes=10488 core_affinity=0
+task=audio_output priority=4 state=2 stack_free_min_bytes=3508 core_affinity=2147483647
+task=main priority=20 state=2 stack_free_min_bytes=6980 core_affinity=0
+task=wifi priority=23 state=2 stack_free_min_bytes=4764 core_affinity=0
+task=esp_timer priority=22 state=3 stack_free_min_bytes=3472 core_affinity=0
+task=opus_codec priority=2 state=2 stack_free_min_bytes=23820 core_affinity=2147483647
+task=audio_input priority=8 state=2 stack_free_min_bytes=5740 core_affinity=0
+firmware=0.1.5 reset_reason=1 uptime_ms=853602
+I (855442) HttpClient: HTTP connection closed
+I (858442) Application: Activating... 9/10
+I (858574) esp-x509-crt-bundle: Certificate validated
+I (859549) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=1106

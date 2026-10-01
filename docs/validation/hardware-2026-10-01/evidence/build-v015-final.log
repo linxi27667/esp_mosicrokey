@@ -1,0 +1,110 @@
+[1/10] Performing build step for 'bootloader'
+[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D E:\MCU\esp32\esp_mosicrokey\build\bootloader && E:\MCU\esp32\.espressif\v6.1\tools\python_env\v6.1\venv\Scripts\python.exe E:/MCU/esp32/.espressif/v6.1/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x2000 E:/MCU/esp32/esp_mosicrokey/build/bootloader/bootloader.bin"
+
+Bootloader binary size 0x5a80 bytes. 0x580 bytes (6%) free.
+
+
+[2/10] No install step for 'bootloader'
+[3/10] C:\WINDOWS\system32\cmd.exe /C "cd /D E:\MCU\esp32\esp_mosicrokey\build\esp-idf\main && E:\MCU\esp32\.espressif\v6.1\tools\python_env\v6.1\venv\Scripts\python.exe E:/MCU/esp32/.espressif/v6.1/esp-idf/components/fatfs/fatfsgen.py E:/MCU/esp32/esp_mosicrokey/system --long_name_support --use_default_datetime --partition_size 0x80000 --output_file E:/MCU/esp32/esp_mosicrokey/build/system.bin --sector_size 4096"
+[4/10] Completed 'bootloader'
+[5/10] Building CXX object esp-idf/espclaw_compoment/CMakeFiles/__idf_espclaw_compoment.dir/espclaw_adapter.cc.obj
+[6/10] Linking C static library esp-idf\espclaw_compoment\libespclaw_compoment.a
+[7/10] Generating esp-idf/esp_system/ld/sections.ld
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:58: SR_WN_WN9S_HILEXIN: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:62: SR_WN_WN9S_HIESP: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:66: SR_WN_WN9S_NIHAOXIAOZHI: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:70: SR_WN_WN9S_HIJASON: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:79: SR_WN_WN9_HILEXIN: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:83: SR_WN_WN9_HIESP: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:87: SR_WN_WN9L_JA_KONNICHIHAESP_TTS3: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:91: SR_WN_WN9L_FR_BONJOURESP_TTS3: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:95: SR_WN_WN9_NIHAOMIAOBAN_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:99: SR_WN_WN9_XIAOAITONGXUE: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:103: SR_WN_WN9L_XIAOAITONGXUE: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:107: SR_WN_WN9_NIHAOXIAOZHI_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:111: SR_WN_WN9L_NIHAOXIAOZHI_TTS3: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:115: SR_WN_WN9_ALEXA: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:119: SR_WN_WN9_JARVIS_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:123: SR_WN_WN9_COMPUTER_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:127: SR_WN_WN9_HEYWILLOW_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:131: SR_WN_WN9_HIMFIVE: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:135: SR_WN_WN9_SOPHIA_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:139: SR_WN_WN9_HEYWANDA_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:143: SR_WN_WN9_HIJOLLY_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:147: SR_WN_WN9_HIFAIRY_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:151: SR_WN_WN9_HEYPRINTER_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:155: SR_WN_WN9_MYCROFT_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:159: SR_WN_WN9_HIJOY_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:163: SR_WN_WN9_HIJASON_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:167: SR_WN_WN9_ASTROLABE_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:171: SR_WN_WN9_HEYILY_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:175: SR_WN_WN9_BLUECHIP_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:179: SR_WN_WN9_HIANDY_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:183: SR_WN_WN9_HEYIVY_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:187: SR_WN_WN9L_HISTACKCHAN_TTS3: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:191: SR_WN_WN9_HEYKIRA_TTS3: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:195: SR_WN_WN9L_HEYGIGI_TTS3: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:199: SR_WN_WN9_XIAOLONGXIAOLONG_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:203: SR_WN_WN9_HIMIAOMIAO_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:207: SR_WN_WN9_MIAOMIAOTONGXUE_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:211: SR_WN_WN9_NIHAOXIAOXIN_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:215: SR_WN_WN9_XIAOMEITONGXUE_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:219: SR_WN_WN9_HILILI_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:223: SR_WN_WN9_HITELLY_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:227: SR_WN_WN9_XIAOBINXIAOBIN_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:231: SR_WN_WN9_HAIXIAOWU_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:235: SR_WN_WN9_XIAOYAXIAOYA_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:239: SR_WN_WN9_LINAIBAN_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:243: SR_WN_WN9_XIAOSUROU_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:247: SR_WN_WN9_XIAOYUTONGXUE_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:251: SR_WN_WN9_XIAOMINGTONGXUE_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:255: SR_WN_WN9_XIAOKANGTONGXUE_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:259: SR_WN_WN9_XIAOJIANXIAOJIAN_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:263: SR_WN_WN9_XIAOTEXIAOTE_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:267: SR_WN_WN9_NIHAOXIAOYI_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:271: SR_WN_WN9_NIHAOBAIYING_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:275: SR_WN_WN9_NIHAODONGDONG_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:279: SR_WN_WN9_HIWALLE_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:283: SR_WN_WN9_XIAOLUXIAOLU_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:287: SR_WN_WN9_NIHAOXIAOAN_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:291: SR_WN_WN9_NI3HAO3XIAO3MAI4_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:295: SR_WN_WN9_NI3HAO3XIAO3RUI4_TTS3: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:299: SR_WN_WN9_HAI1XIAO3OU1_TTS3: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:303: SR_WN_WN9_XIAO3JIA1XIAO3JIA1_TTS3: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:307: SR_WN_WN9_XIAO3FENG1XIAO3FENG1_TTS3: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:311: SR_WN_WN9_HAI1XIAO3XIANG4_TTS3: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:315: SR_WN_WN9L_NI3HAO3XING1BAO3_TTS3: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/.espressif/v6.1/esp-idf/components/bt/host/nimble/Kconfig.in:1428: BT_NIMBLE_MESH_PROVISIONER: 'default 0' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/.espressif/v6.1/esp-idf/components/fatfs/Kconfig:240: FATFS_PRINT_LLI: 'default 0' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+
+NOTE: E:/MCU/esp32/.espressif/v6.1/esp-idf/components/fatfs/Kconfig:245: FATFS_PRINT_FLOAT: 'default 0' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+
+Skipping linker fragment parsing, fragment files unchanged
+
+[8/10] Linking CXX executable mosicrokey.elf
+[9/10] Generating binary image from built executable
+esptool v5.4.0
+
+Creating ESP32-S31 image...
+
+Merged 3 ELF sections.
+
+Successfully created ESP32-S31 image.
+
+Generated E:/MCU/esp32/esp_mosicrokey/build/mosicrokey.bin
+[10/10] C:\WINDOWS\system32\cmd.exe /C "cd /D E:\MCU\esp32\esp_mosicrokey\build && E:\MCU\esp32\.espressif\v6.1\tools\python_env\v6.1\venv\Scripts\python.exe E:/MCU/esp32/.espressif/v6.1/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app E:/MCU/esp32/esp_mosicrokey/build/partition_table/partition-table.bin E:/MCU/esp32/esp_mosicrokey/build/mosicrokey.bin"
+mosicrokey.bin binary size 0x3bad20 bytes. Smallest app partition is 0x600000 bytes. 0x2452e0 bytes (38%) free.
+
+Executing action: all (aliases: build)
+Running ninja in directory E:\MCU\esp32\esp_mosicrokey\build
+Executing "ninja all"...
+
+
+Project build complete. To flash, run:
+ idf.py flash
+or
+ idf.py -p PORT flash
+or
+ python -m esptool --chip esp32s31 -b 460800 --before default-reset --after hard-reset --no-stub write-flash --flash-mode dio --flash-size 16MB --flash-freq 80m 0x2000 build\bootloader\bootloader.bin 0x8000 build\partition_table\partition-table.bin 0xd000 build\ota_data_initial.bin 0x20000 build\mosicrokey.bin 0x620000 build\system.bin 0x800000 build\assets.bin
+or from the "E:\MCU\esp32\esp_mosicrokey\build" directory
+ python -m esptool --chip esp32s31 -b 460800 --before default-reset --after hard-reset --no-stub write-flash "@flash_args"

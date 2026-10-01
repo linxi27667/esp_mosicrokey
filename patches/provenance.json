@@ -1,0 +1,47 @@
+{
+  "verification": "Patched source reverse-applies byte-for-byte to fixed upstream commit content fetched from original GitHub repository",
+  "files": [
+    {
+      "snapshot": "xiaozhi",
+      "commit": "ed5cd7ba0011dc06fefd0762790857268c41b430",
+      "path": "main/application.cc",
+      "pristine_sha256": "6e2de7d86a482e1c9589be1835a022b08c481b124e3cf0e1395eae758d199457",
+      "patched_sha256": "9d5b85276c6b57bac579d9f7919bdf5933494f19e4b1b2f572c687d4cfd9679d"
+    },
+    {
+      "snapshot": "xiaozhi",
+      "commit": "ed5cd7ba0011dc06fefd0762790857268c41b430",
+      "path": "main/application.h",
+      "pristine_sha256": "42b5f3a7c0eb50feb0b662cb9fc4c901d9f1c293f912115434da6d6852eeb389",
+      "patched_sha256": "92bbad42da590499d5b74c0a055bb39cbacdd2d4202db00b78d0bd4acd6b1394"
+    },
+    {
+      "snapshot": "xiaozhi",
+      "commit": "ed5cd7ba0011dc06fefd0762790857268c41b430",
+      "path": "main/assets.cc",
+      "pristine_sha256": "33544937546944f34afffcf5c8a23ea902258f1823665019d691f6e77916e6c0",
+      "patched_sha256": "2569a2276f85d0182d904f284fc3a28d7bf5e4bbfc1b6cf20f46abba742a3e59"
+    },
+    {
+      "snapshot": "xiaozhi",
+      "commit": "ed5cd7ba0011dc06fefd0762790857268c41b430",
+      "path": "main/audio/audio_service.cc",
+      "pristine_sha256": "d60232dffbcf16db4e6cdbd49fdf67c56d588f8b4acab4c2d0b93efc244f6962",
+      "patched_sha256": "65d1e8658e51654059a48f1759d263c4856453aa46309456b1601496c33054ee"
+    },
+    {
+      "snapshot": "esp-claw",
+      "commit": "74b18700a1d6c40de472bfc71c19e49356ca1cc0",
+      "path": "components/claw_modules/claw_core/src/llm/claw_llm_http_transport.c",
+      "pristine_sha256": "ba9f918e659e6eb48e3c5221e12498e863d248e4bcb789733b53a63c43ee88d7",
+      "patched_sha256": "460e8395396d56749a301ec384802344bf3f9451c53a2d6a5bc630dd8beefe69"
+    },
+    {
+      "snapshot": "esp-claw",
+      "commit": "74b18700a1d6c40de472bfc71c19e49356ca1cc0",
+      "path": "components/claw_modules/claw_core/src/llm/backends/claw_llm_backend_openai_compatible.c",
+      "pristine_sha256": "e84a6c602b4a5bbe188241c3d206d36c1eda965bd8b6eeec23fafe480c6b2a0e",
+      "patched_sha256": "9b46722e41cb2034abb60e9815451aad6803128c3283e3edcd99d8eed666a2aa"
+    }
+  ]
+}

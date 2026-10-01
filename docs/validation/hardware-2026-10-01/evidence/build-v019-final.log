@@ -1,0 +1,272 @@
+[0/1] Re-running CMake...
+-- Minimal build - OFF
+-- Building ESP-IDF components for target esp32s31
+NOTE: Using component placed at E:\MCU\esp32\esp_mosicrokey\third_party\esp-claw\components\claw_modules\claw_utils for dependency "claw_utils", specified in E:\MCU\esp32\esp_mosicrokey\third_party\esp-claw\components\claw_modules\claw_core\idf_component.yml
+NOTE: Processing 21 dependencies:
+NOTE: [1/21] 78/esp-ml307 (3.7.5)
+NOTE: [2/21] 78/esp-wifi-connect (3.3.1)
+NOTE: [3/21] 78/uart-uhci (0.4.0)
+NOTE: [4/21] 78/xiaozhi-fonts (2.0.0)
+NOTE: [5/21] claw_utils (*) (E:\MCU\esp32\esp_mosicrokey\third_party\esp-claw\components\claw_modules\claw_utils)
+NOTE: [6/21] espressif/button (4.2.1)
+NOTE: [7/21] espressif/cjson (1.7.19~2)
+NOTE: [8/21] espressif/cmake_utilities (1.1.1)
+NOTE: [9/21] espressif/dl_fft (0.8.0)
+NOTE: [10/21] espressif/esp-dsp (1.8.0)
+NOTE: [11/21] espressif/esp-sr (2.4.7)
+NOTE: [12/21] espressif/esp_audio_codec (2.5.0)
+NOTE: [13/21] espressif/esp_audio_effects (1.3.0~1)
+NOTE: [14/21] espressif/esp_codec_dev (1.6.2)
+NOTE: [15/21] espressif/esp_new_jpeg (1.0.2)
+NOTE: [16/21] espressif/gmf_fft (1.0.0)
+NOTE: [17/21] espressif/led_strip (3.0.3)
+NOTE: [18/21] espressif/mqtt (1.1.0)
+NOTE: [19/21] georgik/lua (5.5.0~7)
+NOTE: [20/21] lvgl/lvgl (9.5.0)
+NOTE: [21/21] idf (6.1.0)
+-- CONFIG_ESP32P4_SELECTS_REV_LESS_V3 is 
+-- IDF_VERSION_MAJOR is 6
+-- IDF_VERSION_MINOR is 1
+-- IDF_VERSION_PATCH is 0
+-- TARGET_LIB_PATH is set to: esp32s31
+-- KCONFIG_REPORT_VERBOSITY not set, using default
+-- Project sdkconfig file E:/MCU/esp32/esp_mosicrokey/sdkconfig
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:58: SR_WN_WN9S_HILEXIN: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:62: SR_WN_WN9S_HIESP: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:66: SR_WN_WN9S_NIHAOXIAOZHI: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:70: SR_WN_WN9S_HIJASON: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:79: SR_WN_WN9_HILEXIN: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:83: SR_WN_WN9_HIESP: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:87: SR_WN_WN9L_JA_KONNICHIHAESP_TTS3: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:91: SR_WN_WN9L_FR_BONJOURESP_TTS3: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:95: SR_WN_WN9_NIHAOMIAOBAN_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:99: SR_WN_WN9_XIAOAITONGXUE: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:103: SR_WN_WN9L_XIAOAITONGXUE: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:107: SR_WN_WN9_NIHAOXIAOZHI_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:111: SR_WN_WN9L_NIHAOXIAOZHI_TTS3: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:115: SR_WN_WN9_ALEXA: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:119: SR_WN_WN9_JARVIS_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:123: SR_WN_WN9_COMPUTER_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:127: SR_WN_WN9_HEYWILLOW_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:131: SR_WN_WN9_HIMFIVE: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:135: SR_WN_WN9_SOPHIA_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:139: SR_WN_WN9_HEYWANDA_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:143: SR_WN_WN9_HIJOLLY_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:147: SR_WN_WN9_HIFAIRY_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:151: SR_WN_WN9_HEYPRINTER_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:155: SR_WN_WN9_MYCROFT_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:159: SR_WN_WN9_HIJOY_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:163: SR_WN_WN9_HIJASON_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:167: SR_WN_WN9_ASTROLABE_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:171: SR_WN_WN9_HEYILY_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:175: SR_WN_WN9_BLUECHIP_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:179: SR_WN_WN9_HIANDY_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:183: SR_WN_WN9_HEYIVY_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:187: SR_WN_WN9L_HISTACKCHAN_TTS3: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:191: SR_WN_WN9_HEYKIRA_TTS3: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:195: SR_WN_WN9L_HEYGIGI_TTS3: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:199: SR_WN_WN9_XIAOLONGXIAOLONG_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:203: SR_WN_WN9_HIMIAOMIAO_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:207: SR_WN_WN9_MIAOMIAOTONGXUE_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:211: SR_WN_WN9_NIHAOXIAOXIN_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:215: SR_WN_WN9_XIAOMEITONGXUE_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:219: SR_WN_WN9_HILILI_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:223: SR_WN_WN9_HITELLY_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:227: SR_WN_WN9_XIAOBINXIAOBIN_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:231: SR_WN_WN9_HAIXIAOWU_TTS: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:235: SR_WN_WN9_XIAOYAXIAOYA_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:239: SR_WN_WN9_LINAIBAN_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:243: SR_WN_WN9_XIAOSUROU_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:247: SR_WN_WN9_XIAOYUTONGXUE_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:251: SR_WN_WN9_XIAOMINGTONGXUE_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:255: SR_WN_WN9_XIAOKANGTONGXUE_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:259: SR_WN_WN9_XIAOJIANXIAOJIAN_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:263: SR_WN_WN9_XIAOTEXIAOTE_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:267: SR_WN_WN9_NIHAOXIAOYI_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:271: SR_WN_WN9_NIHAOBAIYING_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:275: SR_WN_WN9_NIHAODONGDONG_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:279: SR_WN_WN9_HIWALLE_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:283: SR_WN_WN9_XIAOLUXIAOLU_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:287: SR_WN_WN9_NIHAOXIAOAN_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:291: SR_WN_WN9_NI3HAO3XIAO3MAI4_TTS2: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:295: SR_WN_WN9_NI3HAO3XIAO3RUI4_TTS3: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:299: SR_WN_WN9_HAI1XIAO3OU1_TTS3: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:303: SR_WN_WN9_XIAO3JIA1XIAO3JIA1_TTS3: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:307: SR_WN_WN9_XIAO3FENG1XIAO3FENG1_TTS3: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:311: SR_WN_WN9_HAI1XIAO3XIANG4_TTS3: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr/Kconfig.projbuild:315: SR_WN_WN9L_NI3HAO3XING1BAO3_TTS3: 'default False' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/.espressif/v6.1/esp-idf/components/bt/host/nimble/Kconfig.in:1428: BT_NIMBLE_MESH_PROVISIONER: 'default 0' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/.espressif/v6.1/esp-idf/components/fatfs/Kconfig:240: FATFS_PRINT_LLI: 'default 0' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+NOTE: E:/MCU/esp32/.espressif/v6.1/esp-idf/components/fatfs/Kconfig:245: FATFS_PRINT_FLOAT: 'default 0' is not a valid bool value (only 'y' and 'n' are allowed). Value is treated as 'n'.
+Loading defaults file E:/MCU/esp32/esp_mosicrokey/sdkconfig.defaults...
+NOTE: Kconfig parser version: 1
+NOTE: Kconfig defaults policy: use sdkconfig
+NOTE: Status: Finished with notifications
+NOTE: E:/MCU/esp32/esp_mosicrokey/main\../third_party/xiaozhi/main/Kconfig.projbuild:973: USE_DEVICE_AEC has user-set value n from F:\tools\tmp\kconfgen_tmp0citxb8n but is not visible (disabled dependency)
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Adding linker script E:/MCU/esp32/.espressif/v6.1/esp-idf/components/riscv/ld/rom.api.ld
+-- App "mosicrokey" version: 0.1.9
+-- Setting up mbedtls configuration
+-- Linkage type is PUBLIC
+-- Adding linker script E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_wdt/esp32s31/rom.wdt.ld
+-- Adding linker script E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_system/ld/esp32s31/memory.ld.in
+--   -> Preprocessing .in script: E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_system/ld/esp32s31/memory.ld.in
+-- Adding linker script E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_system/ld/esp32s31/sections.ld.in
+--   -> Preprocessing .in script: E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_system/ld/esp32s31/sections.ld.in
+--   -> Applying ldgen processing: E:/MCU/esp32/esp_mosicrokey/build/esp-idf/esp_system/ld/sections.ld.in
+-- Adding linker script E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_rom/esp32s31/ld/esp32s31.rom.ld
+-- Adding linker script E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_rom/esp32s31/ld/esp32s31.rom.api.ld
+-- Adding linker script E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_rom/esp32s31/ld/esp32s31.rom.rvfp.ld
+-- Adding linker script E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_rom/esp32s31/ld/esp32s31.rom.version.ld
+-- Adding linker script E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_rom/esp32s31/ld/esp32s31.rom.phy.ld
+-- Adding linker script E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_rom/esp32s31/ld/esp32s31.rom.coexist.ld
+-- Adding linker script E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_rom/esp32s31/ld/esp32s31.rom.net80211.ld
+-- Adding linker script E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_rom/esp32s31/ld/esp32s31.rom.pp.ld
+-- Adding linker script E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_rom/esp32s31/ld/esp32s31.rom.libc.ld
+-- Adding linker script E:/MCU/esp32/.espressif/v6.1/esp-idf/components/heap/port/esp32s31/ld/esp32s31.rom.heap.ld
+-- Adding linker script E:/MCU/esp32/.espressif/v6.1/esp-idf/components/soc/esp32s31/ld/esp32s31.peripherals.ld
+-- Adding linker script E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_systimer/esp32s31/rom.systimer.ld
+78/esp_wifi_connect: IDF_VERSION_MAJOR is 6
+78/esp_wifi_connect: idf_component_register for v6 used
+-- CONFIG_ESP32P4_SELECTS_REV_LESS_V3 is 
+-- IDF_VERSION_MAJOR is 6
+-- IDF_VERSION_MINOR is 1
+-- IDF_VERSION_PATCH is 0
+-- TARGET_LIB_PATH is set to: esp32s31
+-- BUTTON: 4.2.1
+CMake Warning at E:/MCU/esp32/.espressif/v6.1/esp-idf/tools/cmake/component_validation.cmake:106 (message):
+  Private include directory
+  'E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_wifi/wifi_apps/roaming_app/include'
+  belongs to component esp_wifi but is being used by component
+  wpa_supplicant.  It is recommended to define the component dependency for
+  wpa_supplicant on the component esp_wifi, i.e.  'idf_component_register(...
+  PRIV_REQUIRES esp_wifi)' in the CMakeLists.txt of wpa_supplicant, and
+  specify the included directory as idf_component_register(...
+  PRIV_INCLUDE_DIRS <dir relative to component>) in the CMakeLists.txt of
+  component esp_wifi.
+Call Stack (most recent call first):
+  E:/MCU/esp32/.espressif/v6.1/esp-idf/tools/cmake/component_validation.cmake:130 (__component_validation_check_include_dirs)
+  E:/MCU/esp32/.espressif/v6.1/esp-idf/CMakeLists.txt:356 (__component_validation_run_checks)
+
+
+CMake Warning at E:/MCU/esp32/.espressif/v6.1/esp-idf/tools/cmake/component_validation.cmake:106 (message):
+  Private include directory
+  'E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_wifi/wifi_apps/roaming_app/src'
+  belongs to component esp_wifi but is being used by component
+  wpa_supplicant.  It is recommended to define the component dependency for
+  wpa_supplicant on the component esp_wifi, i.e.  'idf_component_register(...
+  PRIV_REQUIRES esp_wifi)' in the CMakeLists.txt of wpa_supplicant, and
+  specify the included directory as idf_component_register(...
+  PRIV_INCLUDE_DIRS <dir relative to component>) in the CMakeLists.txt of
+  component esp_wifi.
+Call Stack (most recent call first):
+  E:/MCU/esp32/.espressif/v6.1/esp-idf/tools/cmake/component_validation.cmake:130 (__component_validation_check_include_dirs)
+  E:/MCU/esp32/.espressif/v6.1/esp-idf/CMakeLists.txt:356 (__component_validation_run_checks)
+
+
+CMake Warning at E:/MCU/esp32/.espressif/v6.1/esp-idf/tools/cmake/component_validation.cmake:106 (message):
+  Private include directory
+  'E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_wifi/wifi_apps/include/apps_private'
+  belongs to component esp_wifi but is being used by component
+  wpa_supplicant.  It is recommended to define the component dependency for
+  wpa_supplicant on the component esp_wifi, i.e.  'idf_component_register(...
+  PRIV_REQUIRES esp_wifi)' in the CMakeLists.txt of wpa_supplicant, and
+  specify the included directory as idf_component_register(...
+  PRIV_INCLUDE_DIRS <dir relative to component>) in the CMakeLists.txt of
+  component esp_wifi.
+Call Stack (most recent call first):
+  E:/MCU/esp32/.espressif/v6.1/esp-idf/tools/cmake/component_validation.cmake:130 (__component_validation_check_include_dirs)
+  E:/MCU/esp32/.espressif/v6.1/esp-idf/CMakeLists.txt:356 (__component_validation_run_checks)
+
+
+CMake Warning at E:/MCU/esp32/.espressif/v6.1/esp-idf/tools/cmake/component_validation.cmake:106 (message):
+  Private include directory
+  'E:/MCU/esp32/.espressif/v6.1/esp-idf/components/wpa_supplicant/src'
+  belongs to component wpa_supplicant but is being used by component
+  esp_wifi.  It is recommended to define the component dependency for
+  esp_wifi on the component wpa_supplicant, i.e.  'idf_component_register(...
+  PRIV_REQUIRES wpa_supplicant)' in the CMakeLists.txt of esp_wifi, and
+  specify the included directory as idf_component_register(...
+  PRIV_INCLUDE_DIRS <dir relative to component>) in the CMakeLists.txt of
+  component wpa_supplicant.
+Call Stack (most recent call first):
+  E:/MCU/esp32/.espressif/v6.1/esp-idf/tools/cmake/component_validation.cmake:130 (__component_validation_check_include_dirs)
+  E:/MCU/esp32/.espressif/v6.1/esp-idf/CMakeLists.txt:356 (__component_validation_run_checks)
+
+
+CMake Warning at E:/MCU/esp32/.espressif/v6.1/esp-idf/tools/cmake/component_validation.cmake:106 (message):
+  Private include directory
+  'E:/MCU/esp32/.espressif/v6.1/esp-idf/components/wpa_supplicant/esp_supplicant/src'
+  belongs to component wpa_supplicant but is being used by component
+  esp_wifi.  It is recommended to define the component dependency for
+  esp_wifi on the component wpa_supplicant, i.e.  'idf_component_register(...
+  PRIV_REQUIRES wpa_supplicant)' in the CMakeLists.txt of esp_wifi, and
+  specify the included directory as idf_component_register(...
+  PRIV_INCLUDE_DIRS <dir relative to component>) in the CMakeLists.txt of
+  component wpa_supplicant.
+Call Stack (most recent call first):
+  E:/MCU/esp32/.espressif/v6.1/esp-idf/tools/cmake/component_validation.cmake:130 (__component_validation_check_include_dirs)
+  E:/MCU/esp32/.espressif/v6.1/esp-idf/CMakeLists.txt:356 (__component_validation_run_checks)
+
+
+-- Component idf::esp_trace will be linked with -Wl,--whole-archive
+-- Components: 78__esp-ml307 78__esp-wifi-connect 78__uart-uhci 78__xiaozhi-fonts app_trace app_update board_support bootloader bootloader_support bt claw_cap claw_core claw_event_router claw_manager claw_memory claw_skill claw_utils cmock console cxx driver efuse esp-tls esp_adc esp_app_format esp_asrc_adapter esp_blockdev esp_blockdev_util esp_bootloader_format esp_coex esp_common esp_driver_ana_cmpr esp_driver_bitscrambler esp_driver_cam esp_driver_cordic esp_driver_dac esp_driver_dma esp_driver_gpio esp_driver_gptimer esp_driver_i2c esp_driver_i2s esp_driver_i3c esp_driver_isp esp_driver_jpeg esp_driver_ledc esp_driver_mcpwm esp_driver_parlio esp_driver_pcnt esp_driver_ppa esp_driver_rmt esp_driver_sd_intf esp_driver_sdio esp_driver_sdm esp_driver_sdmmc esp_driver_sdspi esp_driver_spi esp_driver_touch_sens esp_driver_tsens esp_driver_twai esp_driver_uart esp_driver_usb_serial_jtag esp_eth esp_event esp_gdbstub esp_hal_ana_cmpr esp_hal_ana_conv esp_hal_asrc esp_hal_cam esp_hal_clock esp_hal_cordic esp_hal_dma esp_hal_emac esp_hal_gpio esp_hal_gpspi esp_hal_i2c esp_hal_i2s esp_hal_i3c esp_hal_ieee802154 esp_hal_jpeg esp_hal_lcd esp_hal_ledc esp_hal_mcpwm esp_hal_mspi esp_hal_parlio esp_hal_pcnt esp_hal_pmu esp_hal_ppa esp_hal_regi2c esp_hal_rmt esp_hal_rtc_timer esp_hal_sd esp_hal_security esp_hal_systimer esp_hal_timg esp_hal_touch_sens esp_hal_twai esp_hal_uart esp_hal_usb esp_hal_wdt esp_hid esp_http_client esp_http_server esp_https_ota esp_https_server esp_hw_support esp_lcd esp_libc esp_local_ctrl esp_mm esp_netif esp_netif_stack esp_partition esp_phy esp_pm esp_psram esp_ringbuf esp_rom esp_security esp_stdio esp_system esp_timer esp_trace esp_usb_cdc_rom_console esp_wifi espclaw_compoment espcoredump espressif__button espressif__cjson espressif__cmake_utilities espressif__dl_fft espressif__esp-dsp espressif__esp-sr espressif__esp_audio_codec espressif__esp_audio_effects espressif__esp_codec_dev espressif__esp_new_jpeg espressif__gmf_fft espressif__led_strip espressif__mqtt esptool_py fatfs freertos game_service georgik__lua hal heap http_parser http_reuse ieee802154 log lvgl__lvgl lwip main mbedtls mosicrokey_app mosicrokey_contracts mosicrokey_ui nvs_flash nvs_sec_provider openthread partition_table protobuf-c protocomm pthread riscv rt sdmmc soc spi_flash spiffs tcp_transport ulp unity vfs wear_levelling wpa_supplicant xiaozhi_compoment
+-- Component paths: E:/MCU/esp32/esp_mosicrokey/managed_components/78__esp-ml307 E:/MCU/esp32/esp_mosicrokey/managed_components/78__esp-wifi-connect E:/MCU/esp32/esp_mosicrokey/managed_components/78__uart-uhci E:/MCU/esp32/esp_mosicrokey/managed_components/78__xiaozhi-fonts E:/MCU/esp32/.espressif/v6.1/esp-idf/components/app_trace E:/MCU/esp32/.espressif/v6.1/esp-idf/components/app_update E:/MCU/esp32/esp_mosicrokey/components/board_support E:/MCU/esp32/.espressif/v6.1/esp-idf/components/bootloader E:/MCU/esp32/.espressif/v6.1/esp-idf/components/bootloader_support E:/MCU/esp32/.espressif/v6.1/esp-idf/components/bt E:/MCU/esp32/esp_mosicrokey/third_party/esp-claw/components/claw_modules/claw_cap E:/MCU/esp32/esp_mosicrokey/third_party/esp-claw/components/claw_modules/claw_core E:/MCU/esp32/esp_mosicrokey/third_party/esp-claw/components/claw_modules/claw_event_router E:/MCU/esp32/esp_mosicrokey/third_party/esp-claw/components/claw_modules/claw_manager E:/MCU/esp32/esp_mosicrokey/third_party/esp-claw/components/claw_modules/claw_memory E:/MCU/esp32/esp_mosicrokey/third_party/esp-claw/components/claw_modules/claw_skill E:/MCU/esp32/esp_mosicrokey/third_party/esp-claw/components/claw_modules/claw_utils E:/MCU/esp32/.espressif/v6.1/esp-idf/components/cmock E:/MCU/esp32/.espressif/v6.1/esp-idf/components/console E:/MCU/esp32/.espressif/v6.1/esp-idf/components/cxx E:/MCU/esp32/.espressif/v6.1/esp-idf/components/driver E:/MCU/esp32/.espressif/v6.1/esp-idf/components/efuse E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp-tls E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_adc E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_app_format E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_asrc_adapter E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_blockdev E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_blockdev_util E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_bootloader_format E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_coex E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_common E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_ana_cmpr E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_bitscrambler E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_cam E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_cordic E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_dac E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_dma E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_gpio E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_gptimer E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_i2c E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_i2s E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_i3c E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_isp E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_jpeg E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_ledc E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_mcpwm E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_parlio E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_pcnt E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_ppa E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_rmt E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_sd_intf E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_sdio E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_sdm E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_sdmmc E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_sdspi E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_spi E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_touch_sens E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_tsens E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_twai E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_uart E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_driver_usb_serial_jtag E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_eth E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_event E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_gdbstub E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_ana_cmpr E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_ana_conv E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_asrc E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_cam E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_clock E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_cordic E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_dma E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_emac E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_gpio E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_gpspi E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_i2c E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_i2s E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_i3c E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_ieee802154 E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_jpeg E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_lcd E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_ledc E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_mcpwm E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_mspi E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_parlio E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_pcnt E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_pmu E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_ppa E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_regi2c E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_rmt E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_rtc_timer E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_sd E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_security E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_systimer E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_timg E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_touch_sens E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_twai E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_uart E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_usb E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hal_wdt E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hid E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_http_client E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_http_server E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_https_ota E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_https_server E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_hw_support E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_lcd E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_libc E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_local_ctrl E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_mm E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_netif E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_netif_stack E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_partition E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_phy E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_pm E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_psram E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_ringbuf E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_rom E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_security E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_stdio E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_system E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_timer E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_trace E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_usb_cdc_rom_console E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esp_wifi E:/MCU/esp32/esp_mosicrokey/components/espclaw_compoment E:/MCU/esp32/.espressif/v6.1/esp-idf/components/espcoredump E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__button E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__cjson E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__cmake_utilities E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__dl_fft E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-dsp E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp-sr E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp_audio_codec E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp_audio_effects E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp_codec_dev E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__esp_new_jpeg E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__gmf_fft E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__led_strip E:/MCU/esp32/esp_mosicrokey/managed_components/espressif__mqtt E:/MCU/esp32/.espressif/v6.1/esp-idf/components/esptool_py E:/MCU/esp32/.espressif/v6.1/esp-idf/components/fatfs E:/MCU/esp32/.espressif/v6.1/esp-idf/components/freertos E:/MCU/esp32/esp_mosicrokey/components/game_service E:/MCU/esp32/esp_mosicrokey/managed_components/georgik__lua E:/MCU/esp32/.espressif/v6.1/esp-idf/components/hal E:/MCU/esp32/.espressif/v6.1/esp-idf/components/heap E:/MCU/esp32/.espressif/v6.1/esp-idf/components/http_parser E:/MCU/esp32/esp_mosicrokey/third_party/esp-claw/components/common/http_reuse E:/MCU/esp32/.espressif/v6.1/esp-idf/components/ieee802154 E:/MCU/esp32/.espressif/v6.1/esp-idf/components/log E:/MCU/esp32/esp_mosicrokey/managed_components/lvgl__lvgl E:/MCU/esp32/.espressif/v6.1/esp-idf/components/lwip E:/MCU/esp32/esp_mosicrokey/main E:/MCU/esp32/.espressif/v6.1/esp-idf/components/mbedtls E:/MCU/esp32/esp_mosicrokey/components/mosicrokey_app E:/MCU/esp32/esp_mosicrokey/components/mosicrokey_contracts E:/MCU/esp32/esp_mosicrokey/components/mosicrokey_ui E:/MCU/esp32/.espressif/v6.1/esp-idf/components/nvs_flash E:/MCU/esp32/.espressif/v6.1/esp-idf/components/nvs_sec_provider E:/MCU/esp32/.espressif/v6.1/esp-idf/components/openthread E:/MCU/esp32/.espressif/v6.1/esp-idf/components/partition_table E:/MCU/esp32/.espressif/v6.1/esp-idf/components/protobuf-c E:/MCU/esp32/.espressif/v6.1/esp-idf/components/protocomm E:/MCU/esp32/.espressif/v6.1/esp-idf/components/pthread E:/MCU/esp32/.espressif/v6.1/esp-idf/components/riscv E:/MCU/esp32/.espressif/v6.1/esp-idf/components/rt E:/MCU/esp32/.espressif/v6.1/esp-idf/components/sdmmc E:/MCU/esp32/.espressif/v6.1/esp-idf/components/soc E:/MCU/esp32/.espressif/v6.1/esp-idf/components/spi_flash E:/MCU/esp32/.espressif/v6.1/esp-idf/components/spiffs E:/MCU/esp32/.espressif/v6.1/esp-idf/components/tcp_transport E:/MCU/esp32/.espressif/v6.1/esp-idf/components/ulp E:/MCU/esp32/.espressif/v6.1/esp-idf/components/unity E:/MCU/esp32/.espressif/v6.1/esp-idf/components/vfs E:/MCU/esp32/.espressif/v6.1/esp-idf/components/wear_levelling E:/MCU/esp32/.espressif/v6.1/esp-idf/components/wpa_supplicant E:/MCU/esp32/esp_mosicrokey/components/xiaozhi_compoment
+-- Configuring done (56.6s)
+-- Generating done (4.0s)
+-- Build files have been written to: E:/MCU/esp32/esp_mosicrokey/build
+[1/14] Building C object esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/esp_app_desc.c.obj
+[2/14] Performing build step for 'bootloader'
+[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D E:\MCU\esp32\esp_mosicrokey\build\bootloader && E:\MCU\esp32\.espressif\v6.1\tools\python_env\v6.1\venv\Scripts\python.exe E:/MCU/esp32/.espressif/v6.1/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x2000 E:/MCU/esp32/esp_mosicrokey/build/bootloader/bootloader.bin"
+
+Bootloader binary size 0x5a80 bytes. 0x580 bytes (6%) free.
+
+
+[3/14] Linking C static library esp-idf\esp_app_format\libesp_app_format.a
+[4/14] Building C object esp-idf/claw_core/CMakeFiles/__idf_claw_core.dir/src/llm/backends/claw_llm_backend_openai_compatible.c.obj
+[5/14] No install step for 'bootloader'
+[6/14] C:\WINDOWS\system32\cmd.exe /C "cd /D E:\MCU\esp32\esp_mosicrokey\build\esp-idf\main && E:\MCU\esp32\.espressif\v6.1\tools\python_env\v6.1\venv\Scripts\python.exe E:/MCU/esp32/.espressif/v6.1/esp-idf/components/fatfs/fatfsgen.py E:/MCU/esp32/esp_mosicrokey/system --long_name_support --use_default_datetime --partition_size 0x80000 --output_file E:/MCU/esp32/esp_mosicrokey/build/system.bin --sector_size 4096"
+[7/14] Building C object esp-idf/claw_core/CMakeFiles/__idf_claw_core.dir/src/llm/claw_llm_http_transport.c.obj
+[8/14] Completed 'bootloader'
+[9/14] Linking C static library esp-idf\claw_core\libclaw_core.a
+[10/14] Generating esp-idf/esp_system/ld/sections.ld
+Skipping linker script generation, section names unchanged
+
+[11/14] Linking CXX executable mosicrokey.elf
+[12/14] Generating binary image from built executable
+esptool v5.4.0
+
+Creating ESP32-S31 image...
+
+Merged 3 ELF sections.
+
+Successfully created ESP32-S31 image.
+
+Generated E:/MCU/esp32/esp_mosicrokey/build/mosicrokey.bin
+[13/14] C:\WINDOWS\system32\cmd.exe /C "cd /D E:\MCU\esp32\esp_mosicrokey\build && E:\MCU\esp32\.espressif\v6.1\tools\python_env\v6.1\venv\Scripts\python.exe E:/MCU/esp32/.espressif/v6.1/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app E:/MCU/esp32/esp_mosicrokey/build/partition_table/partition-table.bin E:/MCU/esp32/esp_mosicrokey/build/mosicrokey.bin"
+mosicrokey.bin binary size 0x3bb100 bytes. Smallest app partition is 0x600000 bytes. 0x244f00 bytes (38%) free.
+
+Executing action: all (aliases: build)
+Running ninja in directory E:\MCU\esp32\esp_mosicrokey\build
+Executing "ninja all"...
+
+
+Project build complete. To flash, run:
+ idf.py flash
+or
+ idf.py -p PORT flash
+or
+ python -m esptool --chip esp32s31 -b 460800 --before default-reset --after hard-reset --no-stub write-flash --flash-mode dio --flash-size 16MB --flash-freq 80m 0x2000 build\bootloader\bootloader.bin 0x8000 build\partition_table\partition-table.bin 0xd000 build\ota_data_initial.bin 0x20000 build\mosicrokey.bin 0x620000 build\system.bin 0x800000 build\assets.bin
+or from the "E:\MCU\esp32\esp_mosicrokey\build" directory
+ python -m esptool --chip esp32s31 -b 460800 --before default-reset --after hard-reset --no-stub write-flash "@flash_args"

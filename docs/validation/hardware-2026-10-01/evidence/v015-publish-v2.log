@@ -1,0 +1,40 @@
+I (440319) mosi_agent: request=2 busy=1
+mosi: OK
+I (440619) esp-x509-crt-bundle: Certificate validated
+I (442159) HttpClient: HTTP connection closed
+I (444037) SystemInfo: free sram: 183107 minimal sram: 63792
+I (445159) Ota: Current version: 0.1.5
+I (445293) esp-x509-crt-bundle: Certificate validated
+I (445868) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=706
+I (447245) HttpClient: HTTP connection closed
+I (447249) Ota: Current is the latest version
+I (447249) Ota: Running from factory partition, skipping
+W (447249) Application: Alert [link] 激活设备: xiaozhi.me
+505699
+I (447253) Application: Activating... 1/10
+I (447385) esp-x509-crt-bundle: Certificate validated
+I (448011) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=753
+I (452421) mosi_app: heap_internal=177007 min_internal=63792 psram=16556612 min_psram=16533616 stack_app=7164 stack_game=7504
+I (454037) SystemInfo: free sram: 176971 minimal sram: 63792
+I (458649) HttpClient: HTTP connection closed
+I (459191) mosi_agent: request=2 busy=1
+I (459191) mosi_agent: request=2 tool=game_preview result=0
+I (459477) esp-x509-crt-bundle: Certificate validated
+I (461649) Application: Activating... 2/10
+I (461857) esp-x509-crt-bundle: Certificate validated
+I (462116) mosi_agent: request=2 busy=0
+I (462117) mosi_agent: request=2 completed status=0 backend_status=0
+I (462167) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=517
+I (464037) SystemInfo: free sram: 178279 minimal sram: 63792
+I (472879) HttpClient: HTTP connection closed
+I (474037) SystemInfo: free sram: 184603 minimal sram: 63792
+I (475880) Application: Activating... 3/10
+I (476011) esp-x509-crt-bundle: Certificate validated
+I (476683) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=802
+I (482416) mosi_app: heap_internal=178259 min_internal=63792 psram=16613156 min_psram=16457572 stack_app=7100 stack_game=7504
+I (484037) SystemInfo: free sram: 178223 minimal sram: 63792
+I (487317) HttpClient: HTTP connection closed
+I (490318) Application: Activating... 4/10
+I (490447) esp-x509-crt-bundle: Certificate validated
+I (491526) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=1207
+I (494037) SystemInfo: free sram: 178451 minimal sram: 63792

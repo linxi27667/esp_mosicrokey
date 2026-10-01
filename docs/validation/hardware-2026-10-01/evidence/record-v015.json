@@ -1,0 +1,73 @@
+{
+  "version": "0.1.5",
+  "firmware_app_sha256": "57179c303a7c005b8761a3a53ef7d2548fe4cb2990758bcf8af0d911e1c9b853",
+  "factory_image_sha256": "0c5a5d3e9abfb26bd8417565503c6e34253ebbdaefb9f58da518d0a927b3cfd6",
+  "elf_sha256": "c3c39132bc13b0a7b3f2e292a99ed42961b7fe0a0c54c22cd181475009296708",
+  "scope": "USB RAM preview, real onboard native tools and compatible API; no physical TFT/TF/keys/speaker or activated Xiaozhi voice",
+  "snake": {
+    "source_bytes": 2832,
+    "source_sha256": "54df1351ba60b757d340e16787566acfe7433aea7b4c83c687c612860b00b8d7",
+    "revision": "p2",
+    "temporary": true,
+    "model": "glm-4-flash-250414",
+    "generation": "onboard candidate ask response; republished unchanged via native gameask/game_preview",
+    "behavior_checks": 32,
+    "version_isolation": "native V3 published while V2 running; old frame remains V2 cyan, relaunch V3 green SCORE 1"
+  },
+  "tests": {
+    "host_checks": 1130,
+    "ui_states": 13,
+    "harness_fault_injection_cases": 3,
+    "native_publications": [
+      {
+        "request": 2,
+        "tool": "game_preview",
+        "result": 0,
+        "completion_status": 0
+      },
+      {
+        "request": 3,
+        "tool": "game_preview",
+        "result": 0,
+        "completion_status": 0
+      }
+    ],
+    "invalid_key_request": 4,
+    "cancel_request": 5,
+    "cancel_observed_ms": 8,
+    "recovery_request": 6,
+    "device_vm_selftest": {
+      "frames": 60,
+      "loads": 100,
+      "init_us": 6320,
+      "frame_mean_us": 1880,
+      "frame_max_us": 2512,
+      "loop_guard": "PASS",
+      "heap_guard": "PASS",
+      "restricted_libs": "PASS"
+    },
+    "two_hour_soak": "NOT RUN on v0.1.5; final reference sample update moves release to v0.1.6"
+  },
+  "evidence": {
+    "host-v015-final.log": "2a5f99cc4f13c72f8b71bbec019f5ee1846f3dcbc6468d73c3bd0a63630a7761",
+    "build-v015-final.log": "13e3f094a5c1946e90e66a3f07b7780d4d1a32b2d9862571e0a6df8966507bff",
+    "flash-v015-final.log": "5f7421bd579f970c99eab00a4ba4e43750e8552c1b1625132c98eafe08d5d27f",
+    "package-v015.log": "6fbb5a228aeb1d97cd499ca5f11054362c820e0df049ca4a50f7248a6348deb3",
+    "v015-rapid-turn-candidate.log": "d772e72481d11f886308fff446f3ebb8ba705a6cdd4af3cadfa8855eb11220a6",
+    "v015-candidate-status.log": "4fade95a719abbc06883a76c5f90c50bceb411f690bad6a8558c192ebffbb179",
+    "v015-publish-v2.log": "41e6a4c3c1859f8ff548b8ed5afa63c2580fc028cc1696c420f7ed76732cb550",
+    "v015-publish-v3.log": "224d3c45f785ac291c41b8b9a25ccf3adf85c3f5d0eef3e8ada224674baf226f",
+    "v015-device-export.log": "fb622dee71fb113edda92f05bc7843152fb031b0e810ff10833a607b4cf5004b",
+    "v015-device-v3-p2.lua": "54df1351ba60b757d340e16787566acfe7433aea7b4c83c687c612860b00b8d7",
+    "v015-device-v3-probe.log": "d6adbb084f87a25853b89c11b03e8ec97326b5b21a359cb00da5efcd5f5239ff",
+    "v015-v2-after-v3-frame.log": "fbf4025d722360834bdd3849c54a016c2ef4510ed8db45781840602c7a54ccde",
+    "v015-v3-active-frame.log": "15a875e1f5de21a8e85a9f2ca981cac5ae2f9d93f9eca13f98622ce0e75d271b",
+    "v015-v2-after-v3.png": "cf9ef1ee6de699fa96f04a5c58d8578bf5163aeb9af360989f7aa37b1da8dda5",
+    "v015-v3-active.png": "16da2a292ece63d65f0add4c8f4ae4ffefb98cb9db6539c3df312dbd84cfcdff",
+    "v015-invalid-key.log": "450d71018af3feb9d42ba7ce8b62c289b96821851770e7e1defe72e849465881",
+    "v015-cancel.log": "f774ae177c2fac032d7023e6cabaad5faf4435abae9070f1d0aba279459d73e9",
+    "v015-recovery.log": "491bfa3ed1562b4598910c7009af9b670e6abc9758b2f8a4e76efef9cc512c8b",
+    "v015-selftest.log": "97faab75492249b5d91d44110d1dbbda38ae727203d761f984f34bb81737025e",
+    "v015-secret-scan.json": "50759b4183f78b524ae7f1b18ffd69f87352c855af104c05642e616fcf475b1c"
+  }
+}

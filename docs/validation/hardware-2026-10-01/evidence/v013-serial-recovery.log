@@ -1,0 +1,29 @@
+mode=0 wifi=1 tf=0 request=0 busy=0 games=0 heap=16811855 min=16691392
+voice=激活设备
+notice=已连接 Ll
+agent=
+task=activation priority=2 state=1 stack_free_min_bytes=4352 core_affinity=1
+task=mosi_console priority=1 state=0 stack_free_min_bytes=6440 core_affinity=2147483647
+task=IDLE0 priority=0 state=1 stack_free_min_bytes=1152 core_affinity=0
+task=IDLE1 priority=0 state=1 stack_free_min_bytes=1176 core_affinity=1
+task=mkeys priority=3 state=2 stack_free_min_bytes=3720 core_affinity=2147483647
+task=mosi_app priority=2 state=2 stack_free_min_bytes=7296 core_affinity=2147483647
+task=tcpip priority=18 state=2 stack_free_min_bytes=2600 core_affinity=0
+task=mosi_agent_rx priority=1 state=2 stack_free_min_bytes=5584 core_affinity=2147483647
+task=mosi_ui priority=3 state=2 stack_free_min_bytes=4180 core_affinity=0
+task=mosi_game priority=3 state=2 stack_free_min_bytes=7580 core_affinity=1
+task=audio_input priority=8 state=2 stack_free_min_bytes=5740 core_affinity=0
+task=ipc1 priority=24 state=3 stack_free_min_bytes=688 core_affinity=1
+task=audio_output priority=4 state=2 stack_free_min_bytes=3508 core_affinity=2147483647
+task=opus_codec priority=2 state=2 stack_free_min_bytes=23820 core_affinity=2147483647
+task=claw_core_agent priority=1 state=2 stack_free_min_bytes=14080 core_affinity=0
+task=sys_evt priority=20 state=2 stack_free_min_bytes=1052 core_affinity=0
+task=ipc0 priority=24 state=3 stack_free_min_bytes=696 core_affinity=0
+task=main priority=20 state=2 stack_free_min_bytes=6980 core_affinity=0
+task=wifi priority=23 state=2 stack_free_min_bytes=4764 core_affinity=0
+task=esp_timer priority=22 state=3 stack_free_min_bytes=3616 core_affinity=0
+task=Tmr Svc priority=1 state=2 stack_free_min_bytes=1712 core_affinity=2147483647
+I (82097) mosi_audio: focus=0 state=9 wake=0 processing=0 playback_idle=1 input_enabled=0 output_enabled=0 input_frames=0 output_frames=0 input_peak=0
+mosi: OK
+I (84037) SystemInfo: free sram: 183479 minimal sram: 75916
+I (84091) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=2321

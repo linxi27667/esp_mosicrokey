@@ -1,0 +1,31 @@
+mosi: OK
+mode=4 wifi=1 tf=0 request=6 busy=0 games=1 heap=16639515 min=16516776
+voice=激活设备
+notice=
+agent=临时游戏已发布（重启后丢失）
+游戏已通过 game_preview 工具成功发布。
+task=mosi_console priority=1 state=0 stack_free_min_bytes=6112 core_affinity=2147483647
+task=IDLE0 priority=0 state=1 stack_free_min_bytes=1152 core_affinity=0
+task=IDLE1 priority=0 state=1 stack_free_min_bytes=1176 core_affinity=1
+task=mosi_game priority=3 state=2 stack_free_min_bytes=6204 core_affinity=1
+task=mosi_ui priority=3 state=2 stack_free_min_bytes=4184 core_affinity=0
+task=mosi_app priority=2 state=2 stack_free_min_bytes=4780 core_affinity=0
+task=activation priority=2 state=2 stack_free_min_bytes=4228 core_affinity=1
+task=tcpip priority=18 state=2 stack_free_min_bytes=2596 core_affinity=0
+task=Tmr Svc priority=1 state=2 stack_free_min_bytes=1712 core_affinity=2147483647
+task=mosi_agent_rx priority=1 state=2 stack_free_min_bytes=5224 core_affinity=2147483647
+task=mkeys priority=3 state=2 stack_free_min_bytes=3680 core_affinity=2147483647
+task=ipc1 priority=24 state=3 stack_free_min_bytes=688 core_affinity=1
+task=audio_output priority=4 state=2 stack_free_min_bytes=3504 core_affinity=2147483647
+task=opus_codec priority=2 state=2 stack_free_min_bytes=23816 core_affinity=2147483647
+task=sys_evt priority=20 state=2 stack_free_min_bytes=1048 core_affinity=0
+task=claw_core_agent priority=1 state=2 stack_free_min_bytes=10528 core_affinity=0
+task=main priority=20 state=2 stack_free_min_bytes=6932 core_affinity=0
+task=wifi priority=23 state=2 stack_free_min_bytes=4776 core_affinity=0
+task=esp_timer priority=22 state=3 stack_free_min_bytes=3472 core_affinity=0
+task=ipc0 priority=24 state=3 stack_free_min_bytes=696 core_affinity=0
+task=audio_input priority=8 state=2 stack_free_min_bytes=5736 core_affinity=0
+firmware=0.1.9 reset_reason=1 uptime_ms=568599
+I (569985) Application: Activating... 7/10
+I (570142) esp-x509-crt-bundle: Certificate validated
+I (570688) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=702

@@ -1,0 +1,196 @@
+I (492568) mosi_agent: request=6 busy=1
+mosi: OK
+I (492872) esp-x509-crt-bundle: Certificate validated
+I (494037) SystemInfo: free sram: 176235 minimal sram: 60812
+I (494795) HttpClient: HTTP connection closed
+W (494950) HTTP_CLIENT: Connection timed out before data was ready!
+W (495061) HTTP_CLIENT: Connection timed out before data was ready!
+W (495173) HTTP_CLIENT: Connection timed out before data was ready!
+W (495284) HTTP_CLIENT: Connection timed out before data was ready!
+W (495395) HTTP_CLIENT: Connection timed out before data was ready!
+W (495507) HTTP_CLIENT: Connection timed out before data was ready!
+W (495618) HTTP_CLIENT: Connection timed out before data was ready!
+W (495729) HTTP_CLIENT: Connection timed out before data was ready!
+W (495841) HTTP_CLIENT: Connection timed out before data was ready!
+W (495954) HTTP_CLIENT: Connection timed out before data was ready!
+W (496067) HTTP_CLIENT: Connection timed out before data was ready!
+W (496179) HTTP_CLIENT: Connection timed out before data was ready!
+W (496291) HTTP_CLIENT: Connection timed out before data was ready!
+W (496403) HTTP_CLIENT: Connection timed out before data was ready!
+W (496514) HTTP_CLIENT: Connection timed out before data was ready!
+W (496626) HTTP_CLIENT: Connection timed out before data was ready!
+W (496737) HTTP_CLIENT: Connection timed out before data was ready!
+W (496848) HTTP_CLIENT: Connection timed out before data was ready!
+W (496959) HTTP_CLIENT: Connection timed out before data was ready!
+W (497070) HTTP_CLIENT: Connection timed out before data was ready!
+W (497181) HTTP_CLIENT: Connection timed out before data was ready!
+W (497292) HTTP_CLIENT: Connection timed out before data was ready!
+W (497406) HTTP_CLIENT: Connection timed out before data was ready!
+W (497518) HTTP_CLIENT: Connection timed out before data was ready!
+W (497630) HTTP_CLIENT: Connection timed out before data was ready!
+W (497741) HTTP_CLIENT: Connection timed out before data was ready!
+I (497796) Application: Activating... 2/10
+W (497852) HTTP_CLIENT: Connection timed out before data was ready!
+I (497932) esp-x509-crt-bundle: Certificate validated
+W (497963) HTTP_CLIENT: Connection timed out before data was ready!
+W (498074) HTTP_CLIENT: Connection timed out before data was ready!
+W (498185) HTTP_CLIENT: Connection timed out before data was ready!
+W (498296) HTTP_CLIENT: Connection timed out before data was ready!
+W (498410) HTTP_CLIENT: Connection timed out before data was ready!
+W (498522) HTTP_CLIENT: Connection timed out before data was ready!
+W (498635) HTTP_CLIENT: Connection timed out before data was ready!
+W (498747) HTTP_CLIENT: Connection timed out before data was ready!
+W (498858) HTTP_CLIENT: Connection timed out before data was ready!
+I (498902) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=1105
+W (498969) HTTP_CLIENT: Connection timed out before data was ready!
+W (499081) HTTP_CLIENT: Connection timed out before data was ready!
+W (499193) HTTP_CLIENT: Connection timed out before data was ready!
+W (499305) HTTP_CLIENT: Connection timed out before data was ready!
+W (499417) HTTP_CLIENT: Connection timed out before data was ready!
+W (499528) HTTP_CLIENT: Connection timed out before data was ready!
+W (499639) HTTP_CLIENT: Connection timed out before data was ready!
+W (499750) HTTP_CLIENT: Connection timed out before data was ready!
+W (499863) HTTP_CLIENT: Connection timed out before data was ready!
+W (499975) HTTP_CLIENT: Connection timed out before data was ready!
+W (500086) HTTP_CLIENT: Connection timed out before data was ready!
+W (500198) HTTP_CLIENT: Connection timed out before data was ready!
+W (500310) HTTP_CLIENT: Connection timed out before data was ready!
+W (500423) HTTP_CLIENT: Connection timed out before data was ready!
+W (500535) HTTP_CLIENT: Connection timed out before data was ready!
+W (500647) HTTP_CLIENT: Connection timed out before data was ready!
+W (500758) HTTP_CLIENT: Connection timed out before data was ready!
+W (500869) HTTP_CLIENT: Connection timed out before data was ready!
+W (500980) HTTP_CLIENT: Connection timed out before data was ready!
+W (501091) HTTP_CLIENT: Connection timed out before data was ready!
+W (501202) HTTP_CLIENT: Connection timed out before data was ready!
+W (501314) HTTP_CLIENT: Connection timed out before data was ready!
+W (501427) HTTP_CLIENT: Connection timed out before data was ready!
+W (501538) HTTP_CLIENT: Connection timed out before data was ready!
+W (501651) HTTP_CLIENT: Connection timed out before data was ready!
+W (501763) HTTP_CLIENT: Connection timed out before data was ready!
+W (501874) HTTP_CLIENT: Connection timed out before data was ready!
+W (501985) HTTP_CLIENT: Connection timed out before data was ready!
+W (502096) HTTP_CLIENT: Connection timed out before data was ready!
+W (502207) HTTP_CLIENT: Connection timed out before data was ready!
+W (502321) HTTP_CLIENT: Connection timed out before data was ready!
+W (502435) HTTP_CLIENT: Connection timed out before data was ready!
+W (502546) HTTP_CLIENT: Connection timed out before data was ready!
+W (502658) HTTP_CLIENT: Connection timed out before data was ready!
+W (502771) HTTP_CLIENT: Connection timed out before data was ready!
+W (502883) HTTP_CLIENT: Connection timed out before data was ready!
+W (502994) HTTP_CLIENT: Connection timed out before data was ready!
+W (503105) HTTP_CLIENT: Connection timed out before data was ready!
+W (503216) HTTP_CLIENT: Connection timed out before data was ready!
+W (503327) HTTP_CLIENT: Connection timed out before data was ready!
+W (503438) HTTP_CLIENT: Connection timed out before data was ready!
+W (503549) HTTP_CLIENT: Connection timed out before data was ready!
+W (503660) HTTP_CLIENT: Connection timed out before data was ready!
+W (503771) HTTP_CLIENT: Connection timed out before data was ready!
+W (503883) HTTP_CLIENT: Connection timed out before data was ready!
+W (503997) HTTP_CLIENT: Connection timed out before data was ready!
+I (504037) SystemInfo: free sram: 176539 minimal sram: 60812
+W (504110) HTTP_CLIENT: Connection timed out before data was ready!
+W (504221) HTTP_CLIENT: Connection timed out before data was ready!
+W (504332) HTTP_CLIENT: Connection timed out before data was ready!
+W (504443) HTTP_CLIENT: Connection timed out before data was ready!
+W (504554) HTTP_CLIENT: Connection timed out before data was ready!
+W (504668) HTTP_CLIENT: Connection timed out before data was ready!
+W (504780) HTTP_CLIENT: Connection timed out before data was ready!
+W (504891) HTTP_CLIENT: Connection timed out before data was ready!
+W (505003) HTTP_CLIENT: Connection timed out before data was ready!
+W (505115) HTTP_CLIENT: Connection timed out before data was ready!
+W (505228) HTTP_CLIENT: Connection timed out before data was ready!
+W (505339) HTTP_CLIENT: Connection timed out before data was ready!
+W (505450) HTTP_CLIENT: Connection timed out before data was ready!
+W (505561) HTTP_CLIENT: Connection timed out before data was ready!
+W (505672) HTTP_CLIENT: Connection timed out before data was ready!
+W (505783) HTTP_CLIENT: Connection timed out before data was ready!
+W (505895) HTTP_CLIENT: Connection timed out before data was ready!
+W (506009) HTTP_CLIENT: Connection timed out before data was ready!
+W (506122) HTTP_CLIENT: Connection timed out before data was ready!
+W (506233) HTTP_CLIENT: Connection timed out before data was ready!
+W (506345) HTTP_CLIENT: Connection timed out before data was ready!
+W (506458) HTTP_CLIENT: Connection timed out before data was ready!
+W (506569) HTTP_CLIENT: Connection timed out before data was ready!
+W (506680) HTTP_CLIENT: Connection timed out before data was ready!
+W (506791) HTTP_CLIENT: Connection timed out before data was ready!
+W (506902) HTTP_CLIENT: Connection timed out before data was ready!
+W (507016) HTTP_CLIENT: Connection timed out before data was ready!
+W (507129) HTTP_CLIENT: Connection timed out before data was ready!
+W (507242) HTTP_CLIENT: Connection timed out before data was ready!
+W (507353) HTTP_CLIENT: Connection timed out before data was ready!
+W (507465) HTTP_CLIENT: Connection timed out before data was ready!
+W (507578) HTTP_CLIENT: Connection timed out before data was ready!
+W (507689) HTTP_CLIENT: Connection timed out before data was ready!
+W (507800) HTTP_CLIENT: Connection timed out before data was ready!
+W (507911) HTTP_CLIENT: Connection timed out before data was ready!
+W (508022) HTTP_CLIENT: Connection timed out before data was ready!
+W (508133) HTTP_CLIENT: Connection timed out before data was ready!
+W (508246) HTTP_CLIENT: Connection timed out before data was ready!
+W (508359) HTTP_CLIENT: Connection timed out before data was ready!
+W (508472) HTTP_CLIENT: Connection timed out before data was ready!
+W (508583) HTTP_CLIENT: Connection timed out before data was ready!
+W (508695) HTTP_CLIENT: Connection timed out before data was ready!
+W (508808) HTTP_CLIENT: Connection timed out before data was ready!
+W (508919) HTTP_CLIENT: Connection timed out before data was ready!
+W (509030) HTTP_CLIENT: Connection timed out before data was ready!
+I (509130) HttpClient: HTTP connection closed
+W (509141) HTTP_CLIENT: Connection timed out before data was ready!
+W (509252) HTTP_CLIENT: Connection timed out before data was ready!
+W (509363) HTTP_CLIENT: Connection timed out before data was ready!
+W (509474) HTTP_CLIENT: Connection timed out before data was ready!
+W (509585) HTTP_CLIENT: Connection timed out before data was ready!
+W (509697) HTTP_CLIENT: Connection timed out before data was ready!
+W (509810) HTTP_CLIENT: Connection timed out before data was ready!
+W (509923) HTTP_CLIENT: Connection timed out before data was ready!
+W (510034) HTTP_CLIENT: Connection timed out before data was ready!
+W (510147) HTTP_CLIENT: Connection timed out before data was ready!
+W (510259) HTTP_CLIENT: Connection timed out before data was ready!
+W (510371) HTTP_CLIENT: Connection timed out before data was ready!
+W (510482) HTTP_CLIENT: Connection timed out before data was ready!
+W (510593) HTTP_CLIENT: Connection timed out before data was ready!
+W (510705) HTTP_CLIENT: Connection timed out before data was ready!
+W (510817) HTTP_CLIENT: Connection timed out before data was ready!
+W (510930) HTTP_CLIENT: Connection timed out before data was ready!
+W (511043) HTTP_CLIENT: Connection timed out before data was ready!
+W (511154) HTTP_CLIENT: Connection timed out before data was ready!
+W (511268) HTTP_CLIENT: Connection timed out before data was ready!
+W (511380) HTTP_CLIENT: Connection timed out before data was ready!
+W (511491) HTTP_CLIENT: Connection timed out before data was ready!
+W (511602) HTTP_CLIENT: Connection timed out before data was ready!
+W (511713) HTTP_CLIENT: Connection timed out before data was ready!
+W (511825) HTTP_CLIENT: Connection timed out before data was ready!
+W (511939) HTTP_CLIENT: Connection timed out before data was ready!
+W (512052) HTTP_CLIENT: Connection timed out before data was ready!
+I (512131) Application: Activating... 3/10
+W (512163) HTTP_CLIENT: Connection timed out before data was ready!
+I (512257) esp-x509-crt-bundle: Certificate validated
+I (512281) mosi_app: heap_internal=179675 min_internal=60812 psram=16563644 min_psram=16546812 stack_app=7160 stack_game=7500
+W (512281) HTTP_CLIENT: Connection timed out before data was ready!
+W (512398) HTTP_CLIENT: Connection timed out before data was ready!
+I (512535) mosi_agent: request=6 busy=1
+I (512535) mosi_agent: request=6 tool=game_preview result=0
+I (512569) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=437
+I (512836) esp-x509-crt-bundle: Certificate validated
+I (514037) SystemInfo: free sram: 173603 minimal sram: 60812
+W (514432) HTTP_CLIENT: Connection timed out before data was ready!
+W (514547) HTTP_CLIENT: Connection timed out before data was ready!
+W (514660) HTTP_CLIENT: Connection timed out before data was ready!
+W (514773) HTTP_CLIENT: Connection timed out before data was ready!
+W (514885) HTTP_CLIENT: Connection timed out before data was ready!
+W (514998) HTTP_CLIENT: Connection timed out before data was ready!
+W (515109) HTTP_CLIENT: Connection timed out before data was ready!
+W (515221) HTTP_CLIENT: Connection timed out before data was ready!
+I (515277) mosi_agent: request=6 busy=0
+I (515277) mosi_agent: request=6 completed status=0 backend_status=0
+I (523466) HttpClient: HTTP connection closed
+I (524037) SystemInfo: free sram: 184039 minimal sram: 60812
+I (526466) Application: Activating... 4/10
+I (527329) esp-x509-crt-bundle: Certificate validated
+I (527625) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=1158
+I (534037) SystemInfo: free sram: 177679 minimal sram: 60812
+I (538827) HttpClient: HTTP connection closed
+I (541828) Application: Activating... 5/10
+I (541950) esp-x509-crt-bundle: Certificate validated
+I (542278) mosi_app: heap_internal=180763 min_internal=60812 psram=16625656 min_psram=16461816 stack_app=7096 stack_game=7500
+I (542450) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=621

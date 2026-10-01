@@ -1,0 +1,12 @@
+I (136722) mosi_agent: request=4 busy=1
+mosi: OK
+I (137075) esp-x509-crt-bundle: Certificate validated
+W (138642) transport_base: Poll timeout or error, errno=No more processes, fd=55, timeout_ms=100
+E (138643) claw_core_llm: chat_messages: runtime chat failed err=0x7003
+I (138650) mosi_agent: request=4 busy=0
+I (138650) mosi_agent: request=4 completed status=1 backend_status=1
+I (140517) HttpClient: HTTP connection closed
+I (143519) Application: Activating... 10/10
+I (143685) esp-x509-crt-bundle: Certificate validated
+I (144037) SystemInfo: free sram: 181727 minimal sram: 60196
+I (146555) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=3035

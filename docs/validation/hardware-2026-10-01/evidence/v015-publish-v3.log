@@ -1,0 +1,75 @@
+mode=4 wifi=1 tf=0 request=2 busy=0 games=1 heap=16600719 min=16429336
+voice=激活设备
+notice=
+agent=临时游戏已发布（重启后丢失）
+游戏已通过game_preview工具成功发布为临时版本。
+task=mosi_console priority=1 state=0 stack_free_min_bytes=6180 core_affinity=2147483647
+task=IDLE0 priority=0 state=1 stack_free_min_bytes=1152 core_affinity=0
+task=IDLE1 priority=0 state=1 stack_free_min_bytes=1160 core_affinity=1
+task=mosi_game priority=3 state=2 stack_free_min_bytes=5888 core_affinity=1
+task=mosi_app priority=2 state=2 stack_free_min_bytes=4784 core_affinity=0
+task=mosi_ui priority=3 state=2 stack_free_min_bytes=4180 core_affinity=0
+task=tcpip priority=18 state=2 stack_free_min_bytes=2600 core_affinity=0
+task=mosi_agent_rx priority=1 state=2 stack_free_min_bytes=5244 core_affinity=2147483647
+task=Tmr Svc priority=1 state=2 stack_free_min_bytes=1712 core_affinity=2147483647
+task=ssl_receive priority=1 state=2 stack_free_min_bytes=3168 core_affinity=2147483647
+task=activation priority=2 state=2 stack_free_min_bytes=4220 core_affinity=1
+task=mkeys priority=3 state=2 stack_free_min_bytes=3684 core_affinity=2147483647
+task=ipc0 priority=24 state=3 stack_free_min_bytes=696 core_affinity=0
+task=sys_evt priority=20 state=2 stack_free_min_bytes=1052 core_affinity=0
+task=claw_core_agent priority=1 state=2 stack_free_min_bytes=10528 core_affinity=0
+task=audio_input priority=8 state=2 stack_free_min_bytes=5740 core_affinity=0
+task=ipc1 priority=24 state=3 stack_free_min_bytes=688 core_affinity=1
+task=main priority=20 state=2 stack_free_min_bytes=6980 core_affinity=0
+task=wifi priority=23 state=2 stack_free_min_bytes=4764 core_affinity=0
+task=esp_timer priority=22 state=3 stack_free_min_bytes=3472 core_affinity=0
+task=audio_output priority=4 state=2 stack_free_min_bytes=3508 core_affinity=2147483647
+task=opus_codec priority=2 state=2 stack_free_min_bytes=23820 core_affinity=2147483647
+firmware=0.1.5 reset_reason=1 uptime_ms=544089
+I (545685) HttpClient: HTTP connection closed
+I (545729) mosi_agent: request=3 busy=1
+mosi: OK
+I (546052) esp-x509-crt-bundle: Certificate validated
+I (548686) Application: Activating... 8/10
+I (548826) esp-x509-crt-bundle: Certificate validated
+I (549154) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=467
+I (554037) SystemInfo: free sram: 175887 minimal sram: 63792
+I (554153) mosi_game: fps=30.3 stack=5888
+I (560020) HttpClient: HTTP connection closed
+I (563021) Application: Activating... 9/10
+I (563157) esp-x509-crt-bundle: Certificate validated
+I (563719) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=697
+I (564037) SystemInfo: free sram: 175883 minimal sram: 63792
+I (564186) mosi_game: fps=30.3 stack=5888
+I (572766) mosi_app: heap_internal=175903 min_internal=63792 psram=16361352 min_psram=16336384 stack_app=4652 stack_game=5888
+I (573374) mosi_agent: request=3 busy=1
+I (573375) mosi_agent: request=3 tool=game_preview result=0
+I (573683) esp-x509-crt-bundle: Certificate validated
+I (574037) SystemInfo: free sram: 172979 minimal sram: 61340
+I (574057) HttpClient: HTTP connection closed
+I (574218) mosi_game: fps=30.3 stack=5888
+I (577057) Application: Activating... 10/10
+I (577080) mosi_agent: request=3 busy=0
+I (577080) mosi_agent: request=3 completed status=0 backend_status=0
+I (577201) esp-x509-crt-bundle: Certificate validated
+I (578468) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=1410
+I (584037) SystemInfo: free sram: 178115 minimal sram: 61340
+I (584249) mosi_game: fps=30.3 stack=5888
+I (588692) HttpClient: HTTP connection closed
+I (591693) Ota: Current version: 0.1.5
+I (591857) esp-x509-crt-bundle: Certificate validated
+I (592805) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=1109
+I (593838) HttpClient: HTTP connection closed
+I (593842) Ota: Current is the latest version
+I (593842) Ota: Running from factory partition, skipping
+W (593842) Application: Alert [link] 激活设备: xiaozhi.me
+505699
+I (593847) Application: Activating... 1/10
+I (594012) esp-x509-crt-bundle: Certificate validated
+I (594037) SystemInfo: free sram: 181259 minimal sram: 61340
+I (594282) mosi_game: fps=30.3 stack=5888
+I (594848) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=994
+I (602983) mosi_app: heap_internal=178075 min_internal=61340 psram=16410784 min_psram=16249272 stack_app=4652 stack_game=5888
+I (604037) SystemInfo: free sram: 177547 minimal sram: 61340
+I (604314) mosi_game: fps=30.3 stack=5888
+I (605076) HttpClient: HTTP connection closed

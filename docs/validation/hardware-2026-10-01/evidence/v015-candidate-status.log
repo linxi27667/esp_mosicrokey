@@ -1,0 +1,120 @@
+mode=0 wifi=1 tf=0 request=1 busy=0 games=0 heap=16795563 min=16609428
+voice=激活设备
+notice=TF card unavailable
+agent=```lua
+local snake, dx, dy, food, elapsed, score, dead, confirm_before, won, turned
+local occupied
+
+local function put_food()
+    occupied = {}
+    for _, p in ipairs(snake) do occupied[p.x * 20 + p.y] = true end
+    for attempts = 1, 32 do
+        food = {x = game.random(20) - 1, y = game.random(13) - 1}
+        local key = food.x * 20 + food.y
+        if not occupied[key] then return end
+    end
+    for y = 0, 12 do
+        for x = 0, 19 do
+            local key = x * 20 + y
+            if not occupied[key] then
+                food.x, food.y = x, y
+                return
+            end
+        end
+    end
+end
+
+function init()
+    snake = {{x=8, y=6}, {x=7, y=6}, {x=6, y=6}}
+    dx, dy, elapsed, score, dead, confirm_before, won, turned = 1, 0, 0, 0, false, false, false, false
+    food = {x=9, y=6}
+    turned = false
+end
+
+function update(dt, input)
+    if dead then
+        if input.confirm and not confirm_before then init() end
+        confirm_before = input.confirm
+        return
+    end
+    if input.up and dy == 0 and not turned then
+        dx, dy = 0, -1
+        turned = true
+    elseif input.down and dy == 0 and not turned then
+        dx, dy = 0, 1
+        turned = true
+    elseif input.left and dx == 0 and not turned then
+        dx, dy = -1, 0
+        turned = true
+    elseif input.right and dx == 0 and not turned then
+        dx, dy = 1, 0
+        turned = true
+    end
+    if dx ~= 0 and dy ~= 0 then dx, dy = 0, dy end
+    elapsed = elapsed + dt
+    if elapsed < 0.25 then return end
+    elapsed = elapsed - 0.25
+    local head = {x = (snake[1].x + dx + 20) % 20, y = (snake[1].y + dy + 13) % 13}
+    local eats = head.x == food.x and head.y == food.y
+    for i = 1, #snake - (eats and 0 or 1) do
+        if snake[i].x == head.x and snake[i].y == head.y then dead = true return end
+    end
+    table.insert(snake, 1, head)
+    if eats then
+        score = score + 1
+        if #snake >= 260 then won = true; dead = true return end
+        put_food()
+    else
+        table.remove(snake)
+    end
+    turned = false
+end
+
+function draw()
+    game.clear(0x1083)
+    game.text(4, 4, "GLM SNAKE V3", 0xffff)
+    game.text(4, 12, "SCORE " .. score, 0xffff)
+    game.rect(0, 20, 160, 104, 0x0000)
+    for i, p in ipairs(snake) do
+        if i == 1 then
+            game.rect(p.x * 8 + 1, 21 + p.y * 8, 6, 6, 0xffff)
+        else
+            game.rect(p.x * 8 + 1, 21 + p.y * 8, 6, 6, 0x07e0)
+        end
+    end
+    game.rect(food.x * 8 + 1, 21 + food.y * 8, 6, 6, 0xfca0)
+    if won then
+        game.rect(28, 48, 104, 28, 0x2104)
+        game.text(52, 53, "YOU WIN", 0xffff)
+        game.text(34, 65, "CONFIRM TO RESTART", 0xfca0)
+    elseif dead then
+        game.rect(28, 48, 104, 28, 0x2104)
+        game.text(52, 53, "GAME OVER", 0xffff)
+        game.text(34, 65, "CONFIRM TO RESTART", 0xfca0)
+    end
+end
+```
+task=mosi_console priority=1 state=0 stack_free_min_bytes=6180 core_affinity=2147483647
+task=IDLE0 priority=0 state=1 stack_free_min_bytes=1152 core_affinity=0
+task=IDLE1 priority=0 state=1 stack_free_min_bytes=1176 core_affinity=1
+task=mosi_app priority=2 state=2 stack_free_min_bytes=7164 core_affinity=2147483647
+task=mosi_game priority=3 state=2 stack_free_min_bytes=7504 core_affinity=1
+task=tcpip priority=18 state=2 stack_free_min_bytes=2600 core_affinity=0
+task=mosi_agent_rx priority=1 state=2 stack_free_min_bytes=5244 core_affinity=2147483647
+task=mosi_ui priority=3 state=2 stack_free_min_bytes=4180 core_affinity=0
+task=Tmr Svc priority=1 state=2 stack_free_min_bytes=1712 core_affinity=2147483647
+task=ssl_receive priority=1 state=2 stack_free_min_bytes=3176 core_affinity=2147483647
+task=activation priority=2 state=2 stack_free_min_bytes=4352 core_affinity=1
+task=mkeys priority=3 state=2 stack_free_min_bytes=3700 core_affinity=2147483647
+task=ipc1 priority=24 state=3 stack_free_min_bytes=688 core_affinity=1
+task=audio_output priority=4 state=2 stack_free_min_bytes=3508 core_affinity=2147483647
+task=opus_codec priority=2 state=2 stack_free_min_bytes=23820 core_affinity=2147483647
+task=ipc0 priority=24 state=3 stack_free_min_bytes=696 core_affinity=0
+task=sys_evt priority=20 state=2 stack_free_min_bytes=1052 core_affinity=0
+task=claw_core_agent priority=1 state=2 stack_free_min_bytes=11184 core_affinity=0
+task=wifi priority=23 state=2 stack_free_min_bytes=4764 core_affinity=0
+task=esp_timer priority=22 state=3 stack_free_min_bytes=3616 core_affinity=0
+task=main priority=20 state=2 stack_free_min_bytes=6980 core_affinity=0
+task=audio_input priority=8 state=2 stack_free_min_bytes=5740 core_affinity=0
+firmware=0.1.5 reset_reason=1 uptime_ms=421805
+I (424037) SystemInfo: free sram: 179407 minimal sram: 71100
