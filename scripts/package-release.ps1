@@ -34,6 +34,11 @@ if ((Get-Item -LiteralPath $taskImage).Length -ne 16MB) { throw 'Incorrect merge
 & $taskPython (Join-Path $PSScriptRoot 'check-firmware.py')
 if ($LASTEXITCODE -ne 0) { throw 'Firmware integrity check failed' }
 Copy-Item -LiteralPath (Join-Path $taskBuild 'mosicrokey.elf') -Destination $taskRelease -Force
+$taskAppImage = Join-Path $taskRelease "mosicrokey-v$taskVersion-app.bin"
+Copy-Item -LiteralPath (Join-Path $taskBuild 'mosicrokey.bin') -Destination $taskAppImage -Force
+$taskAppSegment = $taskSegments | Where-Object { $_.file -eq 'mosicrokey.bin' }
+$taskAppDigest = (Get-FileHash -LiteralPath $taskAppImage -Algorithm SHA256).Hash.ToLower()
+if ($taskAppDigest -ne $taskAppSegment.sha256) { throw 'Application image copy verification failed' }
 Copy-Item -LiteralPath (Join-Path $taskRoot 'sdkconfig') -Destination $taskRelease -Force
 Copy-Item -LiteralPath (Join-Path $taskRoot 'dependencies.lock') -Destination $taskRelease -Force
 Copy-Item -LiteralPath (Join-Path $taskRoot 'partitions.csv') -Destination $taskRelease -Force
@@ -61,6 +66,9 @@ $taskManifest = [ordered]@{
     sha256 = (Get-FileHash -LiteralPath $taskImage -Algorithm SHA256).Hash.ToLower();
     elf_sha256 = (Get-FileHash -LiteralPath (Join-Path $taskRelease 'mosicrokey.elf') -Algorithm SHA256).Hash.ToLower();
     source_manifest_sha256 = (Get-FileHash -LiteralPath (Join-Path $taskRoot 'source-manifest.json') -Algorithm SHA256).Hash.ToLower();
+    application_image = @{ file = (Split-Path $taskAppImage -Leaf); offset = $taskAppSegment.offset;
+        bytes = (Get-Item -LiteralPath $taskAppImage).Length; sha256 = $taskAppDigest;
+        nvs = 'preserved when writing only this application at its offset with the existing partition layout' };
     upstream = (Get-Content -LiteralPath (Join-Path $taskRoot 'upstream-lock.json') -Raw | ConvertFrom-Json);
     segments = $taskSegments;
     validation = @{ target_build = 'artifacts merged; see docs/validation for build evidence'; host_tests = 'see docs/validation; packaging does not run tests';
@@ -70,5 +78,5 @@ $taskManifest = [ordered]@{
 }
 $taskUtf8 = New-Object System.Text.UTF8Encoding($false)
 [IO.File]::WriteAllText((Join-Path $taskRelease 'manifest.json'), ($taskManifest | ConvertTo-Json -Depth 12), $taskUtf8)
-[IO.File]::WriteAllText((Join-Path $taskRelease 'SHA256SUMS.txt'), "$($taskManifest.sha256)  $($taskManifest.image)`n$($taskManifest.elf_sha256)  mosicrokey.elf`n", $taskUtf8)
+[IO.File]::WriteAllText((Join-Path $taskRelease 'SHA256SUMS.txt'), "$($taskManifest.sha256)  $($taskManifest.image)`n$taskAppDigest  $(Split-Path $taskAppImage -Leaf)`n$($taskManifest.elf_sha256)  mosicrokey.elf`n", $taskUtf8)
 Write-Output "Release: $taskImage (16MB), SHA256 $($taskManifest.sha256)"

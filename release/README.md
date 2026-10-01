@@ -3,6 +3,7 @@
 目标：ESP32-S31-Function-CoreBoard-1 / esp32s31，ESP-IDF 6.1.0。
 
 - `mosicrokey-v0.1.9-esp32s31.bin`：16 MiB 完整工厂镜像，烧录到 0x0；包括应用、语音/唤醒资源和只读游戏技能区。
+- `mosicrokey-v0.1.9-app.bin`：应用镜像，当前偏移 0x20000。在分区布局和资源已匹配的设备上仅写此应用可保留 NVS；首次安装使用完整构建的分区与资源。偏移、长度和 SHA256 以 manifest.json 为准。
 - `mosicrokey.elf`：对应调试符号，供崩溃分析。
 - `manifest.json`、`SHA256SUMS.txt`：镜像、分段及源快照哈希。
 - `sdkconfig`、`partitions.csv`、`dependencies.lock`：本次构建配置。

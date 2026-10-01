@@ -1,0 +1,15 @@
+Verified 2960 pinned source files, including documented MosiCrokey patches
+Verified complete patches restore 6 pinned upstream files byte-for-byte; no network used
+esptool v5.4.0
+HINT: Consider using --format hex to avoid flashing unused 0xFF padding between input regions.
+SHA digest in image updated.
+Wrote 0x1000000 bytes to file 'E:\MCU\esp32\esp_mosicrokey\release\mosicrokey-v0.1.9-esp32s31.bin', ready to flash to offset 0x0.
+400154a4 T app_main
+40019b46 T create_board()
+4001d808 T Application::Run()
+4012c3c6 T claw_core_submit
+mosicrokey.bin: 3911936 bytes / 6291456 bytes partition
+assets.bin: 561011 bytes / 8388608 bytes partition
+system.bin: 524288 bytes / 524288 bytes partition
+PASS: unique entry/factory, real upstream symbols, partition fit, all merged segments and blank factory NVS
+Release: E:\MCU\esp32\esp_mosicrokey\release\mosicrokey-v0.1.9-esp32s31.bin (16MB), SHA256 1de462ffbce70176ebe870dd5634d019ec10889d5b6c5b47631bf07f69f9f58f
