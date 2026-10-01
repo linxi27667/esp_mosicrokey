@@ -1,0 +1,65 @@
+{
+  "firmware_app_sha256": "d5d21736728c7367eadec04d994e30f9c65d4f9babef3e61b0d5c520d885a869",
+  "complete": true,
+  "runtime_passed": true,
+  "scope": "USB temporary Lua preview; TF and physical display NOT TESTED",
+  "continuous_game_seconds": 7201.29,
+  "game_cycles_completed": 100,
+  "navigation_commands_sent": 600,
+  "steady_fps_min": 30.3,
+  "steady_fps_mean": 30.3,
+  "agent_calls_submitted": 24,
+  "agent_successes": 21,
+  "agent_errors": 3,
+  "agent_unfinished": 0,
+  "faults": [],
+  "stack_min_free_bytes": {
+    "mosi_console": 5452,
+    "IDLE1": 1160,
+    "IDLE0": 1152,
+    "mkeys": 3664,
+    "mosi_game": 5884,
+    "mosi_app": 4596,
+    "tcpip": 2596,
+    "mosi_agent_rx": 5240,
+    "Tmr": 1664,
+    "ssl_receive": 3168,
+    "activation": 4224,
+    "mosi_ui": 4184,
+    "sys_evt": 1048,
+    "claw_core_agent": 10488,
+    "audio_input": 5736,
+    "audio_output": 3440,
+    "ipc0": 680,
+    "main": 6980,
+    "wifi": 4760,
+    "esp_timer": 3264,
+    "opus_codec": 23752,
+    "ipc1": 688
+  },
+  "memory_note": "Idle samples exclude Agent HTTP, but Xiaozhi activation/TLS still allocates transient buffers; review quarter medians before a leak conclusion.",
+  "idle_memory": {
+    "internal": {
+      "quarter_medians_bytes": [
+        178319,
+        178355,
+        178351,
+        184091
+      ],
+      "last_minus_first_bytes": 5772,
+      "minimum_idle_bytes": 177599,
+      "minimum_observed_bytes": 59500
+    },
+    "psram": {
+      "quarter_medians_bytes": [
+        16430040,
+        16431140,
+        16432044,
+        16432880
+      ],
+      "last_minus_first_bytes": 2840,
+      "minimum_idle_bytes": 16409328,
+      "minimum_observed_bytes": 16338548
+    }
+  }
+}

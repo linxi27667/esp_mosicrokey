@@ -2,7 +2,7 @@
   "version": "0.1.9",
   "firmware_app_sha256": "d5d21736728c7367eadec04d994e30f9c65d4f9babef3e61b0d5c520d885a869",
   "scope": "USB reconnect, real Agent publication and fresh continuous test; TF/display/keys/voice not tested",
-  "status": "NEW_TWO_HOUR_TEST_RUNNING",
+  "status": "USB_RUNTIME_TWO_HOUR_PASS_WITH_NETWORK_ERRORS_AND_RECOVERY",
   "reconnect": {
     "port": "COM8",
     "adapter_serial": "7E6E5CC2F471F011A32BFB9E1045C30F",
@@ -20,7 +20,71 @@
     "source_checks": 32,
     "frame_fnv1a": "923aa425"
   },
-  "two_hour_test": "RUNNING; never combine the prior interrupted run",
+  "two_hour_test": {
+    "firmware_app_sha256": "d5d21736728c7367eadec04d994e30f9c65d4f9babef3e61b0d5c520d885a869",
+    "complete": true,
+    "runtime_passed": true,
+    "scope": "USB temporary Lua preview; TF and physical display NOT TESTED",
+    "continuous_game_seconds": 7201.29,
+    "game_cycles_completed": 100,
+    "navigation_commands_sent": 600,
+    "steady_fps_min": 30.3,
+    "steady_fps_mean": 30.3,
+    "agent_calls_submitted": 24,
+    "agent_successes": 21,
+    "agent_errors": 3,
+    "agent_unfinished": 0,
+    "faults": [],
+    "stack_min_free_bytes": {
+      "mosi_console": 5452,
+      "IDLE1": 1160,
+      "IDLE0": 1152,
+      "mkeys": 3664,
+      "mosi_game": 5884,
+      "mosi_app": 4596,
+      "tcpip": 2596,
+      "mosi_agent_rx": 5240,
+      "Tmr": 1664,
+      "ssl_receive": 3168,
+      "activation": 4224,
+      "mosi_ui": 4184,
+      "sys_evt": 1048,
+      "claw_core_agent": 10488,
+      "audio_input": 5736,
+      "audio_output": 3440,
+      "ipc0": 680,
+      "main": 6980,
+      "wifi": 4760,
+      "esp_timer": 3264,
+      "opus_codec": 23752,
+      "ipc1": 688
+    },
+    "memory_note": "Idle samples exclude Agent HTTP, but Xiaozhi activation/TLS still allocates transient buffers; review quarter medians before a leak conclusion.",
+    "idle_memory": {
+      "internal": {
+        "quarter_medians_bytes": [
+          178319,
+          178355,
+          178351,
+          184091
+        ],
+        "last_minus_first_bytes": 5772,
+        "minimum_idle_bytes": 177599,
+        "minimum_observed_bytes": 59500
+      },
+      "psram": {
+        "quarter_medians_bytes": [
+          16430040,
+          16431140,
+          16432044,
+          16432880
+        ],
+        "last_minus_first_bytes": 2840,
+        "minimum_idle_bytes": 16409328,
+        "minimum_observed_bytes": 16338548
+      }
+    }
+  },
   "prior_interrupted_record": "../hardware-2026-10-01/evidence/record-v019.json",
   "repository": "https://github.com/linxi27667/esp_mosicrokey",
   "evidence": {
@@ -33,6 +97,105 @@
     "v019-reconnect-publish-status.log": "88a0b6493b8fe0c252caa9308345d3bdf16e4714b7efa976ede15e37208b23d5",
     "v019-reconnect-publish.log": "b5d5a0fdeccda10c0b8d50f26f74bcf1e3c5a898c4973e4bd6fff4c708b8b0d8",
     "v019-reconnect-source.log": "a07bd7c3bccc7e8cc9971959fe817ee5caa2b4d53fc4f37b404bd2881c9ec1ed",
-    "v019-reconnect-status.log": "dfe100a23eb539c292a9c0186475467686e374d79fa6e82ba0c71c685ce61c20"
-  }
+    "v019-reconnect-status.log": "dfe100a23eb539c292a9c0186475467686e374d79fa6e82ba0c71c685ce61c20",
+    "soak-v019-reconnect-summary.json": "9e77ac9add7fd080bc8408c722d5fc6b9de86439b2e10a8c38e276f93178fca5",
+    "soak-v019-reconnect-serial.log": "295b1fe212813e6418d636c6ee107f668c7a61e4d4420ca4c2b5f99a0659aa53",
+    "soak-v019-reconnect-analysis.json": "8a412a48b8f1a8537e607a5556ccebc6545a593a97ff7a5df8cd00ecd764a5f0",
+    "soak-v019-reconnect-fps.csv": "79e27bc008110a67a3c0864c35bcdd27fd93f518971327e6221b46486c93ef24",
+    "soak-v019-reconnect-memory_samples.csv": "944442f988f0e43cfba3e0db19ad45548f9bb1f7714a114d6bbb2ab641384faf",
+    "soak-v019-reconnect-agent_completions.csv": "fb2ca230aebd9a11dbb179cc49d8a57a18dc20fd3ed87acecf1166161e06937d",
+    "v019-post-soak-device-p1.lua": "54df1351ba60b757d340e16787566acfe7433aea7b4c83c687c612860b00b8d7",
+    "v019-post-soak-source.log": "f1bf2fe865038fe30b10cee45367c734ac7e0b6451063bc03b22b8de9f221cc9",
+    "v019-post-soak-relaunch-frame.log": "c8bf83c1ae1d84c395cf2a8e9de7bba7c1ff584e178448957e0d828ad4d7fc59",
+    "v019-post-soak-relaunch-frame.png": "e25272f23898aa8b331c67d0b33be5a544660d2638e0d4f02cde64d14c70fb48",
+    "secrets-v019-reconnect-scan.json": "8e81168f7f47f2b499cb4ee5cc97f113ddb4752428115f08adb2966f75dfeb7f",
+    "package-support-v019.log": "b2543f6b9ccd8351f041e1b7cd73d1d66c3a1059676d5c282868980a23a11fdd"
+  },
+  "network_recovery": {
+    "disconnect_uptime_ms": 5773822,
+    "ip_restored_uptime_ms": 6714342,
+    "offline_seconds": 940.52,
+    "disconnect_reason": 1,
+    "reconnect_failure_reason": 201,
+    "observations": "Five reconnect attempts, scans did not find saved SSID, later Ll rediscovered automatically. No manual reset/configuration. Physical cause unknown.",
+    "failed_requests": [
+      20,
+      21,
+      22
+    ],
+    "recovered_successful_requests": [
+      23,
+      24,
+      25,
+      26
+    ]
+  },
+  "post_soak": {
+    "game_id": "preview-snake",
+    "revision": "p1",
+    "source_bytes": 2832,
+    "source_sha256": "54df1351ba60b757d340e16787566acfe7433aea7b4c83c687c612860b00b8d7",
+    "same_as_before_soak": true,
+    "relaunch_mode": 4,
+    "wifi": 1,
+    "agent_busy": 0,
+    "frame_fnv1a": "b795dc25",
+    "audio_focus": 0,
+    "input_frames": 0,
+    "output_frames": 0,
+    "uptime_ms": 8016183,
+    "no_reset_performed": true
+  },
+  "project_stack_review": {
+    "mosi_console": {
+      "allocated_bytes": 8192,
+      "minimum_free_bytes": 5452,
+      "minimum_free_percent": 66.55
+    },
+    "mosi_ui": {
+      "allocated_bytes": 8192,
+      "minimum_free_bytes": 4184,
+      "minimum_free_percent": 51.07
+    },
+    "mosi_game": {
+      "allocated_bytes": 8192,
+      "minimum_free_bytes": 5884,
+      "minimum_free_percent": 71.83
+    },
+    "mosi_app": {
+      "allocated_bytes": 8192,
+      "minimum_free_bytes": 4596,
+      "minimum_free_percent": 56.1
+    },
+    "mkeys": {
+      "allocated_bytes": 4096,
+      "minimum_free_bytes": 3664,
+      "minimum_free_percent": 89.45
+    },
+    "claw_core_agent": {
+      "allocated_bytes": 16384,
+      "minimum_free_bytes": 10488,
+      "minimum_free_percent": 64.01
+    },
+    "mosi_agent_rx": {
+      "allocated_bytes": 6144,
+      "minimum_free_bytes": 5240,
+      "minimum_free_percent": 85.29
+    }
+  },
+  "connected_idle_memory_review": {
+    "internal": {
+      "first_ten_median_bytes": 178365.0,
+      "last_ten_median_bytes": 177843.0,
+      "note": "Both endpoints connected and Agent idle; activation/TLS remain transient. This run does not certify arbitrary-duration or voice memory behavior."
+    },
+    "psram": {
+      "first_ten_median_bytes": 16426768.0,
+      "last_ten_median_bytes": 16431026.0,
+      "note": "Both endpoints connected and Agent idle; activation/TLS remain transient. This run does not certify arbitrary-duration or voice memory behavior."
+    }
+  },
+  "source_baseline_commit": "96431996322a2dd72048bfb2e54c53f5debb45ca",
+  "compiled_source_unchanged_since_baseline": true,
+  "release_tag": "v0.1.9"
 }
