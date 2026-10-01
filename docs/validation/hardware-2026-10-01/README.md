@@ -28,7 +28,7 @@ v0.1.9 应用 SHA256：`d5d21736728c7367eadec04d994e30f9c65d4f9babef3e61b0d5c520
 | 鉴权恢复 | request=9 实际 HTTP 401；恢复配置后 request=10 成功，游戏继续运行；v019-invalid-key*.log / v019-auth-recovery*.log |
 | 设备 VM 与无卡 | 自检 60 帧/100 次加载：init 7900 us，帧均 1944 us/最高 2562 us，超时/堆/禁用库 PASS；无卡重挂报告 TF: ESP_ERR_TIMEOUT，demo 返回 TF card unavailable，游戏仍可运行；v019-selftest.log / v019-no-tf.log |
 | 音频焦点 | 非语音页 focus=0、input/output disabled、playback_idle=1、输入输出计数 0；仅证明门控；v019-selftest.log |
-| 连续运行 | 2026-10-01 20:28（北京时间）进度：100 次加载退出/600 条导航命令完成；独立连续运行约 58 分钟，11 次背景请求成功、1 次 DNS 失败后恢复，稳定 30.3 FPS；两小时尚未完成，不能合并旧版或预检时长 |
+| 连续运行 | 100 次加载退出/600 条导航命令完成；连续记录 6004.97 秒（约 100 分钟），19 次请求成功、1 次 DNS 失败后恢复，无未完成请求，稳定最低/均值 30.3 FPS。串口 ClearCommError 拒绝访问后中断，未通过两小时；soak-v019-interrupted-*.json/log |
 
 ![后台发布后仍运行 V2](evidence/v019-v2-after-v3.png)
 ![退出重进后运行 V3](evidence/v019-v3-active.png)
@@ -52,3 +52,5 @@ V3 源码 SHA256：`54df1351ba60b757d340e16787566acfe7433aea7b4c83c687c612860b00
 ## 服务来源
 
 [智谱官方价格表](https://docs.bigmodel.cn/cn/guide/start/pricing)列出 GLM-4-Flash-250414 与 GLM-4.7-Flash 免费；当前采用 `glm-4-flash-250414`。OpenAI 兼容基址 `https://open.bigmodel.cn/api/paas/v4`，原生 tools / Bearer。没有使用 FlashX 或付费 GLM-4.7。
+
+2026-10-02 重连：COM8、相同 CP210x 身份，板上仍为 v0.1.9；当前复位原因 1，request=0/games=0，说明设备已重新启动。该重连状态不能确定上一轮串口中断当时的复位原因。新的验证保存在 logs/hardware-2026-10-02/round-001，时长不与旧轮合并。

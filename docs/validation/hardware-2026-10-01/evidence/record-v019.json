@@ -5,7 +5,7 @@
   "elf_sha256": "c5de7948aa44dc2f0723155e67771302e9ca7640024faba8ca19b70ca10e30ea",
   "source_manifest_sha256": "a824a09761db5f8ba8440b9904703a43d035b51712bc00b1f7411594167362a8",
   "scope": "USB RAM preview and real native ESPClaw API/tools; physical TF/display/keys and Xiaozhi voice pending",
-  "status": "TWO_HOUR_TEST_RUNNING",
+  "status": "TWO_HOUR_TEST_INTERRUPTED",
   "snake": {
     "origin": "Actual v0.1.5 onboard GLM-repaired source, republished by v0.1.9 native tools",
     "revision": "p2",
@@ -68,7 +68,7 @@
       "background_successes": 1,
       "steady_fps_min": 30.3
     },
-    "two_hour_soak": "RUNNING, not passed yet"
+    "two_hour_soak": "INCOMPLETE: 6004.97 continuous seconds; ClearCommError access denied; no final reset cause captured"
   },
   "previous_records": {
     "record-v013-interrupted.json": "2e47fbdc9ab2e8229b266e9839b510b5feb047ce85d41f372fb5376d73fe4a6d",
@@ -124,6 +124,75 @@
     "ui-v019/snake.png": "6cb666cc5b9521b11ccfa11d975aa8e414eefe6ce7df599246c47ffe101330ed",
     "ui-v019/storage-error.png": "d20681a537064e8a00a7c4b64d8dad75b0c4c372ae30f38c73c781bea8b6b4ce",
     "ui-v019/voice-scroll.png": "2331975baac8009033643b9465949b7d99f9a3bf8fd3ba212d9ebd47bbf59143",
-    "ui-v019/voice.png": "2f923504613db57a691977465ea62f57b17d107a05044112c160e858b1701843"
+    "ui-v019/voice.png": "2f923504613db57a691977465ea62f57b17d107a05044112c160e858b1701843",
+    "soak-v019-interrupted-summary.json": "092f86d0146185ee8a42cd96f9b007ef7949a0f7e76411a6acb7f33abebac60e",
+    "soak-v019-interrupted-serial.log": "efe22b8a01327b0a4575ab40c31723ffd3391b1424cb9e60a428bdc4a26144cb",
+    "soak-v019-interrupted-analysis.json": "8c0d1385444538b19ab4fee024344dd589e67720f55122b593fc112c5d2e258d"
+  },
+  "soak": {
+    "firmware_app_sha256": "d5d21736728c7367eadec04d994e30f9c65d4f9babef3e61b0d5c520d885a869",
+    "complete": false,
+    "runtime_passed": false,
+    "scope": "USB temporary Lua preview; TF and physical display NOT TESTED",
+    "continuous_game_seconds": 6004.97,
+    "game_cycles_completed": 100,
+    "navigation_commands_sent": 600,
+    "steady_fps_min": 30.3,
+    "steady_fps_mean": 30.3,
+    "agent_calls_submitted": 20,
+    "agent_successes": 19,
+    "agent_errors": 1,
+    "agent_unfinished": 0,
+    "faults": [],
+    "stack_min_free_bytes": {
+      "mosi_ui": 4184,
+      "mosi_console": 3708,
+      "IDLE1": 1160,
+      "IDLE0": 1152,
+      "mosi_game": 5884,
+      "mosi_app": 4564,
+      "tcpip": 2596,
+      "mosi_agent_rx": 5224,
+      "Tmr": 1664,
+      "ssl_receive": 3048,
+      "activation": 4212,
+      "mkeys": 3664,
+      "sys_evt": 1048,
+      "claw_core_agent": 10488,
+      "audio_input": 5736,
+      "ipc1": 688,
+      "ipc0": 696,
+      "main": 6932,
+      "wifi": 4776,
+      "esp_timer": 3264,
+      "audio_output": 3504,
+      "opus_codec": 23752
+    },
+    "memory_note": "Idle samples exclude Agent HTTP, but Xiaozhi activation/TLS still allocates transient buffers; review quarter medians before a leak conclusion.",
+    "idle_memory": {
+      "internal": {
+        "quarter_medians_bytes": [
+          178007,
+          177875,
+          177831,
+          177877.0
+        ],
+        "last_minus_first_bytes": -130.0,
+        "minimum_idle_bytes": 177159,
+        "minimum_observed_bytes": 59672
+      },
+      "psram": {
+        "quarter_medians_bytes": [
+          16424168,
+          16424160,
+          16423496,
+          16423352.0
+        ],
+        "last_minus_first_bytes": -816.0,
+        "minimum_idle_bytes": 16406240,
+        "minimum_observed_bytes": 16198464
+      }
+    },
+    "end_error": "ClearCommError access denied"
   }
 }
