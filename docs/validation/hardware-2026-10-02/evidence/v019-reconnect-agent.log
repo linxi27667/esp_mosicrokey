@@ -1,0 +1,27 @@
+I (291170) mosi_agent: request=1 busy=1
+mosi: OK
+I (291454) esp-x509-crt-bundle: Certificate validated
+W (292446) HTTP_CLIENT: Connection timed out before data was ready!
+W (292559) HTTP_CLIENT: Connection timed out before data was ready!
+W (292670) HTTP_CLIENT: Connection timed out before data was ready!
+W (292782) HTTP_CLIENT: Connection timed out before data was ready!
+W (292894) HTTP_CLIENT: Connection timed out before data was ready!
+W (293006) HTTP_CLIENT: Connection timed out before data was ready!
+W (293117) HTTP_CLIENT: Connection timed out before data was ready!
+W (293228) HTTP_CLIENT: Connection timed out before data was ready!
+I (293323) HttpClient: HTTP connection closed
+I (293332) mosi_agent: request=1 busy=0
+I (293332) mosi_agent: request=1 completed status=0 backend_status=0
+I (296037) SystemInfo: free sram: 185067 minimal sram: 64300
+I (296324) Ota: Current version: 0.1.9
+I (297327) esp-x509-crt-bundle: Certificate validated
+I (298452) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=2126
+I (299510) HttpClient: HTTP connection closed
+I (299513) Ota: Current is the latest version
+I (299514) Ota: Running from factory partition, skipping
+W (299514) Application: Alert [link] 激活设备: xiaozhi.me
+505699
+I (299518) Application: Activating... 1/10
+I (299654) esp-x509-crt-bundle: Certificate validated
+I (300499) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=977
+I (302432) mosi_app: heap_internal=178887 min_internal=64300 psram=16634528 min_psram=16562416 stack_app=7160 stack_game=7500

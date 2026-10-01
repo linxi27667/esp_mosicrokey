@@ -1,0 +1,38 @@
+{
+  "version": "0.1.9",
+  "firmware_app_sha256": "d5d21736728c7367eadec04d994e30f9c65d4f9babef3e61b0d5c520d885a869",
+  "scope": "USB reconnect, real Agent publication and fresh continuous test; TF/display/keys/voice not tested",
+  "status": "NEW_TWO_HOUR_TEST_RUNNING",
+  "reconnect": {
+    "port": "COM8",
+    "adapter_serial": "7E6E5CC2F471F011A32BFB9E1045C30F",
+    "reset_reason": 1,
+    "initial_uptime_ms": 239972,
+    "initial_games": 0,
+    "wifi_retained": true,
+    "ordinary_request": 1,
+    "ordinary_result": "PASS",
+    "native_publish_request": 2,
+    "native_publish_result": "game_preview result=0; completed status=0",
+    "game_revision": "p1",
+    "source_bytes": 2832,
+    "source_sha256": "54df1351ba60b757d340e16787566acfe7433aea7b4c83c687c612860b00b8d7",
+    "source_checks": 32,
+    "frame_fnv1a": "923aa425"
+  },
+  "two_hour_test": "RUNNING; never combine the prior interrupted run",
+  "prior_interrupted_record": "../hardware-2026-10-01/evidence/record-v019.json",
+  "repository": "https://github.com/linxi27667/esp_mosicrokey",
+  "evidence": {
+    "v019-reconnect-agent-status.log": "884592abb11871eb57d05dbfa01d13ba2dea0c9cdfc19b6c039fa6fb32fd0476",
+    "v019-reconnect-agent.log": "569f95c7563773b6373c926d88874e2777ff34d0f13c3c9537ec4f68dc3c55c6",
+    "v019-reconnect-device-p1.lua": "54df1351ba60b757d340e16787566acfe7433aea7b4c83c687c612860b00b8d7",
+    "v019-reconnect-frame.log": "1bd4224c3120d1cdfefafaaf301140f7d31d34253948bdf074fc669993c6058c",
+    "v019-reconnect-frame.png": "a6e323f7cd12fef6028950d6f4504ab2296cfbeb06d05bb7f99cefdddee6b0e1",
+    "v019-reconnect-probe.log": "d6adbb084f87a25853b89c11b03e8ec97326b5b21a359cb00da5efcd5f5239ff",
+    "v019-reconnect-publish-status.log": "88a0b6493b8fe0c252caa9308345d3bdf16e4714b7efa976ede15e37208b23d5",
+    "v019-reconnect-publish.log": "b5d5a0fdeccda10c0b8d50f26f74bcf1e3c5a898c4973e4bd6fff4c708b8b0d8",
+    "v019-reconnect-source.log": "a07bd7c3bccc7e8cc9971959fe817ee5caa2b4d53fc4f37b404bd2881c9ec1ed",
+    "v019-reconnect-status.log": "dfe100a23eb539c292a9c0186475467686e374d79fa6e82ba0c71c685ce61c20"
+  }
+}

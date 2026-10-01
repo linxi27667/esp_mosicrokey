@@ -1,0 +1,30 @@
+mode=0 wifi=1 tf=0 request=0 busy=0 games=0 heap=16814747 min=16691216
+voice=激活设备
+notice=已连接 Ll
+agent=
+task=mosi_console priority=1 state=0 stack_free_min_bytes=6432 core_affinity=2147483647
+task=IDLE0 priority=0 state=1 stack_free_min_bytes=1168 core_affinity=0
+task=IDLE1 priority=0 state=1 stack_free_min_bytes=1176 core_affinity=1
+task=mkeys priority=3 state=2 stack_free_min_bytes=3696 core_affinity=2147483647
+task=mosi_app priority=2 state=2 stack_free_min_bytes=7304 core_affinity=2147483647
+task=tcpip priority=18 state=2 stack_free_min_bytes=2596 core_affinity=0
+task=mosi_game priority=3 state=2 stack_free_min_bytes=7500 core_affinity=1
+task=mosi_agent_rx priority=1 state=2 stack_free_min_bytes=5560 core_affinity=2147483647
+task=ssl_receive priority=1 state=2 stack_free_min_bytes=3172 core_affinity=2147483647
+task=activation priority=2 state=2 stack_free_min_bytes=4356 core_affinity=1
+task=mosi_ui priority=3 state=2 stack_free_min_bytes=4184 core_affinity=0
+task=audio_input priority=8 state=2 stack_free_min_bytes=5736 core_affinity=0
+task=audio_output priority=4 state=2 stack_free_min_bytes=3504 core_affinity=2147483647
+task=opus_codec priority=2 state=2 stack_free_min_bytes=23816 core_affinity=2147483647
+task=claw_core_agent priority=1 state=2 stack_free_min_bytes=14080 core_affinity=0
+task=sys_evt priority=20 state=2 stack_free_min_bytes=1048 core_affinity=0
+task=ipc1 priority=24 state=3 stack_free_min_bytes=688 core_affinity=1
+task=ipc0 priority=24 state=3 stack_free_min_bytes=696 core_affinity=0
+task=wifi priority=23 state=2 stack_free_min_bytes=4760 core_affinity=0
+task=main priority=20 state=2 stack_free_min_bytes=6980 core_affinity=0
+task=esp_timer priority=22 state=3 stack_free_min_bytes=3616 core_affinity=0
+task=Tmr Svc priority=1 state=2 stack_free_min_bytes=1712 core_affinity=2147483647
+firmware=0.1.9 reset_reason=1 uptime_ms=239972
+mosi: OK
+I (241336) mosi_audio: focus=0 state=9 wake=0 processing=0 playback_idle=1 input_enabled=0 output_enabled=0 input_frames=0 output_frames=0 input_peak=0
+I (242449) mosi_app: heap_internal=180211 min_internal=75740 psram=16634528 min_psram=16615476 stack_app=7304 stack_game=7500
