@@ -1,5 +1,7 @@
 # MosiCrokey v0.1.9
 
+源码仓库：[linxi27667/esp_mosicrokey](https://github.com/linxi27667/esp_mosicrokey)，私有，默认分支 main。开发与验收变更通过 Git 提交记录，见[Git 管理流程](docs/git-workflow.md)。
+
 当前目录是独立的 ESP-IDF 工程：真实小智组件、真实 ESPClaw Agent、TF 游戏版本库、受限 Lua 运行时和共享 LVGL 页面已实现。2026-10-01 已在 COM8 的 ESP32-S31 上烧录、联网并完成真实智谱请求和 Agent 贪吃蛇生成；当前仅连接 USB，游戏采用明确标注的临时内存预览。
 
 1178 项主机检查及共享页面截图通过，实际设备导出的 AI 贪吃蛇另通过 32 项玩法检查。小智仍等待账号激活；语音完整对话、实体屏/按键/TF 持久化尚未实测。两小时稳定性以[实板验证记录](docs/validation/hardware-2026-10-01/README.md)中对应固件的最终日志为准。

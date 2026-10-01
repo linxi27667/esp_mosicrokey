@@ -1,0 +1,30 @@
+{
+  "staged_files": 3276,
+  "staged_bytes": 43099846,
+  "pinned_vendor_files_verified": 2960,
+  "credential_matches": 0,
+  "matching_paths": [],
+  "passed": true,
+  "largest_files": [
+    {
+      "path": "third_party/esp-claw/tools/lua_lvgl_web_sim/sim_assets/fonts/fusion-pixel-12px.ttf",
+      "bytes": 5159320
+    },
+    {
+      "path": "assets/fonts/mosicrokey_font14.c",
+      "bytes": 3326149
+    },
+    {
+      "path": "third_party/esp-claw/application/edge_agent/fatfs_image/system/fonts/NotoSansSC-Regular-sub.ttf",
+      "bytes": 1135668
+    },
+    {
+      "path": "third_party/esp-claw/tools/lua_lvgl_web_sim/sim_assets/fonts/NotoSansSC-Regular.ttf",
+      "bytes": 1045720
+    },
+    {
+      "path": "third_party/esp-claw/docs/src/assets/images/breadboard-400.png",
+      "bytes": 922952
+    }
+  ]
+}

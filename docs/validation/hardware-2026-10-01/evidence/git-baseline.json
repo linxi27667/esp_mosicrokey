@@ -1,0 +1,19 @@
+{
+  "repository": "https://github.com/linxi27667/esp_mosicrokey",
+  "visibility": "private",
+  "default_branch": "main",
+  "baseline_commit": "96431996322a2dd72048bfb2e54c53f5debb45ca",
+  "roundtrip_clone_commit": "96431996322a2dd72048bfb2e54c53f5debb45ca",
+  "staged_files": 3276,
+  "vendor_files": 2960,
+  "patched_files_restored": 6,
+  "credential_matches": 0,
+  "generated_binaries_in_git": false,
+  "checked_at": "2026-10-01T20:42:02.979252+08:00",
+  "evidence": {
+    "git-initial-index-check.json": "fd021729342f0f309c1f596cc1b052fb7e5a8860e867c03c295ccfcc7ab3d933",
+    "git-roundtrip-clone.log": "aae27c59083458115981c0e5e3ce305dbf2f818e7fbd2558c27fc1e5ad1f28bc",
+    "git-roundtrip-sources.log": "a29bd46fbbb7170f098ea60d5eb263595097d54fcc4e755c42cf98be184fe185",
+    "git-roundtrip-patches.log": "a8f833691cb9dc3a3e2f9184dde11ff4f36b8f69949720e5b370add89eeb26ae"
+  }
+}
