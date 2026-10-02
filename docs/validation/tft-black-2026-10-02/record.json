@@ -336,7 +336,8 @@
     "write_verified": true,
     "initial_lvgl_spi_transfer": true,
     "final_mode": 9,
-    "physical_display_passed": null
+    "physical_display_passed": false,
+    "physical_observation_source": "User reports completely unlit after v0.2.2 trial; power/backlight wiring remains unconfirmed"
   },
   "host": {
     "ctest_suites": 9,
@@ -405,5 +406,5 @@
       "sha256": "ecf9dc97155873fd67ec52a27fc4d1345dd24e5d4de0025805bcb975ba22c35f"
     }
   ],
-  "conclusion": "First ST7735 trial flashed and software transfer verified. Waiting for visible screen observation; black-screen root cause and physical completion remain unconfirmed."
+  "conclusion": "First ST7735 trial flashed and software transfer verified, but user confirms completely unlit. Physical acceptance failed; root cause remains unconfirmed. Check actual supply/GND and backlight pin before another driver trial."
 }
