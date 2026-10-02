@@ -24,9 +24,11 @@ flowchart TD
 | `board_support/hardware/hal_display.cc` | `Hal_Display_Init/Flush`，UI 独占 SPI/DMA，失败清理，缓冲排空后复用 |
 | `board_support/hardware/hal_storage.cc` | `Hal_Storage_Mount/Is_Mounted/Mark_Failed`，SDMMC 和只读系统分区，重挂由 APP 串行化 |
 | `board_support/hardware/hal_key.cc` | `Hal_Key_Init/Read/Scan`，低有效/20 ms 去抖，不持有业务回调、不创建任务 |
+| `board_support/hardware/hal_encoder.cc` | `Hal_Encoder_Init/Read`，GPIO ISR 相位解码、临界区累计和一次取走，不执行业务 |
 | `board_support/hardware/hal_uart.cc` | `Hal_Uart_Init/Read`，UART0 RX；stdout/日志继续拥有 TX |
 | `board_support/hardware/hal_audio_bus.cc` | `Hal_Audio_Bus_Init/Get`，有类型 I²C 句柄借给固定 ES8311 codec |
-| `mosicrokey_app/app.cc` | `Page_Change_Process`、`Key_Press_Process`、`Command_Process`、`Navigation_Update_Process`、`Game_Update_Process`，完整业务状态机 |
+| `mosicrokey_app/app.cc` | `Page_Change_Process`、`Command_Process`、`Navigation_Update_Process`、`Game_Update_Process`，完整业务状态机 |
+| `mosicrokey_app/app_input.cc` | `Key_Press_Process`、`Encoder_Rotate_Process`、`Pc_Action_Submit`，设备/电脑输入路由、租期与 ACK |
 | `mosicrokey_app/console.cc` | `Console_Command_Process`，保留现有命令/结果协议，串口等待不在此文件 |
 | `mosicrokey_app/task/*.cc` | `App_Task`、`Game_Task`、`Key_Scan_Task`、`Console_Task` 及创建函数 |
 | `board_config.hpp` / `task_config.hpp` | 唯一板级参数 / 项目任务栈、优先级、周期、核与队列容量 |
@@ -44,9 +46,13 @@ HAL 不依赖 contracts/APP、没有 GPIO/PWM 操作表和注入工厂。APP 可
 | espclaw_compoment | 真实 claw_core 请求与工具循环、上下文/记忆/技能/路径、NVS 模型配置与六游戏能力 |
 | game_service | 包校验、版本库、安装、RGB565 资源和受限 Lua VM |
 | mosicrokey_ui | 唯一 LVGL 上下文、共享页面 Presenter 与游戏画布 |
-| board_support | S31 配置和五个直接 HAL 实现：SPI TFT、SDMMC、按键、UART、音频 I²C |
+| board_support | S31 配置和六个直接 HAL 实现：SPI TFT、SDMMC、按键、编码器、UART、音频 I²C |
 
 ## 执行与资源
+
+v0.2.1 增加八键和编码器、电脑媒体/快捷键页与输入/显示检测页。采集任务沿用 5 ms 周期，A/B 边沿由 ISR 解码、格数由任务原子取走；按压共用按键去抖。设备/电脑模式由 APP 拥有，输入携带提交时的模式侧、会话和时间，跨模式或过期 PC 输入丢弃。K5 与编码器按压汇总逻辑确认电平，避免同时按住时提前释放。
+
+电脑桥接复用 UART0，`MOSI_PC` 仅输出固定动作；3 秒心跳租期、1.5 秒 ACK 超时、500 ms 输入时效均按单调时间处理。电脑端暂停超过租期或识别设备启动记录时更换会话，清除旧数据并按序号去重。模拟 ACK 和实际执行 ACK 明确区分。Windows 配套程序在用户启动后执行 SendInput；当前没有 USB HID 或常驻自启动程序。操作与接线见[指南](tft-input-guide.md)。
 
 App 使用 12 项固定操作队列，队列满返回 Busy；状态与帧按最新值合并。上游事件更新受保护的状态，不访问 LVGL 对象。游戏异常通过合并故障槽回传，队列拥塞不会丢失退出；游戏代次检查避免已停止的帧误导航。
 

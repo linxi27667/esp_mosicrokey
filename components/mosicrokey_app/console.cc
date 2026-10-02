@@ -90,9 +90,12 @@ void Console_Command_Process(App& app, const std::string& line)
     if (command == "help")
     {
         std::puts("help | status | audio_status | game_selftest | frame | game_source <id> [offset] | page "
-                  "home/voice/agent/games/settings/diag | ask <text> | gameask <create/modify; requires "
+                  "home/voice/agent/games/settings/diag/pc/inputs/display | ask <text> | gameask "
+                  "<create/modify; requires "
                   "publication> | cancel | wifi | wifi_config <JSON ssid,password; saves and restarts> | "
-                  "remount | demo | key up/down/left/right/confirm/back [0/1] | agent_config <JSON "
+                  "remount | demo | preview_demo | key up/down/left/right/confirm/back/function/mode/encoder "
+                  "[0/1] | encoder <-1024..1024> | pc_link <session> | pc_ack <session> <seq> <0/1/2> | "
+                  "input_status | agent_config <JSON "
                   "url,model,key> | reboot\nUART input is not echoed or stored in command history.");
     }
     else if (command == "ask")
@@ -155,6 +158,60 @@ void Console_Command_Process(App& app, const std::string& line)
     {
         Report(app.Game_Install_Example(snake_text));
     }
+    else if (command == "preview_demo")
+    {
+        Report(app.Game_Preview_Example(snake_text));
+    }
+    else if (command == "encoder" || command == "pc_link" || command == "pc_ack")
+    {
+        std::istringstream input(arguments);
+        int64_t value = 0, sequence = 0, success = 0;
+        bool valid = bool(input >> value);
+        if (command == "pc_ack")
+        {
+            valid = valid && bool(input >> sequence >> success) && sequence > 0 && sequence <= UINT32_MAX &&
+                    (success >= 0 && success <= 2);
+        }
+        input >> std::ws;
+        valid = valid && input.eof();
+        if (!valid || (command == "encoder" ? (value < -1024 || value > 1024 || value == 0)
+                                            : (value < 1 || value > INT32_MAX)))
+        {
+            Report(Result::Fail(Error::Invalid, "Invalid input/PC command arguments"));
+        }
+        else if (command == "encoder")
+        {
+            Report(app.Encoder_Input(static_cast<int>(value)));
+        }
+        else if (command == "pc_link")
+        {
+            auto result = app.Pc_Bridge_Update(static_cast<uint32_t>(value));
+            if (!result)
+            {
+                Report(result);
+            }
+        }
+        else
+        {
+            auto result =
+                app.Pc_Action_Acknowledge(static_cast<uint32_t>(value), static_cast<uint32_t>(sequence),
+                                          static_cast<PcAckStatus>(success));
+            if (!result)
+            {
+                Report(result);
+            }
+        }
+    }
+    else if (command == "input_status")
+    {
+        auto state = app.State_Read();
+        std::printf("input_mask=0x%03x input_events=%lu encoder_total=%ld last=%s pc_connected=%d "
+                    "pc_profile=%d pc_seq=%lu pc_action=%s pc_result=%s\n",
+                    state.key_mask, static_cast<unsigned long>(state.input_events),
+                    static_cast<long>(state.encoder_total), state.last_input.c_str(), state.pc_connected,
+                    static_cast<int>(state.pc_profile), static_cast<unsigned long>(state.pc_sequence),
+                    state.pc_action.c_str(), state.pc_result.c_str());
+    }
     else if (command == "reboot")
     {
         esp_restart();
@@ -177,8 +234,9 @@ void Console_Command_Process(App& app, const std::string& line)
     }
     else if (command == "page")
     {
-        constexpr const char* names[] = {"home", "voice", "agent", "games", "game", "settings", "diag"};
-        for (unsigned i = 0; i < 7; ++i)
+        constexpr const char* names[] = {"home",     "voice", "agent", "games",  "game",
+                                         "settings", "diag",  "pc",    "inputs", "display"};
+        for (unsigned i = 0; i < std::size(names); ++i)
         {
             if (arguments == names[i])
             {
@@ -193,9 +251,20 @@ void Console_Command_Process(App& app, const std::string& line)
         std::istringstream input(arguments);
         std::string name;
         int pressed = 1;
-        input >> name >> pressed;
-        constexpr const char* names[] = {"up", "down", "left", "right", "confirm", "back"};
-        for (unsigned i = 0; i < 6; ++i)
+        input >> name;
+        std::string pressed_text, extra;
+        if (input >> pressed_text)
+        {
+            if ((pressed_text != "0" && pressed_text != "1") || (input >> extra))
+            {
+                Report(Result::Fail(Error::Invalid, "Expected key name and optional 0/1"));
+                return;
+            }
+            pressed = pressed_text == "1" ? 1 : 0;
+        }
+        constexpr const char* names[] = {"up",   "down",     "left", "right",  "confirm",
+                                         "back", "function", "mode", "encoder"};
+        for (unsigned i = 0; i < std::size(names); ++i)
         {
             if (name == names[i])
             {

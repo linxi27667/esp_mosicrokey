@@ -21,11 +21,22 @@ config MOSI_LCD_BL
     default 48
 config MOSI_LCD_X_OFFSET
     int "TFT horizontal offset"
+    range 0 160
     default 0
 config MOSI_LCD_Y_OFFSET
     int "TFT vertical offset"
+    range 0 160
     default 0
 config MOSI_LCD_INVERT
     bool "Invert panel colors"
+    default n
+config MOSI_LCD_BGR
+    bool "ST7735 uses BGR color order"
+    default y
+config MOSI_LCD_ROTATE_180
+    bool "Rotate landscape by 180 degrees"
+    default n
+config MOSI_LCD_BL_ACTIVE_LOW
+    bool "Backlight control is active low"
     default n
 endmenu

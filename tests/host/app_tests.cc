@@ -1,4 +1,5 @@
 #include "mosicrokey/app.hpp"
+#include "mosicrokey/console.hpp"
 #include "mosicrokey/hal_storage.hpp"
 #include "mosicrokey/ui.hpp"
 #include "redaction.hpp"
@@ -18,6 +19,7 @@
 #include <functional>
 #include <algorithm>
 using namespace mosicrokey;
+extern const char snake_text[] asm("_binary_main_lua_start") = "mock snake";
 namespace {
 std::atomic<bool> stopping{false};
 struct Queue {unsigned capacity,size; std::mutex mutex; std::deque<std::vector<uint8_t>> items;};
@@ -57,6 +59,7 @@ struct Agent:IAgentService {
 struct Games:IGameLibrary,IGameRuntime {
     std::atomic<bool> running{false},block{false},entered{false},fail{false},list_error{false};
     std::atomic<unsigned> inputs{0};
+    std::atomic<bool> confirm_held{false};
     std::atomic<bool> list_block{false}, list_entered{false};
     std::atomic<bool> tool_block{false}, tool_entered{false};
     std::atomic<unsigned> version{1};
@@ -76,7 +79,7 @@ struct Games:IGameLibrary,IGameRuntime {
     void DiscardStaging() override {}
     Result Start(const GameInfo&) override {running=true; return {};}
     void Stop() override {running=false;}
-    void Input(Key,bool) override {++inputs;}
+    void Input(Key key,bool pressed) override {++inputs; if(key==Key::Confirm) confirm_held=pressed;}
     bool Running() const override {return running;}
     Result SelfTest(const std::string&,std::string&) override {return {};}
     Result CaptureFrame(std::vector<uint16_t>&) const override {return Result::Fail(Error::NotReady,"No game");}
@@ -190,6 +193,109 @@ int main() {
     }
     App app; Voice voice; Agent agent(app); Games games;
     Check(bool(app.System_Start(voice,agent,games,games)),"start actual App with host scheduler");
+    Console_Command_Process(app,"key right 1");
+    Wait([&]{return app.State_Read().selection==1;},"actual console accepts explicit press at end of line");
+    Console_Command_Process(app,"key right 0");
+    Check(!app.State_Read().key_mask,"actual console accepts explicit release");
+    Console_Command_Process(app,"key function");
+    Wait([&]{return app.State_Read().selection==0;},"actual console default key press accepted");
+    Console_Command_Process(app,"key function 0");
+    auto console_count=app.State_Read().input_events;
+    for(const char* invalid:{"key up 2","key up 1 extra","key unknown 1","encoder 0","encoder 2junk","pc_link 0","pc_link 12 extra","pc_ack 12 1 3"})
+        Console_Command_Process(app,invalid);
+    Check(app.State_Read().input_events==console_count && !app.State_Read().pc_connected,"malformed input commands do not mutate state");
+    Console_Command_Process(app,"encoder 2");
+    Wait([&]{return app.State_Read().selection==2;},"actual encoder console routes to APP");
+    Console_Command_Process(app,"key function 1");
+    Console_Command_Process(app,"key function 0");
+    Wait([&]{return app.State_Read().selection==0;},"return home after console probe");
+    Check(!app.Encoder_Input(0) && !app.Encoder_Input(INT32_MIN),"invalid encoder counts rejected");
+    Check(bool(app.Encoder_Input(5)),"encoder command accepted");
+    Wait([&]{return app.State_Read().selection==5;},"encoder selects last home tile");
+    Check(bool(app.Encoder_Input(1)),"encoder upper bound command accepted");
+    std::this_thread::sleep_for(std::chrono::milliseconds(60));
+    Check(app.State_Read().selection==5,"home selection clamps to six tiles");
+    app.Key_Input(Key::Function,true); app.Key_Input(Key::Function,false);
+    Wait([&]{return app.State_Read().selection==0;},"function returns home and resets selection");
+    app.Page_Navigate(Mode::Xiaozhi);
+    Wait([&]{return voice.foreground.load();},"voice before switching to computer");
+    app.Key_Input(Key::SwitchMode,true); app.Key_Input(Key::SwitchMode,false);
+    Wait([&]{return app.State_Read().mode==Mode::Computer && !voice.foreground;},"mode switch releases voice focus");
+    app.Key_Input(Key::Confirm,true); app.Key_Input(Key::Confirm,false);
+    std::this_thread::sleep_for(std::chrono::milliseconds(60));
+    Check(!app.State_Read().pc_sequence,"offline computer actions not emitted");
+    Check(!app.Pc_Bridge_Update(0) && bool(app.Pc_Bridge_Update(123)),"PC heartbeat validation");
+    app.Key_Input(Key::Confirm,true); app.Key_Input(Key::Confirm,false);
+    Wait([&]{return app.State_Read().pc_sequence==1;},"media key emitted once");
+    Check(app.State_Read().pc_action=="play_pause","media confirm mapping");
+    Check(!app.Pc_Action_Acknowledge(124,1,PcAckStatus::Executed) && !app.Pc_Action_Acknowledge(123,2,PcAckStatus::Executed),"wrong session and sequence ignored");
+    Check(bool(app.Pc_Action_Acknowledge(123,1,PcAckStatus::Executed)) && app.State_Read().pc_result=="电脑已执行","matching PC acknowledgement displayed");
+    Check(bool(app.Pc_Action_Acknowledge(123,1,PcAckStatus::Simulated)) && app.State_Read().pc_result=="电脑模拟确认","dry-run ACK cannot claim actual computer execution");
+    Console_Command_Process(app,"pc_ack 123 1 2");
+    Check(app.State_Read().pc_result=="电脑模拟确认","actual console accepts simulated acknowledgement");
+    app.Key_Input(Key::Function,true); app.Key_Input(Key::Function,false);
+    Wait([&]{return app.State_Read().pc_profile==PcProfile::Shortcuts;},"computer function switches profiles");
+    app.Key_Input(Key::Up,true); app.Key_Input(Key::Up,false);
+    Wait([&]{return app.State_Read().pc_action=="copy";},"shortcut copy mapped");
+    Check(bool(app.Encoder_Input(-3)),"computer rotary accepted");
+    Wait([&]{return app.State_Read().pc_action=="volume_down";},"rotary remains volume in shortcut profile");
+    app.Key_Input(Key::EncoderPress,true); app.Key_Input(Key::EncoderPress,false);
+    Wait([&]{return app.State_Read().pc_action=="mute";},"rotary press mutes computer");
+    Check(bool(app.Pc_Action_Acknowledge(123,app.State_Read().pc_sequence,PcAckStatus::Failed)),"PC failure ACK accepted");
+    Check(app.State_Read().pc_result=="电脑执行失败","computer failure visible");
+    app.Key_Input(Key::SwitchMode,true); app.Key_Input(Key::SwitchMode,false);
+    Wait([&]{return app.State_Read().mode==Mode::Xiaozhi && voice.foreground;},"mode switch returns to voice with focus");
+    app.Page_Navigate(Mode::InputTest);
+    Wait([&]{return app.State_Read().mode==Mode::InputTest;},"input diagnostics opens");
+    auto event_count=app.State_Read().input_events;
+    app.Key_Input(Key::Up,true);
+    Check(app.State_Read().key_mask & 1,"held key indicator set");
+    app.Key_Input(Key::Up,false);
+    Check(!(app.State_Read().key_mask & 1) && app.State_Read().input_events==event_count+2,"released key indicator cleared");
+    app.Encoder_Input(12);
+    std::this_thread::sleep_for(std::chrono::milliseconds(60));
+    Check(app.State_Read().mode==Mode::InputTest && app.State_Read().selection==0,"diagnostic inputs do not navigate");
+    app.Key_Input(Key::Function,true); app.Key_Input(Key::Function,false);
+    app.Key_Input(Key::SwitchMode,true); app.Key_Input(Key::SwitchMode,false);
+    std::this_thread::sleep_for(std::chrono::milliseconds(60));
+    Check(app.State_Read().mode==Mode::InputTest,"input test can inspect function and mode keys without leaving");
+    app.Key_Input(Key::Back,true); app.Key_Input(Key::Back,false);
+    Wait([&]{return app.State_Read().mode==Mode::Settings;},"diagnostic back returns settings");
+    app.Page_Navigate(Mode::DisplayTest);
+    Wait([&]{return app.State_Read().mode==Mode::DisplayTest;},"display test opens");
+    app.Key_Input(Key::Back,true); app.Key_Input(Key::Back,false);
+    Wait([&]{return app.State_Read().mode==Mode::Settings;},"display test back returns settings");
+    app.Encoder_Input(4);
+    Wait([&]{return app.State_Read().selection==4;},"settings includes playable preview action");
+    app.Key_Input(Key::Confirm,true); app.Key_Input(Key::Confirm,false);
+    Wait([&]{return app.State_Read().mode==Mode::Library;},"settings preview creation returns library");
+    app.Page_Navigate(Mode::Computer);
+    Wait([&]{return app.State_Read().mode==Mode::Computer;},"lease probe enters PC");
+    app.Pc_Bridge_Update(555);
+    app.Key_Input(Key::Confirm,true); app.Key_Input(Key::Confirm,false);
+    Wait([&]{return app.State_Read().pc_sequence==1;},"new PC session restarts sequence");
+    std::this_thread::sleep_for(std::chrono::milliseconds(1550));
+    Wait([&]{return app.State_Read().pc_result=="电脑确认超时";},"missing ACK times out without retry");
+    std::this_thread::sleep_for(std::chrono::milliseconds(1500));
+    Wait([&]{return !app.State_Read().pc_connected;},"bridge lease expires after three seconds");
+    app.Key_Input(Key::Up,true); app.Key_Input(Key::Up,false);
+    std::this_thread::sleep_for(std::chrono::milliseconds(60));
+    Check(app.State_Read().pc_sequence==1,"disconnected input does not queue a later PC action");
+    app.Pc_Bridge_Update(555);
+    app.Key_Input(Key::Up,true); app.Key_Input(Key::Up,false);
+    Wait([&]{return app.State_Read().pc_sequence==2;},"same-session reconnect preserves replay monotonicity");
+    app.Page_Navigate(Mode::Home);
+    Wait([&]{return app.State_Read().mode==Mode::Home;},"queue routing probe on device side");
+    games.list_entered=false; games.list_block=true;
+    app.Page_Navigate(Mode::Library);
+    Wait([&]{return games.list_entered.load();},"hold APP operation while queuing mode switch");
+    app.Key_Input(Key::SwitchMode,true); app.Key_Input(Key::SwitchMode,false);
+    app.Key_Input(Key::Up,true); app.Key_Input(Key::Up,false);
+    app.Encoder_Input(2);
+    games.list_block=false;
+    Wait([&]{return app.State_Read().mode==Mode::Computer;},"queued mode switch executes");
+    std::this_thread::sleep_for(std::chrono::milliseconds(80));
+    Check(app.State_Read().pc_sequence==2,"device-side queued inputs cannot become computer actions");
     for(int i=0;i<100;++i) {
         Check(bool(app.Page_Navigate(Mode::Xiaozhi)),"submit voice navigation");
         Wait([&]{return app.State_Read().mode==Mode::Xiaozhi && voice.foreground;},"voice owns audio");
@@ -204,7 +310,14 @@ int main() {
     app.Page_Navigate(Mode::Library); Wait([&]{return app.State_Read().mode==Mode::Library;},"library navigation");
     games.block=true; app.Key_Input(Key::Confirm,true);
     Wait([&]{return app.State_Read().mode==Mode::Game && games.entered;},"launch selected game");
-    app.Key_Input(Key::Down,true); app.Key_Input(Key::Down,false); Check(games.inputs==2,"game input focus");
+    auto initial_inputs=games.inputs.load();
+    app.Key_Input(Key::Down,true); app.Key_Input(Key::Down,false); Check(games.inputs==initial_inputs+2,"game input focus");
+    app.Key_Input(Key::Confirm,true);
+    app.Key_Input(Key::EncoderPress,true);
+    app.Key_Input(Key::Confirm,false);
+    Check(games.confirm_held,"encoder keeps logical confirm held after K5 release");
+    app.Key_Input(Key::EncoderPress,false);
+    Check(!games.confirm_held,"logical confirm releases only when both sources release");
     app.Page_Navigate(Mode::Home); Wait([&]{return app.State_Read().mode==Mode::Home && !games.running;},"exit releases runtime");
     games.block=false; std::this_thread::sleep_for(std::chrono::milliseconds(100));
     Check(app.State_Read().mode==Mode::Home,"late stopped frame cannot redirect navigation");

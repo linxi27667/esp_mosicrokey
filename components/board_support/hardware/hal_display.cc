@@ -40,7 +40,6 @@ constexpr display_init_command_t g_init_commands[] = {
     {0xc3, 2, {0x8a, 0x2a}, 0},
     {0xc4, 2, {0x8a, 0xee}, 0},
     {0xc5, 1, {0x0e}, 0},
-    {0x36, 1, {0x68}, 0},
     {0x3a, 1, {0x05}, 0},
     {0xe0,
      16,
@@ -117,6 +116,18 @@ esp_err_t Display_Configure_Controller()
             vTaskDelay(pdMS_TO_TICKS(item.delay_ms));
         }
     }
+    uint8_t orientation = 0x60; // MV | MX：160×128 横屏。
+#ifdef CONFIG_MOSI_LCD_BGR
+    orientation |= 0x08;
+#endif
+#ifdef CONFIG_MOSI_LCD_ROTATE_180
+    orientation ^= 0xc0;
+#endif
+    error = Display_Send_Command(0x36, &orientation, 1);
+    if (error != ESP_OK)
+    {
+        return error;
+    }
 #ifdef CONFIG_MOSI_LCD_INVERT
     error = Display_Send_Command(0x21);
 #else
@@ -132,7 +143,11 @@ esp_err_t Display_Configure_Controller()
         error = gpio_set_direction(backlight, GPIO_MODE_OUTPUT);
         if (error == ESP_OK)
         {
+#ifdef CONFIG_MOSI_LCD_BL_ACTIVE_LOW
+            error = gpio_set_level(backlight, 0);
+#else
             error = gpio_set_level(backlight, 1);
+#endif
         }
     }
     return error;

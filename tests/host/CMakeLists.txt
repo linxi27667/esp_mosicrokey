@@ -23,6 +23,9 @@ add_executable(hal_tests hal_tests.cc "${ROOT}/components/board_support/hardware
     "${ROOT}/components/board_support/hardware/hal_uart.cc")
 target_include_directories(hal_tests PRIVATE mocks "${ROOT}/components/board_support/include")
 add_test(NAME hal_tests COMMAND hal_tests)
+add_executable(encoder_hal_tests encoder_hal_tests.cc "${ROOT}/components/board_support/hardware/hal_encoder.cc")
+target_include_directories(encoder_hal_tests PRIVATE mocks "${ROOT}/components/board_support/include")
+add_test(NAME encoder_hal_tests COMMAND encoder_hal_tests)
 add_executable(storage_hal_tests storage_hal_tests.cc "${ROOT}/components/board_support/hardware/hal_storage.cc")
 target_include_directories(storage_hal_tests PRIVATE mocks "${ROOT}/components/board_support/include")
 add_test(NAME storage_hal_tests COMMAND storage_hal_tests)
@@ -41,7 +44,7 @@ target_compile_definitions(llm_transport_tests PRIVATE CONFIG_HTTP_REUSE_ENABLE=
 target_link_libraries(llm_transport_tests PRIVATE cjson)
 add_test(NAME llm_transport_tests COMMAND llm_transport_tests)
 set_tests_properties(game_tests PROPERTIES TIMEOUT 30)
-add_executable(app_tests app_tests.cc "${ROOT}/components/mosicrokey_app/app.cc" "${ROOT}/components/mosicrokey_app/task/app_task.cc")
+add_executable(app_tests app_tests.cc "${ROOT}/components/mosicrokey_app/app.cc" "${ROOT}/components/mosicrokey_app/app_input.cc" "${ROOT}/components/mosicrokey_app/console.cc" "${ROOT}/components/mosicrokey_app/task/app_task.cc")
 target_link_libraries(app_tests PRIVATE cjson)
 target_include_directories(app_tests PRIVATE mocks "${ROOT}/components/mosicrokey_contracts/include"
     "${ROOT}/components/espclaw_compoment"

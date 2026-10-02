@@ -2,6 +2,7 @@
 #include "mosicrokey/task_config.hpp"
 #include "mosicrokey/board_config.hpp"
 #include "mosicrokey/hal_key.hpp"
+#include "mosicrokey/hal_encoder.hpp"
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
 #include <esp_timer.h>
@@ -12,7 +13,7 @@ namespace mosicrokey
 namespace
 {
 static_assert(pdMS_TO_TICKS(task_config::key_period_ms) > 0);
-static_assert(board::config::keys.size() == static_cast<unsigned>(Key::Back) + 1);
+static_assert(board::config::keys.size() == static_cast<unsigned>(Key::EncoderPress) + 1);
 
 void Key_Scan_Task(void* context)
 {
@@ -35,6 +36,15 @@ void Key_Scan_Task(void* context)
         {
             app.Notice(esp_err_to_name(error));
         }
+        int detents = 0;
+        if (hal::Hal_Encoder_Read(detents) == ESP_OK && detents)
+        {
+            auto result = app.Encoder_Input(detents);
+            if (!result)
+            {
+                app.Notice(result.message);
+            }
+        }
         vTaskDelayUntil(&last_wake, pdMS_TO_TICKS(task_config::key_period_ms));
     }
 }
@@ -46,6 +56,12 @@ Result Key_Scan_Task_Create(App& app)
     if (error != ESP_OK)
     {
         return Result::Fail(Error::Runtime, esp_err_to_name(error));
+    }
+    error = hal::Hal_Encoder_Init();
+    if (error != ESP_OK)
+    {
+        // 编码器初始化失败仍可用八键导航。
+        app.Notice(std::string("编码器: ") + esp_err_to_name(error));
     }
     if (xTaskCreate(Key_Scan_Task, "mkeys", task_config::key_stack_bytes, &app, task_config::key_priority,
                     nullptr) != pdPASS)

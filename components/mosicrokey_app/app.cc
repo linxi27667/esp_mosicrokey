@@ -37,6 +37,13 @@ std::string Bounded(const std::string& text, size_t size = 4096)
 Result App::Impl::Command_Submit(CommandType type, int value)
 {
     Command item{type, value};
+    if (type == CommandType::Key || type == CommandType::Encoder)
+    {
+        std::lock_guard lock(mutex);
+        item.pc_input = state.mode == Mode::Computer;
+        item.pc_session = state.pc_connected ? pc_session : 0;
+        item.submitted_us = esp_timer_get_time();
+    }
     return commands && xQueueSend(commands, &item, 0) == pdPASS ? Result{}
                                                                 : Result::Fail(Error::Busy, "操作队列已满");
 }
@@ -62,7 +69,11 @@ void App::Impl::Game_Library_Refresh()
         {
             state.notice = Bounded(result.message, 256);
         }
-        state.selection = std::min(state.selection, std::max(0, static_cast<int>(state.games.size()) - 1));
+        if (state.mode == Mode::Library)
+        {
+            state.selection =
+                std::min(state.selection, std::max(0, static_cast<int>(state.games.size()) - 1));
+        }
     }
 }
 void App::Impl::Page_Change_Process(Mode mode)
@@ -72,6 +83,10 @@ void App::Impl::Page_Change_Process(Mode mode)
         std::lock_guard lock(mutex);
         old = state.mode;
         state.notice.clear();
+        if (mode == Mode::Computer && old != Mode::Computer)
+        {
+            device_return = old == Mode::Game ? Mode::Library : old;
+        }
     }
     auto focus = ChangeFocus(old, mode);
     if (focus.release_audio)
@@ -97,77 +112,28 @@ void App::Impl::Page_Change_Process(Mode mode)
         state.selection = 0;
     }
 }
-void App::Impl::Key_Press_Process(Key key)
-{
-    Snapshot snapshot = owner.State_Read();
-    if (snapshot.mode == Mode::Library && !snapshot.notice.empty() &&
-        (key == Key::Back || key == Key::Confirm))
-    {
-        std::lock_guard lock(mutex);
-        state.notice.clear();
-        return;
-    }
-    if (key == Key::Back)
-    {
-        Page_Change_Process(BackDestination(snapshot.mode));
-        return;
-    }
-    if (key == Key::Up || key == Key::Down)
-    {
-        int limit = snapshot.mode == Mode::Home       ? 5
-                    : snapshot.mode == Mode::Library  ? snapshot.games.size()
-                    : snapshot.mode == Mode::Settings ? 2
-                                                      : 2048;
-        std::lock_guard lock(mutex);
-        state.selection = std::clamp(state.selection + (key == Key::Up ? -1 : 1), 0, std::max(0, limit - 1));
-        return;
-    }
-    if (key != Key::Confirm)
-    {
-        return;
-    }
-    if (snapshot.mode == Mode::Home)
-    {
-        Page_Change_Process(HomeDestination(snapshot.selection));
-    }
-    else if (snapshot.mode == Mode::Xiaozhi)
-    {
-        voice->ToggleChat();
-    }
-    else if (snapshot.mode == Mode::Agent)
-    {
-        owner.Agent_Cancel();
-    }
-    else if (snapshot.mode == Mode::Settings)
-    {
-        if (snapshot.selection == 0)
-        {
-            owner.Wifi_Configure();
-        }
-        else
-        {
-            owner.Storage_Remount();
-        }
-    }
-    else if (snapshot.mode == Mode::Library && snapshot.selection < static_cast<int>(snapshot.games.size()))
-    {
-        auto result = runtime->Start(snapshot.games[snapshot.selection]);
-        Storage_Check_Result(result);
-        if (result)
-        {
-            ++game_generation;
-            Page_Change_Process(Mode::Game);
-        }
-        else
-        {
-            owner.Notice(result.message);
-        }
-    }
-}
-
 //=====操作命令与前台状态机=====
 void App::Impl::Command_Process(const Command& command)
 {
+    bool local_key =
+        command.type == CommandType::Key && (command.value == static_cast<int>(Key::SwitchMode) ||
+                                             command.value == static_cast<int>(Key::Function));
+    if ((command.type == CommandType::Key || command.type == CommandType::Encoder) && !local_key)
+    {
+        std::lock_guard lock(mutex);
+        if (command.pc_input != (state.mode == Mode::Computer))
+        {
+            state.pc_result = "模式切换后已丢弃旧输入";
+            return;
+        }
+        if (command.pc_input &&
+            (!state.pc_connected || !command.pc_session || command.pc_session != pc_session ||
+             esp_timer_get_time() - command.submitted_us > 500000))
+        {
+            state.pc_result = "电脑操作已过期";
+            return;
+        }
+    }
     switch (command.type)
     {
     case CommandType::Navigate:
@@ -175,6 +141,9 @@ void App::Impl::Command_Process(const Command& command)
         break;
     case CommandType::Key:
         Key_Press_Process(static_cast<Key>(command.value));
+        break;
+    case CommandType::Encoder:
+        Encoder_Rotate_Process(command.value);
         break;
     case CommandType::Remount:
     {
@@ -197,6 +166,7 @@ void App::Impl::Command_Process(const Command& command)
 
 void App::Impl::Navigation_Update_Process(unsigned tick)
 {
+    Pc_Link_Check();
     if (library_refresh_pending.exchange(false))
     {
         Game_Library_Refresh();
@@ -289,9 +259,30 @@ Result App::System_Start(IXiaozhiService& voice, IAgentService& agent, IGameLibr
 }
 void App::Key_Input(Key key, bool pressed)
 {
-    if (State_Read().mode == Mode::Game && key != Key::Back)
+    if (static_cast<unsigned>(key) > static_cast<unsigned>(Key::EncoderPress))
     {
-        impl_->runtime->Input(key, pressed);
+        Notice("无效按键");
+        return;
+    }
+    Mode mode;
+    bool confirm_pressed = false;
+    {
+        std::lock_guard lock(impl_->mutex);
+        auto& state = impl_->state;
+        unsigned bit = 1u << static_cast<unsigned>(key);
+        state.key_mask = pressed ? state.key_mask | bit : state.key_mask & ~bit;
+        ++state.input_events;
+        constexpr const char* names[] = {"K1 上",   "K2 下",   "K3 左",   "K4 右",   "K5 确认",
+                                         "K6 返回", "K7 功能", "K8 模式", "旋钮按压"};
+        state.last_input = std::string(names[static_cast<unsigned>(key)]) + (pressed ? " 按下" : " 松开");
+        mode = state.mode;
+        confirm_pressed = state.key_mask & ((1u << static_cast<unsigned>(Key::Confirm)) |
+                                            (1u << static_cast<unsigned>(Key::EncoderPress)));
+    }
+    if (mode == Mode::Game && (key <= Key::Confirm || key == Key::EncoderPress))
+    {
+        bool confirm = key == Key::Confirm || key == Key::EncoderPress;
+        impl_->runtime->Input(confirm ? Key::Confirm : key, confirm ? confirm_pressed : pressed);
         return;
     }
     if (pressed)
@@ -305,7 +296,7 @@ void App::Key_Input(Key key, bool pressed)
 }
 Result App::Page_Navigate(Mode mode)
 {
-    if (mode == Mode::Game || static_cast<unsigned>(mode) > static_cast<unsigned>(Mode::Diagnostics))
+    if (mode == Mode::Game || static_cast<unsigned>(mode) > static_cast<unsigned>(Mode::DisplayTest))
     {
         return Result::Fail(Error::Invalid, "Start games from library");
     }
@@ -351,6 +342,36 @@ Result App::Game_Install_Example(const std::string& lua)
     impl_->library->DiscardStaging();
     impl_->Storage_Check_Result(result);
     impl_->library_refresh_pending = true;
+    return result;
+}
+Result App::Game_Preview_Example(const std::string& lua)
+{
+    std::lock_guard operation(impl_->storage_control);
+    if (State_Read().agent_busy)
+    {
+        return Result::Fail(Error::Busy, "Agent busy");
+    }
+    auto* json = cJSON_CreateObject();
+    if (!json)
+    {
+        return Result::Fail(Error::Runtime, "Preview allocation failed");
+    }
+    bool fields = cJSON_AddStringToObject(json, "id", "snake-demo") &&
+                  cJSON_AddStringToObject(json, "title", "贪吃蛇") &&
+                  cJSON_AddStringToObject(json, "source", lua.c_str());
+    char* request = fields ? cJSON_PrintUnformatted(json) : nullptr;
+    cJSON_Delete(json);
+    if (!request)
+    {
+        return Result::Fail(Error::Runtime, "Preview allocation failed");
+    }
+    std::string output;
+    auto result = impl_->library->Tool("game_preview", request, output);
+    cJSON_free(request);
+    if (result)
+    {
+        impl_->library_refresh_pending = true;
+    }
     return result;
 }
 void App::Wifi_Configure()

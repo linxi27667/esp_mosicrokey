@@ -7,9 +7,13 @@ constexpr FocusChange ChangeFocus(Mode from, Mode to) {
             from!=Mode::Xiaozhi && to==Mode::Xiaozhi,
             from==Mode::Game && to!=Mode::Game};
 }
-constexpr Mode BackDestination(Mode mode) { return mode==Mode::Game ? Mode::Library : Mode::Home; }
+constexpr Mode BackDestination(Mode mode) {
+    if(mode==Mode::Game) return Mode::Library;
+    if(mode==Mode::InputTest || mode==Mode::DisplayTest) return Mode::Settings;
+    return Mode::Home;
+}
 constexpr Mode HomeDestination(unsigned selection) {
-    constexpr Mode choices[]={Mode::Xiaozhi,Mode::Agent,Mode::Library,Mode::Settings,Mode::Diagnostics};
-    return selection<5 ? choices[selection] : Mode::Home;
+    constexpr Mode choices[]={Mode::Xiaozhi,Mode::Agent,Mode::Library,Mode::Computer,Mode::Settings,Mode::Diagnostics};
+    return selection<6 ? choices[selection] : Mode::Home;
 }
 }

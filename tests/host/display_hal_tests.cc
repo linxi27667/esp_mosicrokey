@@ -15,6 +15,7 @@ bool fail_semaphore = false, signal_completion = true, dma_active = false;
 esp_err_t bus_error = ESP_FAIL, panel_error = ESP_OK, gpio_error = ESP_OK;
 esp_err_t param_error = ESP_OK, drain_error = ESP_OK, color_error = ESP_OK;
 esp_lcd_panel_io_spi_config_t io;
+uint8_t orientation = 0;
 void Check(bool valid, const char* name)
 {
     ++checks;
@@ -83,8 +84,12 @@ esp_err_t esp_lcd_panel_io_del(esp_lcd_panel_io_handle_t)
     ++panel_deletes;
     return ESP_OK;
 }
-esp_err_t esp_lcd_panel_io_tx_param(esp_lcd_panel_io_handle_t, int command, const void*, size_t)
+esp_err_t esp_lcd_panel_io_tx_param(esp_lcd_panel_io_handle_t, int command, const void* data, size_t size)
 {
+    if (command == 0x36 && size == 1 && param_error == ESP_OK)
+    {
+        orientation = *static_cast<const uint8_t*>(data);
+    }
     if (command == 0)
     {
         if (drain_error == ESP_OK) dma_active = false;
@@ -127,6 +132,7 @@ int main()
     param_error = ESP_OK;
     Check(hal::Hal_Display_Init() == ESP_OK && hal::Hal_Display_Init() == ESP_OK,
           "display retries and initialization is idempotent");
+    Check(orientation == 0x68,"default remains ST7735 landscape BGR");
     Check(hal::Hal_Display_Flush(0,0,1,0,nullptr) == ESP_ERR_INVALID_ARG, "null pixels rejected");
     Check(hal::Hal_Display_Flush(-1,0,1,0,pixels) == ESP_ERR_INVALID_ARG, "negative bounds rejected");
     Check(hal::Hal_Display_Flush(0,0,160,0,pixels) == ESP_ERR_INVALID_ARG, "horizontal overflow rejected");

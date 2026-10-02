@@ -33,7 +33,7 @@ esp_err_t gpio_config(const gpio_config_t* config)
     uint64_t expected = 0;
     for (int pin : board::config::keys) expected |= 1ULL << pin;
     Check(config->pin_bit_mask == expected && config->mode == GPIO_MODE_INPUT &&
-          config->pull_up_en == GPIO_PULLUP_ENABLE, "S31 six active-low pins and pull-ups");
+          config->pull_up_en == GPIO_PULLUP_ENABLE, "S31 eight keys plus encoder press and pull-ups");
     return gpio_error;
 }
 int gpio_get_level(gpio_num_t pin)
@@ -75,19 +75,19 @@ int uart_read_bytes(int, void* data, uint32_t length, TickType_t timeout)
 int main()
 {
     levels.fill(1);
-    std::array<hal::key_event_t, 6> events;
+    std::array<hal::key_event_t, board::config::keys.size()> events;
     size_t count = 123;
     bool pressed = false;
     Check(hal::Hal_Key_Read(0, pressed) == ESP_ERR_INVALID_STATE, "uninitialized key rejected");
-    Check(hal::Hal_Key_Scan(0, events.data(), 6, count) == ESP_ERR_INVALID_STATE && !count,
+    Check(hal::Hal_Key_Scan(0, events.data(), events.size(), count) == ESP_ERR_INVALID_STATE && !count,
           "uninitialized scan clears output");
     Check(hal::Hal_Key_Init() == ESP_FAIL, "GPIO failure propagated");
     gpio_error = ESP_OK;
     Check(hal::Hal_Key_Init() == ESP_OK, "GPIO retry succeeds");
     unsigned before = gpio_calls;
     Check(hal::Hal_Key_Init() == ESP_OK && before == gpio_calls, "key init idempotent");
-    Check(hal::Hal_Key_Read(6, pressed) == ESP_ERR_INVALID_ARG, "bad key ID rejected");
-    Check(hal::Hal_Key_Scan(0, nullptr, 6, count) == ESP_ERR_INVALID_ARG && !count,
+    Check(hal::Hal_Key_Read(board::config::keys.size(), pressed) == ESP_ERR_INVALID_ARG, "bad key ID rejected");
+    Check(hal::Hal_Key_Scan(0, nullptr, events.size(), count) == ESP_ERR_INVALID_ARG && !count,
           "null event buffer rejected");
     Check(hal::Hal_Key_Scan(0, events.data(), 5, count) == ESP_ERR_INVALID_ARG,
           "short event buffer rejected without consuming input");
@@ -105,11 +105,11 @@ int main()
     levels[board::config::keys[0]] = 1;
     scan(85); scan(105); Check(count == 1 && !events[0].pressed, "stable release emitted once");
     for (int pin : board::config::keys) levels[pin] = 0;
-    scan(110); scan(130); Check(count == 6, "simultaneous six presses preserved");
+    scan(110); scan(130); Check(count == board::config::keys.size(), "simultaneous nine presses preserved");
     for (unsigned i = 0; i < count; ++i) Check(events[i].id == i && events[i].pressed, "event IDs match hardware order");
     for (int pin : board::config::keys) levels[pin] = 1;
     scan(0xfffffffbu); scan(14); Check(!count, "wrapped 19 ms is still filtered");
-    scan(15); Check(count == 6, "debounce survives millisecond wrap at 20 ms");
+    scan(15); Check(count == board::config::keys.size(), "debounce survives millisecond wrap at 20 ms");
 
     uint8_t byte = 0;
     size_t received = 99;

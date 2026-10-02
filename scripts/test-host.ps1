@@ -13,3 +13,5 @@ if ($LASTEXITCODE -ne 0) { throw 'Host tests failed' }
 $taskPython = 'E:\MCU\esp32\.espressif\v6.1\tools\python_env\v6.1\venv\Scripts\python.exe'
 & $taskPython "$taskRoot/tests/host/device_soak_tests.py"
 if ($LASTEXITCODE -ne 0) { throw 'Serial soak harness fault tests failed' }
+& $taskPython "$taskRoot/tests/host/pc_bridge_tests.py"
+if ($LASTEXITCODE -ne 0) { throw 'Computer bridge tests failed' }

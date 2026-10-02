@@ -55,6 +55,8 @@ python -m esptool --chip esp32s31 -p COM实际编号 -b 460800 --no-stub write-f
 |---|---|
 | help / status | 命令列表 / Wi-Fi、TF、模式、请求及错误状态 |
 | page home/voice/agent/games/settings/diag | 页面导航 |
+| page pc/inputs/display | 电脑控制、输入检测、屏幕 RGB/边界测试 |
+| input_status / encoder 正负格数 | 输入掩码与计数 / 注入旋转格数 |
 | wifi | 进入小智配网；按屏幕提示接入热点并配置 |
 | wifi_config JSON | 通过 ssid/password 保存配网并重启；不回显输入 |
 | audio_status | 查看前台焦点、语音状态及 codec 输入/输出计数 |
@@ -66,8 +68,10 @@ python -m esptool --chip esp32s31 -p COM实际编号 -b 460800 --no-stub write-f
 | gameask 创作需求 | 要求实际发布游戏；没有本轮发布记录则失败，拒绝模型虚报成功 |
 | cancel | 请求取消；工具暂存任务在请求结束时清理 |
 | demo | 从固件内的贪吃蛇源码校验并安装到 TF |
+| preview_demo | 生成无需 TF 的同一贪吃蛇 RAM 预览，重启丢失 |
 | remount | 手动重新挂载；Agent/游戏忙碌时拒绝 |
 | key up/down/left/right/confirm/back 1或0 | 辅助注入按下/释放，用于设备输入回放 |
+| key function/mode/encoder 1或0 | 功能键、模式键、旋钮按压注入 |
 | reboot | 重启并再次枚举 TF 已提交版本 |
 
 兼容服务配置例子：
@@ -89,6 +93,8 @@ v0.1.9 保留 SDK 建立连接的原始预算，连接成功后将 HTTPS 单次 
 建议首次顺序：配网 → 小智激活及真实语音 → demo → 贪吃蛇游玩/退出 → 配置 Agent → gameask 修改贪吃蛇 → 确认工具提交成功 → 重启 → 启动新版本。测试并发时保持游戏运行或小智对话，同时串口发起创作。
 
 ## 主机验证
+
+v0.2.1 的接线、默认八键功能、编码器、屏幕配置与 Windows 连接程序见[接入指南](tft-input-guide.md)。`scripts/pc_bridge.py --port COM实际编号 --dry-run` 只做运输与模拟确认，普通运行才执行电脑媒体/快捷键；烧录前退出以释放串口。
 
 tests/host 编译实际 App 状态机、GameService、Lua 5.5、LVGL 9.5 和同一页面源码；只替换 App 的 RTOS/网络/硬件接口。主机通过不代表真实 API、I2S/DMA/SDMMC 或设备时间预算通过。
 

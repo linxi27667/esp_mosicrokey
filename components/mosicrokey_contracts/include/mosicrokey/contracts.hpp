@@ -6,8 +6,10 @@
 
 namespace mosicrokey {
 constexpr int kWidth = 160, kHeight = 128;
-enum class Mode { Home, Xiaozhi, Agent, Library, Game, Settings, Diagnostics };
-enum class Key { Up, Down, Left, Right, Confirm, Back };
+enum class Mode { Home, Xiaozhi, Agent, Library, Game, Settings, Diagnostics, Computer, InputTest, DisplayTest };
+enum class Key { Up, Down, Left, Right, Confirm, Back, Function, SwitchMode, EncoderPress };
+enum class PcProfile { Media, Shortcuts };
+enum class PcAckStatus { Failed, Executed, Simulated };
 enum class Error { Ok, Busy, Invalid, Storage, NotReady, Timeout, Runtime };
 struct Result {
     Error error = Error::Ok;
@@ -26,6 +28,15 @@ struct Snapshot {
     std::string voice_status = "启动中", voice_text, agent_text, notice;
     std::vector<GameInfo> games;
     uint32_t request_id = 0;
+    uint16_t key_mask = 0;
+    uint32_t input_events = 0;
+    int32_t encoder_total = 0;
+    std::string last_input = "等待输入";
+    bool pc_connected = false;
+    PcProfile pc_profile = PcProfile::Media;
+    uint32_t pc_sequence = 0;
+    std::string pc_action;
+    std::string pc_result = "请启动电脑连接程序";
 };
 class IXiaozhiService {
 public:

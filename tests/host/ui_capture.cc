@@ -46,5 +46,23 @@ int main(int argc,char** argv) {
     state.selection=0; state.agent_busy=false; state.agent_text.clear();
     view.Update(state); Save(display,root/"agent-empty.ppm");
     state.mode=Mode::Game; view.Update(state); view.Frame(frame); Save(display,root/"snake.ppm");
-    std::cout<<"Captured 13 shared LVGL 9.5 UI/game states, 160x128\n";
+    state.mode=Mode::Home; state.selection=5; view.Update(state); Save(display,root/"home-last-tile.ppm");
+    state.mode=Mode::Computer; state.pc_connected=false;
+    view.Update(state); Save(display,root/"pc-disconnected.ppm");
+    state.pc_connected=true; state.key_mask=1; state.pc_result="电脑已执行";
+    view.Update(state); Save(display,root/"pc-media.ppm");
+    state.pc_profile=PcProfile::Shortcuts; state.key_mask=16;
+    view.Update(state); Save(display,root/"pc-shortcuts.ppm");
+    state.pc_result="电脑执行失败";
+    view.Update(state); Save(display,root/"pc-error.ppm");
+    state.mode=Mode::InputTest; state.key_mask=0x1ff; state.input_events=127; state.encoder_total=-12; state.last_input="K1 上 松开";
+    view.Update(state); Save(display,root/"input-test.ppm");
+    state.mode=Mode::DisplayTest;
+    view.Update(state); Save(display,root/"display-test.ppm");
+    const uint16_t expected[]={0xf800,0x07e0,0x001f,0xffff,0};
+    for(unsigned i=0;i<5;++i) if(pixels[35*kWidth+15+i*30]!=expected[i]) {std::cerr<<"Display test RGB565 mismatch "<<i;return 1;}
+    if(pixels[0]!=0xffff || pixels.back()!=0xffff) {std::cerr<<"Display test boundary missing";return 1;}
+    state.mode=Mode::Settings; state.selection=4;
+    view.Update(state); Save(display,root/"settings-preview.ppm");
+    std::cout<<"Captured 21 shared LVGL 9.5 UI/game states, 160x128; five RGB565 colors and full boundary verified\n";
 }

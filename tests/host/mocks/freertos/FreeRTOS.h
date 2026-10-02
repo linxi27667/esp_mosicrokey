@@ -11,3 +11,9 @@ constexpr TickType_t portMAX_DELAY = UINT32_MAX;
 struct MockStop {};
 bool MockStopping();
 void MockShutdown();
+using portMUX_TYPE = int;
+#define portMUX_INITIALIZER_UNLOCKED 0
+#define portENTER_CRITICAL(lock) ((void)(lock))
+#define portEXIT_CRITICAL(lock) ((void)(lock))
+#define portENTER_CRITICAL_ISR(lock) ((void)(lock))
+#define portEXIT_CRITICAL_ISR(lock) ((void)(lock))
