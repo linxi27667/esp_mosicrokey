@@ -1,0 +1,107 @@
+[
+  {
+    "path": "components/board_support/hardware/hal_audio_bus.cc",
+    "bytes": 763,
+    "sha256": "f7625e1dcac7df2dbe1138e758b1558e4650c366565bcc8def495d30b2b271ad"
+  },
+  {
+    "path": "components/board_support/hardware/hal_display.cc",
+    "bytes": 6962,
+    "sha256": "f0f2baff11700c14d0a511f6f4060720e9a9732386309293ec372075849e0bf6"
+  },
+  {
+    "path": "components/board_support/hardware/hal_key.cc",
+    "bytes": 2063,
+    "sha256": "bb7f0aaaca9e0191a9341126cb80b33757ce545337c97a34304a014f0e8acf6c"
+  },
+  {
+    "path": "components/board_support/hardware/hal_storage.cc",
+    "bytes": 2223,
+    "sha256": "def88892f9800a31d43613744ae8399e54dbf845103c79c14b737263ac62b8b6"
+  },
+  {
+    "path": "components/board_support/hardware/hal_uart.cc",
+    "bytes": 1700,
+    "sha256": "bce3ba12dc60de1a43338ab37b67654b265598d73f72110191493abb5c83b181"
+  },
+  {
+    "path": "components/espclaw_compoment/espclaw_adapter.cc",
+    "bytes": 18189,
+    "sha256": "30acb806d8a4576234f433838c662b9a8320e68abdccbd37a82ce4c1c0ee9f0b"
+  },
+  {
+    "path": "components/game_service/game_diagnostics.cc",
+    "bytes": 2640,
+    "sha256": "8bc47854261173ccd3ad5b2a4e19fd9b29fa4da5bab11798e02bab75c7643eba"
+  },
+  {
+    "path": "components/game_service/game_library.cc",
+    "bytes": 26922,
+    "sha256": "c6e71742d87cbcd7e5cb8c8d20c5c5021b42c04ab55332ff0260593dc7c472cc"
+  },
+  {
+    "path": "components/game_service/game_vm.cc",
+    "bytes": 9043,
+    "sha256": "faaf7beefd4c1148d6501fccdfe6ca732d7325bc77839c675daa9f820afe7fd1"
+  },
+  {
+    "path": "components/game_service/raster.cc",
+    "bytes": 2290,
+    "sha256": "c16697fbfa0ef85254fe59e444872acf2e0887c66b1523a383221657f9fa5891"
+  },
+  {
+    "path": "components/mosicrokey_app/app.cc",
+    "bytes": 13309,
+    "sha256": "ac7c574f597be20f3bb0700a8bc6c0ea8d850b9cc9362d649e94e62c4b3ff9a4"
+  },
+  {
+    "path": "components/mosicrokey_app/console.cc",
+    "bytes": 8638,
+    "sha256": "9bbc25c79ea7ca2f4c3191f126cf0776462fe425416fd4d151149bb823dc17b3"
+  },
+  {
+    "path": "components/mosicrokey_app/task/app_task.cc",
+    "bytes": 2492,
+    "sha256": "6278bfd4b764ccd77ed19969022aa062c93556f1be7d3966df4d3aa97a7df7b6"
+  },
+  {
+    "path": "components/mosicrokey_app/task/console_task.cc",
+    "bytes": 2307,
+    "sha256": "f8b40e83f93a10906b74a42dbb3fb221c18630c93b872a18c165be26f858d946"
+  },
+  {
+    "path": "components/mosicrokey_app/task/key_task.cc",
+    "bytes": 1685,
+    "sha256": "453fc3abadbdeaaa0a8e2a29b4f54c4e2bb27d62f441fbebfa0f21e53a74c008"
+  },
+  {
+    "path": "components/mosicrokey_ui/ui.cc",
+    "bytes": 2954,
+    "sha256": "2d3774efe15f057125c9e14839d2c108679afbd9f89257b4672db78dd3130adc"
+  },
+  {
+    "path": "components/mosicrokey_ui/view.cc",
+    "bytes": 5689,
+    "sha256": "38434c7a21827ac2aa435b5413edb8cd61cc93b1a485e899634d1234446e3d08"
+  },
+  {
+    "path": "components/xiaozhi_compoment/mosicrokey_board.cc",
+    "bytes": 4174,
+    "sha256": "c4510625d2cc7ddf3ae32f940f484a9d106b596416fa0f983505143a6c677552"
+  },
+  {
+    "path": "components/xiaozhi_compoment/xiaozhi_adapter.cc",
+    "bytes": 4153,
+    "sha256": "005ceba17f4dc18e77d7e6cbc33db85b30e7c850e88756e0a0d0700335b25066"
+  },
+  {
+    "path": "main/app_system.cc",
+    "bytes": 2080,
+    "sha256": "91e4d4cdb0c2a3c0cf960dc8f9825ff54678380b5da35da57fbbdc1fddf2b111"
+  },
+  {
+    "path": "main/main.cc",
+    "bytes": 92,
+    "sha256": "d77f53b0c4fa8a318bf06a7595c0be0963e60034c4990b10f691602652d816e5"
+  }
+]

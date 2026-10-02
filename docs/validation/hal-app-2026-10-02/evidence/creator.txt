@@ -1,0 +1,98 @@
+I (29823) mosi_agent: request=1 busy=1
+mosi: OK
+I (30647) esp-x509-crt-bundle: Certificate validated
+W (31875) HTTP_CLIENT: Connection timed out before data was ready!
+W (31987) HTTP_CLIENT: Connection timed out before data was ready!
+W (32100) HTTP_CLIENT: Connection timed out before data was ready!
+W (32212) HTTP_CLIENT: Connection timed out before data was ready!
+W (32323) HTTP_CLIENT: Connection timed out before data was ready!
+I (32428) mosi_app: heap_internal=175023 min_internal=62584 psram=16584528 min_psram=16561504 stack_app=7420 stack_game=7568
+W (32434) HTTP_CLIENT: Connection timed out before data was ready!
+W (32547) HTTP_CLIENT: Connection timed out before data was ready!
+W (32658) HTTP_CLIENT: Connection timed out before data was ready!
+W (32771) HTTP_CLIENT: Connection timed out before data was ready!
+W (32883) HTTP_CLIENT: Connection timed out before data was ready!
+W (32995) HTTP_CLIENT: Connection timed out before data was ready!
+W (33106) HTTP_CLIENT: Connection timed out before data was ready!
+W (33217) HTTP_CLIENT: Connection timed out before data was ready!
+W (33328) HTTP_CLIENT: Connection timed out before data was ready!
+W (33440) HTTP_CLIENT: Connection timed out before data was ready!
+W (33551) HTTP_CLIENT: Connection timed out before data was ready!
+W (33662) HTTP_CLIENT: Connection timed out before data was ready!
+W (33775) HTTP_CLIENT: Connection timed out before data was ready!
+W (33888) HTTP_CLIENT: Connection timed out before data was ready!
+W (33999) HTTP_CLIENT: Connection timed out before data was ready!
+I (34037) SystemInfo: free sram: 174863 minimal sram: 62584
+W (34110) HTTP_CLIENT: Connection timed out before data was ready!
+W (34221) HTTP_CLIENT: Connection timed out before data was ready!
+W (34332) HTTP_CLIENT: Connection timed out before data was ready!
+W (34443) HTTP_CLIENT: Connection timed out before data was ready!
+W (34554) HTTP_CLIENT: Connection timed out before data was ready!
+W (34665) HTTP_CLIENT: Connection timed out before data was ready!
+W (34780) HTTP_CLIENT: Connection timed out before data was ready!
+I (34809) mosi_agent: request=1 busy=1
+I (34809) mosi_agent: request=1 tool=game_preview result=0
+I (35100) esp-x509-crt-bundle: Certificate validated
+I (35111) HttpClient: HTTP connection closed
+W (35668) HTTP_CLIENT: Connection timed out before data was ready!
+W (35780) HTTP_CLIENT: Connection timed out before data was ready!
+W (35891) HTTP_CLIENT: Connection timed out before data was ready!
+W (36003) HTTP_CLIENT: Connection timed out before data was ready!
+W (36114) HTTP_CLIENT: Connection timed out before data was ready!
+W (36226) HTTP_CLIENT: Connection timed out before data was ready!
+W (36337) HTTP_CLIENT: Connection timed out before data was ready!
+W (36448) HTTP_CLIENT: Connection timed out before data was ready!
+W (36559) HTTP_CLIENT: Connection timed out before data was ready!
+W (36670) HTTP_CLIENT: Connection timed out before data was ready!
+W (36783) HTTP_CLIENT: Connection timed out before data was ready!
+W (36895) HTTP_CLIENT: Connection timed out before data was ready!
+W (37007) HTTP_CLIENT: Connection timed out before data was ready!
+W (37119) HTTP_CLIENT: Connection timed out before data was ready!
+W (37231) HTTP_CLIENT: Connection timed out before data was ready!
+W (37342) HTTP_CLIENT: Connection timed out before data was ready!
+W (37453) HTTP_CLIENT: Connection timed out before data was ready!
+W (37564) HTTP_CLIENT: Connection timed out before data was ready!
+W (37675) HTTP_CLIENT: Connection timed out before data was ready!
+W (37786) HTTP_CLIENT: Connection timed out before data was ready!
+I (37864) mosi_agent: request=1 busy=0
+I (37864) mosi_agent: request=1 completed status=0 backend_status=0
+I (38111) Application: Activating... 3/10
+I (38267) esp-x509-crt-bundle: Certificate validated
+I (39929) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=1817
+I (44037) SystemInfo: free sram: 176191 minimal sram: 59980
+I (50044) HttpClient: HTTP connection closed
+I (53044) Application: Activating... 4/10
+I (53185) esp-x509-crt-bundle: Certificate validated
+I (54037) SystemInfo: free sram: 179039 minimal sram: 59980
+I (54367) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=1322
+I (62428) mosi_app: heap_internal=176143 min_internal=59980 psram=16634528 min_psram=16493512 stack_app=7100 stack_game=7568
+I (64037) SystemInfo: free sram: 176179 minimal sram: 59980
+I (64584) HttpClient: HTTP connection closed
+I (67584) Application: Activating... 5/10
+I (69125) esp-x509-crt-bundle: Certificate validated
+I (71753) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=4168
+I (74037) SystemInfo: free sram: 175951 minimal sram: 59980
+I (81992) HttpClient: HTTP connection closed
+I (84037) SystemInfo: free sram: 182511 minimal sram: 59980
+I (84992) Application: Activating... 6/10
+I (85122) esp-x509-crt-bundle: Certificate validated
+I (85426) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=433
+I (92428) mosi_app: heap_internal=176171 min_internal=59980 psram=16634528 min_psram=16493512 stack_app=7100 stack_game=7568
+I (94037) SystemInfo: free sram: 176171 minimal sram: 59980
+I (96328) HttpClient: HTTP connection closed
+I (99328) Application: Activating... 7/10
+I (99451) esp-x509-crt-bundle: Certificate validated
+I (100527) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=1198
+I (104037) SystemInfo: free sram: 176171 minimal sram: 59980
+I (111079) HttpClient: HTTP connection closed
+I (114037) SystemInfo: free sram: 182475 minimal sram: 59980
+I (114079) Application: Activating... 8/10
+I (114224) esp-x509-crt-bundle: Certificate validated
+I (116097) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=2017
+I (122428) mosi_app: heap_internal=176131 min_internal=59980 psram=16634528 min_psram=16493512 stack_app=7100 stack_game=7472
+I (124037) SystemInfo: free sram: 175999 minimal sram: 59980
+I (126432) HttpClient: HTTP connection closed
+I (129432) Application: Activating... 9/10
+I (129718) esp-x509-crt-bundle: Certificate validated
+I (130681) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=1248
+I (134037) SystemInfo: free sram: 176011 minimal sram: 59980

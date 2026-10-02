@@ -1,0 +1,2 @@
+Command: build-host/snake_probe.exe logs/hal-app-2026-10-02/hal-snake.lua --extended
+PASS 32 Snake behavior checks; failures=0

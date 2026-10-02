@@ -1,0 +1,92 @@
+I (190922) mosi_agent: request=2 busy=1
+mosi: OK
+I (191076) Application: Activating... 3/10
+I (191222) esp-x509-crt-bundle: Certificate validated
+I (191696) esp-x509-crt-bundle: Certificate validated
+W (191769) HTTP_CLIENT: Connection timed out before data was ready!
+W (191880) HTTP_CLIENT: Connection timed out before data was ready!
+W (191992) HTTP_CLIENT: Connection timed out before data was ready!
+W (192103) HTTP_CLIENT: Connection timed out before data was ready!
+W (192215) HTTP_CLIENT: Connection timed out before data was ready!
+W (192326) HTTP_CLIENT: Connection timed out before data was ready!
+W (192437) HTTP_CLIENT: Connection timed out before data was ready!
+I (192491) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=1414
+I (192506) mosi_agent: request=2 busy=1
+I (192506) mosi_agent: request=2 tool=game_list result=0
+I (192773) esp-x509-crt-bundle: Certificate validated
+W (193339) HTTP_CLIENT: Connection timed out before data was ready!
+W (193451) HTTP_CLIENT: Connection timed out before data was ready!
+W (193563) HTTP_CLIENT: Connection timed out before data was ready!
+W (193674) HTTP_CLIENT: Connection timed out before data was ready!
+W (193785) HTTP_CLIENT: Connection timed out before data was ready!
+W (193896) HTTP_CLIENT: Connection timed out before data was ready!
+W (194007) HTTP_CLIENT: Connection timed out before data was ready!
+I (194037) SystemInfo: free sram: 171443 minimal sram: 59184
+W (194121) HTTP_CLIENT: Connection timed out before data was ready!
+W (194232) HTTP_CLIENT: Connection timed out before data was ready!
+W (194343) HTTP_CLIENT: Connection timed out before data was ready!
+W (194455) HTTP_CLIENT: Connection timed out before data was ready!
+I (194532) mosi_agent: request=2 busy=1
+I (194532) mosi_agent: request=2 tool=game_list result=2
+W (194532) mosi_agent: tool_error=Game not found
+I (194939) esp-x509-crt-bundle: Certificate validated
+W (195735) HTTP_CLIENT: Connection timed out before data was ready!
+W (195848) HTTP_CLIENT: Connection timed out before data was ready!
+W (195959) HTTP_CLIENT: Connection timed out before data was ready!
+W (196070) HTTP_CLIENT: Connection timed out before data was ready!
+W (196181) HTTP_CLIENT: Connection timed out before data was ready!
+W (196292) HTTP_CLIENT: Connection timed out before data was ready!
+W (196404) HTTP_CLIENT: Connection timed out before data was ready!
+W (196515) HTTP_CLIENT: Connection timed out before data was ready!
+W (196627) HTTP_CLIENT: Connection timed out before data was ready!
+W (196740) HTTP_CLIENT: Connection timed out before data was ready!
+W (196853) HTTP_CLIENT: Connection timed out before data was ready!
+W (196964) HTTP_CLIENT: Connection timed out before data was ready!
+W (197075) HTTP_CLIENT: Connection timed out before data was ready!
+W (197186) HTTP_CLIENT: Connection timed out before data was ready!
+W (197297) HTTP_CLIENT: Connection timed out before data was ready!
+W (197410) HTTP_CLIENT: Connection timed out before data was ready!
+W (197521) HTTP_CLIENT: Connection timed out before data was ready!
+I (197606) mosi_agent: request=2 busy=1
+I (197606) mosi_agent: request=2 tool=game_list result=2
+W (197606) mosi_agent: tool_error=Game not found
+I (198876) esp-x509-crt-bundle: Certificate validated
+W (200837) HTTP_CLIENT: Connection timed out before data was ready!
+W (200949) HTTP_CLIENT: Connection timed out before data was ready!
+W (201060) HTTP_CLIENT: Connection timed out before data was ready!
+W (201173) HTTP_CLIENT: Connection timed out before data was ready!
+W (201286) HTTP_CLIENT: Connection timed out before data was ready!
+W (201398) HTTP_CLIENT: Connection timed out before data was ready!
+W (201509) HTTP_CLIENT: Connection timed out before data was ready!
+W (201620) HTTP_CLIENT: Connection timed out before data was ready!
+W (201731) HTTP_CLIENT: Connection timed out before data was ready!
+W (201845) HTTP_CLIENT: Connection timed out before data was ready!
+W (201956) HTTP_CLIENT: Connection timed out before data was ready!
+W (202068) HTTP_CLIENT: Connection timed out before data was ready!
+W (202181) HTTP_CLIENT: Connection timed out before data was ready!
+W (202293) HTTP_CLIENT: Connection timed out before data was ready!
+W (202404) HTTP_CLIENT: Connection timed out before data was ready!
+W (202515) HTTP_CLIENT: Connection timed out before data was ready!
+W (202626) HTTP_CLIENT: Connection timed out before data was ready!
+I (202721) HttpClient: HTTP connection closed
+I (202728) mosi_agent: request=2 busy=0
+I (202728) mosi_agent: request=2 completed status=1 backend_status=0
+I (204037) SystemInfo: free sram: 183379 minimal sram: 55016
+I (205721) Application: Activating... 4/10
+I (205875) esp-x509-crt-bundle: Certificate validated
+I (206824) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=1102
+I (212431) mosi_app: heap_internal=177035 min_internal=55016 psram=16632572 min_psram=16493512 stack_app=7100 stack_game=7472
+I (214037) SystemInfo: free sram: 176839 minimal sram: 55016
+I (216954) HttpClient: HTTP connection closed
+I (219954) Application: Activating... 5/10
+I (220075) esp-x509-crt-bundle: Certificate validated
+I (221166) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=1211
+I (224037) SystemInfo: free sram: 177027 minimal sram: 55016
+I (231391) HttpClient: HTTP connection closed
+I (234037) SystemInfo: free sram: 183379 minimal sram: 55016
+I (234392) Application: Activating... 6/10
+I (234526) esp-x509-crt-bundle: Certificate validated
+I (235298) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=905
+I (242432) mosi_app: heap_internal=177023 min_internal=55016 psram=16632572 min_psram=16493512 stack_app=7100 stack_game=7472
+I (244037) SystemInfo: free sram: 177027 minimal sram: 55016
+I (245421) HttpClient: HTTP connection closed

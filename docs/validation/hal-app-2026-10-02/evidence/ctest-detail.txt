@@ -1,0 +1,131 @@
+Start testing: Oct 02 12:47 中国标准时间
+----------------------------------------------------------
+1/8 Testing: hal_tests
+1/8 Test: hal_tests
+Command: "E:/MCU/esp32/esp_mosicrokey/build-host/hal_tests.exe"
+Directory: E:/MCU/esp32/esp_mosicrokey/build-host
+"hal_tests" start time: Oct 02 12:47 中国标准时间
+Output:
+----------------------------------------------------------
+PASS 58 checks: actual HAL key debounce and UART ownership/errors
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"hal_tests" end time: Oct 02 12:47 中国标准时间
+"hal_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/8 Testing: storage_hal_tests
+2/8 Test: storage_hal_tests
+Command: "E:/MCU/esp32/esp_mosicrokey/build-host/storage_hal_tests.exe"
+Directory: E:/MCU/esp32/esp_mosicrokey/build-host
+"storage_hal_tests" start time: Oct 02 12:47 中国标准时间
+Output:
+----------------------------------------------------------
+PASS 22 checks: actual HAL storage ownership and partial-unmount failure
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"storage_hal_tests" end time: Oct 02 12:47 中国标准时间
+"storage_hal_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/8 Testing: display_hal_tests
+3/8 Test: display_hal_tests
+Command: "E:/MCU/esp32/esp_mosicrokey/build-host/display_hal_tests.exe"
+Directory: E:/MCU/esp32/esp_mosicrokey/build-host
+"display_hal_tests" start time: Oct 02 12:47 中国标准时间
+Output:
+----------------------------------------------------------
+PASS 32 checks: actual HAL display cleanup, bounds and DMA ownership
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"display_hal_tests" end time: Oct 02 12:47 中国标准时间
+"display_hal_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/8 Testing: game_tests
+4/8 Test: game_tests
+Command: "E:/MCU/esp32/esp_mosicrokey/build-host/game_tests.exe" "E:/MCU/esp32/esp_mosicrokey/build-host/test-card" "E:/MCU/esp32/esp_mosicrokey/examples/snake/main.lua"
+Directory: E:/MCU/esp32/esp_mosicrokey/build-host
+"game_tests" start time: Oct 02 12:47 中国标准时间
+Output:
+----------------------------------------------------------
+PASS 639 checks: focus, validation, recovery, immutable revisions, sandbox, input replay, 100 load/exit cycles
+<end of output>
+Test time =   0.28 sec
+----------------------------------------------------------
+Test Passed.
+"game_tests" end time: Oct 02 12:47 中国标准时间
+"game_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/8 Testing: llm_retry_tests
+5/8 Test: llm_retry_tests
+Command: "E:/MCU/esp32/esp_mosicrokey/build-host/llm_retry_tests.exe"
+Directory: E:/MCU/esp32/esp_mosicrokey/build-host
+"llm_retry_tests" start time: Oct 02 12:47 中国标准时间
+Output:
+----------------------------------------------------------
+PASS 50 backend retry checks; failures=0
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"llm_retry_tests" end time: Oct 02 12:47 中国标准时间
+"llm_retry_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/8 Testing: llm_transport_tests
+6/8 Test: llm_transport_tests
+Command: "E:/MCU/esp32/esp_mosicrokey/build-host/llm_transport_tests.exe"
+Directory: E:/MCU/esp32/esp_mosicrokey/build-host
+"llm_transport_tests" start time: Oct 02 12:47 中国标准时间
+Output:
+----------------------------------------------------------
+PASS 48 actual transport checks; failures=0
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"llm_transport_tests" end time: Oct 02 12:47 中国标准时间
+"llm_transport_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/8 Testing: app_tests
+7/8 Test: app_tests
+Command: "E:/MCU/esp32/esp_mosicrokey/build-host/app_tests.exe"
+Directory: E:/MCU/esp32/esp_mosicrokey/build-host
+"app_tests" start time: Oct 02 12:47 中国标准时间
+Output:
+----------------------------------------------------------
+PASS 475 checks: actual App actor, 100 audio focus switches, background request, remount guard, game exit race, queue saturation
+<end of output>
+Test time =   4.18 sec
+----------------------------------------------------------
+Test Passed.
+"app_tests" end time: Oct 02 12:47 中国标准时间
+"app_tests" time elapsed: 00:00:04
+----------------------------------------------------------
+
+8/8 Testing: ui_capture
+8/8 Test: ui_capture
+Command: "E:/MCU/esp32/esp_mosicrokey/build-host/ui_capture.exe" "E:/MCU/esp32/esp_mosicrokey/build-host/screenshots" "E:/MCU/esp32/esp_mosicrokey/examples/snake/main.lua"
+Directory: E:/MCU/esp32/esp_mosicrokey/build-host
+"ui_capture" start time: Oct 02 12:47 中国标准时间
+Output:
+----------------------------------------------------------
+Captured 13 shared LVGL 9.5 UI/game states, 160x128
+<end of output>
+Test time =   0.13 sec
+----------------------------------------------------------
+Test Passed.
+"ui_capture" end time: Oct 02 12:47 中国标准时间
+"ui_capture" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 02 12:47 中国标准时间

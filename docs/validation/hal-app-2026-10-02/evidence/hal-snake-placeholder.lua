@@ -1,0 +1,1 @@
+function init() game.clear(0) end function update(dt, input) end function draw() end

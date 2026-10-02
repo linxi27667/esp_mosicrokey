@@ -1,0 +1,27 @@
+{
+  "installed_path": "C:\\Users\\30817\\.codex\\skills\\embedded-hal-app",
+  "utf8": true,
+  "same_bytes": true,
+  "files": [
+    {
+      "path": "agents/openai.yaml",
+      "bytes": 318,
+      "sha256": "a28366d852f71c53840de45e7e46bec09164c2235659ecc85ee8f55fcad8d6a8"
+    },
+    {
+      "path": "references/coding-example.md",
+      "bytes": 3243,
+      "sha256": "67e46295e1a9f9a19eb21067aae074fe2b05820365a8e84d6eef0f73452cbb97"
+    },
+    {
+      "path": "references/design-decisions.md",
+      "bytes": 3631,
+      "sha256": "03bf92f92bbb78d69b4b6e1a6af8c6e329b8c9c107e501d961ea8a431a5d19a1"
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 8805,
+      "sha256": "c5ca678f2c69c91126740bc09cfa823ea9b56eeed0809047a0688a89eafa9e44"
+    }
+  ]
+}

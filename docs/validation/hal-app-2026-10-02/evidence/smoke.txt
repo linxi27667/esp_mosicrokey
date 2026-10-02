@@ -1,0 +1,81 @@
+mode=0 wifi=1 tf=0 request=0 busy=0 games=0 heap=16814711 min=16690668
+voice=激活设备
+notice=已连接 Ll
+agent=
+task=mosi_console priority=1 state=0 stack_free_min_bytes=6452 core_affinity=2147483647
+task=IDLE0 priority=0 state=1 stack_free_min_bytes=1180 core_affinity=0
+task=IDLE1 priority=0 state=1 stack_free_min_bytes=1172 core_affinity=1
+task=mkeys priority=3 state=2 stack_free_min_bytes=3668 core_affinity=2147483647
+task=mosi_game priority=3 state=2 stack_free_min_bytes=7568 core_affinity=1
+task=tcpip priority=18 state=2 stack_free_min_bytes=2600 core_affinity=0
+task=mosi_agent_rx priority=1 state=2 stack_free_min_bytes=5564 core_affinity=2147483647
+task=mosi_ui priority=3 state=2 stack_free_min_bytes=4176 core_affinity=0
+task=ssl_receive priority=1 state=2 stack_free_min_bytes=3172 core_affinity=2147483647
+task=activation priority=2 state=2 stack_free_min_bytes=4220 core_affinity=1
+task=mosi_app priority=2 state=2 stack_free_min_bytes=7308 core_affinity=2147483647
+task=audio_input priority=8 state=2 stack_free_min_bytes=5740 core_affinity=0
+task=ipc1 priority=24 state=3 stack_free_min_bytes=688 core_affinity=1
+task=audio_output priority=4 state=2 stack_free_min_bytes=3540 core_affinity=2147483647
+task=opus_codec priority=2 state=2 stack_free_min_bytes=23852 core_affinity=2147483647
+task=claw_core_agent priority=1 state=2 stack_free_min_bytes=14080 core_affinity=0
+task=sys_evt priority=20 state=2 stack_free_min_bytes=1052 core_affinity=0
+task=ipc0 priority=24 state=3 stack_free_min_bytes=696 core_affinity=0
+task=main priority=20 state=2 stack_free_min_bytes=6928 core_affinity=0
+task=wifi priority=23 state=2 stack_free_min_bytes=4764 core_affinity=0
+task=esp_timer priority=22 state=3 stack_free_min_bytes=3628 core_affinity=0
+task=Tmr Svc priority=1 state=2 stack_free_min_bytes=1724 core_affinity=2147483647
+firmware=0.2.0 reset_reason=1 uptime_ms=74567
+mosi: OK
+I (76489) mosi_audio: focus=0 state=9 wake=0 processing=0 playback_idle=1 input_enabled=0 output_enabled=0 input_frames=0 output_frames=0 input_peak=0
+mosi: OK
+game_selftest: frames=60 loads=100 init_us=8009 frame_mean_us=1928 frame_max_us=2397 loop_guard=PASS heap_guard=PASS restricted_libs=PASS storage=NOT_TESTED display=NOT_TESTED
+mosi: OK
+mosi: OK
+I (78748) mosi_audio: focus=1 state=9 wake=0 processing=0 playback_idle=1 input_enabled=0 output_enabled=0 input_frames=0 output_frames=0 input_peak=0
+mosi: OK
+I (79521) AudioService: Disabling audio testing
+I (79522) WifiStation: Setting WiFi power save level: LOW_POWER (MAX_MODEM)
+I (79522) wifi:Set ps type: 2, coexist: 0
+
+mosi: OK
+I (80293) mosi_audio: focus=0 state=9 wake=0 processing=0 playback_idle=1 input_enabled=0 output_enabled=0 input_frames=0 output_frames=0 input_peak=0
+I (80605) HttpClient: HTTP connection closed
+I (81050) SD_HOST: src_freq_hz: 400000000
+W (81050) gpio: conflict found for GPIO[23]
+mosi: OK
+E (81079) sdmmc_common: sdmmc_init_ocr: send_op_cond (1) returned 0x107
+E (81079) vfs_fat_sdmmc: sdmmc_card_init failed (0x107).
+E (81079) vfs_fat_sdmmc: esp_vfs_fat_sdmmc_sdcard_init failed (0x107).
+mode=0 wifi=1 tf=0 request=0 busy=0 games=0 heap=16825991 min=16412768
+voice=激活设备
+notice=TF card unavailable
+agent=
+task=mosi_console priority=1 state=0 stack_free_min_bytes=3696 core_affinity=1
+task=IDLE0 priority=0 state=1 stack_free_min_bytes=1180 core_affinity=0
+task=IDLE1 priority=0 state=1 stack_free_min_bytes=1156 core_affinity=1
+task=mosi_ui priority=3 state=2 stack_free_min_bytes=4176 core_affinity=0
+task=mosi_app priority=2 state=2 stack_free_min_bytes=6812 core_affinity=2147483647
+task=mosi_game priority=3 state=2 stack_free_min_bytes=7568 core_affinity=1
+task=tcpip priority=18 state=2 stack_free_min_bytes=2600 core_affinity=0
+task=mosi_agent_rx priority=1 state=2 stack_free_min_bytes=5564 core_affinity=2147483647
+task=activation priority=2 state=2 stack_free_min_bytes=4220 core_affinity=1
+task=mkeys priority=3 state=2 stack_free_min_bytes=3668 core_affinity=2147483647
+task=claw_core_agent priority=1 state=2 stack_free_min_bytes=14080 core_affinity=0
+task=sys_evt priority=20 state=2 stack_free_min_bytes=1052 core_affinity=0
+task=ipc0 priority=24 state=3 stack_free_min_bytes=696 core_affinity=0
+task=audio_output priority=4 state=2 stack_free_min_bytes=3540 core_affinity=2147483647
+task=opus_codec priority=2 state=2 stack_free_min_bytes=23820 core_affinity=2147483647
+task=main priority=20 state=2 stack_free_min_bytes=6928 core_affinity=0
+task=ipc1 priority=2 state=3 stack_free_min_bytes=688 core_affinity=1
+task=wifi priority=23 state=2 stack_free_min_bytes=4764 core_affinity=0
+task=esp_timer priority=22 state=3 stack_free_min_bytes=3628 core_affinity=0
+task=Tmr Svc priority=1 state=2 stack_free_min_bytes=1724 core_affinity=2147483647
+task=audio_input priority=8 state=2 stack_free_min_bytes=5740 core_affinity=0
+firmware=0.2.0 reset_reason=1 uptime_ms=80638
+I (83606) Application: Activating... 6/10
+I (84037) SystemInfo: free sram: 183447 minimal sram: 75192
+I (84488) esp-x509-crt-bundle: Certificate validated
+I (84912) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=1305
+I (92386) mosi_app: heap_internal=179887 min_internal=75192 psram=16634528 min_psram=16337576 stack_app=6812 stack_game=7568
+I (94037) SystemInfo: free sram: 180051 minimal sram: 75192
+I (96063) HttpClient: HTTP connection closed

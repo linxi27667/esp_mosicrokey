@@ -1,0 +1,15 @@
+Test project E:/MCU/esp32/esp_mosicrokey/build-host
+    Start 4: game_tests
+    Test #4: game_tests .......................   Passed    0.27 sec
+    Start 4: game_tests
+    Test #4: game_tests .......................   Passed    0.26 sec
+    Start 4: game_tests
+    Test #4: game_tests .......................   Passed    0.26 sec
+    Start 4: game_tests
+    Test #4: game_tests .......................   Passed    0.26 sec
+    Start 4: game_tests
+1/1 Test #4: game_tests .......................   Passed    0.25 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   1.31 sec

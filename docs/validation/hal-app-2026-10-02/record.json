@@ -1,0 +1,350 @@
+{
+  "version": "0.2.0",
+  "target": "esp32s31",
+  "sdk": "6.1",
+  "recorded_at": "2026-10-02T05:11:51.882904+00:00",
+  "source_base_commit": "bd924c73af7de86734ece05497449696fd0565f9",
+  "source_note": "Validated application source matches source commit; translation-unit hashes verified against its Git blobs. Evidence commit follows separately.",
+  "artifacts": [
+    {
+      "path": "build/mosicrokey.bin",
+      "bytes": 3913504,
+      "sha256": "fd16cb2bf0c483a3f92270f4d97217c540330e75079616fbaaf970a5d1cbe9e8"
+    },
+    {
+      "path": "build/mosicrokey.elf",
+      "bytes": 43792496,
+      "sha256": "272ad2a2b626cd585467799845430fe5f8d2ac1f68ca12beacaf1f3290668f6d"
+    },
+    {
+      "path": "dependencies.lock",
+      "bytes": 7650,
+      "sha256": "7e17f6de8c62f4ac6320a68abe0046adfeca930f71979dc148f097a7b70e1f25"
+    },
+    {
+      "path": "source-manifest.json",
+      "bytes": 387226,
+      "sha256": "a824a09761db5f8ba8440b9904703a43d035b51712bc00b1f7411594167362a8"
+    }
+  ],
+  "board": {
+    "port": "COM8",
+    "usb_vid": "10C4",
+    "usb_pid": "EA60",
+    "usb_serial": "7E6E5CC2F471F011A32BFB9E1045C30F",
+    "chip": "esp32s31",
+    "chip_revision": "v0.0",
+    "mac": "1c:29:04:d0:78:bc",
+    "flash_bytes": 16777216,
+    "psram_bytes": 16777216,
+    "external_peripherals": "USB only"
+  },
+  "host": {
+    "ctest_suites": 8,
+    "passed_suites": 8,
+    "checks": {
+      "hal_key_uart": 58,
+      "hal_storage": 22,
+      "hal_display": 32,
+      "game": 639,
+      "http_backend": 50,
+      "http_transport": 48,
+      "app": 475
+    },
+    "total_assertions": 1324,
+    "serial_harness_cases": 3,
+    "ui_states": 13,
+    "consecutive_game_suite_passes": 5
+  },
+  "firmware": {
+    "app_partition_offset": "0x20000",
+    "app_partition_bytes": 6291456,
+    "flash_verified": true,
+    "nvs_erased": false,
+    "unique_app_main": 1,
+    "unique_create_board": 1,
+    "wifi_connected": true,
+    "codec_initialized": true
+  },
+  "vm_selftest": {
+    "frames": 60,
+    "loads": 100,
+    "init_us": 8009,
+    "frame_mean_us": 1928,
+    "frame_max_us": 2397,
+    "loop_guard": "PASS",
+    "heap_guard": "PASS",
+    "restricted_libs": "PASS",
+    "storage": "NOT_TESTED",
+    "display": "NOT_TESTED"
+  },
+  "agent": {
+    "model": "glm-4-flash-250414",
+    "ordinary_request_passed": true,
+    "first_preview": {
+      "request_id": 1,
+      "tool_status": 0,
+      "source_bytes": 84,
+      "playable_snake": false
+    },
+    "repair_with_invalid_reference": {
+      "request_id": 2,
+      "status": 1,
+      "reason": "Game not found; no publication this request"
+    },
+    "reference_adaptation": {
+      "request_id": 3,
+      "status": 0,
+      "backend_status": 0,
+      "tool": "game_preview",
+      "preview_id": "preview-hal-snake",
+      "revision": "p2",
+      "source_bytes": 2829,
+      "persistent": false,
+      "source": {
+        "path": "docs/validation/hal-app-2026-10-02/evidence/hal-snake.lua",
+        "bytes": 2829,
+        "sha256": "b6140beaa261a7257a8bbbc5382e3ff75285bcdc848220ba0682a67cd4b3cd23"
+      },
+      "behavior_checks": 32,
+      "behavior_failures": 0
+    },
+    "background_request": {
+      "request_id": 4,
+      "status": 0,
+      "backend_status": 0,
+      "reply": "GAME_BACKGROUND_OK"
+    }
+  },
+  "game": {
+    "started_mode": 4,
+    "exited_mode": 3,
+    "frame_width": 160,
+    "frame_height": 128,
+    "frame_fnv1a": "331d2681",
+    "all_rows_verified": 128,
+    "full_interval_fps_samples": [
+      30.3,
+      30.3,
+      30.3
+    ],
+    "partial_interval_fps_samples": [
+      3.7,
+      10.8
+    ],
+    "fps_note": "First and last ten-second reporting windows include idle time before start or after exit; full-window samples are a short smoke only.",
+    "two_hour_soak": false
+  },
+  "own_task_stack_min_bytes_this_smoke": {
+    "mosi_console": 3696,
+    "mkeys": 3652,
+    "mosi_app": 4836,
+    "mosi_game": 5856,
+    "mosi_ui": 4176,
+    "mosi_agent_rx": 5244,
+    "claw_core_agent": 10620
+  },
+  "limitations": [
+    "Xiaozhi account activation remains pending",
+    "No complete microphone/speaker conversation verified",
+    "No physical TFT, external keys or TF connected",
+    "RAM preview does not prove persistence",
+    "No v0.2.0 two-hour soak",
+    "Host mocks do not verify electrical behavior",
+    "Model first request produced placeholder; gameplay remains separately evaluated"
+  ],
+  "evidence": [
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/agent.txt",
+      "bytes": 3182,
+      "sha256": "ef202d327828864e679856c38d2f9ee2011d4aa8240afea7c9342398c22d7b15"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/application-translation-units.json",
+      "bytes": 3551,
+      "sha256": "873b0e2dee86570002c0c427b184726e49f78bf9a7e31a95ab5f533d4e92ee88"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/boot.txt",
+      "bytes": 15331,
+      "sha256": "0b9386bf25b62837dcf9da56d7937b16b0860fced4bf1e32c14ff5a4ca89a0ac"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/build.txt",
+      "bytes": 17647,
+      "sha256": "7d1f24ff43662f461ed0baa55f1c9f7e21feec95b77510e7c3352bef0bc1fd9c"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/chip.txt",
+      "bytes": 423,
+      "sha256": "c2c01205c7902a6d50e1cee85da307a1a543f5b66a77be16f617c2cca2bb3be3"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/creator-reference.txt",
+      "bytes": 19089,
+      "sha256": "e336b82bf8ba09638adaa0aea76c69d762a49acbce37b3c0b7475cd09182e77f"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/creator-repair.txt",
+      "bytes": 5976,
+      "sha256": "cda13e3e0d6990835d870477f9fa74c366905e67def694bea141e79224f924b2"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/creator.txt",
+      "bytes": 6445,
+      "sha256": "d744f72daf5ec580632311efe294689ad72946ad16cbae19aca8d3677f465942"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/credential-audit.json",
+      "bytes": 247,
+      "sha256": "1ec82d29f75dbd1960023c3ebe58cfb12176ad6247ff99dbd8343aa30b0f4614"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/ctest-detail.txt",
+      "bytes": 5495,
+      "sha256": "57d8969fd5e40722fbaf3aa8a9e992fa818492bb8263e62430393fa1dadc4f48"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/device-game.png",
+      "bytes": 389,
+      "sha256": "538ba565d88c4b4ceb62a942ea147637debbdc95ab413acd653bf0152c249f19"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/flash.txt",
+      "bytes": 332353,
+      "sha256": "e835ae3f9be652e0ad61c2b4c24e87d826079e9f64e0c912322df0b89e814b3a"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/frame-and-exit.txt",
+      "bytes": 60067,
+      "sha256": "592638853bc4ba6eca3ea87d7b71ffacbb79b303716c7eda17fce2a82fbf70c6"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/game-background.txt",
+      "bytes": 4730,
+      "sha256": "00df78bcdeaa1fecc7b1d330cf1be599f1faf6918bac9d6f1be6a4227c931c47"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/game-repeat.txt",
+      "bytes": 613,
+      "sha256": "5e7339e7291a7645d9867b521fbe121c4c83efa3e7fd3b24f3dd507dbf4b1b44"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/git-index-audit.json",
+      "bytes": 842,
+      "sha256": "6b9af72087be95a0eb89486e4ea2ac7814c3b3343a34ca248e634e7428e0a1ef"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/hal-snake-placeholder.lua",
+      "bytes": 84,
+      "sha256": "7e3d914e348d7b686ff630576339dafa5536dd12e97aed77d7e74432c974a2b6"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/hal-snake.lua",
+      "bytes": 2829,
+      "sha256": "b6140beaa261a7257a8bbbc5382e3ff75285bcdc848220ba0682a67cd4b3cd23"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/host-tests.txt",
+      "bytes": 1675,
+      "sha256": "6656663f631adc990f17f85bc632092250d2b04860bd1a8db792d204a2500477"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/skill-install.json",
+      "bytes": 782,
+      "sha256": "a1ce467f3ee457db11674a99b5a9bf196b4783e878e3c9f915908af475f04a59"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/skill-validate.txt",
+      "bytes": 143,
+      "sha256": "3c27db84ac0dfed390cb2e4645f04bd87565299fdf2c7e96bf6be5673b96b8c6"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/smoke.txt",
+      "bytes": 5450,
+      "sha256": "1529c38e685323fe87edce1723fa55f53cf85e5335ea3927eaeccb29501e5d90"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/snake-behavior.txt",
+      "bytes": 129,
+      "sha256": "286bdf8f12dda09a1f646af43dfc099ab1e5d8aa0c5f585f22787e2162dbe63c"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/symbols.txt",
+      "bytes": 108,
+      "sha256": "79f1643002295454e57f8db02ad0a3d384476a31c008cd0e5e65fcc74fa1b375"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/ui/agent-empty.png",
+      "bytes": 1952,
+      "sha256": "97cc68fd29d378746aae0b0160000942e574a9314cb8d67185fa0c43a8174147"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/ui/agent-scroll-end.png",
+      "bytes": 1687,
+      "sha256": "2735f08c3ed3f68623f32f78085c7c75172707964cf2bc7b175cb1c1d0745c7b"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/ui/agent.png",
+      "bytes": 2379,
+      "sha256": "7c23dc70c12bf551bf32edf373a1975723ec53497d2a9c455e3abf630ef7e19e"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/ui/contact-sheet.png",
+      "bytes": 24598,
+      "sha256": "3f78aebb84e646b0eb67521a2d8cdcccec641d4a1306c5d43dd8f0b3ad16126b"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/ui/diagnostics.png",
+      "bytes": 1783,
+      "sha256": "aa2e49036b97f664653bf2b1c2539dc8619f5879aeac62b7ca5e28da62bea6b3"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/ui/home.png",
+      "bytes": 1815,
+      "sha256": "16de0a859c39e70c05bdfde4db73c0a855f368de79ff6a9a6b2e64ac84f12cb9"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/ui/library-empty.png",
+      "bytes": 1859,
+      "sha256": "027766bb2aa8e2c829028f8809b7863726d9a73f3d07c1388e53c8d0fe7061c8"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/ui/library-long-title.png",
+      "bytes": 1988,
+      "sha256": "bbe46ec1016304a1e6dee22da5b2e4309bcdc125d3cb81d7042123136702033f"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/ui/library.png",
+      "bytes": 1813,
+      "sha256": "28aca23c8058dbd8d42696f1f9390ea59a618258e63f759c90617a3ff4113858"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/ui/settings.png",
+      "bytes": 1993,
+      "sha256": "e9b49b2d55a8fd5e9cf21bb4b35a2011e740e73f161a0531e1c80961775f009e"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/ui/snake.png",
+      "bytes": 428,
+      "sha256": "6cb666cc5b9521b11ccfa11d975aa8e414eefe6ce7df599246c47ffe101330ed"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/ui/storage-error.png",
+      "bytes": 1649,
+      "sha256": "d20681a537064e8a00a7c4b64d8dad75b0c4c372ae30f38c73c781bea8b6b4ce"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/ui/voice-scroll.png",
+      "bytes": 2359,
+      "sha256": "2331975baac8009033643b9465949b7d99f9a3bf8fd3ba212d9ebd47bbf59143"
+    },
+    {
+      "path": "docs/validation/hal-app-2026-10-02/evidence/ui/voice.png",
+      "bytes": 2110,
+      "sha256": "2f923504613db57a691977465ea62f57b17d107a05044112c160e858b1701843"
+    }
+  ],
+  "source_commit": "c785558a952791905b58ccdf7485eedff39a7633",
+  "source_unit_git_hashes_verified": 21
+}
