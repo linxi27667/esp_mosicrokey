@@ -1,0 +1,593 @@
+{
+  "version": "0.2.1",
+  "target": "esp32s31",
+  "sdk": "6.1",
+  "recorded_at": "2026-10-02T18:38:43.273171+08:00",
+  "source_commit": "de91bae778c9b3fc86ac9901b3078d4885f12f57",
+  "source_note": "Project components/main/build configuration byte hashes match source commit; no firmware source edits after final build and flash. Evidence follows in a separate commit.",
+  "source_files": [
+    {
+      "path": "CMakeLists.txt",
+      "bytes": 353,
+      "sha256": "e03d842e0425df5b40c2d21a7584401cc1584d2fc2f711f7b1c4d0f08b347ddb"
+    },
+    {
+      "path": "components/board_support/CMakeLists.txt",
+      "bytes": 341,
+      "sha256": "a346c594bc17d0c12494cfee403b3e1a66c4f3dba17b1d1c26e701935510e295"
+    },
+    {
+      "path": "components/board_support/hardware/hal_audio_bus.cc",
+      "bytes": 763,
+      "sha256": "f7625e1dcac7df2dbe1138e758b1558e4650c366565bcc8def495d30b2b271ad"
+    },
+    {
+      "path": "components/board_support/hardware/hal_display.cc",
+      "bytes": 7341,
+      "sha256": "03c7d891c5e8074e76675cd88725e4268cdf8bb74f039f249fae2791533992a6"
+    },
+    {
+      "path": "components/board_support/hardware/hal_encoder.cc",
+      "bytes": 2854,
+      "sha256": "071758e973781ff27a07641154daaab7bab4728c4a717eb3942e5831ddac2da8"
+    },
+    {
+      "path": "components/board_support/hardware/hal_key.cc",
+      "bytes": 2063,
+      "sha256": "bb7f0aaaca9e0191a9341126cb80b33757ce545337c97a34304a014f0e8acf6c"
+    },
+    {
+      "path": "components/board_support/hardware/hal_storage.cc",
+      "bytes": 2223,
+      "sha256": "def88892f9800a31d43613744ae8399e54dbf845103c79c14b737263ac62b8b6"
+    },
+    {
+      "path": "components/board_support/hardware/hal_uart.cc",
+      "bytes": 1700,
+      "sha256": "bce3ba12dc60de1a43338ab37b67654b265598d73f72110191493abb5c83b181"
+    },
+    {
+      "path": "components/board_support/include/mosicrokey/board_config.hpp",
+      "bytes": 1127,
+      "sha256": "01d15587bf79b6b1c5704684e6ec65a4ecdc0d0ee9b92340d3bdf12fd6976ad1"
+    },
+    {
+      "path": "components/board_support/include/mosicrokey/hal_audio_bus.hpp",
+      "bytes": 375,
+      "sha256": "cf3027f464ede2aa5bf88619f9af60a31bd4b1cf8bfc33b29b8bb27f9822b1a8"
+    },
+    {
+      "path": "components/board_support/include/mosicrokey/hal_display.hpp",
+      "bytes": 706,
+      "sha256": "5414683099c8055c0b242822f9a9cc2e9ebee1efffbbb35b3fbbe9c43030c00b"
+    },
+    {
+      "path": "components/board_support/include/mosicrokey/hal_encoder.hpp",
+      "bytes": 376,
+      "sha256": "0dfd371f6606d01d55f8dbcc6a189ff591c840b3e65ddee18bdf38b4aba5bb49"
+    },
+    {
+      "path": "components/board_support/include/mosicrokey/hal_key.hpp",
+      "bytes": 692,
+      "sha256": "dd16bfc4612dadac9a51868c79fbe7c9aa2eb155b3b300cebae65f81f529a9bd"
+    },
+    {
+      "path": "components/board_support/include/mosicrokey/hal_storage.hpp",
+      "bytes": 593,
+      "sha256": "2da0d3df45612b114348d0a3417010a61df62725747ed6ff9fcfec23f58629b2"
+    },
+    {
+      "path": "components/board_support/include/mosicrokey/hal_uart.hpp",
+      "bytes": 447,
+      "sha256": "f2711b954923cbb66f7dc7d4fb6c52e82a765897d16ce11934357ebe7ee89c30"
+    },
+    {
+      "path": "components/espclaw_compoment/CMakeLists.txt",
+      "bytes": 334,
+      "sha256": "af650364d6de8b202425e9496e71db83e59516c14ca3c1cac8db84b2b8990870"
+    },
+    {
+      "path": "components/espclaw_compoment/completion.hpp",
+      "bytes": 654,
+      "sha256": "de9c723351bc2fdea8d059bc9d0ba362948517421d85ef4bd9372dbc8b89b499"
+    },
+    {
+      "path": "components/espclaw_compoment/espclaw_adapter.cc",
+      "bytes": 18189,
+      "sha256": "30acb806d8a4576234f433838c662b9a8320e68abdccbd37a82ce4c1c0ee9f0b"
+    },
+    {
+      "path": "components/espclaw_compoment/include/mosicrokey/espclaw.hpp",
+      "bytes": 176,
+      "sha256": "5cc90031652a6f8ab24692ec7ad82bb1e910fbd70e64da6cbe1fdbe503f9baa5"
+    },
+    {
+      "path": "components/espclaw_compoment/ram_history.hpp",
+      "bytes": 2010,
+      "sha256": "75b6fea2d9ca82d6d7c383edd20a4a9bbc3b1231e727a0095cce19e829dc4d8f"
+    },
+    {
+      "path": "components/espclaw_compoment/redaction.hpp",
+      "bytes": 351,
+      "sha256": "625fde2b8acdf50e68ef5b423ad639e62e21e5c6db4e2832f6579f032a79788a"
+    },
+    {
+      "path": "components/game_service/CMakeLists.txt",
+      "bytes": 231,
+      "sha256": "35e8855f798b4645a89e39c30e9e13d69b6998735b1fd7f73818f0a6aa805db6"
+    },
+    {
+      "path": "components/game_service/game_diagnostics.cc",
+      "bytes": 2640,
+      "sha256": "8bc47854261173ccd3ad5b2a4e19fd9b29fa4da5bab11798e02bab75c7643eba"
+    },
+    {
+      "path": "components/game_service/game_internal.hpp",
+      "bytes": 1927,
+      "sha256": "73b229181422266b7d3eecfbdab1002b3c88096184010c333f44593bf2f4b7b5"
+    },
+    {
+      "path": "components/game_service/game_library.cc",
+      "bytes": 26922,
+      "sha256": "c6e71742d87cbcd7e5cb8c8d20c5c5021b42c04ab55332ff0260593dc7c472cc"
+    },
+    {
+      "path": "components/game_service/game_vm.cc",
+      "bytes": 9043,
+      "sha256": "faaf7beefd4c1148d6501fccdfe6ca732d7325bc77839c675daa9f820afe7fd1"
+    },
+    {
+      "path": "components/game_service/idf_component.yml",
+      "bytes": 66,
+      "sha256": "3b6d5a65522ae1b3721e93b487cf7ed4ab39b2335870e35a3a4aa6d1e5efd56c"
+    },
+    {
+      "path": "components/game_service/include/mosicrokey/game.hpp",
+      "bytes": 937,
+      "sha256": "2c3a4515ce07f4b7c15f22bc9d91daa829b90b1605689be5062faa401d815174"
+    },
+    {
+      "path": "components/game_service/raster.cc",
+      "bytes": 2290,
+      "sha256": "c16697fbfa0ef85254fe59e444872acf2e0887c66b1523a383221657f9fa5891"
+    },
+    {
+      "path": "components/mosicrokey_app/CMakeLists.txt",
+      "bytes": 326,
+      "sha256": "acc82ffbb6bf9d9955b53428e6d5e1fb0ea927bedd3f610dfcce22083858d4f4"
+    },
+    {
+      "path": "components/mosicrokey_app/app.cc",
+      "bytes": 14996,
+      "sha256": "bb3180a45d6f8364fe2b89aae7204b6fe44080767ed9e60036e6a04880490aa1"
+    },
+    {
+      "path": "components/mosicrokey_app/app_input.cc",
+      "bytes": 8716,
+      "sha256": "2d8bffeaed30b882241dd457ff7d05f8eaca1c5e3f436d2a9cff9bac86d01c50"
+    },
+    {
+      "path": "components/mosicrokey_app/app_internal.hpp",
+      "bytes": 1879,
+      "sha256": "97ea04c9d5596bcc1de677a0fa2065f4459e6d0d95f5478e434c2e962733c8c5"
+    },
+    {
+      "path": "components/mosicrokey_app/console.cc",
+      "bytes": 11669,
+      "sha256": "b67346f0e842b1298bc3842fe3a91ba4699e016f73a04da3312d05f356d94e5c"
+    },
+    {
+      "path": "components/mosicrokey_app/include/mosicrokey/app.hpp",
+      "bytes": 1799,
+      "sha256": "943070c89e59f7b24df7774cbb6807816ffd0dcfac509b8cecbe0aadf5f77509"
+    },
+    {
+      "path": "components/mosicrokey_app/include/mosicrokey/console.hpp",
+      "bytes": 406,
+      "sha256": "3f1a10c611f65bc81d9352a2235dd59849eb291fb4dbd36311ab0dd46cc42a92"
+    },
+    {
+      "path": "components/mosicrokey_app/task/app_task.cc",
+      "bytes": 2492,
+      "sha256": "6278bfd4b764ccd77ed19969022aa062c93556f1be7d3966df4d3aa97a7df7b6"
+    },
+    {
+      "path": "components/mosicrokey_app/task/console_task.cc",
+      "bytes": 2307,
+      "sha256": "f8b40e83f93a10906b74a42dbb3fb221c18630c93b872a18c165be26f858d946"
+    },
+    {
+      "path": "components/mosicrokey_app/task/key_task.cc",
+      "bytes": 2199,
+      "sha256": "1174a725478cfc7bad31d8040fac419b3dcb0f0a2bec3fb3a4bbdb5b304ec704"
+    },
+    {
+      "path": "components/mosicrokey_contracts/CMakeLists.txt",
+      "bytes": 47,
+      "sha256": "cf4bd3de782ad867aa84081ac29728a7c8a5bb0f4b8700fcfe59ff85037dd7e2"
+    },
+    {
+      "path": "components/mosicrokey_contracts/include/mosicrokey/contracts.hpp",
+      "bytes": 3376,
+      "sha256": "6748fd040a0f2c29b67b5bb553264cfa7948d57cad613edda7572fab9f5eb1c8"
+    },
+    {
+      "path": "components/mosicrokey_contracts/include/mosicrokey/focus.hpp",
+      "bytes": 777,
+      "sha256": "6cdf53354d6bb6f6277d9affb625f670b9290b2db1efc38ad6483622944d6b5b"
+    },
+    {
+      "path": "components/mosicrokey_contracts/include/mosicrokey/task_config.hpp",
+      "bytes": 848,
+      "sha256": "870f5b8f4045fa8b43d0f29d9469de0635014276379dea223bd7ff401d3281df"
+    },
+    {
+      "path": "components/mosicrokey_ui/CMakeLists.txt",
+      "bytes": 224,
+      "sha256": "7a78fff60b661237d87262511f3f12b2400c48c2b83adfd1ac12298821df055b"
+    },
+    {
+      "path": "components/mosicrokey_ui/include/mosicrokey/ui.hpp",
+      "bytes": 182,
+      "sha256": "429fe7361ee95623ec264b582e73e54d4e3b84f1439c089a755bde66b4dafb08"
+    },
+    {
+      "path": "components/mosicrokey_ui/ui.cc",
+      "bytes": 2954,
+      "sha256": "2d3774efe15f057125c9e14839d2c108679afbd9f89257b4672db78dd3130adc"
+    },
+    {
+      "path": "components/mosicrokey_ui/view.cc",
+      "bytes": 12576,
+      "sha256": "6f73b6023f105b5f686fef19f718ff3c1633d4a5ca98862a80295e106f1575cc"
+    },
+    {
+      "path": "components/mosicrokey_ui/view.hpp",
+      "bytes": 795,
+      "sha256": "ef35403010a82f87a681439297d8ceadb0e9f02f0a2e35df19aa0961081a9ce3"
+    },
+    {
+      "path": "components/xiaozhi_compoment/CMakeLists.txt",
+      "bytes": 4157,
+      "sha256": "c59983ad41562b1cc837c8a979730a6b29edeef15c44d70313a7b117de94f3b2"
+    },
+    {
+      "path": "components/xiaozhi_compoment/idf_component.yml",
+      "bytes": 375,
+      "sha256": "fbf02b7243114cf7a23a3600ae08b4771e844ebac9b4e2d4bccd678e0190129d"
+    },
+    {
+      "path": "components/xiaozhi_compoment/include/mosicrokey/xiaozhi.hpp",
+      "bytes": 202,
+      "sha256": "d1958a64d9c23eb5a71152d2227d91ce48ef11c64606f3fa4b598c064f4e9bd5"
+    },
+    {
+      "path": "components/xiaozhi_compoment/mosicrokey_board.cc",
+      "bytes": 4174,
+      "sha256": "c4510625d2cc7ddf3ae32f940f484a9d106b596416fa0f983505143a6c677552"
+    },
+    {
+      "path": "components/xiaozhi_compoment/xiaozhi_adapter.cc",
+      "bytes": 4153,
+      "sha256": "005ceba17f4dc18e77d7e6cbc33db85b30e7c850e88756e0a0d0700335b25066"
+    },
+    {
+      "path": "components/xiaozhi_compoment/xiaozhi_bridge.hpp",
+      "bytes": 132,
+      "sha256": "dc541d97fade35d8c4185019df4784834f92c7e02450d03cf53daebf4bddd1c9"
+    },
+    {
+      "path": "dependencies.lock",
+      "bytes": 7650,
+      "sha256": "7e17f6de8c62f4ac6320a68abe0046adfeca930f71979dc148f097a7b70e1f25"
+    },
+    {
+      "path": "main/CMakeLists.txt",
+      "bytes": 278,
+      "sha256": "890083267c97c3a435cdb80bb2f694164cf55570b1406e0d98710beda492ddc5"
+    },
+    {
+      "path": "main/Kconfig.projbuild",
+      "bytes": 956,
+      "sha256": "f115d0601b87d7c1c1f008c40790a9564cec0d608a6c65f2a61c2c40c0b64145"
+    },
+    {
+      "path": "main/app_system.cc",
+      "bytes": 2080,
+      "sha256": "91e4d4cdb0c2a3c0cf960dc8f9825ff54678380b5da35da57fbbdc1fddf2b111"
+    },
+    {
+      "path": "main/app_system.hpp",
+      "bytes": 321,
+      "sha256": "c66b8a73c7aa7cba7d7c0333e84deeeb893cf4ec5fd628a51fcb7579f8a58184"
+    },
+    {
+      "path": "main/main.cc",
+      "bytes": 92,
+      "sha256": "d77f53b0c4fa8a318bf06a7595c0be0963e60034c4990b10f691602652d816e5"
+    },
+    {
+      "path": "partitions.csv",
+      "bytes": 233,
+      "sha256": "66d4f5a066c7367f771f837b8910ac2fb5222a6cb530284069215a41dc6a4759"
+    },
+    {
+      "path": "sdkconfig.defaults",
+      "bytes": 1683,
+      "sha256": "aa62263e61db67b03caf9df32c116f22eec78e3584bb29cc42e7a74743c1b3b3"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "build/mosicrokey.bin",
+      "bytes": 3935520,
+      "sha256": "bfcb3680f4c843ed197196038138912126163af8d6aa903c3eb101c61d1eb1dd"
+    },
+    {
+      "path": "build/mosicrokey.elf",
+      "bytes": 44010104,
+      "sha256": "f19099168c3ef5e2f9d7f8567dcb7d0309d7773c283393984c96f74efb282b1a"
+    },
+    {
+      "path": "dependencies.lock",
+      "bytes": 7650,
+      "sha256": "7e17f6de8c62f4ac6320a68abe0046adfeca930f71979dc148f097a7b70e1f25"
+    },
+    {
+      "path": "source-manifest.json",
+      "bytes": 387226,
+      "sha256": "a824a09761db5f8ba8440b9904703a43d035b51712bc00b1f7411594167362a8"
+    }
+  ],
+  "board": {
+    "port": "COM8",
+    "usb_vid": "10C4",
+    "usb_pid": "EA60",
+    "usb_serial": "7E6E5CC2F471F011A32BFB9E1045C30F",
+    "chip_revision": "v0.0",
+    "mac": "1c:29:04:d0:78:bc",
+    "flash_bytes": 16777216,
+    "psram_bytes": 16777216,
+    "external_peripherals": "USB only"
+  },
+  "firmware": {
+    "app_partition_offset": "0x20000",
+    "app_partition_bytes": 6291456,
+    "flash_verified": true,
+    "nvs_erased": false,
+    "unique_app_main": 1,
+    "unique_create_board": 1,
+    "wifi_connected": true,
+    "codec_initialized": true
+  },
+  "host": {
+    "ctest_suites": 9,
+    "passed_suites": 9,
+    "checks": {
+      "hal_key_uart": 61,
+      "hal_encoder": 30,
+      "hal_storage": 22,
+      "hal_display": 33,
+      "game": 639,
+      "http_backend": 50,
+      "http_transport": 48,
+      "app": 527
+    },
+    "total_assertions": 1410,
+    "ui_pixel_checks": 7,
+    "serial_harness_cases": 3,
+    "pc_bridge_cases": 11,
+    "ui_states": 21
+  },
+  "usb_input_smoke": {
+    "checks": 33,
+    "passed": true,
+    "pc_actions": 15,
+    "pc_ack": "simulated, no OS keys executed",
+    "frame_fnv1a": "92cf7ca5",
+    "frame_rows": 128
+  },
+  "live_agent": {
+    "model": "glm-4-flash-250414",
+    "request_id": 1,
+    "status": 0,
+    "backend_status": 0,
+    "response_verified": true,
+    "game_running": true,
+    "publication_tested": false
+  },
+  "game_fps": {
+    "raw_windows": [
+      9.5,
+      30.3,
+      30.3,
+      30.3
+    ],
+    "steady_complete_windows": [
+      30.3,
+      30.3,
+      30.3
+    ],
+    "note": "First 9.5 window includes idle time before game entry. Short ordinary request is a concurrency smoke, not a full AI creation performance/long-run acceptance."
+  },
+  "pending": [
+    "Physical TFT voltage/colors/orientation/offset/backlight",
+    "Physical eight keys and encoder contacts/rotation/debounce",
+    "Actual Windows media/shortcut execution",
+    "TF installation and reboot persistence",
+    "Xiaozhi user activation and complete live voice",
+    "Full voice concurrency and independent v0.2.1 two-hour soak"
+  ],
+  "evidence": [
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/agent-background.txt",
+      "bytes": 3816,
+      "sha256": "3c642fc291161182dab2068463cbd9a6c9d567fdb753dbcde93a7fd9e449b91f"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/boot.txt",
+      "bytes": 15354,
+      "sha256": "bc1e363d28e76bf1c865c5d66533512b6ecfcd46dabb97469a7ee8cb044e86b9"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/build.log",
+      "bytes": 19866,
+      "sha256": "8f10eb8b148b8d09700acf1f2341519d05ec5f55e7c078e9ec66b4717359dad2"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/chip.log",
+      "bytes": 423,
+      "sha256": "c2c01205c7902a6d50e1cee85da307a1a543f5b66a77be16f617c2cca2bb3be3"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/final-status.txt",
+      "bytes": 2136,
+      "sha256": "28cd88fc0087588863ea7ac0a84d292917da3c10a1f81865cb826e3676af5fe0"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/flash.log",
+      "bytes": 332043,
+      "sha256": "1e2db25bd4604890f69978adc74c12592eb60565f6636412d2bc631a5a3364f4"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/host.log",
+      "bytes": 3454,
+      "sha256": "39200bc73b2a2f7d09b19456707af4203c10954495486533514b85a6f909b767"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/input-smoke/result.json",
+      "bytes": 3609,
+      "sha256": "c74c9a62c24a99af4afe9ec0d7a58e8d7aa1d1d1c0b0e026fda2538f09330126"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/input-smoke/serial.txt",
+      "bytes": 76549,
+      "sha256": "ed55303de17d9b9a9b2ee62a94bff87ac15d84899b3a0cd6e574fe364d7cbb80"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/pc-bridge-tests.log",
+      "bytes": 159,
+      "sha256": "a05bff9f640a503db0e675cea2bb612e03378651d1972af6f0049dc84e6ac744"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/snake-device.png",
+      "bytes": 420,
+      "sha256": "51c527a8c0af6cee5ff308d614e47209b4f48540db545aca9ac6793221db475f"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/symbols.txt",
+      "bytes": 108,
+      "sha256": "ba38ee2ac9baa64ff9712f1fea2562435a33e6b9a70a58230b4686f7eb6af6ed"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/ui/agent-empty.png",
+      "bytes": 2733,
+      "sha256": "93965525b825efb5d45bb397db8ffa3a915ad2593adb89b7d7ba083ac0d241f1"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/ui/agent-scroll-end.png",
+      "bytes": 2448,
+      "sha256": "4e4192dee1c99d9b48250579ed048780b051d19b2c5b90f695c6a88efeecb8e5"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/ui/agent.png",
+      "bytes": 3175,
+      "sha256": "19d826f735edb372e2eea84a2f7f526d96a737c12ac583d499cfb9b31ebcb44c"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/ui/contact-sheet.png",
+      "bytes": 64280,
+      "sha256": "2a428ebc10d89a9db9b4576155112e09c88788d5e666f1389a209ee68cae3b23"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/ui/diagnostics.png",
+      "bytes": 2524,
+      "sha256": "02fd0ae03938b243c85eacba6529a1d36101b89fd26f50ed20d4d9a80adf0110"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/ui/display-test.png",
+      "bytes": 2446,
+      "sha256": "8995f394f5d65feca23946130e9e0b0afafddafc5cbadc14256fe9975935cc6f"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/ui/home-last-tile.png",
+      "bytes": 3273,
+      "sha256": "c65f3257037f076c091a7e27ac1d3692d0ef6f341cd4d6c95182039a20423560"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/ui/home.png",
+      "bytes": 3327,
+      "sha256": "92f0d014837c8d08c2fb933a26695acd5f736ef066e04f8418dc8d12ccc11551"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/ui/input-test.png",
+      "bytes": 3624,
+      "sha256": "3e1f4bd5cd8eddb7d19a6657a7c42344e8d294422fcf8d015692b48ce280cabd"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/ui/library-empty.png",
+      "bytes": 2568,
+      "sha256": "2563665676b448677473b83e31a34113c7f966a888f682dd1e1b25577e8105ff"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/ui/library-long-title.png",
+      "bytes": 2816,
+      "sha256": "f43b8180d4f39506f61b1bb34b928c1cac5db428c6d5347b632c92bd9d7912a6"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/ui/library.png",
+      "bytes": 2585,
+      "sha256": "665e34ecddb6527c4b5af184ab77f86af4cbf5f633f4ea15f19dc9e0672319b9"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/ui/pc-disconnected.png",
+      "bytes": 2806,
+      "sha256": "8e69cae7644af49dc4e338e2fc292bcd079113b848b332c4a74fb84226ef256b"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/ui/pc-error.png",
+      "bytes": 2982,
+      "sha256": "ebe68570d5f678ac0b8b48ae988584afc1b98ea7388d7749cf9dcc184445c71d"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/ui/pc-media.png",
+      "bytes": 2825,
+      "sha256": "07636648fde0d091cde123c17699a2c348b6fe72cb6b233e7c4dc3a2483e7f37"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/ui/pc-shortcuts.png",
+      "bytes": 2913,
+      "sha256": "a437e4ef801980d45824a49d0af8b75a22e3aae1b377279d035e53927082c07e"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/ui/settings-preview.png",
+      "bytes": 2899,
+      "sha256": "20e3205737fd919d79e555d8d4ca4a0438c01b8f62d873eda48fe800d68df158"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/ui/settings.png",
+      "bytes": 2829,
+      "sha256": "3df40e874c52ec632550baf0e76c0c434be61396dc8d59a4a2823e31da1a75bf"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/ui/snake.png",
+      "bytes": 428,
+      "sha256": "6cb666cc5b9521b11ccfa11d975aa8e414eefe6ce7df599246c47ffe101330ed"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/ui/storage-error.png",
+      "bytes": 2421,
+      "sha256": "cb17cc3cdc1fb7495d2fb0477cbbf0bb3f08c5ba37b40f9b1022589f5fdc2d2e"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/ui/voice-scroll.png",
+      "bytes": 3264,
+      "sha256": "1c19fb8d0236dba0a0647d4db6669bc83481b830bb26c478cd225d0a0a95f6f2"
+    },
+    {
+      "path": "docs/validation/tft-input-2026-10-02/evidence/ui/voice.png",
+      "bytes": 3073,
+      "sha256": "02de05e73aba0725f1b8b36005eaeb8d2955262110d2086b5de7702059bab07d"
+    }
+  ]
+}

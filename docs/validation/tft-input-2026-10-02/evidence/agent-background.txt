@@ -1,0 +1,59 @@
+mosi: OK
+I (842418) mosi_agent: request=1 busy=1
+mosi: OK
+mode=4 wifi=1 tf=0 request=1 busy=1 games=1 heap=16545675 min=16433744
+voice=激活设备
+notice=
+agent=正在请求模型
+task=mosi_console priority=1 state=0 stack_free_min_bytes=3352 core_affinity=1
+task=claw_core_agent priority=1 state=1 stack_free_min_bytes=12032 core_affinity=0
+task=IDLE1 priority=0 state=1 stack_free_min_bytes=1180 core_affinity=1
+task=IDLE0 priority=0 state=1 stack_free_min_bytes=1156 core_affinity=0
+task=mkeys priority=3 state=2 stack_free_min_bytes=3616 core_affinity=2147483647
+task=mosi_ui priority=3 state=2 stack_free_min_bytes=3908 core_affinity=0
+task=mosi_game priority=3 state=2 stack_free_min_bytes=5860 core_affinity=1
+task=mosi_app priority=2 state=2 stack_free_min_bytes=4696 core_affinity=1
+task=mosi_agent_rx priority=1 state=2 stack_free_min_bytes=5556 core_affinity=2147483647
+task=Tmr Svc priority=1 state=2 stack_free_min_bytes=1716 core_affinity=2147483647
+task=ssl_receive priority=1 state=2 stack_free_min_bytes=3172 core_affinity=2147483647
+task=activation priority=2 state=2 stack_free_min_bytes=4224 core_affinity=1
+task=tcpip priority=18 state=2 stack_free_min_bytes=2592 core_affinity=0
+task=ipc1 priority=24 state=3 stack_free_min_bytes=688 core_affinity=1
+task=audio_output priority=4 state=2 stack_free_min_bytes=3540 core_affinity=2147483647
+task=opus_codec priority=2 state=2 stack_free_min_bytes=23820 core_affinity=2147483647
+task=ipc0 priority=24 state=3 stack_free_min_bytes=504 core_affinity=0
+task=main priority=20 state=2 stack_free_min_bytes=6888 core_affinity=0
+task=wifi priority=23 state=2 stack_free_min_bytes=4772 core_affinity=0
+task=esp_timer priority=22 state=3 stack_free_min_bytes=3476 core_affinity=0
+task=sys_evt priority=20 state=2 stack_free_min_bytes=1044 core_affinity=0
+task=audio_input priority=8 state=2 stack_free_min_bytes=5740 core_affinity=0
+firmware=0.2.1 reset_reason=1 uptime_ms=841419
+I (842730) esp-x509-crt-bundle: Certificate validated
+W (843414) HTTP_CLIENT: Connection timed out before data was ready!
+W (843525) HTTP_CLIENT: Connection timed out before data was ready!
+W (843636) HTTP_CLIENT: Connection timed out before data was ready!
+W (843747) HTTP_CLIENT: Connection timed out before data was ready!
+W (843858) HTTP_CLIENT: Connection timed out before data was ready!
+W (843976) HTTP_CLIENT: Connection timed out before data was ready!
+I (844051) SystemInfo: free sram: 169387 minimal sram: 56896
+W (844087) HTTP_CLIENT: Connection timed out before data was ready!
+W (844199) HTTP_CLIENT: Connection timed out before data was ready!
+W (844312) HTTP_CLIENT: Connection timed out before data was ready!
+W (844425) HTTP_CLIENT: Connection timed out before data was ready!
+I (844503) mosi_agent: request=1 busy=0
+I (844503) mosi_agent: request=1 completed status=0 backend_status=0
+I (845128) mosi_game: fps=9.5 stack=5860
+I (854051) SystemInfo: free sram: 177987 minimal sram: 56896
+I (854666) Application: Activating... 5/10
+I (854816) esp-x509-crt-bundle: Certificate validated
+I (855161) mosi_game: fps=30.3 stack=5860
+I (855772) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=1105
+I (864051) SystemInfo: free sram: 171655 minimal sram: 56896
+I (865192) mosi_game: fps=30.3 stack=5860
+I (866715) HttpClient: HTTP connection closed
+I (869715) Application: Activating... 6/10
+I (869859) esp-x509-crt-bundle: Certificate validated
+I (870210) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=494
+I (871397) mosi_app: heap_internal=171655 min_internal=56896 psram=16447608 min_psram=16375404 stack_app=4696 stack_game=5860
+I (874051) SystemInfo: free sram: 171655 minimal sram: 56896
+I (875224) mosi_game: fps=30.3 stack=5860

@@ -1,0 +1,61 @@
+-- 
+-- Using lv_conf.h from the top-level project directory
+-- Enabling the building of ThorVG internal
+-- Configuring done (0.5s)
+-- Generating done (0.1s)
+-- Build files have been written to: E:/MCU/esp32/esp_mosicrokey/build-host
+[1/18] Building CXX object CMakeFiles/game.dir/E_/MCU/esp32/esp_mosicrokey/components/game_service/raster.cc.obj
+[2/18] Building CXX object CMakeFiles/snake_probe.dir/snake_probe.cc.obj
+[3/18] Building CXX object CMakeFiles/game.dir/E_/MCU/esp32/esp_mosicrokey/components/game_service/game_diagnostics.cc.obj
+[4/18] Building CXX object CMakeFiles/app_tests.dir/E_/MCU/esp32/esp_mosicrokey/components/mosicrokey_app/app.cc.obj
+[5/18] Building CXX object CMakeFiles/game.dir/E_/MCU/esp32/esp_mosicrokey/components/game_service/game_vm.cc.obj
+[6/18] Building CXX object CMakeFiles/ui_capture.dir/E_/MCU/esp32/esp_mosicrokey/components/mosicrokey_ui/view.cc.obj
+[7/18] Building CXX object CMakeFiles/app_tests.dir/E_/MCU/esp32/esp_mosicrokey/components/mosicrokey_app/app_input.cc.obj
+[8/18] Building CXX object CMakeFiles/app_tests.dir/E_/MCU/esp32/esp_mosicrokey/components/mosicrokey_app/console.cc.obj
+[9/18] Building CXX object CMakeFiles/app_tests.dir/app_tests.cc.obj
+[10/18] Building CXX object CMakeFiles/app_tests.dir/E_/MCU/esp32/esp_mosicrokey/components/mosicrokey_app/task/app_task.cc.obj
+[11/18] Linking CXX executable app_tests.exe
+[12/18] Building CXX object CMakeFiles/ui_capture.dir/ui_capture.cc.obj
+[13/18] Building CXX object CMakeFiles/game.dir/E_/MCU/esp32/esp_mosicrokey/components/game_service/game_library.cc.obj
+[14/18] Linking CXX static library libgame.a
+[15/18] Building CXX object CMakeFiles/game_tests.dir/game_tests.cc.obj
+[16/18] Linking CXX executable snake_probe.exe
+[17/18] Linking CXX executable ui_capture.exe
+[18/18] Linking CXX executable game_tests.exe
+Test project E:/MCU/esp32/esp_mosicrokey/build-host
+    Start 1: hal_tests
+1/9 Test #1: hal_tests ........................   Passed    0.02 sec
+    Start 2: encoder_hal_tests
+2/9 Test #2: encoder_hal_tests ................   Passed    0.03 sec
+    Start 3: storage_hal_tests
+3/9 Test #3: storage_hal_tests ................   Passed    0.03 sec
+    Start 4: display_hal_tests
+4/9 Test #4: display_hal_tests ................   Passed    0.02 sec
+    Start 5: game_tests
+5/9 Test #5: game_tests .......................   Passed    0.70 sec
+    Start 6: llm_retry_tests
+6/9 Test #6: llm_retry_tests ..................   Passed    0.04 sec
+    Start 7: llm_transport_tests
+7/9 Test #7: llm_transport_tests ..............   Passed    0.05 sec
+    Start 8: app_tests
+8/9 Test #8: app_tests ........................   Passed    8.56 sec
+    Start 9: ui_capture
+9/9 Test #9: ui_capture .......................   Passed    0.19 sec
+
+100% tests passed, 0 tests failed out of 9
+
+Total Test time (real) =   9.68 sec
+test_read_gap_cannot_pass (__main__.HarnessTests.test_read_gap_cannot_pass) ... ok
+test_restart_preserves_new_boot_evidence (__main__.HarnessTests.test_restart_preserves_new_boot_evidence) ... ok
+test_save_failure_still_closes_and_restores (__main__.HarnessTests.test_save_failure_still_closes_and_restores) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.013s
+
+OK
+...Computer action failed: injected rejection
+.......
+----------------------------------------------------------------------
+Ran 10 tests in 0.003s
+
+OK

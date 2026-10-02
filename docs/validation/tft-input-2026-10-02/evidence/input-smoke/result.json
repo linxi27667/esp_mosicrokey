@@ -1,0 +1,206 @@
+{
+  "port": "COM8",
+  "firmware": "0.2.1",
+  "transport": "UART injected inputs + simulated PC ACK",
+  "physical_gpio_tested": false,
+  "physical_tft_tested": false,
+  "computer_os_keys_tested": false,
+  "tf_persistence_tested": false,
+  "passed": true,
+  "checks": [
+    {
+      "name": "actual flashed firmware version",
+      "passed": true
+    },
+    {
+      "name": "up press mask",
+      "passed": true
+    },
+    {
+      "name": "up release mask",
+      "passed": true
+    },
+    {
+      "name": "down press mask",
+      "passed": true
+    },
+    {
+      "name": "down release mask",
+      "passed": true
+    },
+    {
+      "name": "left press mask",
+      "passed": true
+    },
+    {
+      "name": "left release mask",
+      "passed": true
+    },
+    {
+      "name": "right press mask",
+      "passed": true
+    },
+    {
+      "name": "right release mask",
+      "passed": true
+    },
+    {
+      "name": "confirm press mask",
+      "passed": true
+    },
+    {
+      "name": "confirm release mask",
+      "passed": true
+    },
+    {
+      "name": "back press mask",
+      "passed": true
+    },
+    {
+      "name": "back release mask",
+      "passed": true
+    },
+    {
+      "name": "function press mask",
+      "passed": true
+    },
+    {
+      "name": "function release mask",
+      "passed": true
+    },
+    {
+      "name": "mode press mask",
+      "passed": true
+    },
+    {
+      "name": "mode release mask",
+      "passed": true
+    },
+    {
+      "name": "encoder press mask",
+      "passed": true
+    },
+    {
+      "name": "encoder release mask",
+      "passed": true
+    },
+    {
+      "name": "rotary net count and direction",
+      "passed": true
+    },
+    {
+      "name": "display calibration page",
+      "passed": true
+    },
+    {
+      "name": "display back returns settings",
+      "passed": true
+    },
+    {
+      "name": "all media/shortcut/rotary mappings use actual firmware protocol",
+      "passed": true
+    },
+    {
+      "name": "dry-run acknowledgement distinguished",
+      "passed": true
+    },
+    {
+      "name": "lease expiry emits no old/offline PC action",
+      "passed": true
+    },
+    {
+      "name": "expired bridge is offline",
+      "passed": true
+    },
+    {
+      "name": "mode key returns to prior device page",
+      "passed": true
+    },
+    {
+      "name": "reference Snake preview created without TF",
+      "passed": true
+    },
+    {
+      "name": "preview appears in game library",
+      "passed": true
+    },
+    {
+      "name": "preview launches from library",
+      "passed": true
+    },
+    {
+      "name": "actual game canvas exported completely",
+      "passed": true
+    },
+    {
+      "name": "game exits to library",
+      "passed": true
+    },
+    {
+      "name": "no captured crash or console restart during smoke",
+      "passed": true
+    }
+  ],
+  "pc_actions": [
+    [
+      "volume_up",
+      1
+    ],
+    [
+      "volume_down",
+      1
+    ],
+    [
+      "previous",
+      1
+    ],
+    [
+      "next",
+      1
+    ],
+    [
+      "play_pause",
+      1
+    ],
+    [
+      "mute",
+      1
+    ],
+    [
+      "volume_up",
+      2
+    ],
+    [
+      "volume_down",
+      2
+    ],
+    [
+      "mute",
+      1
+    ],
+    [
+      "copy",
+      1
+    ],
+    [
+      "paste",
+      1
+    ],
+    [
+      "undo",
+      1
+    ],
+    [
+      "redo",
+      1
+    ],
+    [
+      "save",
+      1
+    ],
+    [
+      "tab",
+      1
+    ]
+  ]
+}

@@ -1,0 +1,31 @@
+mode=4 wifi=1 tf=0 request=1 busy=0 games=1 heap=16617867 min=16432300
+voice=激活设备
+notice=
+agent=MosiCrokey v0.2.1连接成功
+task=mosi_console priority=1 state=0 stack_free_min_bytes=3352 core_affinity=1
+task=IDLE0 priority=0 state=1 stack_free_min_bytes=1156 core_affinity=0
+task=IDLE1 priority=0 state=1 stack_free_min_bytes=1180 core_affinity=1
+task=mosi_game priority=3 state=2 stack_free_min_bytes=5860 core_affinity=1
+task=mosi_ui priority=3 state=2 stack_free_min_bytes=3908 core_affinity=0
+task=mosi_app priority=2 state=2 stack_free_min_bytes=4696 core_affinity=1
+task=tcpip priority=18 state=2 stack_free_min_bytes=2592 core_affinity=0
+task=mosi_agent_rx priority=1 state=2 stack_free_min_bytes=5236 core_affinity=2147483647
+task=Tmr Svc priority=1 state=2 stack_free_min_bytes=1716 core_affinity=2147483647
+task=ssl_receive priority=1 state=2 stack_free_min_bytes=3172 core_affinity=2147483647
+task=activation priority=2 state=2 stack_free_min_bytes=4224 core_affinity=1
+task=mkeys priority=3 state=2 stack_free_min_bytes=3616 core_affinity=2147483647
+task=audio_output priority=4 state=2 stack_free_min_bytes=3540 core_affinity=2147483647
+task=opus_codec priority=2 state=2 stack_free_min_bytes=23820 core_affinity=2147483647
+task=sys_evt priority=20 state=2 stack_free_min_bytes=1044 core_affinity=0
+task=claw_core_agent priority=1 state=2 stack_free_min_bytes=11184 core_affinity=0
+task=ipc0 priority=24 state=3 stack_free_min_bytes=504 core_affinity=0
+task=main priority=20 state=2 stack_free_min_bytes=6888 core_affinity=0
+task=wifi priority=23 state=2 stack_free_min_bytes=4772 core_affinity=0
+task=esp_timer priority=22 state=3 stack_free_min_bytes=3476 core_affinity=0
+task=audio_input priority=8 state=2 stack_free_min_bytes=5740 core_affinity=0
+task=ipc1 priority=24 state=3 stack_free_min_bytes=688 core_affinity=1
+firmware=0.2.1 reset_reason=1 uptime_ms=963403
+mosi: OK
+I (964770) mosi_audio: focus=0 state=9 wake=0 processing=0 playback_idle=1 input_enabled=0 output_enabled=0 input_frames=0 output_frames=0 input_peak=0
+mosi: OK
+I (965509) mosi_game: fps=28.8 stack=5860
