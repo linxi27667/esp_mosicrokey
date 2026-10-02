@@ -1,0 +1,253 @@
+ESP-ROM:esp32s31-20251218
+Build:Dec 18 2025
+rst:0x1 (POWERON),boot:0x58 (SPI_FAST_FLASH_BOOT)
+SPI mode:DIO, clock div:1
+load:0x2f0740c0,len:0x17e4
+load:0x2f06a2b0,len:0xde0
+load:0x2f06cfb0,len:0x3460
+entry 0x2f06a2ba
+I (26) boot: ESP-IDF v6.1 2nd stage bootloader
+I (26) boot: compile time Oct  1 2026 04:00:54
+I (27) boot: Multicore bootloader
+I (29) boot: chip revision: v0.0
+I (29) boot: efuse block revision: v0.1
+I (33) qio_mode: Enabling default flash chip QIO
+I (37) boot.esp32s31: SPI Speed      : 80MHz
+I (41) boot.esp32s31: SPI Mode       : QIO
+I (45) boot.esp32s31: SPI Flash Size : 16MB
+I (49) boot: Enabling RNG early entropy source...
+I (53) boot: Partition Table:
+I (56) boot: ## Label            Usage          Type ST Offset   Length
+I (62) boot:  0 nvs              WiFi data        01 02 00009000 00004000
+I (69) boot:  1 otadata          OTA data         01 00 0000d000 00002000
+I (75) boot:  2 phy_init         RF data          01 01 0000f000 00001000
+I (82) boot:  3 factory          factory app      00 00 00020000 00600000
+I (88) boot:  4 system           Unknown data     01 81 00620000 00080000
+I (95) boot:  5 assets           Unknown data     01 82 00800000 00800000
+I (103) boot: End of partition table
+I (106) boot: Defaulting to factory image
+I (109) esp_image: segment 0: paddr=00020020 vaddr=40240020 size=16c970h (1493360) map
+I (348) esp_image: segment 1: paddr=0018c998 vaddr=2f000000 size=03680h ( 13952) load
+I (353) esp_image: segment 2: paddr=00190020 vaddr=40000020 size=235f04h (2318084) map
+I (712) esp_image: segment 3: paddr=003c5f2c vaddr=2f003680 size=12734h ( 75572) load
+I (728) esp_image: segment 4: paddr=003d8668 vaddr=2f015e00 size=08788h ( 34696) load
+I (742) boot: Loaded app from partition at offset 0x20000
+I (742) boot: Disabling RNG early entropy source...
+I (753) oct_psram: vendor id    : 0x0d (AP)
+I (753) oct_psram: Latency      : 0x01 (Fixed)
+I (754) oct_psram: DriveStr.    : 0x00 (25 Ohm)
+I (754) oct_psram: dev id       : 0x03 (generation 4)
+I (759) oct_psram: density      : 0x05 (128 Mbit)
+I (763) oct_psram: good-die     : 0x06 (Pass)
+I (767) oct_psram: SRF          : 0x02 (Slow Refresh)
+I (772) oct_psram: BurstType    : 0x00 ( Wrap)
+I (776) oct_psram: BurstLen     : 0x03 (2048 Byte)
+I (781) oct_psram: BitMode      : 0x00 (X8 Mode)
+I (785) oct_psram: Readlatency  : 0x04 (14 cycles@Fixed)
+I (790) oct_psram: DriveStrength: 0x00 (1/1)
+I (794) MSPI Timing: Enter psram timing tuning
+I (951) esp_psram: Found 16MB PSRAM device
+I (951) esp_psram: Speed: 200MHz
+I (951) oct_psram: psram CS IO is dedicated
+I (952) cpu_start: Multicore app
+I (1293) esp_psram: SPI SRAM memory test OK
+I (1301) cpu_start: GPIO 59 and 58 are used as console UART I/O pins
+I (1302) cpu_start: Pro cpu start user code
+I (1302) cpu_start: cpu freq: 320000000 Hz
+I (1304) app_init: Application information:
+I (1308) app_init: Project name:     mosicrokey
+I (1312) app_init: App version:      0.2.3
+I (1316) app_init: Compile time:     Oct  2 2026 19:33:40
+I (1321) app_init: ELF file SHA256:  69b0ec98d...
+I (1325) app_init: ESP-IDF:          v6.1
+I (1329) efuse_init: Min chip rev:     v0.0
+I (1333) efuse_init: Max chip rev:     v0.99 
+I (1337) efuse_init: Chip rev:         v0.0
+I (1341) heap_init: Initializing. RAM available for dynamic allocation:
+I (1347) heap_init: At 2F028FE0 len 00051FD0 (327 KiB): RAM
+I (1353) heap_init: At 2F07AFB0 len 000041C0 (16 KiB): RAM
+I (1358) heap_init: At 2E000000 len 00007FE8 (31 KiB): RTCRAM
+I (1363) esp_psram: Adding pool of 16384K of PSRAM memory to heap allocator
+I (1370) spi_flash: detected chip: generic
+I (1374) spi_flash: flash io: qio
+I (1378) sleep_gpio: Configure to isolate all GPIO pins in sleep state
+I (1383) sleep_gpio: Enable automatic switching of GPIO sleep configuration
+I (1390) oct_psram: psram CS IO is dedicated
+I (1394) coexist: coex firmware version: a830d28
+I (1398) coexist: coexist rom version cdcf52b
+I (1403) main_task: Started on CPU0
+I (1414) esp_psram: Reserving pool of 100K of internal memory for DMA/internal allocations
+I (1414) main_task: Calling app_main()
+I (1425) MosiCrokey: v0.2.3 S31: xiaozhi ed5cd7ba / ESPClaw 74b18700 reset_reason=1
+I (1427) SD_HOST: src_freq_hz: 400000000
+E (1456) sdmmc_common: sdmmc_init_ocr: send_op_cond (1) returned 0x107
+E (1457) vfs_fat_sdmmc: sdmmc_card_init failed (0x107).
+E (1457) vfs_fat_sdmmc: esp_vfs_fat_sdmmc_sdcard_init failed (0x107).
+W (1463) MosiCrokey: TF: ESP_ERR_TIMEOUT
+I (1987) mosi_lcd: ST7789 160x128 SPI=10000000Hz CLK=43 MOSI=44 CS=45 DC=46 RST=47 BL=-1 offset=0,0
+I (1987) mosi_lcd: SPI initialization complete; panel response is not probed
+I (2013) Board: UUID=b78fad99-ba8c-4e9c-bd8a-ab9ebf97b580 SKU=mosicrokey-s31
+I (2014) button: IoT Button Version: 4.2.1
+I (2014) StateMachine: State: unknown -> starting
+W (2018) i2s_common: the rx channel on I2S0 is switched from master to slave for full-duplex mode
+I (2026) Es8311AudioCodec: Duplex channels created
+I (2019) mosi_ui: First LVGL pixels sent to SPI
+I (2037) Es8311AudioCodec: ES8311 software reset complete
+I (2048) ES8311: Work in Slave mode
+I (2054) Es8311AudioCodec: Es8311AudioCodec initialized
+I (2054) AudioCodec: Audio codec started
+I (2057) Application: After board/audio init
+I (2057) SystemInfo: free sram: 267767 minimal sram: 166240
+I (2062) MCP: Add tool: self.get_device_status
+I (2065) MCP: Add tool: self.audio_speaker.set_volume
+I (2070) MCP: Add tool: self.get_system_info [user]
+I (2075) MCP: Add tool: self.reboot [user]
+I (2079) MCP: Add tool: self.upgrade_firmware [user]
+I (2083) MCP: Add tool: self.assets.set_download_url [user]
+I (2089) WifiManager: Initializing...
+I (2093) pp: pp rom version: 395df10
+I (2095) net80211: net80211 rom version: 395df10
+I (2101) wifi:wifi driver task: 2f05f3b4, prio:23, stack:6656, core=0
+I (2106) wifi:wifi firmware version: e12a754
+I (2110) wifi:wifi certification version: v7.0
+I (2114) wifi:config NVS flash: disabled
+I (2117) wifi:config nano formatting: disabled
+I (2122) wifi:mac_version:HAL_MAC_ESP32AX_764,ut_version:N, band mode:0x1
+I (2128) wifi:Init data frame dynamic rx buffer num: 6
+I (2133) wifi:Init static rx mgmt buffer num: 5
+I (2137) wifi:Init management short buffer num: 32
+I (2142) wifi:Init dynamic tx buffer num: 32
+I (2146) wifi:Init static tx FG buffer num: 2
+I (2150) wifi:Init static rx buffer size: 1700 (rxctrl:64, csi:512)
+I (2156) wifi:Init static rx buffer num: 3
+I (2160) wifi:Init dynamic rx buffer num: 6
+I (2164) wifi_init: rx ba win: 3
+I (2166) wifi_init: accept mbox: 6
+I (2170) wifi_init: tcpip mbox: 16
+I (2173) wifi_init: udp mbox: 6
+I (2176) wifi_init: tcp mbox: 6
+I (2178) wifi_init: tcp tx win: 5760
+I (2182) wifi_init: tcp rx win: 5760
+I (2185) wifi_init: tcp mss: 1440
+I (2188) wifi_init: WiFi IRAM OP enabled
+I (2192) wifi_init: WiFi RX IRAM OP enabled
+I (2196) wifi_init: WiFi SLP IRAM OP enabled
+I (2200) WifiManager: Initialized
+I (2204) WifiBoard: Starting WiFi connection attempt
+I (2207) WifiManager: Starting station
+I (2211) WifiStation: Station DHCP hostname: Xiaozhi-78BC
+I (2216) phy_init: phy_version 100,dd4c590,Jul 14 2026,10:33:03
+W (2288) wifi:(phy)rate:0x0(  LP-1Mbps), pwr:20, txing:20
+W (2288) wifi:(phy)rate:0x1(  LP-2Mbps), pwr:20, txing:20
+W (2288) wifi:(phy)rate:0x2(LP-5.5Mbps), pwr:20, txing:20
+W (2292) wifi:(phy)rate:0x3( LP-11Mbps), pwr:20, txing:20
+W (2297) wifi:(phy)rate:0x5(  SP-2Mbps), pwr:20, txing:20
+W (2302) wifi:(phy)rate:0x6(SP-5.5Mbps), pwr:20, txing:20
+W (2307) wifi:(phy)rate:0x7( SP-11Mbps), pwr:20, txing:20
+W (2312) wifi:(phy)rate:0x8(    48Mbps), pwr:18, txing:18
+W (2318) wifi:(phy)rate:0x9(    24Mbps), pwr:19, txing:19
+W (2323) wifi:(phy)rate:0xa(    12Mbps), pwr:20, txing:20
+W (2328) wifi:(phy)rate:0xb(     6Mbps), pwr:20, txing:20
+W (2333) wifi:(phy)rate:0xc(    54Mbps), pwr:18, txing:18
+W (2338) wifi:(phy)rate:0xd(    36Mbps), pwr:19, txing:19
+W (2343) wifi:(phy)rate:0xe(    18Mbps), pwr:20, txing:20
+W (2348) wifi:(phy)rate:0xf(     9Mbps), pwr:20, txing:20
+W (2353) wifi:(phy)rate:0x10, mcs:0x0, pwr(bw20:20, bw40:19), txing:20
+W (2360) wifi:(phy)rate:0x11, mcs:0x1, pwr(bw20:20, bw40:19), txing:20
+W (2366) wifi:(phy)rate:0x12, mcs:0x2, pwr(bw20:20, bw40:19), txing:20
+W (2372) wifi:(phy)rate:0x13, mcs:0x3, pwr(bw20:20, bw40:19), txing:20
+W (2378) wifi:(phy)rate:0x14, mcs:0x4, pwr(bw20:19, bw40:18), txing:19
+W (2385) wifi:(phy)rate:0x15, mcs:0x5, pwr(bw20:19, bw40:18), txing:19
+W (2391) wifi:(phy)rate:0x16, mcs:0x6, pwr(bw20:18, bw40:17), txing:18
+W (2397) wifi:(phy)rate:0x17, mcs:0x7, pwr(bw20:18, bw40:17), txing:18
+W (2403) wifi:(phy)rate:0x18, mcs:0x8, pwr(bw20:16, bw40:16), txing:16
+W (2410) wifi:(phy)rate:0x19, mcs:0x9, pwr(bw20:15, bw40:15), txing:15
+I (2416) wifi:11ax coex: WDEVAX_PTI0(0x55777555), WDEVAX_PTI1(0x00003377).
+
+I (2423) wifi:mode : sta (1c:29:04:d0:78:bc)
+I (2427) wifi:enable tsf
+I (2430) claw_cap: Initialized runtime with dynamic capacity growth
+I (2435) claw_cap: Configured 1 LLM��MosiCrokey v0.2.3. Send help; UART 115200 8N1, UTF-8, LF. Input echo disabled.
+I (2450) AudioService: Disabling audio testing
+I (2450) WifiStation: Setting WiFi power save level: LOW_POWER (MAX_MODEM)
+I (2457) wifi:Set ps type: 2, coexist: 0
+
+I (2461) WifiStation: Scanning saved channel 1
+I (2465) WifiBoard: WiFi scanning
+I (2586) WifiStation: Found AP: Ll, BSSID: ae:71:d8:a5:22:0c, RSSI: -18, Channel: 1, Authmode: 3
+I (2587) WifiBoard: WiFi connecting to Ll
+W (2588) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2
+I (2603) wifi:(he)max.RxAMPDULenExponentExtension:0, max.RxAMPDUpre-EOFpaddingBytes:1048575(0xfffff)
+I (2605) wifi:(mac)omc_ul_mu_data_disable_rx:0
+I (2609) wifi:(phy)ppe_thresholds_present:1, nominal_packet_padding:0
+I (2616) wifi:(phy)dcm tx(constellation:1, nss:0), dcm rx(constellation:1, nss:0)
+I (2623) wifi:(phy)rx_mcs_map:0xfffa, tx_mcs_map:0xfffa, stbc_tx:1, bfmer(su:0, mu:0), ldpc:1, max_rate:172
+I (2632) wifi:(phy)nsts:2, ru_index_bitmap:0x3(242:1, 484:1, 996:0, 2*996:0)
+I (2639) wifi:(phy)threshold_bits:24, nsts_num:2, ru_num:2, he_cap->len:26, ppe_threshold_len:4(6,11,4)
+I (2648) wifi:(ppe)RU242, NSTS0, PPE16:0, PPE8:7, nominal_packet_padding:2
+I (2655) wifi:(opr)len:10, TWT Required:0, VHT Opr Info Present:1, 6GHz Opr Info Present:0, Co-Hosted BSS:0(max_indicator:0), Basic MCS and NSS:0xfffc
+I (2668) wifi:(opr)len:10, Default PE Duration:0, TXOP RTS Threshold:1023(0 us), ER-SU-Disable:0
+I (2676) wifi:(opr)len:10, BSS Color:34, disabled:0, Partial BSS Color:0
+I (2746) wifi:(connect)dot11_authmode:0x3, pairwise_cipher:0x3, group_cipher:0x3
+I (2746) wifi:state: init -> auth (0xb0)
+I (2750) wifi:state: auth -> init (0x1c0)
+I (2752) wifi:(connect)dot11_authmode:0x3, pairwise_cipher:0x3, group_cipher:0x3
+I (2756) wifi:state: init -> auth (0xb0)
+I (2768) wifi:state: auth -> assoc (0x0)
+I (2796) wifi:(assoc)RESP, Extended Capabilities length:1, operating_mode_notification:0
+I (2796) wifi:(assoc)RESP, Extended Capabilities, MBSSID:0, TWT Responder:0, OBSS Narrow Bandwidth RU In OFDMA Tolerance:0
+I (2803) wifi:(he)max.RxAMPDULenExponentExtension:0, max.RxAMPDUpre-EOFpaddingBytes:1048575(0xfffff)
+I (2812) wifi:(mac)omc_ul_mu_data_disable_rx:0
+I (2816) wifi:(phy)ppe_thresholds_present:1, nominal_packet_padding:0
+I (2822) wifi:(phy)dcm tx(constellation:1, nss:0), dcm rx(constellation:1, nss:0)
+I (2830) wifi:(phy)rx_mcs_map:0xfffa, tx_mcs_map:0xfffa, stbc_tx:1, bfmer(su:0, mu:0), ldpc:1, max_rate:172
+I (2839) wifi:(phy)nsts:2, ru_index_bitmap:0x3(242:1, 484:1, 996:0, 2*996:0)
+I (2846) wifi:(phy)threshold_bits:24, nsts_num:2, ru_num:2, he_cap->len:26, ppe_threshold_len:4(6,11,4)
+I (2855) wifi:(ppe)RU242, NSTS0, PPE16:0, PPE8:7, nominal_packet_padding:2
+I (2861) wifi:(opr)len:10, TWT Required:0, VHT Opr Info Present:1, 6GHz Opr Info Present:0, Co-Hosted BSS:0(max_indicator:0), Basic MCS and NSS:0xfffc
+I (2875) wifi:(opr)len:10, Default PE Duration:0, TXOP RTS Threshold:1023(0 us), ER-SU-Disable:0
+I (2883) wifi:(opr)len:10, BSS Color:34, disabled:0, Partial BSS Color:0
+I (2890) wifi:state: assoc -> run (0x10)
+I (2893) wifi:(he)ppe_thresholds_present:1, nominal_packet_padding(rx:0, cfg:2)
+I (2900) wifi:(trc)phytype:CBW20-SGI, snr:78, maxRate:172, highestRateIdx:0
+W (2907) wifi:(trc)band:2G, phymode:3, highestRateIdx:0, lowestRateIdx:11, dataSchedTableSize:14
+I (2915) wifi:(trc)band:2G, rate(S-MCS7, rateIdx:0), ampdu(rate:S-MCS7, schedIdx(0, stop:8)), snr:78, ampduState:wait operational
+I (2927) wifi:ifidx:0, rssi:-18, nf:-96, phytype(0x3, CBW20-SGI), phymode(0x7, 11ax), max_rate:172, he:1, vht:0, ht:1
+I (2937) wifi:(ht)max.RxAMPDULenExponent:3(65535 bytes), MMSS:4(2 us)
+I (2961) wifi:(extcap)mbssid:0, enhanced_mbssid_advertise:0, complete_nontxbssid_profiles:0, twt_responder: 0
+I (2961) wifi:connected with Ll, aid = 11, channel 1, BW20, bssid = ae:71:d8:a5:22:0c
+I (2967) wifi:security: WPA2-PSK, phy: ax, rssi: -18, cipher(pairwise:0x3, group:0x3), pmf:0
+I (2976) wifi:pm start, type: 2, twt_start:0
+
+I (2980) wifi:pm start, type:2, aid:0xb, trans-BSSID:ae:71:d8:a5:22:0c, BSSID[5]:0xc, mbssid(max-indicator:0, index:0), he:1
+I (2991) wifi:set rx beacon pti, rx_bcn_pti: 10, bcn_timeout: 25000, mt_pti: 10, mt_time: 10000
+I (2999) wifi:[ADDBA]TX addba request, tid:0, dialogtoken:1, bufsize:32, A-MSDU:0(not supported), policy:1(IMR), ssn:0(0x0)
+I (3010) wifi:[ADDBA]TX addba request, tid:7, dialogtoken:2, bufsize:32, A-MSDU:0(not supported), policy:1(IMR), ssn:0(0x20)
+I (3021) wifi:[ADDBA]TX addba request, tid:5, dialogtoken:3, bufsize:32, A-MSDU:0(not supported), policy:1(IMR), ssn:0(0x0)
+I (3032) wifi:AP's beacon interval = 102400 us, DTIM period = 2
+I (3038) wifi:[ADDBA]RX addba response, status:0, tid:0/tb:1(0xa1), bufsize:32, batimeout:0, txa_wnd:32
+I (3047) wifi:[ADDBA]RX addba response, status:0, tid:7/tb:1(0xa1), bufsize:32, batimeout:0, txa_wnd:32
+I (3056) wifi:[ADDBA]RX addba response, status:0, tid:5/tb:1(0xa1), bufsize:32, batimeout:0, txa_wnd:32
+W (3081) wifi:<ba-add>idx:0, ifx:0, tid:0, TAHI:0x1000c22, TALO:0xa5d871ae, (ssn:0, win:64, cur_ssn:0), CONF:0xc0000001
+I (4111) esp_netif_handlers: sta ip: 192.168.166.77, mask: 255.255.255.0, gw: 192.168.166.101
+I (4111) WifiStation: Got IP: 192.168.166.77
+I (4112) WifiBoard: Connected to WiFi: Ll
+I (4116) Application: Network connected
+I (4119) StateMachine: State: starting -> activating
+I (4125) Assets: The storage free size is 61760 KB
+I (4129) Assets: The assets map size is 576 KB (partition 8192 KB)
+I (4160) Assets: The checksum calculation time is 25 ms
+I (4161) MODEL_LOADER: Successfully load srmodels
+W (4161) Assets: Ignoring invalid text font asset font_noto_sans_common_14_1.bin
+I (4165) Assets: Refreshing display theme...
+I (4169) Ota: Current version: 0.2.3
+I (4315) esp-x509-crt-bundle: Certificate validated
+I (5118) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=943
+I (6129) HttpClient: HTTP connection closed
+I (6133) Ota: Current is the latest version
+I (6134) Ota: Running from factory partition, skipping
+W (6134) Application: Alert [link] 激活设备: xiaozhi.me
+[REDACTED_ACTIVATION_CODE]
+I (6137) Application: Activating... 1/10
+I (6261) esp-x509-crt-bundle: Certificate validated
+I (7115) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=974

@@ -1,0 +1,178 @@
+Start testing: Oct 02 19:31 �й���׼ʱ��
+----------------------------------------------------------
+1/10 Testing: hal_tests
+1/10 Test: hal_tests
+Command: "E:/MCU/esp32/esp_mosicrokey/build-host/hal_tests.exe"
+Directory: E:/MCU/esp32/esp_mosicrokey/build-host
+"hal_tests" start time: Oct 02 19:31 �й���׼ʱ��
+Output:
+----------------------------------------------------------
+PASS 61 checks: actual HAL key debounce and UART ownership/errors
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"hal_tests" end time: Oct 02 19:31 �й���׼ʱ��
+"hal_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/10 Testing: encoder_hal_tests
+2/10 Test: encoder_hal_tests
+Command: "E:/MCU/esp32/esp_mosicrokey/build-host/encoder_hal_tests.exe"
+Directory: E:/MCU/esp32/esp_mosicrokey/build-host
+"encoder_hal_tests" start time: Oct 02 19:31 �й���׼ʱ��
+Output:
+----------------------------------------------------------
+PASS 30 checks: actual GPIO encoder ISR, rollback, bounce, direction and saturation
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"encoder_hal_tests" end time: Oct 02 19:31 �й���׼ʱ��
+"encoder_hal_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/10 Testing: storage_hal_tests
+3/10 Test: storage_hal_tests
+Command: "E:/MCU/esp32/esp_mosicrokey/build-host/storage_hal_tests.exe"
+Directory: E:/MCU/esp32/esp_mosicrokey/build-host
+"storage_hal_tests" start time: Oct 02 19:31 �й���׼ʱ��
+Output:
+----------------------------------------------------------
+PASS 22 checks: actual HAL storage ownership and partial-unmount failure
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"storage_hal_tests" end time: Oct 02 19:31 �й���׼ʱ��
+"storage_hal_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/10 Testing: display_hal_tests
+4/10 Test: display_hal_tests
+Command: "E:/MCU/esp32/esp_mosicrokey/build-host/display_hal_tests.exe"
+Directory: E:/MCU/esp32/esp_mosicrokey/build-host
+"display_hal_tests" start time: Oct 02 19:31 �й���׼ʱ��
+Output:
+----------------------------------------------------------
+PASS 40 checks: actual HAL display controller setup, cleanup, bounds and DMA ownership
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"display_hal_tests" end time: Oct 02 19:31 �й���׼ʱ��
+"display_hal_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/10 Testing: display_st7735_tests
+5/10 Test: display_st7735_tests
+Command: "E:/MCU/esp32/esp_mosicrokey/build-host/display_st7735_tests.exe"
+Directory: E:/MCU/esp32/esp_mosicrokey/build-host
+"display_st7735_tests" start time: Oct 02 19:31 �й���׼ʱ��
+Output:
+----------------------------------------------------------
+PASS 40 checks: actual HAL display controller setup, cleanup, bounds and DMA ownership
+<end of output>
+Test time =   0.07 sec
+----------------------------------------------------------
+Test Passed.
+"display_st7735_tests" end time: Oct 02 19:31 �й���׼ʱ��
+"display_st7735_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/10 Testing: game_tests
+6/10 Test: game_tests
+Command: "E:/MCU/esp32/esp_mosicrokey/build-host/game_tests.exe" "E:/MCU/esp32/esp_mosicrokey/build-host/test-card" "E:/MCU/esp32/esp_mosicrokey/examples/snake/main.lua"
+Directory: E:/MCU/esp32/esp_mosicrokey/build-host
+"game_tests" start time: Oct 02 19:31 �й���׼ʱ��
+Output:
+----------------------------------------------------------
+PASS 639 checks: focus, validation, recovery, immutable revisions, sandbox, input replay, 100 load/exit cycles
+<end of output>
+Test time =   0.33 sec
+----------------------------------------------------------
+Test Passed.
+"game_tests" end time: Oct 02 19:31 �й���׼ʱ��
+"game_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/10 Testing: llm_retry_tests
+7/10 Test: llm_retry_tests
+Command: "E:/MCU/esp32/esp_mosicrokey/build-host/llm_retry_tests.exe"
+Directory: E:/MCU/esp32/esp_mosicrokey/build-host
+"llm_retry_tests" start time: Oct 02 19:31 �й���׼ʱ��
+Output:
+----------------------------------------------------------
+PASS 50 backend retry checks; failures=0
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"llm_retry_tests" end time: Oct 02 19:31 �й���׼ʱ��
+"llm_retry_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/10 Testing: llm_transport_tests
+8/10 Test: llm_transport_tests
+Command: "E:/MCU/esp32/esp_mosicrokey/build-host/llm_transport_tests.exe"
+Directory: E:/MCU/esp32/esp_mosicrokey/build-host
+"llm_transport_tests" start time: Oct 02 19:31 �й���׼ʱ��
+Output:
+----------------------------------------------------------
+PASS 48 actual transport checks; failures=0
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"llm_transport_tests" end time: Oct 02 19:31 �й���׼ʱ��
+"llm_transport_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/10 Testing: app_tests
+9/10 Test: app_tests
+Command: "E:/MCU/esp32/esp_mosicrokey/build-host/app_tests.exe"
+Directory: E:/MCU/esp32/esp_mosicrokey/build-host
+"app_tests" start time: Oct 02 19:31 �й���׼ʱ��
+Output:
+----------------------------------------------------------
+mosi: Expected key name and optional 0/1
+mosi: Expected key name and optional 0/1
+mosi: Unknown key
+mosi: Invalid input/PC command arguments
+mosi: Invalid input/PC command arguments
+mosi: Invalid input/PC command arguments
+mosi: Invalid input/PC command arguments
+mosi: Invalid input/PC command arguments
+mosi: OK
+MOSI_PC {"v":1,"session":123,"seq":1,"action":"play_pause","amount":1}
+MOSI_PC {"v":1,"session":123,"seq":2,"action":"copy","amount":1}
+MOSI_PC {"v":1,"session":123,"seq":3,"action":"volume_down","amount":3}
+MOSI_PC {"v":1,"session":123,"seq":4,"action":"mute","amount":1}
+MOSI_PC {"v":1,"session":555,"seq":1,"action":"save","amount":1}
+MOSI_PC {"v":1,"session":555,"seq":2,"action":"copy","amount":1}
+PASS 527 checks: actual App actor, 100 audio focus switches, background request, remount guard, game exit race, queue saturation
+<end of output>
+Test time =   8.37 sec
+----------------------------------------------------------
+Test Passed.
+"app_tests" end time: Oct 02 19:31 �й���׼ʱ��
+"app_tests" time elapsed: 00:00:08
+----------------------------------------------------------
+
+10/10 Testing: ui_capture
+10/10 Test: ui_capture
+Command: "E:/MCU/esp32/esp_mosicrokey/build-host/ui_capture.exe" "E:/MCU/esp32/esp_mosicrokey/build-host/screenshots" "E:/MCU/esp32/esp_mosicrokey/examples/snake/main.lua"
+Directory: E:/MCU/esp32/esp_mosicrokey/build-host
+"ui_capture" start time: Oct 02 19:31 �й���׼ʱ��
+Output:
+----------------------------------------------------------
+Captured 21 shared LVGL 9.5 UI/game states, 160x128; five RGB565 colors and full boundary verified
+<end of output>
+Test time =   0.19 sec
+----------------------------------------------------------
+Test Passed.
+"ui_capture" end time: Oct 02 19:31 �й���׼ʱ��
+"ui_capture" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 02 19:31 �й���׼ʱ��

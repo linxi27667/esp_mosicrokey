@@ -2,6 +2,8 @@
 
 用户最新提供屏幕规格为 1.8 寸 ST7789、128×160；当前分支默认改为 ST7789 的 160×128 横屏，保留 ST7735R 配置选项。无独立背光控制采用 GPIO -1、SPI 10 MHz；此前 v0.2.2 的实体结果为完全未亮。新驱动的实体点亮、颜色和边界仍须观察，不能凭 SPI 提交成功认定屏幕通过。当前按键、编码器和 TF 的接线仍待确认。
 
+v0.2.3 已通过十个 CTest、1457 项检查并保留 NVS 烧录到 COM8；启动日志确认 ST7789 配置及首次 LVGL DMA 完成，现停五色测试页。日志、哈希与待验收状态见[ST7789 第二轮记录](docs/validation/tft-st7789-2026-10-02/README.md)。
+
 v0.2.1 增加八按键、带按压编码器、六入口首页、电脑媒体/快捷键、输入检测、屏幕校准和设置内的临时贪吃蛇，当时默认 ST7735。电脑通过 USB 串口配套程序操作，旋钮调音量、按压静音，K7 切组、K8 切换设备/电脑。接线表与完整默认映射见[屏幕与输入指南](docs/tft-input-guide.md)，历史证据见[v0.2.1 验证记录](docs/validation/tft-input-2026-10-02/README.md)。
 
 自有代码采用直接 HAL → APP 调用，Task 负责调度；`Hal_Display_Init`、`Page_Navigate`、`Game_Update_Process` 命名保持一致。六个 HAL 管理显示、TF、按键、编码器、UART 与音频 I²C；真实上游音频/Agent 保留各自生命周期。详细调用链见[架构](docs/architecture.md)，规范见[架构 skill](skills/embedded-hal-app/SKILL.md)。
