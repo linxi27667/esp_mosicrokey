@@ -1,7 +1,9 @@
 # MosiCrokey
 
 ESP-IDF v6.1 / ESP32-S31-Function-CoreBoard-1. Build with scripts/build.ps1.
-Project business uses ports and adapters; shared contracts have no ESP-IDF or vendor types.
+Own hardware uses direct HAL SDK calls; APP owns business/state machines; Task owns scheduling.
+Use skills/embedded-hal-app/SKILL.md. Functions use Hal_Display_Init / Page_Navigate / Xxx_Task_Create naming.
+Shared business contracts have no ESP-IDF or vendor types; HAL headers may expose typed SDK handles.
 Xiaozhi and ESPClaw sources are pinned in upstream-lock.json. Do not update silently.
 One app_main, one Board factory, one Wi-Fi owner, one LVGL owner.
 Lua games run only through restricted game APIs. TF errors never trigger formatting.

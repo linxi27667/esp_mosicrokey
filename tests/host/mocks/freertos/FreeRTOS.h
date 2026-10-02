@@ -6,6 +6,7 @@ using UBaseType_t=unsigned;
 using TaskHandle_t=void*;
 using QueueHandle_t=void*;
 constexpr int pdPASS=1,pdTRUE=1,pdFALSE=0;
+constexpr TickType_t portMAX_DELAY = UINT32_MAX;
 #define pdMS_TO_TICKS(ms) (ms)
 struct MockStop {};
 bool MockStopping();

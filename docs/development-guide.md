@@ -1,5 +1,11 @@
 # 开发、构建与首次设备验证
 
+## 自有代码结构
+
+v0.2.0 开始使用[HAL–APP 架构 skill](../skills/embedded-hal-app/SKILL.md)。读代码从 `main/app_system.cc` → `mosicrokey_app/app.cc` → `board_support/hardware/hal_*.cc`；调度位于 `mosicrokey_app/task/`。业务函数例如 `Page_Navigate`、`Agent_Ask`、`Game_Update_Process`，硬件函数例如 `Hal_Key_Scan`、`Hal_Display_Flush`。私有句柄不公开，硬件不再通过业务回调或接口表反向调用 APP。
+
+`.clang-format` 固定四空格、换行大括号与可读分支；只格式化修改的自有代码，固定上游不使用本格式重写。任务参数集中在 `task_config.hpp`，板卡参数集中在 `board_config.hpp`。现有服务边界与第三方 override 保留，具体理由见[架构](architecture.md)。v0.1.9 的实板证据属于原固件，新版本独立验证。
+
 ## 本机环境
 
 SDK：`E:\MCU\esp32\.espressif\v6.1\esp-idf`，ESP-IDF 6.1.0 / esp32s31。EIM 工具目录为 `...\v6.1\tools`，Python 虚拟环境为 `tools\python_env\v6.1\venv`。

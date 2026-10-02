@@ -6,7 +6,7 @@
 #include "codecs/es8311_audio_codec.h"
 #include "display.h"
 #include "led/single_led.h"
-#include <driver/i2c_master.h>
+#include "mosicrokey/hal_audio_bus.hpp"
 #include <mutex>
 #include <atomic>
 #include <algorithm>
@@ -81,21 +81,17 @@ constexpr gpio_num_t Gpio(int pin) {return static_cast<gpio_num_t>(pin);}
 class MosicrokeyBoard final : public WifiBoard {
 public:
     MosicrokeyBoard() : boot_(static_cast<gpio_num_t>(pins::boot)) {
-        i2c_master_bus_config_t config{};
-        config.i2c_port = I2C_NUM_0; config.sda_io_num = static_cast<gpio_num_t>(pins::i2c_sda); config.scl_io_num = static_cast<gpio_num_t>(pins::i2c_scl);
-        config.clk_source = I2C_CLK_SRC_DEFAULT; config.glitch_ignore_cnt = 7; config.flags.enable_internal_pullup = true;
-        ESP_ERROR_CHECK(i2c_new_master_bus(&config, &codec_bus_));
+        ESP_ERROR_CHECK(mosicrokey::hal::Hal_Audio_Bus_Init());
         boot_.OnClick([] { Application::GetInstance().ToggleChatState(); });
     }
     Display* GetDisplay() override { return &display_; }
     AudioCodec* GetAudioCodec() override {
-        static ProductCodec codec(codec_bus_, I2C_NUM_0, pins::sample_rate, pins::sample_rate,
+        static ProductCodec codec(mosicrokey::hal::Hal_Audio_Bus_Get(), I2C_NUM_0, pins::sample_rate, pins::sample_rate,
             Gpio(pins::i2s_mclk),Gpio(pins::i2s_bclk),Gpio(pins::i2s_ws),Gpio(pins::i2s_dout),Gpio(pins::i2s_din),Gpio(pins::pa),ES8311_CODEC_DEFAULT_ADDR);
         return &codec;
     }
     Led* GetLed() override { static SingleLed led(static_cast<gpio_num_t>(pins::rgb)); return &led; }
 private:
-    i2c_master_bus_handle_t codec_bus_ = nullptr;
     Button boot_;
     ProductDisplay display_;
 };

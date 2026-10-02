@@ -1,0 +1,4 @@
+interface:
+  display_name: "嵌入式架构师 HAL-APP 版"
+  short_description: "直接 HAL 驱动、清晰 APP 业务与 Task 调度，保留大驼峰下划线命名"
+  default_prompt: "使用 $embedded-hal-app 设计或简化本项目的驱动、业务与任务结构，并保持大驼峰加下划线命名。"

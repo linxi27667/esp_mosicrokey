@@ -1,21 +1,58 @@
 # 系统架构
 
-业务用例与状态管理通过接口调用服务，上游适配器实现接口。组件名保留用户指定的 `compoment` 拼写。
+自有硬件采用直接 HAL → APP 调用；APP 管理业务流程和状态机，Task 管理等待与调度。命名沿用大驼峰加下划线。组件名保留用户指定的 `compoment` 拼写。
+
+此调整依据用户 2026-10-02 的要求与[新架构 skill](../skills/embedded-hal-app/SKILL.md)，不再要求每个外设使用函数指针、硬件绑定写在 APP 或一次/二次业务强制分层。参考了 Espressif ESP-BSP、ST HAL 和 Zephyr 的公开实现；具体取舍见[设计依据](../skills/embedded-hal-app/references/design-decisions.md)。
+
+```mermaid
+flowchart TD
+    Main[app_main → App_System_Run] --> Init[App_System_Init：唯一组装]
+    Tasks[App / Game / Console / Key Task：等待与调度] --> App[APP：导航、焦点、游戏、命令业务]
+    App --> Hal[HAL：显示、TF、按键、串口、音频 I²C]
+    Tasks --> Hal
+    Hal --> SDK[ESP-IDF 驱动与类型化句柄]
+    App --> Services[小智 / ESPClaw / GameService]
+    Init --> Tasks
+    Init --> Services
+```
+
+## 文件与调用入口
+
+| 文件 | 入口和拥有者 |
+|---|---|
+| `main/app_system.cc` | `App_System_Init/Run`，组装现有真实服务；唯一 Wi-Fi/音频所有者仍是小智 |
+| `board_support/hardware/hal_display.cc` | `Hal_Display_Init/Flush`，UI 独占 SPI/DMA，失败清理，缓冲排空后复用 |
+| `board_support/hardware/hal_storage.cc` | `Hal_Storage_Mount/Is_Mounted/Mark_Failed`，SDMMC 和只读系统分区，重挂由 APP 串行化 |
+| `board_support/hardware/hal_key.cc` | `Hal_Key_Init/Read/Scan`，低有效/20 ms 去抖，不持有业务回调、不创建任务 |
+| `board_support/hardware/hal_uart.cc` | `Hal_Uart_Init/Read`，UART0 RX；stdout/日志继续拥有 TX |
+| `board_support/hardware/hal_audio_bus.cc` | `Hal_Audio_Bus_Init/Get`，有类型 I²C 句柄借给固定 ES8311 codec |
+| `mosicrokey_app/app.cc` | `Page_Change_Process`、`Key_Press_Process`、`Command_Process`、`Navigation_Update_Process`、`Game_Update_Process`，完整业务状态机 |
+| `mosicrokey_app/console.cc` | `Console_Command_Process`，保留现有命令/结果协议，串口等待不在此文件 |
+| `mosicrokey_app/task/*.cc` | `App_Task`、`Game_Task`、`Key_Scan_Task`、`Console_Task` 及创建函数 |
+| `board_config.hpp` / `task_config.hpp` | 唯一板级参数 / 项目任务栈、优先级、周期、核与队列容量 |
+
+HAL 不依赖 contracts/APP、没有 GPIO/PWM 操作表和注入工厂。APP 可调用 HAL 以及真实服务；按键采集和 UI 刷新任务可直接调用 HAL，避免只为层级增加无意义转发。
+
+小智 Board/Display/Codec 的虚函数是上游要求；ES8311/I²S、BOOT 与 RGB 继续用固定上游驱动，避免重复外设拥有者。现有服务接口用于真实上游隔离和主机错误注入，保留在服务边界；APP 的私有 context 隐藏任务句柄与受锁状态，不用于硬件函数指针注入。业务纯数据头与硬件 SDK 类型分开。
 
 | 组件 | 职责 |
 |---|---|
-| main | 唯一 app_main，组装依赖、挂载只读技能区、启动服务 |
+| main | 唯一 app_main，调用 App_System_Run；app_system 明确组装与启动 |
 | mosicrokey_contracts | Result、请求/事件、状态、焦点策略与服务接口；无 LVGL/FreeRTOS/GPIO/上游私有类型 |
 | mosicrokey_app | 固定容量命令队列、导航、前台仲裁、串口用例 |
 | xiaozhi_compoment | 真实小智应用/协议/音频/配网，唯一 MosiCrokey Board，显示事件桥接 |
 | espclaw_compoment | 真实 claw_core 请求与工具循环、上下文/记忆/技能/路径、NVS 模型配置与六游戏能力 |
 | game_service | 包校验、版本库、安装、RGB565 资源和受限 Lua VM |
 | mosicrokey_ui | 唯一 LVGL 上下文、共享页面 Presenter 与游戏画布 |
-| board_support | S31 板级配置、SPI TFT、SDMMC、按键与 UART 引脚 |
+| board_support | S31 配置和五个直接 HAL 实现：SPI TFT、SDMMC、按键、UART、音频 I²C |
 
 ## 执行与资源
 
 App 使用 12 项固定操作队列，队列满返回 Busy；状态与帧按最新值合并。上游事件更新受保护的状态，不访问 LVGL 对象。游戏异常通过合并故障槽回传，队列拥塞不会丢失退出；游戏代次检查避免已停止的帧误导航。
+
+v0.2.0 游戏库刷新采用合并标志，发布完成不会因操作队列满而丢失。App/Game 任务先等待启动通知，全部创建成功后才开始工作；部分创建失败释放门控中的任务和队列，可重试。`Game_Read_Source` 与重挂/示例安装/Agent 提交使用同一存储操作锁，避免读取时卸载。
+
+显示完成通知等待为 1 s，SDK 提交及超时后的排空可能继续等待；不能宣称整个刷新函数有 1 s 上限。排空失败时 `ESP_ERROR_CHECK` 明确终止，避免把仍由 DMA 持有的像素交回 LVGL。存储卸载先移出 card 所有权，因为本机 SDK 可能先释放 context/card，再返回路径注销错误；失败不保留悬空句柄。
 
 所有 LVGL 对象更新仅在 UI 任务执行。SPI 两个 6400 B DMA 缓冲从内部内存分配；画布、Lua 自定义堆与其他大块分配优先 PSRAM。模型请求不在 UI/音频任务等待。游戏与库使用不同锁，后台校验/安装不锁住正在运行的 VM。
 

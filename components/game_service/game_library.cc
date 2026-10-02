@@ -9,6 +9,7 @@
 #include <unistd.h>
 #ifdef _WIN32
 #include <direct.h>
+#include <windows.h>
 #endif
 
 namespace mosicrokey {
@@ -38,6 +39,23 @@ bool Mkdir(const std::string& path) {
     int result = mkdir(path.c_str(), 0755);
 #endif
     return result == 0 || (errno == EEXIST && IsDirectory(path));
+}
+Result Game_Commit_Directory(const std::string& source,const std::string& destination) {
+#ifdef _WIN32
+    // Windows 主机文件句柄可能短暂禁止目录移动；最多等 100 ms，不覆盖已有版本。
+    int file_error=0; DWORD native_error=0;
+    for(unsigned attempt=0;attempt<=10;++attempt) {
+        if(std::rename(source.c_str(),destination.c_str())==0) return {};
+        file_error=errno; native_error=GetLastError();
+        bool locked=native_error==ERROR_ACCESS_DENIED || native_error==ERROR_SHARING_VIOLATION || native_error==ERROR_LOCK_VIOLATION;
+        if(!locked || GetFileAttributesA(destination.c_str())!=INVALID_FILE_ATTRIBUTES || attempt==10) break;
+        Sleep(10);
+    }
+    return Result::Fail(Error::Storage,"Commit rename failed: errno="+std::to_string(file_error)+" win32="+std::to_string(native_error));
+#else
+    if(std::rename(source.c_str(),destination.c_str())==0) return {};
+    return Result::Fail(Error::Storage,std::string("Commit rename failed: ")+std::strerror(errno));
+#endif
 }
 std::vector<std::string> Directories(const std::string& path) {
     std::vector<std::string> result;
@@ -336,7 +354,7 @@ Result GameService::Tool(const std::string& name, const std::string& input, std:
         std::string manifest; result = ReadFile(stage.path + "/manifest.json", manifest, 16384); if (!result) return result;
         result = WriteFile(stage.path + "/READY", HexChecksum(manifest)); if (!result) return result;
         auto destination = games_root + "/" + stage.id + "/" + stage.revision;
-        if (std::rename(stage.path.c_str(), destination.c_str())) return Result::Fail(Error::Storage, "Commit rename failed");
+        result=Game_Commit_Directory(stage.path,destination); if(!result) return result;
         output = "{\"installed\":true,\"id\":\"" + stage.id + "\"}";
         impl_->stages.erase(found); return {};
     }

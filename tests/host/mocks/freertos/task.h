@@ -7,4 +7,7 @@ inline BaseType_t xTaskCreatePinnedToCore(void (*function)(void*),const char* na
 TickType_t xTaskGetTickCount();
 void vTaskDelay(TickType_t milliseconds);
 void vTaskDelayUntil(TickType_t*,TickType_t);
+uint32_t ulTaskNotifyTake(BaseType_t, TickType_t);
+void xTaskNotifyGive(TaskHandle_t);
+void vTaskDelete(TaskHandle_t);
 inline unsigned uxTaskGetStackHighWaterMark(TaskHandle_t) {return 4096;}

@@ -1,12 +1,14 @@
-# MosiCrokey v0.1.9
+# MosiCrokey v0.2.0
+
+自有代码已改为直接 HAL → APP 调用，Task 负责调度；采用 `Hal_Display_Init`、`Page_Navigate`、`Game_Update_Process` 命名。五个 HAL 管理显示、TF、按键、UART 与音频 I²C；真实上游音频/Agent 保留各自生命周期。新[架构 skill](skills/embedded-hal-app/SKILL.md)同时安装供 Codex 使用，详细调用链见[架构](docs/architecture.md)。本轮验证独立记录在[HAL/APP 重构记录](docs/validation/hal-app-2026-10-02/README.md)。
 
 源码仓库：[linxi27667/esp_mosicrokey](https://github.com/linxi27667/esp_mosicrokey)，私有，默认分支 main。开发与验收变更通过 Git 提交记录，见[Git 管理流程](docs/git-workflow.md)。
 
 当前目录是独立的 ESP-IDF 工程：真实小智组件、真实 ESPClaw Agent、TF 游戏版本库、受限 Lua 运行时和共享 LVGL 页面已实现。2026-10-01 已在 COM8 的 ESP32-S31 上烧录、联网并完成真实智谱请求和 Agent 贪吃蛇生成；当前仅连接 USB，游戏采用明确标注的临时内存预览。
 
-1178 项主机检查及共享页面截图通过，实际设备导出的 AI 贪吃蛇另通过 32 项玩法检查。小智仍等待账号激活；语音完整对话、实体屏/按键/TF 持久化尚未实测。最新长测状态见[2026-10-02 重连验证记录](docs/validation/hardware-2026-10-02/README.md)；此前串口中断的部分结果保留在[历史实板记录](docs/validation/hardware-2026-10-01/README.md)，不合并时长。
+v0.2.0 已通过 1324 项主机断言、八个 CTest 套件、三个串口脚本故障用例及 13 个共享页面渲染。COM8 已烧录新镜像，真实 GLM 请求、Agent 参考源码改编发布、贪吃蛇启动/后台请求/画布/退出冒烟通过，实际导出源码另通过 32 项玩法检查。模型首轮发布空壳和后续查找失败均保留，不能只凭工具成功认定玩法完成。小智仍等待账号激活，语音完整对话、实体屏/按键/TF 持久化尚未实测。v0.1.9 的长测属于历史固件，详见[2026-10-02 重连记录](docs/validation/hardware-2026-10-02/README.md)。此前串口中断的部分结果保留在[历史实板记录](docs/validation/hardware-2026-10-01/README.md)，不合并时长。
 
-2026-10-02 独立 USB 长测连续 7201.29 秒完成：100 次游戏加载退出、600 条导航命令，稳定阶段最低/平均 30.3 FPS，无已记录崩溃/复位/WDT；24 次后台请求中21成功、3次断网连接失败，自动重连后连续4次成功。当前交付为 v0.1.9 预发布，详见上述证据和剩余验收范围。
+历史 v0.1.9 独立 USB 长测连续 7201.29 秒完成：100 次游戏加载退出、600 条导航命令，稳定阶段最低/平均 30.3 FPS，无已记录崩溃/复位/WDT；24 次后台请求中21成功、3次断网连接失败，自动重连后连续4次成功。GitHub 已发布的 v0.1.9 标签和附件保持原版本；v0.2.0 不沿用它的两小时通过结论。
 
 ## 快速使用
 

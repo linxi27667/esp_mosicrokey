@@ -1,5 +1,6 @@
 #include "mosicrokey/espclaw.hpp"
-#include "mosicrokey/board.hpp"
+#include "mosicrokey/hal_storage.hpp"
+#include "mosicrokey/task_config.hpp"
 #include "redaction.hpp"
 #include "ram_history.hpp"
 #include "completion.hpp"
@@ -112,7 +113,7 @@ public:
             cJSON_AddNumberToObject(error,"code",static_cast<int>(status.error));
             char* json = cJSON_PrintUnformatted(error); result = json ? json : "{\"error\":\"allocation failed\"}";
             cJSON_free(json); cJSON_Delete(error);
-            if (status.error == Error::Storage) board::SetStorageFailed();
+            if (status.error == Error::Storage) hal::Hal_Storage_Mark_Failed();
         }
         if(status && (std::strcmp(name,"game_preview")==0 || std::strcmp(name,"game_commit")==0)) {
             std::lock_guard lock(control_);
@@ -158,7 +159,7 @@ private:
         context->content = strdup(text.c_str()); return context->content ? ESP_OK : ESP_ERR_NO_MEM;
     }
     void PrepareStorage() {
-        if (memory_ready_ || !board::CardMounted()) return;
+        if (memory_ready_ || !hal::Hal_Storage_Is_Mounted()) return;
         char sessions[128], memory[128], skills[128];
         claw_paths_join(CLAW_PATH_DATA,"sessions",sessions,sizeof(sessions));
         claw_paths_join(CLAW_PATH_DATA,"memory",memory,sizeof(memory));
@@ -181,11 +182,11 @@ private:
             context->kind=CLAW_CORE_CONTEXT_KIND_MESSAGES;
             context->content=strdup(current.c_str()); return context->content ? ESP_OK : ESP_ERR_NO_MEM;
         }
-        if (self.memory_ready_ && board::CardMounted()) {
+        if (self.memory_ready_ && hal::Hal_Storage_Is_Mounted()) {
             auto error=claw_memory_session_history_provider.collect(request,context,claw_memory_session_history_provider.user_ctx);
             if(error==ESP_OK) return ESP_OK;
             if(error!=ESP_ERR_NOT_FOUND && error!=ESP_ERR_NO_MEM) {
-                board::SetStorageFailed(); self.events_.Notice("TF 会话读取失败；已切换临时会话");
+                hal::Hal_Storage_Mark_Failed(); self.events_.Notice("TF 会话读取失败；已切换临时会话");
             }
         }
         context->kind = CLAW_CORE_CONTEXT_KIND_MESSAGES;
@@ -199,9 +200,9 @@ private:
             if(!AppendRamHistory(self.history_,record.type==CLAW_CORE_CONTEXT_RECORD_USER ? "user" : "assistant",record.message_json,record.text))
                 return ESP_ERR_NO_MEM;
         }
-        if (self.memory_ready_ && board::CardMounted()) {
+        if (self.memory_ready_ && hal::Hal_Storage_Is_Mounted()) {
             if (claw_memory_persist_context_callback(batch,nullptr) != ESP_OK) {
-                board::SetStorageFailed(); self.events_.Notice("TF 会话保存失败；已切换临时会话");
+                hal::Hal_Storage_Mark_Failed(); self.events_.Notice("TF 会话保存失败；已切换临时会话");
             }
         }
         return ESP_OK;
@@ -216,7 +217,7 @@ private:
         settings.persist_context=Persist; settings.persist_context_user_ctx=this;
         settings.on_request_start=StartRequest; settings.on_request_start_user_ctx=this;
         settings.call_cap=claw_cap_call_from_core;
-        settings.task_stack_size=16384; settings.task_priority=1; settings.task_core=0;
+        settings.task_stack_size=task_config::agent_stack_bytes; settings.task_priority=task_config::agent_priority; settings.task_core=task_config::agent_core;
         settings.max_tool_iterations=16; settings.request_queue_len=2; settings.response_queue_len=2; settings.max_context_providers=8;
         if (core_) return EspResult(claw_core_update_llm_config(core_,&settings));
         auto error = claw_core_create(&settings,&core_); if (error != ESP_OK) return EspResult(error);
@@ -226,7 +227,7 @@ private:
         if (error==ESP_OK) error=claw_core_add_context_provider(core_,&history);
         if (error==ESP_OK) error=claw_core_add_context_provider(core_,&claw_cap_root_agent_tools_provider);
         if (error==ESP_OK) error=claw_core_start(core_);
-        if (error==ESP_OK && xTaskCreate(Receive,"mosi_agent_rx",6144,this,1,nullptr)!=pdPASS) error=ESP_ERR_NO_MEM;
+        if (error==ESP_OK && xTaskCreate(Receive,"mosi_agent_rx",task_config::agent_receive_stack_bytes,this,task_config::agent_receive_priority,nullptr)!=pdPASS) error=ESP_ERR_NO_MEM;
         if (error!=ESP_OK) { claw_core_stop(core_,2000); claw_core_destroy(core_); core_=nullptr; }
         return EspResult(error);
     }
