@@ -4,4 +4,4 @@ set(EXTRA_COMPONENT_DIRS
     "${CMAKE_CURRENT_LIST_DIR}/third_party/esp-claw/components/claw_modules"
     "${CMAKE_CURRENT_LIST_DIR}/third_party/esp-claw/components/common/http_reuse")
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
-project(mosicrokey VERSION 0.2.2)
+project(mosicrokey VERSION 0.2.3)

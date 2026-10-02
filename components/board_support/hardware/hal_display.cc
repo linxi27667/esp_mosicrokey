@@ -27,7 +27,17 @@ struct display_init_command_t
     unsigned delay_ms;
 };
 
-// ST7735 横屏 RGB565。偏移与反色仍由现有 Kconfig 控制。
+// 控制器格式不能混用；ST7789 参数依据固定 ESP-IDF v6.1 的原生驱动。
+#if defined(CONFIG_MOSI_LCD_ST7789)
+constexpr const char* g_controller_name = "ST7789";
+constexpr display_init_command_t g_init_commands[] = {
+    {0x01, 0, {}, 150},
+    {0x11, 0, {}, 120},
+    {0x3a, 1, {0x55}, 0},      // RGB565：DPI/DBI 均为 16 bit。
+    {0xb0, 2, {0x00, 0xf0}, 0} // RAMCTRL：大端，与 Flush 的字节交换一致。
+};
+#elif defined(CONFIG_MOSI_LCD_ST7735)
+constexpr const char* g_controller_name = "ST7735R";
 constexpr display_init_command_t g_init_commands[] = {
     {0x01, 0, {}, 150},
     {0x11, 0, {}, 120},
@@ -49,9 +59,10 @@ constexpr display_init_command_t g_init_commands[] = {
     {0xe1,
      16,
      {0x03, 0x1d, 0x07, 0x06, 0x2e, 0x2c, 0x29, 0x2d, 0x2e, 0x2e, 0x37, 0x3f, 0x00, 0x00, 0x02, 0x10},
-     0},
-    {0x13, 0, {}, 10},
-    {0x29, 0, {}, 100}};
+     0}};
+#else
+#error "Select the TFT controller in MosiCrokey hardware Kconfig"
+#endif
 
 bool Display_Transfer_Done(esp_lcd_panel_io_handle_t, esp_lcd_panel_io_event_data_t*, void*)
 {
@@ -138,6 +149,19 @@ esp_err_t Display_Configure_Controller()
     {
         return error;
     }
+    // 格式、方向和反色均设定后再开启显示。
+    error = Display_Send_Command(0x13);
+    if (error != ESP_OK)
+    {
+        return error;
+    }
+    vTaskDelay(pdMS_TO_TICKS(10));
+    error = Display_Send_Command(0x29);
+    if (error != ESP_OK)
+    {
+        return error;
+    }
+    vTaskDelay(pdMS_TO_TICKS(100));
     if (CONFIG_MOSI_LCD_BL >= 0)
     {
         auto backlight = static_cast<gpio_num_t>(CONFIG_MOSI_LCD_BL);
@@ -202,10 +226,10 @@ esp_err_t Hal_Display_Init()
         return error;
     }
     g_display_ready = true;
-    ESP_LOGI("mosi_lcd", "ST7735 160x128 SPI=%dHz CLK=%d MOSI=%d CS=%d DC=%d RST=%d BL=%d offset=%d,%d",
-             CONFIG_MOSI_LCD_SPI_HZ, CONFIG_MOSI_LCD_CLK, CONFIG_MOSI_LCD_MOSI, CONFIG_MOSI_LCD_CS,
-             CONFIG_MOSI_LCD_DC, CONFIG_MOSI_LCD_RST, CONFIG_MOSI_LCD_BL, CONFIG_MOSI_LCD_X_OFFSET,
-             CONFIG_MOSI_LCD_Y_OFFSET);
+    ESP_LOGI("mosi_lcd", "%s 160x128 SPI=%dHz CLK=%d MOSI=%d CS=%d DC=%d RST=%d BL=%d offset=%d,%d",
+             g_controller_name, CONFIG_MOSI_LCD_SPI_HZ, CONFIG_MOSI_LCD_CLK, CONFIG_MOSI_LCD_MOSI,
+             CONFIG_MOSI_LCD_CS, CONFIG_MOSI_LCD_DC, CONFIG_MOSI_LCD_RST, CONFIG_MOSI_LCD_BL,
+             CONFIG_MOSI_LCD_X_OFFSET, CONFIG_MOSI_LCD_Y_OFFSET);
     // 只有写接口，没有读取连接；此日志不能证明实体屏幕已经响应。
     ESP_LOGI("mosi_lcd", "SPI initialization complete; panel response is not probed");
     return ESP_OK;

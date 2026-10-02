@@ -1,6 +1,6 @@
 # 板级约束
 
-更新：2026-10-02。固定开发基线为 ESP32-S31-Function-CoreBoard-1、ESP-IDF 6.1.0、target `esp32s31`。USB 实板已核对 S31 rev0.0、16 MiB Flash/PSRAM；用户已接 TFT 并报告黑屏，实际型号/供电待确认，显示验收未通过。按键、编码器和 TF 待确认接线。新八键/编码器及 J2 编号见[接线与操作指南](docs/tft-input-guide.md)。
+更新：2026-10-02。固定开发基线为 ESP32-S31-Function-CoreBoard-1、ESP-IDF 6.1.0、target `esp32s31`。USB 实板已核对 S31 rev0.0、16 MiB Flash/PSRAM；用户提供已接 TFT 规格为 1.8 寸 ST7789、128×160，此前 ST7735 试验完全未亮。按新规格适配，实际供电与实体显示待验证。按键、编码器和 TF 待确认接线。新八键/编码器及 J2 编号见[接线与操作指南](docs/tft-input-guide.md)。
 
 ## 固件默认配置
 
@@ -22,7 +22,7 @@
 | 功放使能 | 57 |
 | UART TX / RX | 58 / 59 |
 | RGB / BOOT | 60 / 61，保留板载用途 |
-| 显示 | ST7735R 初始化，诊断默认 SPI2 10 MHz（Kconfig 可设到 20 MHz），160×128，MADCTL 0x68，BGR，偏移默认 0/0，默认不反色；不代表实际模块型号已识别 |
+| 显示 | 默认 ST7789，Kconfig 可选旧 ST7735R；SPI2 10 MHz（可设到 20 MHz），160×128 横屏，MADCTL 0x68，BGR，偏移默认 0/0，默认不反色；依据用户规格，未回读芯片身份 |
 | TF | SDMMC slot 0，四线，20 MHz，FAT32，挂载 /sdcard |
 | 按键 | 接地按下、内部上拉、低电平有效，5 ms 扫描 / 20 ms 去抖 |
 | 编码器 | A/B 双边沿 GPIO ISR、四个合法边沿计一格、SW 共用 20 ms 去抖 |
@@ -45,6 +45,8 @@ GPIO36/37 避开启动配置用途。GPIO60/61 同样保留板载及启动用途
 缺卡或挂载失败不会格式化。启动尝试挂载，用户可手动重挂；Agent 工作或游戏运行时拒绝重挂。拔卡/读写错误提示存储不可用，重新插卡后到设置页重挂。首版没有自动热插拔恢复。
 
 ## 资料依据
+
+ST7789 的 RGB565 `COLMOD=0x55` 和大端 `RAMCTRL={0x00,0xf0}` 依据本机固定 ESP-IDF v6.1 `components/esp_lcd/src/esp_lcd_panel_st7789.c`。初始化与 ST7735R 分开，方向、反色、正常显示和开屏在配置完成后执行。0/0 偏移是首轮配置，须根据实体边界测试确定。
 
 开发板资源依据[官方开发板指南](https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32s31/esp32-s31-function-coreboard-1/user_guide.html)和[官方原理图](https://dl.espressif.com/schematics/esp32-s31-function-coreboard-1-schematics.pdf)，启动与引脚约束依据[S31 数据手册](https://documentation.espressif.com/esp32-s31_datasheet_en.html)。
 

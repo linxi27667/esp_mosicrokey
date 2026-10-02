@@ -1,6 +1,14 @@
 rsource "../third_party/xiaozhi/main/Kconfig.projbuild"
 
 menu "MosiCrokey hardware"
+choice MOSI_LCD_CONTROLLER
+    prompt "TFT controller (128x160 portrait / 160x128 landscape)"
+    default MOSI_LCD_ST7789
+config MOSI_LCD_ST7789
+    bool "ST7789"
+config MOSI_LCD_ST7735
+    bool "ST7735R"
+endchoice
 config MOSI_LCD_CLK
     int "TFT SCLK GPIO"
     default 43
@@ -36,7 +44,7 @@ config MOSI_LCD_INVERT
     bool "Invert panel colors"
     default n
 config MOSI_LCD_BGR
-    bool "ST7735 uses BGR color order"
+    bool "Panel uses BGR color order"
     default y
 config MOSI_LCD_ROTATE_180
     bool "Rotate landscape by 180 degrees"

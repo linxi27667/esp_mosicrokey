@@ -1,4 +1,7 @@
 #pragma once
+#ifndef CONFIG_MOSI_LCD_ST7735
+#define CONFIG_MOSI_LCD_ST7789 1
+#endif
 #define CONFIG_MOSI_LCD_MOSI 44
 #define CONFIG_MOSI_LCD_CLK 43
 #define CONFIG_MOSI_LCD_CS 45

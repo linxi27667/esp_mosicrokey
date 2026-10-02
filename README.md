@@ -1,12 +1,14 @@
-# MosiCrokey v0.2.1
+# MosiCrokey v0.2.3 TFT 诊断分支
 
-本轮增加八按键、带按压编码器、六入口首页、电脑媒体/快捷键、输入检测、屏幕校准和设置内的临时贪吃蛇。ST7735 默认 160×128 横屏；电脑通过 USB 串口配套程序操作，旋钮调音量、按压静音，K7 切组、K8 切换设备/电脑。接线表与完整默认映射见[屏幕与输入指南](docs/tft-input-guide.md)，本轮证据见[v0.2.1 验证记录](docs/validation/tft-input-2026-10-02/README.md)。
+用户最新提供屏幕规格为 1.8 寸 ST7789、128×160；当前分支默认改为 ST7789 的 160×128 横屏，保留 ST7735R 配置选项。无独立背光控制采用 GPIO -1、SPI 10 MHz；此前 v0.2.2 的实体结果为完全未亮。新驱动的实体点亮、颜色和边界仍须观察，不能凭 SPI 提交成功认定屏幕通过。当前按键、编码器和 TF 的接线仍待确认。
+
+v0.2.1 增加八按键、带按压编码器、六入口首页、电脑媒体/快捷键、输入检测、屏幕校准和设置内的临时贪吃蛇，当时默认 ST7735。电脑通过 USB 串口配套程序操作，旋钮调音量、按压静音，K7 切组、K8 切换设备/电脑。接线表与完整默认映射见[屏幕与输入指南](docs/tft-input-guide.md)，历史证据见[v0.2.1 验证记录](docs/validation/tft-input-2026-10-02/README.md)。
 
 自有代码采用直接 HAL → APP 调用，Task 负责调度；`Hal_Display_Init`、`Page_Navigate`、`Game_Update_Process` 命名保持一致。六个 HAL 管理显示、TF、按键、编码器、UART 与音频 I²C；真实上游音频/Agent 保留各自生命周期。详细调用链见[架构](docs/architecture.md)，规范见[架构 skill](skills/embedded-hal-app/SKILL.md)。
 
 源码仓库：[linxi27667/esp_mosicrokey](https://github.com/linxi27667/esp_mosicrokey)，私有，默认分支 main。开发与验收变更通过 Git 提交记录，见[Git 管理流程](docs/git-workflow.md)。
 
-当前目录是独立的 ESP-IDF 工程：真实小智组件、真实 ESPClaw Agent、TF 游戏版本库、受限 Lua 运行时和共享 LVGL 页面已实现。2026-10-01 已在 COM8 的 ESP32-S31 上烧录、联网并完成真实智谱请求和 Agent 贪吃蛇生成；当前仅连接 USB，游戏采用明确标注的临时内存预览。
+当前目录是独立的 ESP-IDF 工程：真实小智组件、真实 ESPClaw Agent、TF 游戏版本库、受限 Lua 运行时和共享 LVGL 页面已实现。2026-10-01 已在 COM8 的 ESP32-S31 上烧录、联网并完成真实智谱请求和 Agent 贪吃蛇生成；当时仅连接 USB，游戏采用明确标注的临时内存预览。
 
 v0.2.1 已通过 1410 项主机断言、九个 CTest、三个串口脚本故障用例、11 项电脑连接回归和 21 个共享页面渲染。COM8 已保留 NVS 烧录；33 项 USB 冒烟检查通过，覆盖九路输入、旋钮、校准页、15 个电脑动作的模拟确认、心跳过期和临时贪吃蛇启动/画布/退出。游戏期间真实 GLM 请求完成，回复与最终空闲状态已核对。实体屏、按键/旋钮、电脑实际键控和 TF 持久化待接线验收；小智仍等待账号激活，完整语音尚未实测。
 
@@ -25,9 +27,9 @@ v0.2.1 已通过 1410 项主机断言、九个 CTest、三个串口脚本故障�
 ```
 
 - SDK：本机 ESP-IDF 6.1.0，target 为 `esp32s31`。
-- 开发板：ESP32-S31-Function-CoreBoard-1；显示 ST7735、160×128 横屏。
+- 开发板：ESP32-S31-Function-CoreBoard-1；默认显示 ST7789、160×128 横屏。
 - 版本：小智 `ed5cd7ba0011dc06fefd0762790857268c41b430`，ESPClaw `74b18700a1d6c40de472bfc71c19e49356ca1cc0`，LVGL 9.5.0，Lua 5.5.0~7。
-- 当前已烧录 app：`build/mosicrokey.bin`，v0.2.1，3,935,520 字节；分区偏移 0x20000。日常使用构建脚本分区烧录。
+- 当前源码 app：`build/mosicrokey.bin`，v0.2.3；应用分区偏移 0x20000。各轮实际烧录版本、大小与哈希以 `docs/validation/` 的对应记录为准。日常使用构建脚本分区烧录。
 - 完整镜像：`release/mosicrokey-v0.1.9-esp32s31.bin`，16 MiB，烧录偏移 0x0；附带 SHA256、分段清单、ELF 和构建配置。
 - 完整镜像包含空白 NVS 区域，会清除现有配网及模型配置；日常分区烧录使用构建脚本，保留 NVS。TF 游戏文件不在 Flash 镜像内。
 - 已核对 COM8、ESP32-S31 rev0.0、16 MiB Flash 和 16 MiB PSRAM，分区烧录保留现有 NVS 配网及模型配置。

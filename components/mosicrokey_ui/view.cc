@@ -274,7 +274,7 @@ void View::Update(const Snapshot& state)
         break;
     case Mode::Diagnostics:
         title = "诊断信息";
-        text = "ESP32-S31\nST7735 160x128\n版本与日志: status";
+        text = "ESP32-S31\nSPI TFT 160x128\n版本与日志: status";
         footer = "返回首页";
         break;
     case Mode::Computer:
