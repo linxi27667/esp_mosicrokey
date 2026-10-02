@@ -12,7 +12,7 @@ constexpr std::array<int, 9> keys = {38, 39, 40, 42, 49, 35, 2, 1, 4};
 constexpr int encoder_a = 0, encoder_b = 3;
 constexpr unsigned encoder_edges_per_detent = 4;
 constexpr int sd_d0 = 20, sd_d1 = 21, sd_d2 = 22, sd_d3 = 23, sd_clk = 24, sd_cmd = 25;
-constexpr int spi_hz = 20000000, sd_khz = 20000;
+constexpr int sd_khz = 20000;
 constexpr int display_width = 160, display_height = 128;
 constexpr int display_transfer_bytes = display_width * 20 * 2;
 constexpr unsigned key_debounce_ms = 20;

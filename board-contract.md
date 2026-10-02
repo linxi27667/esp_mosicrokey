@@ -1,6 +1,6 @@
 # 板级约束
 
-更新：2026-10-02。固定开发基线为 ESP32-S31-Function-CoreBoard-1、ESP-IDF 6.1.0、target `esp32s31`。USB 实板已接入并核对 S31 rev0.0、16 MiB Flash/PSRAM；外接屏幕、按键、编码器和 TF 待接线验证。新八键/编码器及 J2 编号见[接线与操作指南](docs/tft-input-guide.md)。
+更新：2026-10-02。固定开发基线为 ESP32-S31-Function-CoreBoard-1、ESP-IDF 6.1.0、target `esp32s31`。USB 实板已核对 S31 rev0.0、16 MiB Flash/PSRAM；用户已接 TFT 并报告黑屏，实际型号/供电待确认，显示验收未通过。按键、编码器和 TF 待确认接线。新八键/编码器及 J2 编号见[接线与操作指南](docs/tft-input-guide.md)。
 
 ## 固件默认配置
 
@@ -9,7 +9,8 @@
 | 功能 | GPIO / 配置 |
 |---|---|
 | TFT SCLK / MOSI / CS | 43 / 44 / 45 |
-| TFT DC / RESET / 背光控制 | 46 / 47 / 48 |
+| TFT DC / RESET | 46 / 47 |
+| TFT 背光控制 | 默认 -1：模块自行供电；有控制端时可设为 48 |
 | TF D0 / D1 / D2 / D3 | 20 / 21 / 22 / 23 |
 | TF CLK / CMD | 24 / 25 |
 | 上 / 下 / 左 / 右 | 38 / 39 / 40 / 42 |
@@ -21,7 +22,7 @@
 | 功放使能 | 57 |
 | UART TX / RX | 58 / 59 |
 | RGB / BOOT | 60 / 61，保留板载用途 |
-| 显示 | ST7735R 初始化，SPI2 20 MHz，160×128，MADCTL 0x68，BGR，偏移默认 0/0，默认不反色 |
+| 显示 | ST7735R 初始化，诊断默认 SPI2 10 MHz（Kconfig 可设到 20 MHz），160×128，MADCTL 0x68，BGR，偏移默认 0/0，默认不反色；不代表实际模块型号已识别 |
 | TF | SDMMC slot 0，四线，20 MHz，FAT32，挂载 /sdcard |
 | 按键 | 接地按下、内部上拉、低电平有效，5 ms 扫描 / 20 ms 去抖 |
 | 编码器 | A/B 双边沿 GPIO ISR、四个合法边沿计一格、SW 共用 20 ms 去抖 |

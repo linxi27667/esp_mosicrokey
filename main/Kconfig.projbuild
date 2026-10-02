@@ -17,8 +17,13 @@ config MOSI_LCD_RST
     int "TFT RESET GPIO"
     default 47
 config MOSI_LCD_BL
-    int "Backlight control GPIO (-1: external supply)"
-    default 48
+    int "Backlight control GPIO (-1: module powered backlight)"
+    range -1 61
+    default -1
+config MOSI_LCD_SPI_HZ
+    int "TFT SPI clock in Hz"
+    range 1000000 20000000
+    default 10000000
 config MOSI_LCD_X_OFFSET
     int "TFT horizontal offset"
     range 0 160

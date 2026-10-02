@@ -8,7 +8,7 @@
 struct MockPanel {};
 using namespace mosicrokey;
 namespace {
-unsigned checks = 0, bus_frees = 0, panel_deletes = 0, semaphore_deletes = 0, colors = 0;
+unsigned checks = 0, bus_frees = 0, panel_deletes = 0, semaphore_deletes = 0, colors = 0, backlight_calls = 0;
 MockPanel panel;
 unsigned semaphore_count = 0;
 bool fail_semaphore = false, signal_completion = true, dma_active = false;
@@ -37,12 +37,14 @@ esp_err_t spi_bus_free(int)
     ++bus_frees;
     return ESP_OK;
 }
-esp_err_t gpio_set_direction(gpio_num_t, int)
+esp_err_t gpio_set_direction(gpio_num_t pin, int)
 {
+    if (pin == 48) ++backlight_calls;
     return gpio_error;
 }
-esp_err_t gpio_set_level(gpio_num_t, int)
+esp_err_t gpio_set_level(gpio_num_t pin, int)
 {
+    if (pin == 48) ++backlight_calls;
     return gpio_error;
 }
 SemaphoreHandle_t xSemaphoreCreateBinary()
@@ -70,8 +72,8 @@ void vTaskDelay(TickType_t) {}
 esp_err_t esp_lcd_new_panel_io_spi(int, const esp_lcd_panel_io_spi_config_t* config,
                                  esp_lcd_panel_io_handle_t* output)
 {
-    Check(config->cs_gpio_num == 45 && config->dc_gpio_num == 46 && config->pclk_hz == 20000000 &&
-          config->trans_queue_depth == 1, "TFT 20MHz typed pins and single transaction owner");
+    Check(config->cs_gpio_num == 45 && config->dc_gpio_num == 46 && config->pclk_hz == 10000000 &&
+          config->trans_queue_depth == 1, "TFT 10MHz typed pins and single transaction owner");
     if (panel_error == ESP_OK)
     {
         io = *config;
@@ -133,6 +135,7 @@ int main()
     Check(hal::Hal_Display_Init() == ESP_OK && hal::Hal_Display_Init() == ESP_OK,
           "display retries and initialization is idempotent");
     Check(orientation == 0x68,"default remains ST7735 landscape BGR");
+    Check(backlight_calls == 0, "module powered backlight leaves GPIO48 untouched");
     Check(hal::Hal_Display_Flush(0,0,1,0,nullptr) == ESP_ERR_INVALID_ARG, "null pixels rejected");
     Check(hal::Hal_Display_Flush(-1,0,1,0,pixels) == ESP_ERR_INVALID_ARG, "negative bounds rejected");
     Check(hal::Hal_Display_Flush(0,0,160,0,pixels) == ESP_ERR_INVALID_ARG, "horizontal overflow rejected");

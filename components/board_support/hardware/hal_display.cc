@@ -3,6 +3,7 @@
 #include <driver/gpio.h>
 #include <driver/spi_master.h>
 #include <esp_lcd_panel_io.h>
+#include <esp_log.h>
 #include <freertos/FreeRTOS.h>
 #include <freertos/semphr.h>
 #include <freertos/task.h>
@@ -184,7 +185,7 @@ esp_err_t Hal_Display_Init()
     io.cs_gpio_num = static_cast<gpio_num_t>(CONFIG_MOSI_LCD_CS);
     io.dc_gpio_num = static_cast<gpio_num_t>(CONFIG_MOSI_LCD_DC);
     io.spi_mode = 0;
-    io.pclk_hz = board::config::spi_hz;
+    io.pclk_hz = CONFIG_MOSI_LCD_SPI_HZ;
     io.trans_queue_depth = 1;
     io.lcd_cmd_bits = 8;
     io.lcd_param_bits = 8;
@@ -196,10 +197,17 @@ esp_err_t Hal_Display_Init()
     }
     if (error != ESP_OK)
     {
+        ESP_LOGE("mosi_lcd", "Controller setup failed: %s", esp_err_to_name(error));
         Display_Release_Resources();
         return error;
     }
     g_display_ready = true;
+    ESP_LOGI("mosi_lcd", "ST7735 160x128 SPI=%dHz CLK=%d MOSI=%d CS=%d DC=%d RST=%d BL=%d offset=%d,%d",
+             CONFIG_MOSI_LCD_SPI_HZ, CONFIG_MOSI_LCD_CLK, CONFIG_MOSI_LCD_MOSI, CONFIG_MOSI_LCD_CS,
+             CONFIG_MOSI_LCD_DC, CONFIG_MOSI_LCD_RST, CONFIG_MOSI_LCD_BL, CONFIG_MOSI_LCD_X_OFFSET,
+             CONFIG_MOSI_LCD_Y_OFFSET);
+    // 只有写接口，没有读取连接；此日志不能证明实体屏幕已经响应。
+    ESP_LOGI("mosi_lcd", "SPI initialization complete; panel response is not probed");
     return ESP_OK;
 }
 

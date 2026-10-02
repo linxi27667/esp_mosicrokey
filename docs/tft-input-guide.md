@@ -25,7 +25,7 @@ GPIO 与 J2 物理编号已对照[官方 J2 表](https://docs.espressif.com/proj
 | TFT CS | 45 | 15 |
 | TFT DC / A0 | 46 | 16 |
 | TFT RESET / RES | 47 | 13 |
-| TFT 背光控制 | 48 | 14 |
+| TFT 背光控制（可选） | 48 | 14 |
 | K1 上 | 38 | 22 |
 | K2 下 | 39 | 21 |
 | K3 左 | 40 | 19 |
@@ -43,6 +43,8 @@ GPIO 与 J2 物理编号已对照[官方 J2 表](https://docs.espressif.com/proj
 按键一端接 GPIO、一端接 GND；固件开启上拉，稳定 20 ms 后记录按下/释放。编码器公共端接 GND，A/B 接上述 GPIO，按压触点另一端接 GND；有供电的模块使用 3.3 V。A/B 接反会颠倒旋转方向，可以对调接线。默认四个有效相位边沿计一格；不同编码器触点形式要据实调整 `board_config::encoder_edges_per_detent`。合法反向跳变抵消弹跳，非法双位跳变丢弃未完成格，GPIO ISR 采集避免 5 ms 扫描漏掉快速边沿。
 
 屏幕供电和背光须按实际模块规格接。GPIO48 接背光逻辑控制端或驱动电路；如果模块只有 LED 电源端，按规格接供电并将 `MOSI_LCD_BL=-1`，不要由 GPIO 直接承担未知背光电流。所有外设共地，接线时断开供电。
+
+用户接入的模块没有独立背光脚，诊断版本默认 `MOSI_LCD_BL=-1`，不配置 GPIO48；SPI 初始改为 10 MHz，通过 `MOSI_LCD_SPI_HZ` 调整。没有背光脚不等于背光无需供电，实际供电要求仍以模块电路为准。商品图标注的 2.4 寸 ST7789/240×320 与用户描述的 1.8 寸不一致，尚未据此改成 ST7789。
 
 此分配保留 TF 的 GPIO20–25、音频 GPIO50–57、串口 GPIO58–59、RGB GPIO60、BOOT GPIO61，避开 GPIO36/37。参数集中在 `board_config.hpp` 和 `main/Kconfig.projbuild`。
 
@@ -113,3 +115,9 @@ page pc
 ```
 
 `pc_link`、`pc_ack` 是连接程序协议命令，普通用户无需手动输入。所有串口输入仍不回显、不记录命令历史。实际屏幕、触点、编码器与电脑键控结论须由接线后的日志/观察补齐；主机截图和测试不替代实物验收。
+
+## 黑屏诊断
+
+先区分完全不发光与有背光无画面。按实际模块标识确认 VCC、GND、SCL/SCK、SDA/MOSI、RES、DC、CS；这里 SCL/SDA 是 SPI 信号。GPIO43 等指的是板上 GPIO 丝印，不是 J2 的物理编号。不要在型号不明时直接将供电改到 5 V。
+
+构建脚本先执行 `idf.py reconfigure` 再构建，避免修改项目 Kconfig 后仍使用旧生成配置。启动日志 `mosi_lcd` 打印实际引脚、SPI 频率、背光配置与偏移；`First LVGL pixels sent to SPI` 表示驱动完成了一次提交。当前没有接回读信号，日志不能证明面板已响应，也不能自动识别驱动芯片。`page display` 保持五色/边框页，实体是否显示须观察记录。

@@ -8,6 +8,8 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Source snapshot verification failed' }
     & (Join-Path $env:IDF_PYTHON_ENV_PATH 'Scripts\python.exe') (Join-Path $PSScriptRoot 'verify-patches.py')
     if ($LASTEXITCODE -ne 0) { throw 'Upstream patch verification failed' }
+    # Re-read changed project Kconfig before incremental builds; do not reuse stale generated headers.
+    idf.py reconfigure
     idf.py build
     if ($LASTEXITCODE -ne 0) { throw 'Build failed' }
     if ($Flash) {
