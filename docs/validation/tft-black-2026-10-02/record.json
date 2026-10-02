@@ -1,0 +1,409 @@
+{
+  "version": "0.2.2",
+  "source_commit": "9073033e552288d26dd70383f73af2451241ee42",
+  "recorded_at": "2026-10-02T19:02:57.708213+08:00",
+  "sdk": "6.1",
+  "target": "esp32s31",
+  "source_files": [
+    {
+      "path": "CMakeLists.txt",
+      "bytes": 353,
+      "sha256": "65a38c4e13d53ed87524394ea40fc8b9ad97a00096bb50d8ca037d6d7e8ea606"
+    },
+    {
+      "path": "components/board_support/CMakeLists.txt",
+      "bytes": 341,
+      "sha256": "a346c594bc17d0c12494cfee403b3e1a66c4f3dba17b1d1c26e701935510e295"
+    },
+    {
+      "path": "components/board_support/hardware/hal_audio_bus.cc",
+      "bytes": 763,
+      "sha256": "f7625e1dcac7df2dbe1138e758b1558e4650c366565bcc8def495d30b2b271ad"
+    },
+    {
+      "path": "components/board_support/hardware/hal_display.cc",
+      "bytes": 7975,
+      "sha256": "4d61b8a7f881cf26ab1f57edf07804e74be87dfe0ec949cd1b94efe589593988"
+    },
+    {
+      "path": "components/board_support/hardware/hal_encoder.cc",
+      "bytes": 2854,
+      "sha256": "071758e973781ff27a07641154daaab7bab4728c4a717eb3942e5831ddac2da8"
+    },
+    {
+      "path": "components/board_support/hardware/hal_key.cc",
+      "bytes": 2063,
+      "sha256": "bb7f0aaaca9e0191a9341126cb80b33757ce545337c97a34304a014f0e8acf6c"
+    },
+    {
+      "path": "components/board_support/hardware/hal_storage.cc",
+      "bytes": 2223,
+      "sha256": "def88892f9800a31d43613744ae8399e54dbf845103c79c14b737263ac62b8b6"
+    },
+    {
+      "path": "components/board_support/hardware/hal_uart.cc",
+      "bytes": 1700,
+      "sha256": "bce3ba12dc60de1a43338ab37b67654b265598d73f72110191493abb5c83b181"
+    },
+    {
+      "path": "components/board_support/include/mosicrokey/board_config.hpp",
+      "bytes": 1108,
+      "sha256": "4efd41b3b931f5071625bab0bd40b72e142d7a566b0aae9f6b24af9a80aace98"
+    },
+    {
+      "path": "components/board_support/include/mosicrokey/hal_audio_bus.hpp",
+      "bytes": 375,
+      "sha256": "cf3027f464ede2aa5bf88619f9af60a31bd4b1cf8bfc33b29b8bb27f9822b1a8"
+    },
+    {
+      "path": "components/board_support/include/mosicrokey/hal_display.hpp",
+      "bytes": 706,
+      "sha256": "5414683099c8055c0b242822f9a9cc2e9ebee1efffbbb35b3fbbe9c43030c00b"
+    },
+    {
+      "path": "components/board_support/include/mosicrokey/hal_encoder.hpp",
+      "bytes": 376,
+      "sha256": "0dfd371f6606d01d55f8dbcc6a189ff591c840b3e65ddee18bdf38b4aba5bb49"
+    },
+    {
+      "path": "components/board_support/include/mosicrokey/hal_key.hpp",
+      "bytes": 692,
+      "sha256": "dd16bfc4612dadac9a51868c79fbe7c9aa2eb155b3b300cebae65f81f529a9bd"
+    },
+    {
+      "path": "components/board_support/include/mosicrokey/hal_storage.hpp",
+      "bytes": 593,
+      "sha256": "2da0d3df45612b114348d0a3417010a61df62725747ed6ff9fcfec23f58629b2"
+    },
+    {
+      "path": "components/board_support/include/mosicrokey/hal_uart.hpp",
+      "bytes": 447,
+      "sha256": "f2711b954923cbb66f7dc7d4fb6c52e82a765897d16ce11934357ebe7ee89c30"
+    },
+    {
+      "path": "components/espclaw_compoment/CMakeLists.txt",
+      "bytes": 334,
+      "sha256": "af650364d6de8b202425e9496e71db83e59516c14ca3c1cac8db84b2b8990870"
+    },
+    {
+      "path": "components/espclaw_compoment/completion.hpp",
+      "bytes": 654,
+      "sha256": "de9c723351bc2fdea8d059bc9d0ba362948517421d85ef4bd9372dbc8b89b499"
+    },
+    {
+      "path": "components/espclaw_compoment/espclaw_adapter.cc",
+      "bytes": 18189,
+      "sha256": "30acb806d8a4576234f433838c662b9a8320e68abdccbd37a82ce4c1c0ee9f0b"
+    },
+    {
+      "path": "components/espclaw_compoment/include/mosicrokey/espclaw.hpp",
+      "bytes": 176,
+      "sha256": "5cc90031652a6f8ab24692ec7ad82bb1e910fbd70e64da6cbe1fdbe503f9baa5"
+    },
+    {
+      "path": "components/espclaw_compoment/ram_history.hpp",
+      "bytes": 2010,
+      "sha256": "75b6fea2d9ca82d6d7c383edd20a4a9bbc3b1231e727a0095cce19e829dc4d8f"
+    },
+    {
+      "path": "components/espclaw_compoment/redaction.hpp",
+      "bytes": 351,
+      "sha256": "625fde2b8acdf50e68ef5b423ad639e62e21e5c6db4e2832f6579f032a79788a"
+    },
+    {
+      "path": "components/game_service/CMakeLists.txt",
+      "bytes": 231,
+      "sha256": "35e8855f798b4645a89e39c30e9e13d69b6998735b1fd7f73818f0a6aa805db6"
+    },
+    {
+      "path": "components/game_service/game_diagnostics.cc",
+      "bytes": 2640,
+      "sha256": "8bc47854261173ccd3ad5b2a4e19fd9b29fa4da5bab11798e02bab75c7643eba"
+    },
+    {
+      "path": "components/game_service/game_internal.hpp",
+      "bytes": 1927,
+      "sha256": "73b229181422266b7d3eecfbdab1002b3c88096184010c333f44593bf2f4b7b5"
+    },
+    {
+      "path": "components/game_service/game_library.cc",
+      "bytes": 26922,
+      "sha256": "c6e71742d87cbcd7e5cb8c8d20c5c5021b42c04ab55332ff0260593dc7c472cc"
+    },
+    {
+      "path": "components/game_service/game_vm.cc",
+      "bytes": 9043,
+      "sha256": "faaf7beefd4c1148d6501fccdfe6ca732d7325bc77839c675daa9f820afe7fd1"
+    },
+    {
+      "path": "components/game_service/idf_component.yml",
+      "bytes": 66,
+      "sha256": "3b6d5a65522ae1b3721e93b487cf7ed4ab39b2335870e35a3a4aa6d1e5efd56c"
+    },
+    {
+      "path": "components/game_service/include/mosicrokey/game.hpp",
+      "bytes": 937,
+      "sha256": "2c3a4515ce07f4b7c15f22bc9d91daa829b90b1605689be5062faa401d815174"
+    },
+    {
+      "path": "components/game_service/raster.cc",
+      "bytes": 2290,
+      "sha256": "c16697fbfa0ef85254fe59e444872acf2e0887c66b1523a383221657f9fa5891"
+    },
+    {
+      "path": "components/mosicrokey_app/CMakeLists.txt",
+      "bytes": 326,
+      "sha256": "acc82ffbb6bf9d9955b53428e6d5e1fb0ea927bedd3f610dfcce22083858d4f4"
+    },
+    {
+      "path": "components/mosicrokey_app/app.cc",
+      "bytes": 14996,
+      "sha256": "bb3180a45d6f8364fe2b89aae7204b6fe44080767ed9e60036e6a04880490aa1"
+    },
+    {
+      "path": "components/mosicrokey_app/app_input.cc",
+      "bytes": 8716,
+      "sha256": "2d8bffeaed30b882241dd457ff7d05f8eaca1c5e3f436d2a9cff9bac86d01c50"
+    },
+    {
+      "path": "components/mosicrokey_app/app_internal.hpp",
+      "bytes": 1879,
+      "sha256": "97ea04c9d5596bcc1de677a0fa2065f4459e6d0d95f5478e434c2e962733c8c5"
+    },
+    {
+      "path": "components/mosicrokey_app/console.cc",
+      "bytes": 11669,
+      "sha256": "b67346f0e842b1298bc3842fe3a91ba4699e016f73a04da3312d05f356d94e5c"
+    },
+    {
+      "path": "components/mosicrokey_app/include/mosicrokey/app.hpp",
+      "bytes": 1799,
+      "sha256": "943070c89e59f7b24df7774cbb6807816ffd0dcfac509b8cecbe0aadf5f77509"
+    },
+    {
+      "path": "components/mosicrokey_app/include/mosicrokey/console.hpp",
+      "bytes": 406,
+      "sha256": "3f1a10c611f65bc81d9352a2235dd59849eb291fb4dbd36311ab0dd46cc42a92"
+    },
+    {
+      "path": "components/mosicrokey_app/task/app_task.cc",
+      "bytes": 2492,
+      "sha256": "6278bfd4b764ccd77ed19969022aa062c93556f1be7d3966df4d3aa97a7df7b6"
+    },
+    {
+      "path": "components/mosicrokey_app/task/console_task.cc",
+      "bytes": 2307,
+      "sha256": "f8b40e83f93a10906b74a42dbb3fb221c18630c93b872a18c165be26f858d946"
+    },
+    {
+      "path": "components/mosicrokey_app/task/key_task.cc",
+      "bytes": 2199,
+      "sha256": "1174a725478cfc7bad31d8040fac419b3dcb0f0a2bec3fb3a4bbdb5b304ec704"
+    },
+    {
+      "path": "components/mosicrokey_contracts/CMakeLists.txt",
+      "bytes": 47,
+      "sha256": "cf4bd3de782ad867aa84081ac29728a7c8a5bb0f4b8700fcfe59ff85037dd7e2"
+    },
+    {
+      "path": "components/mosicrokey_contracts/include/mosicrokey/contracts.hpp",
+      "bytes": 3376,
+      "sha256": "6748fd040a0f2c29b67b5bb553264cfa7948d57cad613edda7572fab9f5eb1c8"
+    },
+    {
+      "path": "components/mosicrokey_contracts/include/mosicrokey/focus.hpp",
+      "bytes": 777,
+      "sha256": "6cdf53354d6bb6f6277d9affb625f670b9290b2db1efc38ad6483622944d6b5b"
+    },
+    {
+      "path": "components/mosicrokey_contracts/include/mosicrokey/task_config.hpp",
+      "bytes": 848,
+      "sha256": "870f5b8f4045fa8b43d0f29d9469de0635014276379dea223bd7ff401d3281df"
+    },
+    {
+      "path": "components/mosicrokey_ui/CMakeLists.txt",
+      "bytes": 224,
+      "sha256": "7a78fff60b661237d87262511f3f12b2400c48c2b83adfd1ac12298821df055b"
+    },
+    {
+      "path": "components/mosicrokey_ui/include/mosicrokey/ui.hpp",
+      "bytes": 182,
+      "sha256": "429fe7361ee95623ec264b582e73e54d4e3b84f1439c089a755bde66b4dafb08"
+    },
+    {
+      "path": "components/mosicrokey_ui/ui.cc",
+      "bytes": 3844,
+      "sha256": "aebd04087d7d6506ea61fee2150d4ce0af41e6023a667e4981d62fec7127f270"
+    },
+    {
+      "path": "components/mosicrokey_ui/view.cc",
+      "bytes": 12576,
+      "sha256": "6f73b6023f105b5f686fef19f718ff3c1633d4a5ca98862a80295e106f1575cc"
+    },
+    {
+      "path": "components/mosicrokey_ui/view.hpp",
+      "bytes": 795,
+      "sha256": "ef35403010a82f87a681439297d8ceadb0e9f02f0a2e35df19aa0961081a9ce3"
+    },
+    {
+      "path": "components/xiaozhi_compoment/CMakeLists.txt",
+      "bytes": 4157,
+      "sha256": "c59983ad41562b1cc837c8a979730a6b29edeef15c44d70313a7b117de94f3b2"
+    },
+    {
+      "path": "components/xiaozhi_compoment/idf_component.yml",
+      "bytes": 375,
+      "sha256": "fbf02b7243114cf7a23a3600ae08b4771e844ebac9b4e2d4bccd678e0190129d"
+    },
+    {
+      "path": "components/xiaozhi_compoment/include/mosicrokey/xiaozhi.hpp",
+      "bytes": 202,
+      "sha256": "d1958a64d9c23eb5a71152d2227d91ce48ef11c64606f3fa4b598c064f4e9bd5"
+    },
+    {
+      "path": "components/xiaozhi_compoment/mosicrokey_board.cc",
+      "bytes": 4174,
+      "sha256": "c4510625d2cc7ddf3ae32f940f484a9d106b596416fa0f983505143a6c677552"
+    },
+    {
+      "path": "components/xiaozhi_compoment/xiaozhi_adapter.cc",
+      "bytes": 4153,
+      "sha256": "005ceba17f4dc18e77d7e6cbc33db85b30e7c850e88756e0a0d0700335b25066"
+    },
+    {
+      "path": "components/xiaozhi_compoment/xiaozhi_bridge.hpp",
+      "bytes": 132,
+      "sha256": "dc541d97fade35d8c4185019df4784834f92c7e02450d03cf53daebf4bddd1c9"
+    },
+    {
+      "path": "dependencies.lock",
+      "bytes": 7650,
+      "sha256": "7e17f6de8c62f4ac6320a68abe0046adfeca930f71979dc148f097a7b70e1f25"
+    },
+    {
+      "path": "main/CMakeLists.txt",
+      "bytes": 278,
+      "sha256": "890083267c97c3a435cdb80bb2f694164cf55570b1406e0d98710beda492ddc5"
+    },
+    {
+      "path": "main/Kconfig.projbuild",
+      "bytes": 1082,
+      "sha256": "32cfd14c7ce0b597ef44b8f277b9a4cd0fa370168be4d393b67cc5aedb86822a"
+    },
+    {
+      "path": "main/app_system.cc",
+      "bytes": 2080,
+      "sha256": "91e4d4cdb0c2a3c0cf960dc8f9825ff54678380b5da35da57fbbdc1fddf2b111"
+    },
+    {
+      "path": "main/app_system.hpp",
+      "bytes": 321,
+      "sha256": "c66b8a73c7aa7cba7d7c0333e84deeeb893cf4ec5fd628a51fcb7579f8a58184"
+    },
+    {
+      "path": "main/main.cc",
+      "bytes": 92,
+      "sha256": "d77f53b0c4fa8a318bf06a7595c0be0963e60034c4990b10f691602652d816e5"
+    },
+    {
+      "path": "sdkconfig.defaults",
+      "bytes": 1759,
+      "sha256": "d933c490c67e693a9f34b07b32e3b29f0105cdf2e69d7f03a903d18146fd5f82"
+    }
+  ],
+  "board": {
+    "port": "COM8",
+    "serial": "7E6E5CC2F471F011A32BFB9E1045C30F",
+    "chip": "ESP32-S31 rev0.0",
+    "user_reports_tft_connected": true,
+    "actual_panel_identity": "unconfirmed",
+    "actual_supply": "unconfirmed"
+  },
+  "configuration": {
+    "controller": "ST7735 candidate",
+    "width": 160,
+    "height": 128,
+    "spi_hz": 10000000,
+    "backlight_gpio": -1,
+    "bgr": true,
+    "x_offset": 0,
+    "y_offset": 0
+  },
+  "firmware": {
+    "flash_command": "idf.py -p COM8 app-flash",
+    "app_partition_offset": "0x20000",
+    "nvs_erased": false,
+    "write_verified": true,
+    "initial_lvgl_spi_transfer": true,
+    "final_mode": 9,
+    "physical_display_passed": null
+  },
+  "host": {
+    "ctest_suites": 9,
+    "passed_suites": 9,
+    "cpp_assertions": 1411,
+    "display_assertions": 34,
+    "serial_harness_cases": 3,
+    "pc_bridge_cases": 11
+  },
+  "artifacts": [
+    {
+      "path": "build/mosicrokey.bin",
+      "bytes": 3936016,
+      "sha256": "ce9ce88ce3ea3ac79b9603a8b02a9fb73819aba7ad273f1c5201de52a572be2e"
+    },
+    {
+      "path": "build/mosicrokey.elf",
+      "bytes": 44011892,
+      "sha256": "1a8f802fd19a997b11beaedc0515722f90d6af7553aa69fcef6adc20ae326962"
+    },
+    {
+      "path": "build/config/sdkconfig.h",
+      "bytes": 66184,
+      "sha256": "ebe17f92ad6f28bec89a870dc586214f9309ecb6e0a66d0c062507149d23c68d"
+    },
+    {
+      "path": "dependencies.lock",
+      "bytes": 7650,
+      "sha256": "7e17f6de8c62f4ac6320a68abe0046adfeca930f71979dc148f097a7b70e1f25"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/validation/tft-black-2026-10-02/evidence/before.txt",
+      "bytes": 2042,
+      "sha256": "5dfc4f75f54f6caae6336cdc5dc90ce7d279093836615755b9438dd22da8e0a2"
+    },
+    {
+      "path": "docs/validation/tft-black-2026-10-02/evidence/boot.txt",
+      "bytes": 15519,
+      "sha256": "4cd135dad2e939201bb370da04914cfc10976fac160de867ca5ad2ff7a638e94"
+    },
+    {
+      "path": "docs/validation/tft-black-2026-10-02/evidence/build.log",
+      "bytes": 307257,
+      "sha256": "0d1a3d3d3b0c740caa1fcae734374c87d6dc4c0bf5e535cca3d4f54815759ff8"
+    },
+    {
+      "path": "docs/validation/tft-black-2026-10-02/evidence/display-test.txt",
+      "bytes": 1918,
+      "sha256": "855338bd7adecaef3d1a3be019b89944b4eae35cd11f533e96c2a8e0b5d3bffc"
+    },
+    {
+      "path": "docs/validation/tft-black-2026-10-02/evidence/flash.log",
+      "bytes": 327616,
+      "sha256": "5354e6ae915747487662e11a2bdb1d17df6fb46e26c0a0f4546048fc6e70ef5c"
+    },
+    {
+      "path": "docs/validation/tft-black-2026-10-02/evidence/host.log",
+      "bytes": 4687,
+      "sha256": "4ed8d0a36ff7bb33fa85165ef843a7ff68c38da6d08c0dffb64b0afeb14deda7"
+    },
+    {
+      "path": "docs/validation/tft-black-2026-10-02/evidence/lcd-config.h",
+      "bytes": 334,
+      "sha256": "ecf9dc97155873fd67ec52a27fc4d1345dd24e5d4de0025805bcb975ba22c35f"
+    }
+  ],
+  "conclusion": "First ST7735 trial flashed and software transfer verified. Waiting for visible screen observation; black-screen root cause and physical completion remain unconfirmed."
+}

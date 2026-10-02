@@ -1,0 +1,30 @@
+mode=0 wifi=1 tf=0 request=0 busy=0 games=0 heap=16819443 min=16684540
+voice=激活设备
+notice=已连接 Ll
+agent=
+task=mosi_console priority=1 state=0 stack_free_min_bytes=6416 core_affinity=2147483647
+task=IDLE1 priority=0 state=1 stack_free_min_bytes=1180 core_affinity=1
+task=IDLE0 priority=0 state=1 stack_free_min_bytes=1172 core_affinity=0
+task=mosi_ui priority=3 state=2 stack_free_min_bytes=3908 core_affinity=0
+task=mosi_game priority=3 state=2 stack_free_min_bytes=7476 core_affinity=1
+task=mosi_app priority=2 state=2 stack_free_min_bytes=7184 core_affinity=2147483647
+I (106817) Application: Activating... 8/10
+task=activation priority=2 state=2 stack_free_min_bytes=4220 core_affinity=1
+task=tcpip priority=18 state=2 stack_free_min_bytes=2592 core_affinity=0
+task=mosi_agent_rx priority=1 state=2 stack_free_min_bytes=5556 core_affinity=2147483647
+task=mkeys priority=3 state=2 stack_free_min_bytes=3632 core_affinity=2147483647
+task=audio_input priority=8 state=2 stack_free_min_bytes=5740 core_affinity=0
+task=ipc1 priority=24 state=3 stack_free_min_bytes=688 core_affinity=1
+task=audio_output priority=4 state=2 stack_free_min_bytes=3540 core_affinity=2147483647
+task=opus_codec priority=2 state=2 stack_free_min_bytes=23820 core_affinity=2147483647
+task=claw_core_agent priority=1 state=2 stack_free_min_bytes=14080 core_affinity=0
+task=sys_evt priority=20 state=2 stack_free_min_bytes=1044 core_affinity=0
+task=ipc0 priority=24 state=3 stack_free_min_bytes=504 core_affinity=0
+task=main priority=20 state=2 stack_free_min_bytes=6888 core_affinity=0
+task=wifi priority=23 state=2 stack_free_min_bytes=4772 core_affinity=0
+task=esp_timer priority=22 state=3 stack_free_min_bytes=3476 core_affinity=0
+task=Tmr Svc priority=1 state=2 stack_free_min_bytes=1716 core_affinity=2147483647
+firmware=0.2.1 reset_reason=1 uptime_ms=105562
+mosi: OK
+I (106957) esp-x509-crt-bundle: Certificate validated
+I (108027) HttpClient: Established new connection to api.tenclass.net:443 protocol=https cost=1205
