@@ -18,6 +18,9 @@ unsigned checks = 0, bus_frees = 0, panel_deletes = 0, semaphore_deletes = 0, co
 MockPanel panel;
 unsigned semaphore_count = 0;
 bool fail_semaphore = false, signal_completion = true, dma_active = false;
+bool fail_restore = false, fail_pixel_io = false, fail_reads = false;
+unsigned madctl_writes = 0, register_reads = 0;
+std::vector<uint8_t> read_orientations;
 esp_err_t bus_error = ESP_FAIL, panel_error = ESP_OK, gpio_error = ESP_OK;
 esp_err_t param_error = ESP_OK, drain_error = ESP_OK, color_error = ESP_OK;
 esp_lcd_panel_io_spi_config_t io;
@@ -105,9 +108,22 @@ void vTaskDelay(TickType_t ticks)
 esp_err_t esp_lcd_new_panel_io_spi(int, const esp_lcd_panel_io_spi_config_t* config,
                                    esp_lcd_panel_io_handle_t* output)
 {
-    Check(config->cs_gpio_num == 45 && config->dc_gpio_num == 46 && config->pclk_hz == 10000000 &&
-              config->trans_queue_depth == 1,
-          "TFT 10MHz typed pins and single transaction owner");
+    Check(config->cs_gpio_num == 45 && config->dc_gpio_num == 46 && config->trans_queue_depth == 1,
+          "TFT typed pins and single transaction owner");
+    if (config->flags.sio_mode)
+    {
+        Check(config->pclk_hz == 1000000 && config->cs_ena_pretrans == 1,
+              "startup reads use 1MHz single data line and CS setup delay");
+    }
+    else
+    {
+        Check(config->pclk_hz == 10000000 && config->cs_ena_pretrans == 0 && orientation == 0x68,
+              "pixel IO restores original clock/mode after direction restoration");
+        if (fail_pixel_io)
+        {
+            return ESP_FAIL;
+        }
+    }
     if (panel_error == ESP_OK)
     {
         io = *config;
@@ -122,6 +138,14 @@ esp_err_t esp_lcd_panel_io_del(esp_lcd_panel_io_handle_t)
 }
 esp_err_t esp_lcd_panel_io_tx_param(esp_lcd_panel_io_handle_t, int command, const void* data, size_t size)
 {
+    if (command == 0x01)
+    {
+        madctl_writes = 0;
+    }
+    if (command == 0x36 && ++madctl_writes == 3 && fail_restore)
+    {
+        return ESP_FAIL;
+    }
     if (command && param_error == ESP_OK)
     {
         std::vector<uint8_t> bytes;
@@ -145,6 +169,27 @@ esp_err_t esp_lcd_panel_io_tx_param(esp_lcd_panel_io_handle_t, int command, cons
         return drain_error;
     }
     return param_error;
+}
+esp_err_t esp_lcd_panel_io_rx_param(esp_lcd_panel_io_handle_t, int command, void* data, size_t size)
+{
+    ++register_reads;
+    Check(io.flags.sio_mode && io.pclk_hz == 1000000 && size == 1 && !dma_active,
+          "readback occurs only in low-speed startup mode without DMA ownership");
+    if (fail_reads)
+    {
+        return ESP_FAIL;
+    }
+    auto* value = static_cast<uint8_t*>(data);
+    if (command == 0x0b)
+    {
+        *value = orientation;
+        read_orientations.push_back(orientation);
+    }
+    else
+    {
+        *value = command == 0x0c ? 0x55 : 0x85;
+    }
+    return ESP_OK;
 }
 esp_err_t esp_lcd_panel_io_tx_color(esp_lcd_panel_io_handle_t handle, int command, const void* pixels,
                                     size_t size)
@@ -187,11 +232,26 @@ int main()
     Check(hal::Hal_Display_Init() == ESP_FAIL && panel_deletes == 2 && bus_frees == 4,
           "controller init failure releases all resources");
     param_error = ESP_OK;
+    fail_restore = true;
+    Check(hal::Hal_Display_Init() == ESP_FAIL && panel_deletes == 3 && bus_frees == 5,
+          "failed probe restoration releases resources and never exposes display");
+    fail_restore = false;
+    fail_pixel_io = true;
+    Check(hal::Hal_Display_Init() == ESP_FAIL && panel_deletes == 4 && bus_frees == 6,
+          "pixel IO recreation failure releases probe panel and SPI bus");
+    fail_pixel_io = false;
+    // 模块可能不提供双向 SDA，读取失败仍须恢复方向并允许原写接口启动。
+    fail_reads = true;
     commands.clear();
     elapsed = 0;
     Check(hal::Hal_Display_Init() == ESP_OK && hal::Hal_Display_Init() == ESP_OK,
           "display retries and initialization is idempotent");
     Check(orientation == 0x68, "configured landscape BGR orientation");
+    Check(read_orientations.size() >= 4 && read_orientations[read_orientations.size() - 3] == 0x68 &&
+              read_orientations[read_orientations.size() - 2] == 0xe8 && read_orientations.back() == 0x68,
+          "responsive mock follows direction write/change/restore rather than a fixed ID value");
+    Check(register_reads >= 6 && !io.flags.sio_mode,
+          "unavailable readback does not prevent normal pixel IO after restoring orientation");
     const auto* reset = Find_Command(0x01);
     const auto* wake = Find_Command(0x11);
     const auto* format = Find_Command(0x3a);
@@ -204,7 +264,7 @@ int main()
     Check(wake->time - reset->time >= pdMS_TO_TICKS(150) && format->time - wake->time >= pdMS_TO_TICKS(120),
           "software reset and sleep-out settle before pixel configuration");
     Check(format < direction && direction < invert && invert < normal && normal < on &&
-              on->time - normal->time >= pdMS_TO_TICKS(10) && commands.back().command == 0x29,
+              on->time - normal->time >= pdMS_TO_TICKS(10),
           "display-on follows pixel format, orientation, inversion and normal mode");
 #ifdef CONFIG_MOSI_LCD_ST7789
     const auto* ram = Find_Command(0xb0);

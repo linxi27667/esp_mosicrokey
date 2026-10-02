@@ -76,6 +76,65 @@ esp_err_t Display_Send_Command(uint8_t command, const void* bytes = nullptr, siz
     return esp_lcd_panel_io_tx_param(g_panel, command, bytes, size);
 }
 
+uint8_t Display_Orientation()
+{
+    uint8_t orientation = 0x60; // MV | MX：160×128 横屏。
+#ifdef CONFIG_MOSI_LCD_BGR
+    orientation |= 0x08;
+#endif
+#ifdef CONFIG_MOSI_LCD_ROTATE_180
+    orientation ^= 0xc0;
+#endif
+    return orientation;
+}
+
+esp_err_t Display_Probe_Registers()
+{
+    // 只在启动期间、首帧之前执行；读接口可能未被模块引出。
+    // 单字节读按 ST7789/ST7735 的 4-line 协议，无多字节读的 dummy clock。
+    uint8_t ids[3]{};
+    esp_err_t id_errors[3]{};
+    for (unsigned i = 0; i < 3; ++i)
+    {
+        id_errors[i] = esp_lcd_panel_io_rx_param(g_panel, 0xda + i, &ids[i], 1);
+    }
+    uint8_t before = 0, changed = 0, restored = 0, format = 0;
+    const uint8_t expected = Display_Orientation();
+    const uint8_t trial = expected ^ 0x80; // 短暂翻转 MY，只改易恢复的方向位。
+    esp_err_t before_error = esp_lcd_panel_io_rx_param(g_panel, 0x0b, &before, 1);
+    esp_err_t write_error = Display_Send_Command(0x36, &trial, 1);
+    esp_err_t changed_error = ESP_ERR_INVALID_STATE;
+    if (write_error == ESP_OK)
+    {
+        changed_error = esp_lcd_panel_io_rx_param(g_panel, 0x0b, &changed, 1);
+    }
+    // 即使读取或试写失败，也必须恢复方向；恢复失败不能继续交付画布。
+    esp_err_t restore_error = Display_Send_Command(0x36, &expected, 1);
+    if (restore_error != ESP_OK)
+    {
+        return restore_error;
+    }
+    esp_err_t restored_error = esp_lcd_panel_io_rx_param(g_panel, 0x0b, &restored, 1);
+    esp_err_t format_error = esp_lcd_panel_io_rx_param(g_panel, 0x0c, &format, 1);
+    bool confirmed = before_error == ESP_OK && write_error == ESP_OK && changed_error == ESP_OK &&
+                     restored_error == ESP_OK && before == expected && changed == trial &&
+                     restored == expected;
+    ESP_LOGI("mosi_lcd", "Probe SDA=%d clock=1000000Hz ID=%02x,%02x,%02x errors=%d,%d,%d",
+             CONFIG_MOSI_LCD_MOSI, ids[0], ids[1], ids[2], id_errors[0], id_errors[1], id_errors[2]);
+    ESP_LOGI("mosi_lcd",
+             "Probe MADCTL=%02x->%02x->%02x expected=%02x->%02x->%02x errors=%d,%d,%d,%d confirmed=%d "
+             "COLMOD=%02x error=%d",
+             before, changed, restored, expected, trial, expected, before_error, write_error, changed_error,
+             restored_error, confirmed, format, format_error);
+    if (!confirmed)
+    {
+        ESP_LOGW("mosi_lcd",
+                 "No confirmed bidirectional panel response; check power, wiring and module read support");
+    }
+    // 无回读不阻止正常绘制，也不能将 SDK 读事务成功视为面板响应。
+    return ESP_OK;
+}
+
 void Display_Release_Resources()
 {
     if (g_panel)
@@ -128,13 +187,7 @@ esp_err_t Display_Configure_Controller()
             vTaskDelay(pdMS_TO_TICKS(item.delay_ms));
         }
     }
-    uint8_t orientation = 0x60; // MV | MX：160×128 横屏。
-#ifdef CONFIG_MOSI_LCD_BGR
-    orientation |= 0x08;
-#endif
-#ifdef CONFIG_MOSI_LCD_ROTATE_180
-    orientation ^= 0xc0;
-#endif
+    uint8_t orientation = Display_Orientation();
     error = Display_Send_Command(0x36, &orientation, 1);
     if (error != ESP_OK)
     {
@@ -209,7 +262,9 @@ esp_err_t Hal_Display_Init()
     io.cs_gpio_num = static_cast<gpio_num_t>(CONFIG_MOSI_LCD_CS);
     io.dc_gpio_num = static_cast<gpio_num_t>(CONFIG_MOSI_LCD_DC);
     io.spi_mode = 0;
-    io.pclk_hz = CONFIG_MOSI_LCD_SPI_HZ;
+    io.pclk_hz = 1000000;     // 回读先低速，避免超过面板串口读时序。
+    io.flags.sio_mode = true; // 数据阶段使用原 MOSI/SDA，SDK 在读时释放输出。
+    io.cs_ena_pretrans = 1;
     io.trans_queue_depth = 1;
     io.lcd_cmd_bits = 8;
     io.lcd_param_bits = 8;
@@ -218,6 +273,23 @@ esp_err_t Hal_Display_Init()
     if (error == ESP_OK)
     {
         error = Display_Configure_Controller();
+    }
+    if (error == ESP_OK)
+    {
+        error = Display_Probe_Registers();
+    }
+    if (error == ESP_OK)
+    {
+        // 回读结束后重新创建原绘制 IO，不在游戏/UI 期间切换总线模式。
+        error = esp_lcd_panel_io_del(g_panel);
+        if (error == ESP_OK)
+        {
+            g_panel = nullptr;
+            io.pclk_hz = CONFIG_MOSI_LCD_SPI_HZ;
+            io.flags.sio_mode = false;
+            io.cs_ena_pretrans = 0;
+            error = esp_lcd_new_panel_io_spi(SPI2_HOST, &io, &g_panel);
+        }
     }
     if (error != ESP_OK)
     {
@@ -230,8 +302,8 @@ esp_err_t Hal_Display_Init()
              g_controller_name, CONFIG_MOSI_LCD_SPI_HZ, CONFIG_MOSI_LCD_CLK, CONFIG_MOSI_LCD_MOSI,
              CONFIG_MOSI_LCD_CS, CONFIG_MOSI_LCD_DC, CONFIG_MOSI_LCD_RST, CONFIG_MOSI_LCD_BL,
              CONFIG_MOSI_LCD_X_OFFSET, CONFIG_MOSI_LCD_Y_OFFSET);
-    // 只有写接口，没有读取连接；此日志不能证明实体屏幕已经响应。
-    ESP_LOGI("mosi_lcd", "SPI initialization complete; panel response is not probed");
+    // confirmed 只针对寄存器往返；实体背光/画面仍由观察确认。
+    ESP_LOGI("mosi_lcd", "Pixel SPI initialized; visible display still requires physical observation");
     return ESP_OK;
 }
 
