@@ -333,7 +333,17 @@
     "user_reports_tft_connected": true,
     "user_supplied_panel": "1.8 inch ST7789 SPI 128x160",
     "panel_id_readback": false,
-    "actual_supply": "unconfirmed"
+    "actual_supply": "VCC connected to marked 3V3 header (user report); module voltage not measured",
+    "visible_panel_pins": [
+      "RST",
+      "CS",
+      "DC",
+      "SDA",
+      "SCL",
+      "GND",
+      "VCC"
+    ],
+    "separate_backlight_pin_present": false
   },
   "configuration": {
     "controller": "ST7789",
@@ -358,7 +368,7 @@
     "write_verified": true,
     "initial_lvgl_spi_transfer": true,
     "final_mode": 9,
-    "physical_display_passed": null
+    "physical_display_passed": false
   },
   "host": {
     "ctest_suites": 10,
@@ -451,7 +461,14 @@
       "path": "docs/validation/tft-st7789-2026-10-02/evidence/test-details.log",
       "bytes": 7951,
       "sha256": "155b9be4a5a7cc1ed2e2b55517e35ed1ffc5bcbcbcb4c2b9aabeb735c0558d71"
+    },
+    {
+      "path": "docs/validation/tft-st7789-2026-10-02/evidence/still-dark.txt",
+      "bytes": 1980,
+      "sha256": "500f94996fa2645e55b74e83212be4dd9b32a46d28a8fe4118044c198ef4117c"
     }
   ],
-  "conclusion": "ST7789 trial based on user-supplied model built, flashed and completed software SPI transfer. Visible panel response, power and screen acceptance await physical observation; no full-function or endurance pass claimed."
+  "conclusion": "Software build/flash/SPI submission passed, but user confirms physical TFT still unlit. VCC is connected to marked 3V3; voltage, continuity and module backlight circuit remain unmeasured.",
+  "user_observation": "Still unlit on v0.2.3; front photo confirms seven pins and no separate backlight terminal.",
+  "observation_recorded_at": "2026-10-02T20:55:57.678591+08:00"
 }

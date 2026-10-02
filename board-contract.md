@@ -1,6 +1,6 @@
 # 板级约束
 
-更新：2026-10-02。固定开发基线为 ESP32-S31-Function-CoreBoard-1、ESP-IDF 6.1.0、target `esp32s31`。USB 实板已核对 S31 rev0.0、16 MiB Flash/PSRAM；用户提供已接 TFT 规格为 1.8 寸 ST7789、128×160，此前 ST7735 试验完全未亮。按新规格适配，实际供电与实体显示待验证。按键、编码器和 TF 待确认接线。新八键/编码器及 J2 编号见[接线与操作指南](docs/tft-input-guide.md)。
+更新：2026-10-02。固定开发基线为 ESP32-S31-Function-CoreBoard-1、ESP-IDF 6.1.0、target `esp32s31`。USB 实板已核对 S31 rev0.0、16 MiB Flash/PSRAM；用户提供已接 TFT 规格为 1.8 寸 ST7789、128×160，v0.2.2 ST7735 与 v0.2.3 ST7789 试验均未亮。照片确认七针无背光端，用户确认 VCC 接 3V3，屏幕端电压未测。实体显示未通过。按键、编码器和 TF 待确认接线。新八键/编码器及 J2 编号见[接线与操作指南](docs/tft-input-guide.md)。
 
 ## 固件默认配置
 
