@@ -4,6 +4,8 @@
 
 v0.2.3 通过十个 CTest、1457 项检查并保留 NVS 烧录到 COM8，但用户确认仍未亮，见[ST7789 第二轮失败记录](docs/validation/tft-st7789-2026-10-02/README.md)。v0.2.4 新增启动阶段 1 MHz SDA 双向寄存器探测；改变并恢复方向值后检查读数是否随之变化，探测结束恢复原绘制 IO。无回读不阻止正常写路径；方向恢复或 IO 重建失败才返回初始化错误。
 
+v0.2.4 已保留 NVS 烧录到 COM8，十个 CTest、1531 项检查通过。实际回读全为 00，未随方向写入变化，尚未确认面板响应；正常像素 IO 已恢复并停在五色页。不能据此判定屏幕损坏或无供电，下一步检查屏幕端电压、接线与背面电路，见[第三轮记录](docs/validation/tft-readback-2026-10-02/README.md)。
+
 v0.2.1 增加八按键、带按压编码器、六入口首页、电脑媒体/快捷键、输入检测、屏幕校准和设置内的临时贪吃蛇，当时默认 ST7735。电脑通过 USB 串口配套程序操作，旋钮调音量、按压静音，K7 切组、K8 切换设备/电脑。接线表与完整默认映射见[屏幕与输入指南](docs/tft-input-guide.md)，历史证据见[v0.2.1 验证记录](docs/validation/tft-input-2026-10-02/README.md)。
 
 自有代码采用直接 HAL → APP 调用，Task 负责调度；`Hal_Display_Init`、`Page_Navigate`、`Game_Update_Process` 命名保持一致。六个 HAL 管理显示、TF、按键、编码器、UART 与音频 I²C；真实上游音频/Agent 保留各自生命周期。详细调用链见[架构](docs/architecture.md)，规范见[架构 skill](skills/embedded-hal-app/SKILL.md)。

@@ -1,0 +1,54 @@
+-- 
+-- Using lv_conf.h from the top-level project directory
+-- Enabling the building of ThorVG internal
+-- Configuring done (0.5s)
+-- Generating done (0.2s)
+-- Build files have been written to: E:/MCU/esp32/esp_mosicrokey/build-host
+[1/9] Building CXX object CMakeFiles/display_hal_tests.dir/E_/MCU/esp32/esp_mosicrokey/components/board_support/hardware/hal_display.cc.obj
+[2/9] Building CXX object CMakeFiles/display_st7735_tests.dir/E_/MCU/esp32/esp_mosicrokey/components/board_support/hardware/hal_display.cc.obj
+[3/9] Building CXX object CMakeFiles/display_hal_tests.dir/display_hal_tests.cc.obj
+[4/9] Building CXX object CMakeFiles/display_st7735_tests.dir/display_hal_tests.cc.obj
+[5/9] Building CXX object CMakeFiles/app_tests.dir/E_/MCU/esp32/esp_mosicrokey/components/mosicrokey_app/task/app_task.cc.obj
+[6/9] Linking CXX executable display_st7735_tests.exe
+[7/9] Linking CXX executable display_hal_tests.exe
+[8/9] Building CXX object CMakeFiles/app_tests.dir/E_/MCU/esp32/esp_mosicrokey/components/mosicrokey_app/app.cc.obj
+[9/9] Linking CXX executable app_tests.exe
+Test project E:/MCU/esp32/esp_mosicrokey/build-host
+      Start  1: hal_tests
+ 1/10 Test  #1: hal_tests ........................   Passed    0.06 sec
+      Start  2: encoder_hal_tests
+ 2/10 Test  #2: encoder_hal_tests ................   Passed    0.06 sec
+      Start  3: storage_hal_tests
+ 3/10 Test  #3: storage_hal_tests ................   Passed    0.05 sec
+      Start  4: display_hal_tests
+ 4/10 Test  #4: display_hal_tests ................   Passed    0.06 sec
+      Start  5: display_st7735_tests
+ 5/10 Test  #5: display_st7735_tests .............   Passed    0.07 sec
+      Start  6: game_tests
+ 6/10 Test  #6: game_tests .......................   Passed    0.33 sec
+      Start  7: llm_retry_tests
+ 7/10 Test  #7: llm_retry_tests ..................   Passed    0.07 sec
+      Start  8: llm_transport_tests
+ 8/10 Test  #8: llm_transport_tests ..............   Passed    0.06 sec
+      Start  9: app_tests
+ 9/10 Test  #9: app_tests ........................   Passed    8.74 sec
+      Start 10: ui_capture
+10/10 Test #10: ui_capture .......................   Passed    0.19 sec
+
+100% tests passed, 0 tests failed out of 10
+
+Total Test time (real) =   9.71 sec
+test_read_gap_cannot_pass (__main__.HarnessTests.test_read_gap_cannot_pass) ... ok
+test_restart_preserves_new_boot_evidence (__main__.HarnessTests.test_restart_preserves_new_boot_evidence) ... ok
+test_save_failure_still_closes_and_restores (__main__.HarnessTests.test_save_failure_still_closes_and_restores) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.012s
+
+OK
+...Computer action failed: injected rejection
+........
+----------------------------------------------------------------------
+Ran 11 tests in 0.003s
+
+OK
